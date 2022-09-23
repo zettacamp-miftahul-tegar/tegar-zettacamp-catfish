@@ -2,3 +2,172 @@ span.ingredient {
     font-style: italic;
     font-weight: bold;
 }
+
+#myProfile {
+    width : 10%;
+}
+
+#top {
+    padding-top: 10px;
+}
+
+
+/* navbar 3 menu */
+nav {
+    text-align: center;
+    width: 100%;
+    font-family: arial;
+} 
+
+nav ul {
+    background:#37988e;
+    padding: 0 20px;
+    list-style: none;
+    position: relative;
+    display: inline-table;
+    width: 100%;
+ }
+
+nav ul li{
+    float:left;
+}
+
+nav ul li:hover{
+    background:#59D386 ;
+}
+
+nav ul li:hover a{
+    color:#000;
+}
+
+nav ul li a{
+    display: block;
+    padding: 25px;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* about */
+
+.kotak1 {
+    border: 1px solid #CCC;
+    margin: 10px; 
+    padding: 10px; 
+    width: 87%; 
+    height: 90%; 
+    background-color: #FBFBEE; 
+    text-align: justify;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.induk {
+    width: 90%; 
+    height: 90%; 
+    padding: 10px;
+    margin: 10px;
+    display: table;
+    border-spacing: 10px;
+    border-collapse: separate; 
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.sub1 {
+    width: 33.3333%; 
+    display: table-cell;
+    border: 1px solid black;
+}
+
+.sub2 {
+    width: 33.3333%; 
+    display: table-cell;
+    border: 1px solid black;
+}
+
+.sub3 {
+    width: 33.3333%; 
+    display: table-cell;
+    border: 1px solid black;
+}
+
+/* contact us */
+
+.sub4 {
+    width: 40%; 
+    display: table-cell;
+    border: 1px solid black;
+}
+
+.sub5 {
+    width: 60%; 
+    display: table-cell;
+    border: 1px solid black;
+}
+
+.center {
+    padding-left: 10px;
+    padding-bottom: 5px;
+}
+
+#table-contact {
+    padding-top: 10px;
+}
+    
+#table-contact {
+    border: 1px solid black;
+    padding: 10px;
+    width: 100%;
+    margin: auto;
+}
+
+.center {
+    margin-top: 120px;
+    margin: auto;
+}
+
+.btn-primary {
+    background-color: #37988e;
+    color: white;
+    border: 1px solid black;
+}
+    
+th, td {
+    text-align: left;
+}
+    
+main {
+    border: 1px solid black;
+    padding: 10px;
+    width: 87%;
+    margin: auto;
+}
+
+#gambar1 {
+    padding-top: 20px;
+    width : 200px;
+    height: 300px;
+}
+
+footer {
+    padding: 0.5em;
+    width: 99%;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    position: relative;
+    bottom: 0;
+    height: 40px;
+    background-color: #37988e;
+}
+   
+/* footer */
+
+footer ul {
+    list-style: none;
+}
+    
+footer li {
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
