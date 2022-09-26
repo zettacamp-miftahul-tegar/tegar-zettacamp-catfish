@@ -1,0 +1,9 @@
+span.ingredient {
+    font-style: italic;
+    font-weight: bold;
+}
+
+.images {
+    width: 200px;
+    height: 200px;
+}
