@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Day 3</title>
+    <link rel="stylesheet" href="asset/css/shopping.css">
+</head>
+<body>
+
+    <header>
+        <h2 style="text-align: center;"> HTML DAY 3 </h2>
+    </header>
+
+    <div id="main">
+        <table class="timecard" border="1" cellpadding="5" cellspacing="5">
+            <caption>shopping list food</caption>
+            <thead>
+                <tr>
+                    <th id="thDay">Nama</th>
+                    <th id="thRegular">Amount</th>
+                    <th id="thOvertime"s>Price</th>
+                    <th id="thTotal">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="odd">
+                    <td>
+                        <img style="display:block; float:left; width: 100px; margin: 20px 20px 20px 20px;" src="asset/images/bakso.jpg" alt="bakso"> 
+                        <h3 style="margin-left:10px"> Bakso  </h3>
+                        <p style="text-align: justify;"> 
+                            &nbsp;&nbsp; <b> Bakso </b>adalah produk pangan yang terbuat dari bahan utama daging yang dilumatkan, dicampur dengan bahan lain, dibentuk bulatan, dan selanjutnya direbus (Tazwir 1992). </p>
+                        <p style="margin-left: 125px;"> <b> <i> Variasi Rasa : </i></b> </p>
+                        <ul style="margin-left: 100px; line-height:40px; ">
+                            <li> <img style="width: 30px;" src="asset/images/b.pangsit.jpg" alt="bakso-pangsit"> Bakso Pangsit </li>
+                            <li> <img style="width: 30px;" src="asset/images/b.jumbo.jpg" alt="bakso-jumbo"> Bakso Jumbo </li>
+                            <li> <img style="width: 30px;" src="asset/images/b.mini.jpg" alt="bakso-mini"> Bakso Mini </li>
+                            <li> <img style="width: 30px;" src="asset/images/b.urat.jpeg" alt="bakso-urat"> Bakso Urat </li>
+                        </ul>
+                    </td>
+                    <td style="text-align: center;">4</td>
+                    <td style="text-align: center;">10.000</td>
+                    <td style="text-align: center;">40.000</td>
+                </tr>
+                <tr class="even">
+                    <td>
+                        <img style="display:block; float:left; width: 100px; margin: 20px 20px 20px 20px;" src="asset/images/mie-ayam.jpg" alt="mie-ayam">
+                        <h3 style="margin-left:10px"> Mie Ayam </h3>
+                        <p style="text-align: justify;"> 
+                            &nbsp;&nbsp; <b> Mie Ayam </b> adalah hidangan khas Indonesia yang terbuat dari mie gandum yang dibumbui dengan daging ayam yang biasanya dipotong dadu. Hidangan ini banyak terpengaruh dengan teknik penyajian kuliner hidangan Tionghoa.
+                        </p>
+                        <p style="margin-left: 125px;"> <b> <i> Variasi Rasa : </i></b> </p>
+                        <ul style="margin-left: 100px; line-height:40px; ">
+                            <li> <img style="width: 30px;" src="asset/images/m.jumbo.jpeg" alt="mie-jumbo"> Mie Ayam Jumbo </li>
+                            <li> <img style="width: 30px;" src="asset/images/m.pangsit.jpg" alt="mie pangsit"> Mie Ayam Pangsit </li>
+                            <li> <img style="width: 30px;" src="asset/images/m.bakso-jumbo.jpg" alt="mie-bakso-jumbo"> Mie Ayam Bakso Jumbo </li>
+                            <li> <img style="width: 30px;" src="asset/images/m.bakso-mini.jpg" alt="mie-bakso-mini"> Mie Ayam Bakso Mini </li>
+                        </ul>
+                    </td>
+                    <td style="text-align: center;">4</td>
+                    <td style="text-align: center;">12.000</td>
+                    <td style="text-align: center;">38.000</td>
+                </tr>
+                <tr class="odd">
+                    <td>
+                        <img style="display:block; float:left; width: 100px; margin: 20px 20px 20px 20px;" src="asset/images/esteh.jpg" alt="esteh">
+                        <h3 style="margin-left:10px"> Es Teh </h3>
+                        <p style="text-align: justify;"> 
+                            &nbsp;&nbsp; <b> Es Teh </b> Indonesia sendiri merupakan perusahaan yang menjual aneka minuman segar, terutama minuman kekinian.
+                        </p>
+                    </td>
+                    <td style="text-align: center;">6</td>
+                    <td style="text-align: center;">4.000</td>
+                    <td style="text-align: center;">24.000</td>
+                </tr>
+                <tr class="even">
+                    <td>
+                        <img id="gambar1" style="display:block; float:left; width: 100px; margin: 20px 20px 20px 20px;" src="asset/images/es_jeruk.jpg" alt="es-jeruk">
+                        <h3 style="margin-left:10px"> Es Jeruk </h3>
+                        <p style="text-align: justify;"> 
+                            &nbsp;&nbsp; <b> Es Jeruk </b> minuman yang terbuat dari buah jeruk. menyehatkan tubuh. tentunya memiliki manfaat yang sangat baik bagi kesehatan. memiliki rasa yang lezat.
+                        </p>
+                    </td>
+                    <td style="text-align: center;">2</td>
+                    <td style="text-align: center;">3.000</td>
+                    <td style="text-align: center;">6.000</td>
+                </tr>
+            </tbody>
+            <tfoot style="background-color: #e5995a; letter-spacing: .1em;">
+                <tr>
+                    <td style="text-align: center; font-size: x-large;">TOTAL</td>
+                    <td style="text-align: center; font-size: 16px;"> <span id="jumlah_barang"> 8 </span></td>
+                    <td style="text-align: center; font-size: 16px;"> <span id="jumlah_harga"> 29.000 </span> </td>
+                    <td style="text-align: center; font-size: 16px;"> <span id="total_harga"> 232.000 </span> </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <div class="hasil">
+        <button id="output">Tampilkan Output</button>
+        <h3> Hasil : <span id="hasil" style="size:12px"> </span></h3>
+    </div>
+
+    <footer>
+        <h3 style="text-align: center;"> HTML DAY 3 </h3>
+    </footer>
+
+</body>
+
+<script>
+    document.getElementById("output").
+    addEventListener("click", tampilkan_hasil);
+     
+    function tampilkan_hasil() {
+        var jumlah_barang=document.getElementById("jumlah_barang").innerHTML;
+        var jumlah_harga=document.getElementById("jumlah_harga").innerHTML;
+        var total_harga=document.getElementById("total_harga").innerHTML;
+        document.getElementById("hasil").innerHTML=
+        "kamu membeli makanan sebanyak" + jumlah_barang + "dengan jumlah harga" + jumlah_harga+" dan total harganya" + total_harga;
+    }
+</script>
+
+</html>

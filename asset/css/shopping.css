@@ -1,0 +1,104 @@
+body {
+	font-family: Calibri, Myriad;
+    background-image: url('../images/bg.jpg');
+}
+
+header {
+    background-color: #f79646;
+	color: #fff;
+    width: 800px;
+	font-size: x-large;
+	letter-spacing: .3em;
+    margin: auto;
+}
+
+footer {
+    background-color: #f79646;
+	color: #fff;
+    width: 800px;
+	font-size: x-large;
+	letter-spacing: .3em;
+    margin: auto;
+}
+
+#main {
+	width: 780px;
+	padding-right: 20px;
+	margin: auto;
+}
+
+table.timecard {
+	margin: auto;
+	width: 800px;
+	border-collapse: collapse;
+	border: 1px solid #fff;
+	border-style: hidden;
+}
+
+table.timecard caption {
+	background-color: #f79646;
+	color: #fff;
+	font-size: x-large;
+	font-weight: bold;
+	letter-spacing: .3em;
+}
+
+table.timecard thead th {
+	padding: 8px;
+	background-color: #fde9d9;
+	font-size: large;
+}
+
+table.timecard thead th#thDay {
+	width: 60%;	
+}
+
+table.timecard thead th#thRegular, table.timecard thead th#thOvertime, table.timecard thead th#thTotal {
+	width: 10%;
+}
+
+table.timecard th, table.timecard td {
+	padding: 3px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #f79646 #ccc;
+}
+
+table.timecard td {
+	text-align: left;
+}
+
+table.timecard tbody th {
+	text-align: left;
+	font-weight: normal;
+}
+
+table.timecard tfoot {
+	font-weight: bold;
+	font-size: large;
+	background-color: #687886;
+	color: #fff;
+}
+
+table.timecard tr.even {
+	background-color: #fde9d9;
+}
+
+table.timecard tr.odd {
+	background-color: #f4efea;
+}
+
+.hasil {
+    background-color: #f79646;
+	color: #fff;
+    width: 800px;
+    text-align: justify;
+	/* font-size: x-large;
+	letter-spacing: .3em; */
+    margin: auto;
+    margin-top: 20px;
+}
+
+.hasil h3, button {
+    margin: 20px 20px 20px 20px;
+}

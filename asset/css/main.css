@@ -2,3 +2,8 @@ span.ingredient {
     font-style: italic;
     font-weight: bold;
 }
+
+body {
+	font-family: Calibri, Myriad;
+    background-image: url('../images/bg.jpg');
+}
