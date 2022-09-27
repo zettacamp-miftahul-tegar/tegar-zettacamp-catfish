@@ -27,6 +27,7 @@ footer {
 	margin: auto;
 }
 
+/* table display */
 table.timecard {
 	margin: auto;
 	width: 800px;
@@ -35,6 +36,7 @@ table.timecard {
 	border-style: hidden;
 }
 
+/* display caption */
 table.timecard caption {
 	background-color: #f79646;
 	color: #fff;
@@ -43,16 +45,14 @@ table.timecard caption {
 	letter-spacing: .3em;
 }
 
+/* display thead */
 table.timecard thead th {
 	padding: 8px;
 	background-color: #fde9d9;
 	font-size: large;
 }
 
-table.timecard thead th#thDay {
-	width: 60%;	
-}
-
+/* body display */
 table.timecard thead th#thRegular, table.timecard thead th#thOvertime, table.timecard thead th#thTotal {
 	width: 10%;
 }
@@ -64,15 +64,8 @@ table.timecard th, table.timecard td {
 	border-color: #f79646 #ccc;
 }
 
-table.timecard td {
-	text-align: left;
-}
 
-table.timecard tbody th {
-	text-align: left;
-	font-weight: normal;
-}
-
+/* footer display */
 table.timecard tfoot {
 	font-weight: bold;
 	font-size: large;
@@ -80,21 +73,22 @@ table.timecard tfoot {
 	color: #fff;
 }
 
+/* baris 2 dan 4 */
 table.timecard tr.even {
 	background-color: #fde9d9;
 }
 
+/* baris 1 dan 3 */
 table.timecard tr.odd {
 	background-color: #f4efea;
 }
 
+/* output button */
 .hasil {
     background-color: #f79646;
 	color: #fff;
     width: 800px;
     text-align: justify;
-	/* font-size: x-large;
-	letter-spacing: .3em; */
     margin: auto;
     margin-top: 20px;
 }
