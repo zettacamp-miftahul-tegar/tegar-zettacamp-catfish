@@ -1,0 +1,98 @@
+body {
+	font-family: Calibri, Myriad;
+    background-image: url('../images/bg.jpg');
+}
+
+header {
+    background-color: #f79646;
+	color: #fff;
+    width: 800px;
+	font-size: x-large;
+	letter-spacing: .3em;
+    margin: auto;
+}
+
+footer {
+    background-color: #f79646;
+	color: #fff;
+    width: 800px;
+	font-size: x-large;
+	letter-spacing: .3em;
+    margin: auto;
+}
+
+#main {
+	width: 780px;
+	padding-right: 20px;
+	margin: auto;
+}
+
+/* table display */
+table.timecard {
+	margin: auto;
+	width: 800px;
+	border-collapse: collapse;
+	border: 1px solid #fff;
+	border-style: hidden;
+}
+
+/* display caption */
+table.timecard caption {
+	background-color: #f79646;
+	color: #fff;
+	font-size: x-large;
+	font-weight: bold;
+	letter-spacing: .3em;
+}
+
+/* display thead */
+table.timecard thead th {
+	padding: 8px;
+	background-color: #fde9d9;
+	font-size: large;
+}
+
+/* body display */
+table.timecard thead th#thRegular, table.timecard thead th#thOvertime, table.timecard thead th#thTotal {
+	width: 10%;
+}
+
+table.timecard th, table.timecard td {
+	padding: 3px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #f79646 #ccc;
+}
+
+
+/* footer display */
+table.timecard tfoot {
+	font-weight: bold;
+	font-size: large;
+	background-color: #687886;
+	color: #fff;
+}
+
+/* baris 2 dan 4 */
+table.timecard tr.even {
+	background-color: #fde9d9;
+}
+
+/* baris 1 dan 3 */
+table.timecard tr.odd {
+	background-color: #f4efea;
+}
+
+/* output button */
+.hasil {
+    background-color: #f79646;
+	color: #fff;
+    width: 800px;
+    text-align: justify;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.hasil h3, button {
+    margin: 20px 20px 20px 20px;
+}
