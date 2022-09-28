@@ -6,55 +6,51 @@ body {
 header {
     background-color: #f79646;
 	color: #fff;
-    width: 800px;
 	font-size: x-large;
 	letter-spacing: .3em;
     margin: auto;
+	width: 1000px;
 }
 
 footer {
     background-color: #f79646;
 	color: #fff;
-    width: 800px;
 	font-size: x-large;
 	letter-spacing: .3em;
     margin: auto;
+	width: 1000px;
 }
 
 #main {
-	width: 780px;
-	padding-right: 20px;
-	margin: auto;
+	width: 1025px;
+	margin:auto;
+	border-spacing: 10px;
+    border-collapse: separate; 
 }
 
 /* table display */
 table.timecard {
-	margin: auto;
-	width: 800px;
 	border-collapse: collapse;
 	border: 1px solid #fff;
+	display: table-cell;
 	border-style: hidden;
 }
 
-/* display caption */
-table.timecard caption {
+.form-input td {
+	text-align: left;
+	border:none !important;
+	margin: 20px 20px 20px 20px;
+}
+
+
+/* display thead */
+table.timecard thead th {
 	background-color: #f79646;
 	color: #fff;
 	font-size: x-large;
 	font-weight: bold;
 	letter-spacing: .3em;
-}
-
-/* display thead */
-table.timecard thead th {
-	padding: 8px;
-	background-color: #fde9d9;
-	font-size: large;
-}
-
-/* body display */
-table.timecard thead th#thRegular, table.timecard thead th#thOvertime, table.timecard thead th#thTotal {
-	width: 10%;
+	width: 900px;
 }
 
 table.timecard th, table.timecard td {
@@ -73,26 +69,7 @@ table.timecard tfoot {
 	color: #fff;
 }
 
-/* baris 2 dan 4 */
+/* bg */
 table.timecard tr.even {
 	background-color: #fde9d9;
-}
-
-/* baris 1 dan 3 */
-table.timecard tr.odd {
-	background-color: #f4efea;
-}
-
-/* output button */
-.hasil {
-    background-color: #f79646;
-	color: #fff;
-    width: 800px;
-    text-align: justify;
-    margin: auto;
-    margin-top: 20px;
-}
-
-.hasil h3, button {
-    margin: 20px 20px 20px 20px;
 }

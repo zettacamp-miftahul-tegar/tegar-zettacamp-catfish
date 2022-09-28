@@ -4,123 +4,193 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML Day 3</title>
-    <link rel="stylesheet" href="asset/css/shopping.css">
+    <title>HTML Day 4</title>
+    <link rel="stylesheet" href="asset/css/multimedia.css">
 </head>
 <body>
 
     <header>
-        <h2 style="text-align: center;"> HTML DAY 3 </h2>
+        <h2 style="text-align: center;"> multimedia </h2>
     </header>
 
     <div id="main">
-        <table class="timecard" border="1" cellpadding="5" cellspacing="5">
-            <caption>shopping list food</caption>
+        <table class="timecard" cellpadding="5" cellspacing="5">
             <thead>
                 <tr>
-                    <th id="thDay">Nama</th>
-                    <th id="thRegular">Amount</th>
-                    <th id="thOvertime"s>Price</th>
-                    <th id="thTotal">Total</th>
+                    <th id="thDay">Data Diri</th>
                 </tr>
             </thead>
             <tbody>
-                <tr class="odd">
-                    <td>
-                        <img style="display:block; float:left; width: 100px; margin: 20px 20px 20px 20px;" src="asset/images/bakso.jpg" alt="bakso"> 
-                        <dl>
-                            <dt style="margin-left:10px"><b>Bakso</b></dt><br>
-                            <dd style="text-align: justify;"> &nbsp;&nbsp; <b> Bakso </b>adalah produk pangan yang terbuat dari bahan utama daging yang dilumatkan, dicampur dengan bahan lain, dibentuk bulatan, dan selanjutnya direbus (Tazwir 1992).</dd>
-                        </dl>
-                        <p style="margin-left: 125px;"> <b> <i> Variasi Rasa : </i></b> </p>
-                        <ul style="margin-left: 100px; line-height:40px; ">
-                            <li> <img style="width: 30px;" src="asset/images/b.pangsit.jpg" alt="bakso-pangsit"> Bakso Pangsit </li>
-                            <li> <img style="width: 30px;" src="asset/images/b.jumbo.jpg" alt="bakso-jumbo"> Bakso Jumbo </li>
-                            <li> <img style="width: 30px;" src="asset/images/b.mini.jpg" alt="bakso-mini"> Bakso Mini </li>
-                            <li> <img style="width: 30px;" src="asset/images/b.urat.jpeg" alt="bakso-urat"> Bakso Urat </li>
-                        </ul>
-                    </td>
-                    <td style="text-align: center;">4</td>
-                    <td style="text-align: center;">10.000</td>
-                    <td style="text-align: center;">40.000</td>
-                </tr>
                 <tr class="even">
                     <td>
-                        <img style="display:block; float:left; width: 100px; margin: 20px 20px 20px 20px;" src="asset/images/mie-ayam.jpg" alt="mie-ayam">
-                        <dl>
-                            <dt style="margin-left:10px"><b>Mie Ayam</b></dt><br>
-                            <dd style="text-align: justify;">&nbsp;&nbsp; &nbsp;&nbsp; <b> Mie Ayam </b> adalah hidangan khas Indonesia yang terbuat dari mie gandum yang dibumbui dengan daging ayam yang biasanya dipotong dadu. Hidangan ini banyak terpengaruh dengan teknik penyajian kuliner hidangan Tionghoa.</dd>
-                        </dl>
-                        <p style="margin-left: 125px;"> <b> <i> Variasi Rasa : </i></b> </p>
-                        <ul style="margin-left: 100px; line-height:40px; ">
-                            <li> <img style="width: 30px;" src="asset/images/m.jumbo.jpeg" alt="mie-jumbo"> Mie Ayam Jumbo </li>
-                            <li> <img style="width: 30px;" src="asset/images/m.pangsit.jpg" alt="mie pangsit"> Mie Ayam Pangsit </li>
-                            <li> <img style="width: 30px;" src="asset/images/m.bakso-jumbo.jpg" alt="mie-bakso-jumbo"> Mie Ayam Bakso Jumbo </li>
-                            <li> <img style="width: 30px;" src="asset/images/m.bakso-mini.jpg" alt="mie-bakso-mini"> Mie Ayam Bakso Mini </li>
-                        </ul>
+                        <form>
+                            <table class="form-input">
+                                <tr>
+                                    <td> <label for="gender"> Jenis Kelamin </label> </td>
+                                    <td>
+                                        <input id="gender" type="radio" name="gender" required>
+                                        <label>Laki-laki</label>
+                                        <input id="gender" type="radio" name="gender" required>
+                                        <label>Perempuan</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td> <label for="nama_depan"> Nama Depan </label> </td>
+                                    <td>
+                                        <input id="nama_depan" type="text" name="nama_depan" placeholder="nama depan" required>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td> <label for="nama_belakang"> Nama Belakang </label></td>
+                                    <td>
+                                        <input id="nama_belakang" type="text" name="nama_belakang" placeholder="nama belakang" required>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td> <label for="tempat_lahir"> Tempat Lahir </label>  </td>
+                                    <td>
+                                        <input id="tempat_lahir" type="text" name="tempat_lahir" placeholder="tempat lahir">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td> <label for="tanggal_lahir">Tanggal Lahir</label> </td>
+                                    <td>
+                                        <input id="tanggal_lahir" type="date" name="tanggal_lahir" placeholder="tanggal lahir" required>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><label for="email">Email</label></td>
+                                    <td>
+                                        <input id="email" type="email" name="email" placeholder="email" required>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td> <label for="telepon">Telepon</label> </td>
+                                    <td>
+                                        <input id="telepon" type="tel" name="telepon" pattern="[0-9]{4}[0-9]{4}[0-9]{4}" placeholder="telepon" required>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td> <label for="umur">Umur</label> </td>
+                                    <td>
+                                        <input id="umur" type="number" name="umur" placeholder="umur" min="18" max="40" required>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td> <label for="lulusan"> Lulusan </label> </td>
+                                    <td>
+                                        <input id="lulusan" list="lulusan" name="lulusan" placeholder="lulusan" required>
+                                        <datalist id="lulusan">
+                                            <option value="SD"></option>
+                                            <option value="SMP"></option>
+                                            <option value="SMK"></option>
+                                            <option value="SMA"></option>
+                                            <option value="D3"></option>
+                                            <option value="S1"></option>
+                                        </datalist>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td> <label for="facebook"> Facebook </label> </td>
+                                    <td>
+                                        <input id="facebook" type="url" name="facebook" placeholder="link facebook" required>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td> <label for="facebook"> Instagram </label> </td>
+                                    <td>
+                                        <input id="facebook" type="url" name="instagram" placeholder="link instagram" required>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td> <label for="deskripsi"> Deskripsi </label> </td>
+                                    <td>
+                                        <textarea id="deskripsi" name="deskripsi" style="width: 450px; height: 200px;" placeholder="tentang anda"></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td> &nbsp; </td>
+                                    <td style="float: right;">
+                                        <button type="reset" style="background-color: red; color: white; border: 0,1px;">Reset</button>
+                                        <button type="submit" style="background-color: green; color: white; border: 0,1px;">Simpan</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>  
                     </td>
-                    <td style="text-align: center;">4</td>
-                    <td style="text-align: center;">12.000</td>
-                    <td style="text-align: center;">38.000</td>
-                </tr>
-                <tr class="odd">
-                    <td>
-                        <img style="display:block; float:left; width: 100px; margin: 20px 20px 20px 20px;" src="asset/images/esteh.jpg" alt="esteh">
-                        <dl>
-                            <dt style="margin-left:10px"><b>Es Teh</b></dt><br>
-                            <dd style="text-align: justify;">&nbsp;&nbsp; <b> Es Teh </b> Indonesia sendiri merupakan perusahaan yang menjual aneka minuman segar, terutama minuman kekinian.</dd>
-                        </dl>
-                    </td>
-                    <td style="text-align: center;">6</td>
-                    <td style="text-align: center;">4.000</td>
-                    <td style="text-align: center;">24.000</td>
-                </tr>
-                <tr class="even">
-                    <td>
-                        <img id="gambar1" style="display:block; float:left; width: 100px; margin: 20px 20px 20px 20px;" src="asset/images/es_jeruk.jpg" alt="es-jeruk">
-                        <dl>
-                            <dt style="margin-left:10px"><b>Es Teh</b></dt><br>
-                            <dd style="text-align: justify;"> &nbsp;&nbsp; <b> Es Jeruk </b> minuman yang terbuat dari buah jeruk. menyehatkan tubuh. tentunya memiliki manfaat yang sangat baik bagi kesehatan. memiliki rasa yang lezat.</dd>
-                        </dl>
-                    </td>
-                    <td style="text-align: center;">2</td>
-                    <td style="text-align: center;">3.000</td>
-                    <td style="text-align: center;">6.000</td>
                 </tr>
             </tbody>
-            <tfoot style="background-color: #e5995a; letter-spacing: .1em;">
+            <tfoot style="background-color: #e5995a; height:55px; letter-spacing: .2em;">
                 <tr>
-                    <td style="text-align: center; font-size: x-large;">TOTAL</td>
-                    <td style="text-align: center; font-size: 16px;"> <span id="jumlah_barang"> 8 </span></td>
-                    <td style="text-align: center; font-size: 16px;"> <span id="jumlah_harga"> 29.000 </span> </td>
-                    <td style="text-align: center; font-size: 16px;"> <span id="total_harga"> 232.000 </span> </td>
+                    <td style="text-align: center; font-size: x-large;">terimakasih</td>
                 </tr>
             </tfoot>
         </table>
-    </div>
+        <table class="timecard" cellpadding="5" cellspacing="5" width="400px">
 
-    <div class="hasil">
-        <button id="output">Tampilkan Output</button>
-        <h3> Hasil : <span id="hasil" style="size:12px"> </span></h3>
+            <!-- Audio -->
+            <thead>
+                <tr>
+                    <th id="thDay">Favorite Sound</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="even">
+                    <td width="400px"><audio src="asset/video/audio.mp3" style="display:block; margin:auto;" controls loop></audio></td>
+                </tr>
+                <tr>
+                    <td width="400px"></td>
+                </tr>
+            </tbody>
+
+            <!-- Video -->
+            <tbody class="even">
+                <tr>
+                    <td style="background-color: #f79646; color: #fff; font-size: x-large; font-weight: bold; letter-spacing: .3em; text-align: center;">
+                        Favorite Video
+                    </td>
+                </tr>
+                <tr class="even">
+                    <td width="400px"><video src="asset/video/conan.mp4" style="width:400px; height:150px" controls></video></td>
+                </tr>
+                <tr>
+                    <td width="400px"></td>
+                </tr>
+            </tbody>
+
+            <!-- iframe -->
+            <tbody>
+                <tr>
+                    <td style="background-color: #f79646; color: #fff; font-size: x-large; font-weight: bold; letter-spacing: .3em; text-align: center;">
+                        Favorite Film
+                    </td>
+                </tr>
+                <tr class="even">
+                    <td width="400px"><iframe width="400" height="150" src="https://www.youtube.com/embed/qWtws5CNf14" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+                </tr>
+                <tr>
+                    <td width="400px"></td>
+                </tr>
+            </tbody>
+
+            <!-- Pdf -->
+            <tbody>
+                <tr>
+                    <td style="background-color: #f79646; color: #fff; font-size: x-large; font-weight: bold; letter-spacing: .3em; text-align: center;">
+                        Sertifikat
+                    </td>
+                </tr>
+                <tr class="even">
+                    <td width="400px"><object data="asset/video/pdf.pdf" style="width:400px; height:150px"></td>
+                </tr>
+            </tbody>
+
+        </table>
     </div>
 
     <footer>
-        <h3 style="text-align: center;"> HTML DAY 3 </h3>
+        <h3 style="text-align: center;"> HTML DAY 4 </h3>
     </footer>
 
 </body>
-
-<script>
-    document.getElementById("output").
-    addEventListener("click", tampilkan_hasil);
-     
-    function tampilkan_hasil() {
-        var jumlah_barang=document.getElementById("jumlah_barang").innerHTML;
-        var jumlah_harga=document.getElementById("jumlah_harga").innerHTML;
-        var total_harga=document.getElementById("total_harga").innerHTML;
-        document.getElementById("hasil").innerHTML=
-        "kamu membeli makanan sebanyak" + jumlah_barang + "dengan jumlah harga" + jumlah_harga+" dan total harganya" + total_harga;
-    }
-</script>
-
 </html>
