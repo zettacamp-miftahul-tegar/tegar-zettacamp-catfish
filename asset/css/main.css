@@ -1,9 +1,119 @@
-span.ingredient {
-    font-style: italic;
-    font-weight: bold;
+/* navbar */
+
+header {
+    overflow-x: hidden;
 }
 
-body {
-	font-family: Calibri, Myriad;
-    background-image: url('../images/bg.jpg');
+nav {
+    text-align: center;
+    width: 100%;
+    font-family: arial;
+} 
+
+nav ul {
+    background:#37988e;
+    padding: 0 20px;
+    list-style: none;
+    position: relative;
+    display: inline-table;
+    width: 100%;
+ }
+
+nav ul li{
+    float:left;
+}
+
+nav ul li:hover{
+    background:#59D386 ;
+}
+
+nav ul li:hover a{
+    color:#000;
+}
+
+nav ul li a{
+    display: block;
+    padding: 25px;
+    color: #fff;
+    text-decoration: none;
+}
+
+
+/* footer */
+footer {
+    background-color: #37988e;
+    position: relative;
+    padding-top: 1px;
+}
+
+footer ul {
+    list-style: none;
+}
+    
+footer li {
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+/* ------------------------------- */
+#main {
+	width: 100%;
+	border-spacing: 10px;
+    border-collapse: separate; 
+}
+
+/* table display */
+table.timecard {
+    width: 100%;
+	border-collapse: collapse;
+	/* border: 1px solid black; */
+	/* display: table-cell; */
+	/* border-style: hidden; */
+}
+
+.form-input {
+    width: 100%;
+	border-collapse: collapse;
+	/* border: 1px solid black; */
+}
+
+.form-input td {
+	text-align: left;
+	border:none !important;
+	margin: 20px 20px 20px 20px;
+}
+
+
+/* display thead */
+table.timecard thead th {
+	background:#37988e;
+	color: #fff;
+	font-size: x-large;
+	font-weight: bold;
+	letter-spacing: .3em;
+	width: 100%;
+}
+
+table.timecard th, table.timecard td {
+	padding: 3px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: white;
+}
+
+
+/* footer display */
+table.timecard tfoot {
+	font-weight: bold;
+	font-size: large;
+	background-color: #0088ff;
+	color: rgb(0, 0, 0);
+}
+
+/* bg */
+table.timecard tr.even {
+	background-color: rgb(250, 244, 244);
 }

@@ -4,192 +4,125 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML Day 4</title>
+    <title>HTML Day 5</title>
     <link rel="stylesheet" href="asset/css/multimedia.css">
 </head>
 <body>
-
     <header>
-        <h2 style="text-align: center;"> multimedia </h2>
+        <nav>
+            <ul>
+                <li><a href="item.html">Home</a></li>
+                <li><a href="item-list.html">List Table</a></li>
+            </ul>
+        </nav>
     </header>
-
-    <div id="main">
-        <table class="timecard" cellpadding="5" cellspacing="5">
+    <div class="container">
+        <table class="table-data-diri">
             <thead>
                 <tr>
-                    <th id="thDay">Data Diri</th>
+                    <th>
+                        Foto
+                    </th>
+                    <th>
+                        Jenis Kelamin
+                    </th>
+                    <th>
+                        Nama
+                    </th>
+                    <th>
+                        Tempat Lahir
+                    </th>
+                    <th>
+                        Tanggal Lahir
+                    </th>
+                    <th>
+                        Email
+                    </th>
+                    <th>
+                        No. Telp
+                    </th>
+                    <th>
+                        Umur
+                    </th>
+                    <th>
+                        Deskripsi
+                    </th>
                 </tr>
             </thead>
             <tbody>
-                <tr class="even">
-                    <td>
-                        <form>
-                            <table class="form-input">
-                                <tr>
-                                    <td> <label for="gender"> Jenis Kelamin </label> </td>
-                                    <td>
-                                        <input id="gender" type="radio" name="gender" required>
-                                        <label>Laki-laki</label>
-                                        <input id="gender" type="radio" name="gender" required>
-                                        <label>Perempuan</label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td> <label for="nama_depan"> Nama Depan </label> </td>
-                                    <td>
-                                        <input id="nama_depan" type="text" name="nama_depan" placeholder="nama depan" required>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td> <label for="nama_belakang"> Nama Belakang </label></td>
-                                    <td>
-                                        <input id="nama_belakang" type="text" name="nama_belakang" placeholder="nama belakang" required>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td> <label for="tempat_lahir"> Tempat Lahir </label>  </td>
-                                    <td>
-                                        <input id="tempat_lahir" type="text" name="tempat_lahir" placeholder="tempat lahir">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td> <label for="tanggal_lahir">Tanggal Lahir</label> </td>
-                                    <td>
-                                        <input id="tanggal_lahir" type="date" name="tanggal_lahir" placeholder="tanggal lahir" required>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><label for="email">Email</label></td>
-                                    <td>
-                                        <input id="email" type="email" name="email" placeholder="email" required>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td> <label for="telepon">Telepon</label> </td>
-                                    <td>
-                                        <input id="telepon" type="tel" name="telepon" pattern="[0-9]{4}[0-9]{4}[0-9]{4}" placeholder="telepon" required>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td> <label for="umur">Umur</label> </td>
-                                    <td>
-                                        <input id="umur" type="number" name="umur" placeholder="umur" min="18" max="40" required>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td> <label for="lulusan"> Lulusan </label> </td>
-                                    <td>
-                                        <input list="lulusan" placeholder="lulusan" required>
-                                        <datalist id="lulusan">
-                                            <option value="SD"></option>
-                                            <option value="SMP"></option>
-                                            <option value="SMK"></option>
-                                            <option value="SMA"></option>
-                                            <option value="D3"></option>
-                                            <option value="S1"></option>
-                                        </datalist>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td> <label for="facebook"> Facebook </label> </td>
-                                    <td>
-                                        <input id="facebook" type="url" name="facebook" placeholder="link facebook" required>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td> <label for="facebook"> Instagram </label> </td>
-                                    <td>
-                                        <input id="facebook" type="url" name="instagram" placeholder="link instagram" required>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td> <label for="deskripsi"> Deskripsi </label> </td>
-                                    <td>
-                                        <textarea id="deskripsi" name="deskripsi" style="width: 450px; height: 200px;" placeholder="tentang anda"></textarea>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td> &nbsp; </td>
-                                    <td style="float: right;">
-                                        <button type="reset" style="background-color: red; color: white; border: 0,1px;">Reset</button>
-                                        <button type="submit" style="background-color: green; color: white; border: 0,1px;">Simpan</button>
-                                    </td>
-                                </tr>
-                            </table>
-                        </form>  
+                <tr>
+                    <td style="font-size:10px"> 
+                        <img src="asset/gambar/miftahul.webp" width="50px">
                     </td>
-                </tr>
-            </tbody>
-            <tfoot style="background-color: #e5995a; height:55px; letter-spacing: .2em;">
-                <tr>
-                    <td style="text-align: center; font-size: x-large;">terimakasih</td>
-                </tr>
-            </tfoot>
-        </table>
-        <table class="timecard" cellpadding="5" cellspacing="5" width="400px">
-
-            <!-- Audio -->
-            <thead>
-                <tr>
-                    <th id="thDay">Favorite Sound</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="even">
-                    <td width="400px"><audio src="asset/video/audio.mp3" style="display:block; margin:auto;" controls loop></audio></td>
+                    <td style="font-size:12px">Laki-Laki</td>
+                    <td style="font-size:12px">Miftahul</td>
+                    <td style="font-size:12px">Purworejo</td>
+                    <td style="font-size:12px">30-08-2001</td>
+                    <td style="font-size:12px">miftahul@gmail.com</td>
+                    <td style="font-size:12px">081122223333</td>
+                    <td style="font-size:12px">21</td>
+                    <td style="font-size:12px">hallo saya miftahul</td>
                 </tr>
                 <tr>
-                    <td width="400px"></td>
-                </tr>
-            </tbody>
-
-            <!-- Video -->
-            <tbody class="even">
-                <tr>
-                    <td style="background-color: #f79646; color: #fff; font-size: x-large; font-weight: bold; letter-spacing: .3em; text-align: center;">
-                        Favorite Video
+                    <td style="font-size:10px"> 
+                        <img src="asset/gambar/tegar.jpeg" width="50px">
                     </td>
-                </tr>
-                <tr class="even">
-                    <td width="400px"><video src="asset/video/conan.mp4" style="width:400px; height:150px" controls></video></td>
+                    <td style="font-size:12px">Laki-Laki</td>
+                    <td style="font-size:12px">Tegar</td>
+                    <td style="font-size:12px">Jakarta</td>
+                    <td style="font-size:12px">30-08-2001</td>
+                    <td style="font-size:12px">tegar@gmail.com</td>
+                    <td style="font-size:12px">081122223333</td>
+                    <td style="font-size:12px">22</td>
+                    <td style="font-size:12px">hallo saya tegar</td>
                 </tr>
                 <tr>
-                    <td width="400px"></td>
-                </tr>
-            </tbody>
-
-            <!-- iframe -->
-            <tbody>
-                <tr>
-                    <td style="background-color: #f79646; color: #fff; font-size: x-large; font-weight: bold; letter-spacing: .3em; text-align: center;">
-                        Favorite Film
+                    <td style="font-size:10px"> 
+                        <img src="asset/gambar/pangestu.jpeg" width="50px">
                     </td>
-                </tr>
-                <tr class="even">
-                    <td width="400px"><iframe width="400" height="150" src="https://www.youtube.com/embed/qWtws5CNf14" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+                    <td style="font-size:12px">Laki-Laki</td>
+                    <td style="font-size:12px">Pangestu</td>
+                    <td style="font-size:12px">Bandung</td>
+                    <td style="font-size:12px">30-08-2001</td>
+                    <td style="font-size:12px">pangestu@gmail.com</td>
+                    <td style="font-size:12px">081122223333</td>
+                    <td style="font-size:12px">20</td>
+                    <td style="font-size:12px">hallo saya pangestu</td>
                 </tr>
                 <tr>
-                    <td width="400px"></td>
-                </tr>
-            </tbody>
-
-            <!-- Pdf -->
-            <tbody>
-                <tr>
-                    <td style="background-color: #f79646; color: #fff; font-size: x-large; font-weight: bold; letter-spacing: .3em; text-align: center;">
-                        Sertifikat
+                    <td style="font-size:10px"> 
+                        <img src="asset/gambar/conan.jpg" width="50px">
                     </td>
+                    <td style="font-size:12px">Laki-Laki</td>
+                    <td style="font-size:12px">Conan</td>
+                    <td style="font-size:12px">Bandung</td>
+                    <td style="font-size:12px">30-08-2001</td>
+                    <td style="font-size:12px">conan@gmail.com</td>
+                    <td style="font-size:12px">081122223333</td>
+                    <td style="font-size:12px">18</td>
+                    <td style="font-size:12px">hallo saya conan</td>
                 </tr>
-                <tr class="even">
-                    <td width="400px"><object data="asset/video/pdf.pdf" style="width:400px; height:150px"></td>
+                <tr>
+                    <td style="font-size:10px"> 
+                        <img src="asset/gambar/tsubasa.jpg" width="50px">
+                    </td>
+                    <td style="font-size:12px">Laki-Laki</td>
+                    <td style="font-size:12px">tsubasa</td>
+                    <td style="font-size:12px">Palembang</td>
+                    <td style="font-size:12px">30-08-2001</td>
+                    <td style="font-size:12px">tsubasa@gmail.com</td>
+                    <td style="font-size:12px">081122223333</td>
+                    <td style="font-size:12px">26</td>
+                    <td style="font-size:12px">hallo saya tsubasa</td>
                 </tr>
             </tbody>
-
         </table>
     </div>
 
     <footer>
-        <h3 style="text-align: center;"> HTML DAY 4 </h3>
+        <ul>
+            <li style="background:#37988e; color: #fff; font-size: x-large; font-weight: bold; letter-spacing: .3em; width: 100%;">HTML Day 5</li>
+        </ul>
     </footer>
 
 </body>
