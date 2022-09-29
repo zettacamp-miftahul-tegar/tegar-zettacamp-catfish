@@ -19,159 +19,163 @@
     </header>
 
     <!-- section A -->
-    <div id="main">
-        <table class="timecard" cellpadding="5" cellspacing="5">
-            <thead>
-                <tr>
-                    <th>Data Diri</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="even">
-                    <td>
-                        <div>
-                            <div style="text-align: left">
-                                <form class="form" action="#" id="form">
-                                    <table class="form-input" action="#" id="form">
-                                        <tr>
-                                            <td> <label for="img"> Foto </label> </td>
-                                            <td>
-                                                <input type="file" id="img" name="img" accept="image/*" required>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td> <label for="gender"> Jenis Kelamin </label> </td>
-                                            <td>
-                                                <input id="laki" type="radio" value="Laki-Laki" name="gender">
-                                                <label for="laki">Laki-laki</label>
-                                                <input id="cewe" type="radio" value="Perempuan" name="gender">
-                                                <label for="cewe">Perempuan</label>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td> <label for="nama"> Nama </label> </td>
-                                            <td>
-                                                <input id="nama" type="text" name="nama" placeholder="nama lengkap" required>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td> <label for="tempat_lahir"> Tempat Lahir </label>  </td>
-                                            <td>
-                                                <input id="tempat_lahir" type="text" name="tempat_lahir" placeholder="tempat lahir" required>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td> <label for="tanggal_lahir">Tanggal Lahir</label> </td>
-                                            <td>
-                                                <input id="tanggal_lahir" type="date" name="tanggal_lahir" placeholder="tanggal lahir" required>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><label for="email">Email</label></td>
-                                            <td>
-                                                <input id="email" type="email" name="email" placeholder="email" required>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td> <label for="telepon">Telepon</label> </td>
-                                            <td>
-                                                <input id="telepon" type="tel" name="telepon" pattern="[0-9]{4}[0-9]{4}[0-9]{4}" placeholder="telepon" required>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td> <label for="umur">Umur</label> </td>
-                                            <td>
-                                                <input id="umur" type="number" name="umur" placeholder="umur" min="18" max="40" required>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td> <label for="deskripsi"> Deskripsi </label> </td>
-                                            <td>
-                                                <textarea id="deskripsi" name="deskripsi" style="width: 450px; height: 200px;" placeholder="tentang anda" required></textarea>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td> &nbsp; </td>
-                                            <td style="float: right;">
-                                                <button type="reset" style="background-color: red; color: white; border: 0,1px;">Reset</button>
-                                                <button type="submit" style="background-color: green; color: white; border: 0,1px;">Simpan</button>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </form>
+    <section>
+        <div id="main">
+            <table class="timecard" cellpadding="5" cellspacing="5">
+                <thead>
+                    <tr>
+                        <th>Data Diri</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="even">
+                        <td>
+                            <div>
+                                <div style="text-align: left">
+                                    <form class="form" action="#" id="form">
+                                        <table class="form-input" action="#" id="form">
+                                            <tr>
+                                                <td> <label for="img"> Foto </label> </td>
+                                                <td>
+                                                    <input type="file" id="img" name="img" accept="image/*" required>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td> <label for="gender"> Jenis Kelamin </label> </td>
+                                                <td>
+                                                    <input id="laki" type="radio" value="Laki-Laki" name="gender">
+                                                    <label for="laki">Laki-laki</label>
+                                                    <input id="cewe" type="radio" value="Perempuan" name="gender">
+                                                    <label for="cewe">Perempuan</label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td> <label for="nama"> Nama </label> </td>
+                                                <td>
+                                                    <input id="nama" type="text" name="nama" placeholder="nama lengkap" required>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td> <label for="tempat_lahir"> Tempat Lahir </label>  </td>
+                                                <td>
+                                                    <input id="tempat_lahir" type="text" name="tempat_lahir" placeholder="tempat lahir" required>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td> <label for="tanggal_lahir">Tanggal Lahir</label> </td>
+                                                <td>
+                                                    <input id="tanggal_lahir" type="date" name="tanggal_lahir" placeholder="tanggal lahir" required>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><label for="email">Email</label></td>
+                                                <td>
+                                                    <input id="email" type="email" name="email" placeholder="email" required>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td> <label for="telepon">Telepon</label> </td>
+                                                <td>
+                                                    <input id="telepon" type="tel" name="telepon" pattern="[0-9]{4}[0-9]{4}[0-9]{4}" placeholder="telepon" required>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td> <label for="umur">Umur</label> </td>
+                                                <td>
+                                                    <input id="umur" type="number" name="umur" placeholder="umur" min="18" max="40" required>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td> <label for="deskripsi"> Deskripsi </label> </td>
+                                                <td>
+                                                    <textarea id="deskripsi" name="deskripsi" style="width: 450px; height: 200px;" placeholder="tentang anda" required></textarea>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td> &nbsp; </td>
+                                                <td style="float: right;">
+                                                    <button type="reset" style="background-color: red; color: white; border: 0,1px;">Reset</button>
+                                                    <button type="submit" style="background-color: green; color: white; border: 0,1px;">Simpan</button>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </form>
+                                </div>
                             </div>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    
     <!-- section B -->
-    <div class="container">
-        <table class="table-data-diri">
-            <thead>
-                <tr>
-                    <th>
-                        Foto
-                    </th>
-                    <th>
-                        Jenis Kelamin
-                    </th>
-                    <th>
-                        Nama
-                    </th>
-                    <th>
-                        Tempat Lahir
-                    </th>
-                    <th>
-                        Tanggal Lahir
-                    </th>
-                    <th>
-                        Email
-                    </th>
-                    <th>
-                        No. Telp
-                    </th>
-                    <th>
-                        Umur
-                    </th>
-                    <th>
-                        Deskripsi
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td style="font-size:10px"> 
-                        <img src="asset/gambar/tegar.jpeg" width="50px">
-                    </td>
-                    <td style="font-size:12px">Laki-Laki</td>
-                    <td style="font-size:12px">Tegar</td>
-                    <td style="font-size:12px">Jakarta</td>
-                    <td style="font-size:12px">30-08-2001</td>
-                    <td style="font-size:12px">tegar@gmail.com</td>
-                    <td style="font-size:12px">081122223333</td>
-                    <td style="font-size:12px">22</td>
-                    <td style="font-size:12px">hallo saya tegar</td>
-                </tr>
-                <tr>
-                    <td style="font-size:10px"> 
-                        <div id="display-image" width="50px"></div>
-                    </td>
-                    <td id="todos" style="font-size:8px"> </td>
-                    <td id="todos1" style="font-size:8px"> </td>
-                    <td id="todos2" style="font-size:8px"> </td>
-                    <td id="todos3" style="font-size:8px"> </td>
-                    <td id="todos4" style="font-size:8px"> </td>
-                    <td id="todos5" style="font-size:8px"> </td>
-                    <td id="todos6" style="font-size:8px"> </td>
-                    <td id="todos7" style="font-size:8px"> </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
+    <section>
+        <div class="container">
+            <table class="table-data-diri">
+                <thead>
+                    <tr>
+                        <th>
+                            Foto
+                        </th>
+                        <th>
+                            Jenis Kelamin
+                        </th>
+                        <th>
+                            Nama
+                        </th>
+                        <th>
+                            Tempat Lahir
+                        </th>
+                        <th>
+                            Tanggal Lahir
+                        </th>
+                        <th>
+                            Email
+                        </th>
+                        <th>
+                            No. Telp
+                        </th>
+                        <th>
+                            Umur
+                        </th>
+                        <th>
+                            Deskripsi
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="font-size:10px"> 
+                            <img src="asset/gambar/tegar.jpeg" width="50px">
+                        </td>
+                        <td style="font-size:12px">Laki-Laki</td>
+                        <td style="font-size:12px">Tegar</td>
+                        <td style="font-size:12px">Jakarta</td>
+                        <td style="font-size:12px">30-08-2001</td>
+                        <td style="font-size:12px">tegar@gmail.com</td>
+                        <td style="font-size:12px">081122223333</td>
+                        <td style="font-size:12px">22</td>
+                        <td style="font-size:12px">hallo saya tegar</td>
+                    </tr>
+                    <tr>
+                        <td style="font-size:10px"> 
+                            <div id="display-image" width="50px"></div>
+                        </td>
+                        <td id="todos" style="font-size:8px"> </td>
+                        <td id="todos1" style="font-size:8px"> </td>
+                        <td id="todos2" style="font-size:8px"> </td>
+                        <td id="todos3" style="font-size:8px"> </td>
+                        <td id="todos4" style="font-size:8px"> </td>
+                        <td id="todos5" style="font-size:8px"> </td>
+                        <td id="todos6" style="font-size:8px"> </td>
+                        <td id="todos7" style="font-size:8px"> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    
     <footer>
         <ul>
             <li style="background:#37988e; color: #fff; font-size: x-large; font-weight: bold; letter-spacing: .3em; width: 100%;">HTML Day 5</li>
