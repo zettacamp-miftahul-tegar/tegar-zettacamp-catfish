@@ -1,0 +1,141 @@
+nav {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    background-color:#343957;
+    width: 100%;
+    z-index: 9;
+}
+    
+.font {
+    font-size: x-large;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    padding-left: 40px;
+}
+    
+.nav-list {
+    display: flex;
+    padding-left: 0;
+    margin-bottom: 10;
+    list-style: none;
+    flex-wrap: wrap;
+    transition: ease;
+    color: white;
+}
+    
+.nav-item {
+    box-sizing: border-box;
+    line-height: 24px;
+}
+    
+.nav-item a {
+    padding: 0.7rem;
+    display: inline-block;
+    font-size: 1.3em;
+    text-decoration: none;
+    color: white;
+}
+    
+.nav-item a:hover {
+    text-decoration: underline;
+    color: white;
+    cursor: pointer;
+}
+
+body {
+    margin: 0;
+}
+
+/* ------------------------------ */
+body {
+	font-family: Calibri, Myriad;
+    background-image: url('../images/bg.jpg');
+}
+
+#main {
+	width: 100%px;
+	margin:auto;
+	border-spacing: 10px;
+    border-collapse: separate; 
+}
+
+
+/* footer */
+
+footer ul {
+    list-style: none;
+}
+    
+footer li {
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* ------------------------------- */
+
+.container {
+	width: 100%;
+	overflow-x: hidden;
+}
+
+.table-data-diri {
+    font-family: sans-serif;
+    color: #343957;
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #f2f5f7;
+}
+
+.table-data-diri tr th {
+    background:#343957;
+    color: #fff;
+    font-weight: normal;
+}
+
+.table-data-diri,
+th,
+td {
+    padding: 8px 20px;
+    text-align: center;
+    color: black;
+}
+
+.table-data-diri tr:hover {
+    background-color: #f2f5f5;
+}
+
+.table-data-diri tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.row {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    line-height: 40px;
+    justify-content: space-between;
+}
+
+/* footer */
+footer {
+    background-color: #343957;
+    position: relative;
+    padding-top: 1px;
+}
+
+footer ul {
+    list-style: none;
+}
+    
+footer li {
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 15px;
+}

@@ -1,0 +1,59 @@
+body{
+    background: #fff;
+    font-family: 'PT Sans', sans-serif;
+}
+
+h2{
+    padding-top: 1.5rem;
+    text-align: center;
+}
+
+a {
+    color: #333;
+}
+
+a:hover {
+    color: #343957;
+    text-decoration: none;
+}
+
+.card {
+    border: 0.5px solid #a2aeb9;
+    top: 10%;
+    margin: auto;
+    width: 400px;
+    height: 580px;
+}
+
+.container {
+    margin: auto;
+}
+
+.form-control {
+    background-color: #f8f9fa;
+    padding: 15px;
+    padding: 15px 15px;
+    margin-bottom: 1.3rem;
+    width: 365px;
+}
+
+.form-control:focus {
+    color: #000000;
+    background-color: #ffffff;
+    border: 3px solid #343957;
+    outline: 0;
+    box-shadow: none;
+}
+
+.btn {
+    padding: 0.6rem 1.2rem;
+    background: #c1c6dd;
+    border: 2px solid #343957;
+}
+
+.btn-primary:hover {
+    background-color: #6a719c;
+    border-color: #ffffff;
+    transition: .3s;
+
+}
