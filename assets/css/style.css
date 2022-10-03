@@ -69,6 +69,7 @@ caption {
 .tab1 {
     width: 100%;
     border-style: solid;
+    border-collapse: collapse;
 }
 
 .cap1 {
@@ -80,6 +81,13 @@ caption {
     text-align: center;
 }
 
+.tab1 td {
+    border-style: ridge;
+}
+
+.tab1 th {
+    border-style: ridge;
+}
 /* ------------------- */
 
 img.kanan {
@@ -107,5 +115,3 @@ footer li {
     letter-spacing: .3em; 
     width: 100%;
 }
-
-/* --------------------------- */
