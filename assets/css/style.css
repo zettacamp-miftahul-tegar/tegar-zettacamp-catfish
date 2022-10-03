@@ -1,0 +1,111 @@
+body {
+    background-image: url('../img/bg.png');
+}
+
+#container {
+    background-color: aliceblue;
+    width: 800px;
+    margin: auto;
+}
+/* ------------------- */
+header {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+h1 {
+    padding-top: 15px;
+}
+
+section {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+p {
+    text-align: justify;
+}
+/* ------------------- */
+.span1 {
+    color: blue;
+    font-size: 14px;
+}
+
+.span2 {
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.span3 {
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.span4 {
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+}
+/* ------------------- */
+
+caption {
+    height: 40px;
+    text-align: left;
+}
+
+/* ------------------- */
+
+.bio {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tab {
+    text-align: left;
+}
+/* ------------------- */
+.tab1 {
+    width: 100%;
+    border-style: solid;
+}
+
+.cap1 {
+    background-color:darkgrey;
+}
+
+.pe {
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+/* ------------------- */
+
+img.kanan {
+    float: right;
+    height: 200px;
+}
+
+/* footer */
+footer {
+    background-color:darkgrey;
+    position: relative;
+    padding-top: 1px;
+}
+
+footer ul {
+    list-style: none;
+}
+    
+footer li {
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 15px;
+    color: rgb(1, 1, 1); 
+    font-size: x-large;
+    letter-spacing: .3em; 
+    width: 100%;
+}
+
+/* --------------------------- */
