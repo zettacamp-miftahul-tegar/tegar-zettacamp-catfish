@@ -28,24 +28,24 @@ p {
 /* ------------------- */
 .span1 {
     color: blue;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .span2 {
     color: black;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: bold;
 }
 
 .span3 {
     color: black;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
 }
 
 .span4 {
     color: black;
-    font-size: 18px;
+    font-size: 14px;
     font-weight: bold;
 }
 /* ------------------- */
