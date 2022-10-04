@@ -1,0 +1,90 @@
+* {
+    font-size: 18px;
+    color: white;
+    font-family: Calibri;
+}
+
+/* section top */
+
+.mbr-section {
+    background-image: url('../img/bg.jpg');
+    background-size: 100%;
+    height: 500px;
+    background-repeat: no-repeat;  
+}
+
+.container {
+    width: 100%;
+}
+
+.box {
+    padding-top: 50px;
+    text-align: center;
+}
+
+.card-induk {
+    padding-top: 1%;
+    display: flex;
+    width: 100%;
+}
+
+.card-induk img {
+    width: 90%;
+    height: 200px;
+    margin: 15px 15px;
+}
+
+.card-induk p {
+    text-align: justify;
+    margin: 15px 15px;
+}
+
+/* Descendant Selector */
+
+div h1 {
+    text-align: center;
+}
+
+/* Styling the margin, border, and padding of the card using CSS Shorthand. */
+
+.card {
+    background-color: rgb(57, 87, 87);
+    transform: scale(0.9);
+    width: 25%;
+    padding: 10px 5px;
+    border: 1px solid white;
+    margin: 10px 5px 5px 5px;
+}
+
+/* section button */
+
+.mbr-button {
+    background-image: url('../img/bg1.jpg');
+    background-size: 100%;
+    padding-top: 200px;
+}
+
+.mbr-button h1 {
+    text-align: center;
+}
+
+.baris {
+    display: flex;
+}
+
+.kolom h3 {
+    text-align: center;
+    color: antiquewhite;
+}
+
+.kolom p {
+    text-align: justify;
+    color: antiquewhite;
+}
+
+.kolom {
+    width: 35%;
+    padding: 5px;
+    margin-left: 120px;
+    opacity: 0.6;
+}
