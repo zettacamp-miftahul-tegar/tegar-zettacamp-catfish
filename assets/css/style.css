@@ -1,3 +1,8 @@
+/* a. Descendant Selector
+b. child selector (>)
+c. adjacent sibling selector (+)
+d. general sibling selector (~) */
+
 * {
     font-size: 18px;
     color: white;
@@ -28,10 +33,15 @@
     width: 100%;
 }
 
+.bg {
+    background-color: transparent;
+}
+
 .card-induk img {
     width: 90%;
     height: 200px;
     margin: 15px 15px;
+    /* border-style: solid; */
 }
 
 .card-induk p {
@@ -51,9 +61,11 @@ div h1 {
     background-color: rgb(57, 87, 87);
     transform: scale(0.9);
     width: 25%;
+    
     padding: 10px 5px;
     border: 1px solid white;
     margin: 10px 5px 5px 5px;
+
 }
 
 /* section button */
@@ -72,6 +84,15 @@ div h1 {
     display: flex;
 }
 
+/* pewarisan yang diwariskan */
+
+.kolom {
+    width: 35%;
+    padding: 5px;
+    margin-left: 120px;
+    opacity: 0.6;
+}
+
 .kolom h3 {
     text-align: center;
     color: antiquewhite;
@@ -80,11 +101,26 @@ div h1 {
 .kolom p {
     text-align: justify;
     color: antiquewhite;
+    font-family: "Times New Roman";
 }
 
-.kolom {
+/* pewarisan yang tdk diwariskan */
+
+.kolom1 {
     width: 35%;
     padding: 5px;
     margin-left: 120px;
     opacity: 0.6;
+}
+
+.kolom1 h3 {
+    text-align: center;
+    color: antiquewhite;
+}
+
+.kolom1 p {
+    border: medium solid;
+    text-align: justify;
+    color: antiquewhite;
+    font-family: "Times New Roman";
 }
