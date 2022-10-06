@@ -1,11 +1,48 @@
+/* descendant selector (space)
+child selector (>)
+adjacent sibling selector (+)
+general sibling selector (~) */
+
 * {
     font-family: Monospace;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.atas {
-    background-color:azure;
-    background-size: 100%;
-    background-repeat: no-repeat;  
+body {
+    margin-bottom: 50px;
+}
+
+nav {
+    position: fixed;
+    height: 70px;
+    background-color: rgb(136, 188, 188);
+    width: 100%;
+    z-index: 9;
+    margin: 0%;
+}
+
+footer {
+    position: fixed;
+    height: 50px;
+    width: 100%;
+    bottom: 0%;
+    margin: 0px;
+    padding: 15px;
+    display: flex;
+    justify-content : center;
+    background-color: rgb(136, 188, 188);
+}
+
+section
+{
+    padding: 80px 20px 0px 20px;
+}
+ 
+
+nav h1 {
+    margin-top: 20px;
 }
 
 body {
@@ -14,53 +51,51 @@ body {
     background-repeat: no-repeat;  
 }
 
-/* card row 1 and 3 */
+/* display out card row 1, 2 and 3 */
 
-.row1, .row3 {
+.ds-f {
     display: flex;
-    justify-content : center;
+}
+
+.jc-c {
+    justify-content: center;
+}
+
+.w-1 {
     width: 100%;
+}
+
+.m-0 {
     margin: 0%;
 }
 
-/* grouping */
-.card1, .card3 {
+/* display in card 1, 2 and 3 */
+
+.bg-rgb {
     background-color: rgb(212, 240, 240);
-    width: 33%;
-    margin: 0 1rem;
-    border: 1px solid black;
 }
 
-/* CSS Box Sizing */
+.w-33 {
+    width: 33%;
+}
+
+.m-1 {
+    margin: 1rem 1rem;
+}
+
+.b-1 {
+    border: 1px solid black;
+}
 
 .bg img {
     width: 95%;
     height: 200px;
-    box-sizing:border-box;
-
-    /* border: 1px solid black; */
     margin: 10px;
     padding: 5px;
 }
 
 p {
     text-align: center;
-}
-
-/* card row 2 */
-
-.row2 {
-    display: flex;
-    justify-content : center;
-    width: 100%;
-    margin: 1rem 0rem;
-}
-
-.card2 {
-    background-color: rgb(212, 240, 240);
-    width: 33%;
-    border: 1px solid black;
-    margin: 0rem 1rem;
 }
 
 /* footer */
@@ -77,14 +112,6 @@ p {
 .bot:active {
     background-color: rgb(13, 152, 13);
     color: rgb(236, 204, 204);
-}
-
-footer {
-    margin: 0px;
-    padding: 0%;
-    display: flex;
-    justify-content : center;
-    background-color: darkgray;
 }
 
 /* pesudo elemet */
@@ -161,4 +188,16 @@ a:hover {
 
 a:active {
     color:antiquewhite
+}
+
+/* Pilih semua elemen dengan two nama kelas yang merupakan turunan dari elemen dengan ID one . */
+
+#one.two {
+    color: green
+}
+
+/* Pilih elemen yang memiliki ID coba dan juga nama kelas nyoba . */
+
+#coba .nyoba {
+    color: blue
 }
