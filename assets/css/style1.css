@@ -1,7 +1,7 @@
 * {
     font-family: Monospace;
     margin: 0;
-    /* padding: 0px; */
+    padding: 0px;
     box-sizing: border-box;
 }
 
@@ -66,8 +66,50 @@ h1 {
     height: 435px; 
     overflow-y: scroll;
     list-style-type: circle;
+    display: inline-block;
 }
 
 li {
     padding: 10px;
+    color:black;
+}
+
+:not(li) {
+    color:brown;
+}
+
+.first {
+    color: blueviolet !important;
+}
+
+.two {
+    color: teal !important;
+}
+
+.gambar {
+    width: 50px;
+    height: 50px;
+    vertical-align: sub;
+}
+
+/* ------------------------ */
+/* table display */
+table.timecard {
+	margin: auto;
+	width: 800px;
+	border-collapse: collapse;
+	border: 1px solid #fff;
+	border-style: hidden;
+}
+
+table.timecard td {
+	padding: 3px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #f79646 #ccc;
+}
+
+/* baris 1 dan 3 */
+table.timecard tr.odd {
+	background-color: #f4efea;
 }
