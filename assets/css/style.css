@@ -24,7 +24,7 @@ nav {
 }
 
 footer {
-    position: fixed;
+    position: sticky;
     height: 50px;
     width: 100%;
     bottom: 0%;
@@ -190,13 +190,9 @@ a:active {
     color:antiquewhite
 }
 
-/* Pilih semua elemen dengan two nama kelas yang merupakan turunan dari elemen dengan ID one . */
-
 #one.two {
     color: green
 }
-
-/* Pilih elemen yang memiliki ID coba dan juga nama kelas nyoba . */
 
 #coba .nyoba {
     color: blue

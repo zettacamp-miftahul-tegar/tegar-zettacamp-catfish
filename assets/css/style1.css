@@ -93,7 +93,7 @@ li {
 }
 
 /* ------------------------ */
-/* table display */
+
 table.timecard {
 	margin: auto;
 	width: 800px;
@@ -109,7 +109,6 @@ table.timecard td {
 	border-color: #f79646 #ccc;
 }
 
-/* baris 1 dan 3 */
 table.timecard tr.odd {
 	background-color: #f4efea;
 }
