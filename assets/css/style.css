@@ -87,8 +87,14 @@ body {
     border: 1px solid black;
 }
 
+.bg {
+    box-sizing: border-box;
+    width: 100%;
+}
+
 .bg img {
-    width: 95%;
+    box-sizing: border-box;
+    width: 96%;
     height: 200px;
     margin: 10px;
     padding: 5px;
