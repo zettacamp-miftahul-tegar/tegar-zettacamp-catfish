@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <header class="top" >
+        <nav>
+            <div class="menu-hp">
+                <p class="font"> Coda-store </p>
+                </div>
+            </div>
+            
+            <ul class="nav-list">
+                <li class="nav-item" style="color: rgb(12, 195, 12);"> <b> Shopping List </b> </li>
+            </ul>
+        </nav>
+    </header>
+    <section class="bg-light" >
+        <div class="container">
+            <div>
+                <p style="margin-left: 9%;" class="show1">
+                    <a href="../html/shoping-list.html">
+                        ← Shopping List
+                    </a>
+                </p>
+            </div>
+            <form action="../html/shoping-list.html">
+                <div style="display:flex; justify-content: space-between;">
+                    <h1 style="margin-left: 9%;"> Shopping List </h1>
+                    <button type="submit" style="margin-right: 9%; height: 40px; width: 7%;" class="glow-on-hover">+ submit</button>
+                </div>
+                <div style="display: flex; justify-content: center;">
+                    <table style="width: 500px; height:100px">
+                        <tr>
+                            <td> <label for="product"> Product Name </label> </td>
+                            <td> <input id="product" type="text" name="product" placeholder="Enter the product name" required> </td>
+                        </tr>
+                        <tr>
+                            <td> <label for="price"> Price </label> </td>
+                            <td> <input id="price" type="text" name="price" placeholder="Enter the product price" required> </td>
+                        </tr>
+                    </table>
+                    <table style="width: 500px; height:100px">
+                        <tr>
+                            <td style="border-style: dashed; border-color: rgb(96, 82, 69);">
+                                <div class="upload-btn-wrapper">
+                                    <button class="btn">+ Upload product images</button>
+                                    <input type="file" name="myfile" />
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </form>
+            <div class="row">
+                <div class="pop">
+                    <div class="bg">
+                        <img src="../assets/img/here.png" alt="gambar">
+                    </div>
+                    <div>
+                        <h1> The input product </h1>
+                        <p style="color: rgb(109, 66, 66); font-size: 16px;"> 4.000.000 </p>
+                    </div>
+                </div>
+                <div class="pop">
+                    <div class="bg">
+                        <img src="../assets/img/here.png" alt="gambar">
+                    </div>
+                    <div>
+                        <h1> Playstation 4 </h1>
+                        <p style="color: rgb(109, 66, 66); font-size: 16px;"> 3.000.000 </p>
+                    </div>
+                </div>
+    
+                <div class="pop">
+                    <div class="bg">
+                        <img src="../assets/img/here.png" alt="gambar">
+                    </div>
+                    <div>
+                        <h1> Playstation 3 </h1>
+                        <p style="color: rgb(109, 66, 66); font-size: 16px;"> 2.000.000 </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div>
+            <p style="margin-right: 5px;">
+                <a href="about.html" class="be">
+                    About Me
+                </a>
+            </p> 
+        </div>
+        <div>
+            <p style="margin-left: 5px;">
+                <a href="contact.html" class="be">
+                    Contact Us
+                </a>
+            </p> 
+        </div>
+    </footer>
+</body>
+</html>
