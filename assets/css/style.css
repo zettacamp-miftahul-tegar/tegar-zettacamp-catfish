@@ -106,7 +106,6 @@ main {
 .card {
     position: relative;
     display: flex;
-    flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
     background-color: #fff;
@@ -118,6 +117,7 @@ main {
 .row {
     display: flex;
     flex-wrap: wrap;
+    gap: 10px;
     background-color: transparent;
     justify-content: center;
 }
@@ -354,10 +354,6 @@ a:active {
     width: 100%;
     margin: auto;
 }
-
-/* .center {
-    margin-left: 5px;
-} */
 
 .btn-primary {
     background-color: #343957;
