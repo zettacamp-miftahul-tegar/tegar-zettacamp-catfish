@@ -1,0 +1,153 @@
+* {
+    font-family: Monospace;
+}
+
+.atas {
+    background-color:azure;
+    background-size: 100%;
+    background-repeat: no-repeat;  
+}
+
+body {
+    background-image: url('../img/bg.jpeg');
+    background-size: 100%;
+    background-repeat: no-repeat;  
+}
+
+.custom {
+    text-align: center;
+    margin: 0%;
+    font-size: 2vw;
+}
+
+/* card row 1 and 3 */
+
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: transparent;
+    justify-content: center;
+}
+
+.container > .card {
+    background-color: #f1f1f1;
+    width: 25%;
+    margin: 1rem;
+    text-align: center;
+    border: 1px solid black;
+    line-height: 16px;
+}
+
+/* CSS Box Sizing */
+
+.bg img {
+    width: 95%;
+    height: 200px;
+    box-sizing:border-box;
+    margin: 10px;
+    padding: 5px;
+}
+
+p {
+    text-align: center;
+}
+
+/* footer */
+
+.bot {
+    background-color: green;
+    color: white;
+    border-color: white;
+    height: 30px;
+}
+
+/* grouping */
+.bot:hover,
+.bot:active {
+    background-color: rgb(13, 152, 13);
+    color: rgb(236, 204, 204);
+}
+
+footer {
+    margin: 0px;
+    padding: 0%;
+    display: flex;
+    justify-content : center;
+    background-color: darkgray;
+}
+
+/* pesudo elemet */
+
+.peseudo::first-letter{
+    color: red;
+}
+
+.peseudo1::first-line{
+    color: rgb(169, 66, 57);
+}
+
+/* hover */
+
+.bot1 {
+    background-color: green;
+    color: white;
+    border-color: white;
+    height: 30px;
+}
+
+.bot1:hover {
+    background-color: rgb(13, 152, 13);
+}
+
+/* active */
+
+.bot2 {
+    background-color: rgb(54, 38, 5);
+    color: white;
+    border-color: white;
+    height: 30px;
+}
+
+.bot2:active {
+    background-color: rgb(3, 82, 3);
+}
+
+/* text decoration */
+
+h1 {
+    text-align: center;
+    margin: 0%;
+    text-decoration: underline;
+}
+
+/* vertical align */
+
+.test {
+    vertical-align: super;
+}
+
+.test1 {
+    vertical-align: sub;
+}
+
+.about {
+    margin-right: 5px;
+}
+
+.contact {
+    margin-left: 5px;
+}
+
+/* style anchor */
+
+a:visited {
+    color: rgb(49, 43, 46);
+}  
+
+a:hover {
+    color: aliceblue;
+}
+
+a:active {
+    color:antiquewhite
+}
