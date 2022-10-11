@@ -36,33 +36,24 @@ function bookpurchasing(title, author,deskripsi, price, dicount, tax, sale, stoc
 	console.log("sale :", sale )
 	
 	for (let i = 1; i <=jumlah; i++) {
-	jumst= pri * i;
-	console.log("-----------------------")
-	console.log("barang yang dibeli",);
-	console.log("-----------------------")
+		jumst= pri * i;
+		console.log("-----------------------")
+		console.log("barang yang dibeli",);
+		console.log("-----------------------")
 	
 	
 	
-	stock= stock-1;
-	jum-=1
-	console.log("jumlah:", jum)
-	console.log("total price:",jumst)
-	console.log("stock Update:",stock)
-	if(stock > 0){
-	console.log("--buku masih bisa dibeli--")
-	} else{
-	console.log("--Buku sudah habis--")
-	break;
-	
-	}
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	}
-	bookpurchasing("oke", "saya","javascrip day 1 zettacamp", 20000, 0.1, 50, true,5,3);
+		stock= stock-1;
+		jum-=1
+		console.log("jumlah:", jum)
+		console.log("total price:",jumst)
+		console.log("stock Update:",stock)
+		if(stock > 0){
+			console.log("--buku masih bisa dibeli--")
+		} else{
+			console.log("--Buku sudah habis--")
+		break;
+		}
+	}	
+}
+bookpurchasing("oke", "saya","javascrip day 1 zettacamp", 20000, 0.1, 50, true,5,3);
