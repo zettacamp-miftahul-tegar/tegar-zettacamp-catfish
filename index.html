@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <form>
+        <h4> Pembelian Buku </h4>
+        <table>
+            <tr>
+                <td><label>Jenis Buku</label></td>
+                <td> : 
+                    <select onchange="detailBuku()" id="pilih_buku">
+                        <option> Pilih Jenis Buku </option><br>
+                        <option value="BG">Buku Gambar</option>
+                        <option value="BT">Buku Tulis</option>
+                        <option value="BC">Buku Cerita</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Type Buku</label></td>
+                <td>: 
+                    <select onchange="hargaa()" id="typeBuku">
+                        <option>Type</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Harga Buku</label></td>
+                <td>: <input type="text" id="tampil" disabled="true" name=""></td>
+            </tr>
+            <tr>
+                <td><label>Jumlah Buku</label></td>
+                <td>: <input onkeyup="Total()" type="number" id="jumlah_buku" name=""></td>
+            </tr> 
+            <tr>
+                <td><label>Total Harga</label></td>
+                <td>: <input onkeyup="Diskon()" type="text" id="total2" disabled="true" name=""></td>
+            </tr>  
+            <tr>
+                <td><label>Diskon %</label></td>
+                <td>: <input onkeyup="totalDiskon()" type="number" id="jumlahdiskon" name=""></td>
+            </tr>
+            <tr>
+                <td><label>Total Harga Setelah Diskon</label></td>
+                <td>: <input type="text" id="total_Diskon" disabled="true" name=""></td>
+            </tr>   
+            <tr>
+                <td><label>Pajak %</label></td>
+                <td>: <input onkeyup="totalPajak()" type="number" id="tampilpajak" name=""></td>
+            </tr>
+            <tr>
+                <td><label>Total Harga Setelah Pajak</label></td>
+                <td>: <input type="text" id="total_pajak" disabled="true" name=""></td>
+            </tr> 
+        </table>
+    </form>
+    <script type="text/javascript" src="assets/js/fungsi.js"></script>
+</body>
+</html>
