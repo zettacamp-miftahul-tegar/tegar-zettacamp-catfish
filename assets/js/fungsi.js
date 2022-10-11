@@ -1,5 +1,5 @@
 var namaBuku = ['Buku Gambar A4','Buku Gambar A5','Buku Gambar A6','Buku Tulis SIDU','Buku Tulis Binder', 'Buku Cerita Rakyat', 'Buku Cerita Hewan'];
-var hargaBuku = ['5000','5500','6000','7000','8000','20000','22000'];
+var hargaBuku = [5000,5500,6000,7000,8000,20000,22000];
 
 function detailBuku() {
     var nama_Buku = document.getElementById('pilih_buku').value;
@@ -18,7 +18,7 @@ function detailBuku() {
         }
     }
     else if (nama_Buku=='BC') {
-        for (var i = 5; i < 7; i++) {
+        for (var i = 5; i <= 6; i++) {
             result="<option value="+i+">"+namaBuku[i]+"</option>";
             typeBuku.innerHTML+=result;
         }
