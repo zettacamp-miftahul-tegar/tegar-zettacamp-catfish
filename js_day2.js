@@ -1,59 +1,57 @@
-function bookpurchasing(title, author,deskripsi, price, dicount, tax, sale, stock, jumlah){
+function bookpurchasing(title, author, deskripsi, harga, diskon, pajak, jual, stock, jumlah){
 
-	const ti = title;
-	const aut= author;
-	const des= deskripsi;
-	
-	let pri=price;
+	const title1 = title;
+	const autthor1 = author;
+	const deskripsi1 = deskripsi;
+	let harga1 = harga;
 	
 	// diskon/
-	const dis= dicount;
-	let amoundis= pri * dicount
+	const diskon1 = diskon;
+	let amoundiskon = harga1 * diskon1
 	
 	// after dicount
-	const priceall= pri -amoundis;
+	const after_diskon = harga1 - amoundiskon;
 	
 	// Amount of tax
-	const t= tax;
+	const pajak1 = pajak;
 	
 	// Price after tax
-	const taxaff=pri*tax /100
+	const after_pajak = harga1*pajak1 /100
 	
-	const sal= sale;
+	const jual1 = jual;
+	let jumlah1 = jumlah;
 	
-	let st= stock;
-	let jum= jumlah;
+	console.log("title :",title1)
+	console.log("autho :", autthor1)
+	console.log("deskripsi :",deskripsi1)
+	console.log("harga :","Rp.", harga1)
+	console.log("diskon :",diskon1,"%")
+	console.log("pajak :",pajak1,"%")
+	console.log("total diskon :"+" Rp.", amoundiskon);
+	console.log("Total :"+"Rp.",after_diskon)
+	console.log("total pajak :", after_pajak)
+	console.log("jual :", jual1 )
 	
-	console.log("title:",ti)
-	console.log("author:", aut)
-	console.log("deskripsi:",des)
-	console.log("price:","Rp.", price)
-	console.log("dicount:",dis,"%")
-	console.log("tax:",t,"%")
-	console.log("total diskon:"+" Rp.", amoundis);
-	console.log("Total:"+"Rp.",priceall)
-	console.log("total tax:", taxaff)
-	console.log("sale :", sale )
-	
-	for (let i = 1; i <=jumlah; i++) {
-		jumst= pri * i;
+	console.log("-----------------------")
+	console.log("TOTAL STOCK : 5 Buku",);
+
+	for (let i = 1; i <= jumlah; i++) {
+		jumstock = harga * i;
 		console.log("-----------------------")
 		console.log("barang yang dibeli",);
 		console.log("-----------------------")
 	
-	
-	
-		stock= stock-1;
-		jum-=1
-		console.log("jumlah:", jum)
-		console.log("total price:",jumst)
+		stock = stock-1;
+		// jumlah1 -=1
+		// console.log("jumlah:", jumlah1)
+		console.log("total price:",jumstock)
 		console.log("stock Update:",stock)
 		if(stock > 0){
-			console.log("--buku masih bisa dibeli--")
+			console.log("--Buku Masih Ada--")
 		} else{
-			console.log("--Buku sudah habis--")
+			console.log("--Buku Sudah Habis--");
 		break;
 		}
 	}	
 }
-bookpurchasing("oke", "saya","javascrip day 1 zettacamp", 20000, 0.1, 50, true,5,3);
+bookpurchasing("Day 2", "Tegar", "JS Day 2", 20000, 0.1, 50, true,5,5);
