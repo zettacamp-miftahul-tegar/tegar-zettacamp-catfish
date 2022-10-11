@@ -1,4 +1,4 @@
-function bookpurchasing(title, author, deskripsi, harga, diskon, pajak, jual, stock, jumlah, jumlah_beli){
+function bookpurchasing(title, author, deskripsi, harga, diskon, pajak, jual, stock, jumlah){
 
 	const title1 = title;
 	const autthor1 = author;
@@ -45,8 +45,7 @@ function bookpurchasing(title, author, deskripsi, harga, diskon, pajak, jual, st
 		console.log("-----------------------")
 	
 		stock = stock-1;
-		// jumlah1 -=1
-		// console.log("jumlah:", jumlahb)
+		console.log("jumlah:", i)
 		console.log("total price:",jumstock)
 		console.log("stock Update:",stock)
 		if(stock > 0){
@@ -57,4 +56,4 @@ function bookpurchasing(title, author, deskripsi, harga, diskon, pajak, jual, st
 		}
 	}	
 }
-bookpurchasing("Day 2", "Tegar", "JS Day 2", 20000, 0.1, 50, true,5,5,1);
+bookpurchasing("Day 2", "Tegar", "JS Day 2", 20000, 0.1, 50, true,5,5);
