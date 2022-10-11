@@ -53,3 +53,11 @@ function totalPajak() {
     totalll= jumlahhh*parseInt(harga4);
     total_pajak.value=harga4-totalll;
 }
+
+function tersedia(){
+    var ts = document.getElementById('ts');
+    ts.value=ketersediaan ? "tersedia" : "tidak tersedia"
+}
+
+let ketersediaan = true;
+tersedia()
