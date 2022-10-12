@@ -52,7 +52,7 @@ function params(total, termOFCredit){
 
 	console.log("- detail tagihan bulan pertama",e);
 
-	// Destructuring -> variable
+	// Destructuring -> memecah
 	let [ ,...g] = hasil
 	console.log("- Tagihan Selanjutnya :")
 	console.log(g)
