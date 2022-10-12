@@ -1,59 +1,62 @@
-function bookpurchasing(title, author, deskripsi, harga, diskon, pajak, jual, stock, jumlah){
+const total = 12000000;
+let angsuran = 6 ;
 
-	const title1 = title;
-	const autthor1 = author;
-	const deskripsi1 = deskripsi;
-	let harga1 = harga;
-	
-	// diskon
-	const diskon1 = diskon;
-	let amoundiskon = harga1 * diskon1
-	
-	// after diskon
-	const after_diskon = harga1 - amoundiskon;
-	
-	// pajak
-	const pajak1 = pajak;
-	
-	// Price after tax
-	const after_pajak = harga1*pajak1 /100
-	
-	const jual1 = jual;
-	let jumlah1 = jumlah;
+let totalHasil = total/angsuran;
+console.log("-----------------------------------")
+console.log("1. Total yang harus dibayar Rp.",total);
+console.log("2. Diangsur selama",angsuran,"Bulan");
+console.log("3. Cicilan per Bulan Rp.",totalHasil);
+console.log("-----------------------------------")
 
-	// const jumlahb = jumlah_beli
-	
-	console.log("-----------------------")
-	console.log("title :",title1)
-	console.log("autho :", autthor1)
-	console.log("deskripsi :",deskripsi1)
-	console.log("harga :","Rp.", harga1)
-	console.log("diskon :",diskon1)
-	console.log("pajak :",pajak1,"%")
-	console.log("total diskon :"+" Rp.", amoundiskon);
-	console.log("Total :"+"Rp.",after_diskon)
-	console.log("total pajak :", after_pajak)
-	console.log("jual :", jual1 )
-	
-	console.log("-----------------------")
-	console.log("TOTAL STOCK : 5 Buku",);
+const user = 
+[
+    {
+        id: 1,
+        nama : "Tegar",
+		tabungan : "15000000"
+    },
+]
 
-	for (let i = 1; i <= jumlah; i++) {
-		jumstock = harga * i;
-		console.log("-----------------------")
-		console.log("barang yang dibeli",);
-		console.log("-----------------------")
-	
-		stock = stock-1;
-		console.log("jumlah:", i)
-		console.log("total price:",jumstock)
-		console.log("stock Update:",stock)
-		if(stock > 0){
-			console.log("--Buku Masih Ada--")
-		} else{
-			console.log("--Buku Sudah Habis--");
-		break;
-		}
-	}	
+// object untuk menampung data output
+let hasil = [
+	{
+
+	}
+]
+
+let namaBulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember']
+
+for(let i = 0; i < angsuran; i++){
+    hasil[i] = {'Bulan' : i+1, 'Cicilan Rp.' : totalHasil}
+
+    let month = i
+    hasil[i].Nama_Bulan = namaBulan[month+3]
 }
-bookpurchasing("Day 2", "Tegar", "JS Day 2", 20000, 0.1, 50, true,5,5);
+
+// Metode ini berfungsi untuk menggabungkan 2 array menjadi 1 array.
+const newArray = user.concat(hasil);
+
+console.log(newArray)
+
+// nyari kondisi yg sesuai di functionnya
+let first = namaBulan.find(function (element) {
+	return element===hasil[0].Nama_Bulan
+});
+
+let last = namaBulan.find(function (element) {
+	return element===hasil[5].Nama_Bulan
+});
+
+console.log("- kamu perlu membayar tagihan dari Bulan",first,"-",last);
+
+// spread operator
+let b = hasil[0]
+let c = hasil[1]
+let [e,...f] = hasil
+
+console.log("- detail tagihan bulan pertama",e);
+
+// Object Destructuring
+let [ ,...g] = hasil
+console.log("- Tagihan Selanjutnya :")
+console.log(g)
