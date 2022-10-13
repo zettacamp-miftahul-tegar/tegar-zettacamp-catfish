@@ -3,68 +3,98 @@ const songList =
 		{   
             title : "Terlukis Indah",
 			artis : "Ziva Magnolya",
-            duration : "5",
-            genre : "pop",
+            duration : "00:05:32",
+            genre : "Pop",
 		},
         {   
             title : "Tentang Dirimu Indah",
 			artis : "Raisa",
-            duration : "4",
-            genre : "pop",
+            duration : "00:04:12",
+            genre : "Pop",
 		},
         {   
-            title : "Jengah",
+            title : "Jengah Melati Coffee",
 			artis : "Pas Band",
-            duration : "6",
-            genre : "rock",
+            duration : "00:06:05",
+            genre : "Rock",
+		},
+        {   
+            title : "Hits Spotify Indonesia 2022",
+			artis : "Ziva Magnolya",
+            duration : "00:30:30",
+            genre : "Pop",
 		},
         {   
             title : "Kuat Kita Bersinar",
 			artis : "Superman Is Dead",
-            duration : "5",
-            genre : "rock",
+            duration : "00:05:20",
+            genre : "Rock",
 		},
         {   
             title : "Bing Slamet",
 			artis : "Nurlela",
-            duration : "6",
+            duration : "00:06:09",
             genre : "Jazz",
 		},
         {   
             title : "Arti Kehidupan",
 			artis : "Raisa",
-            duration : "7",
+            duration : "00:07:09",
             genre : "Jazz",
 		},
         {   
-            title : "Aku ingin",
+            title : "Aku ingin mencintainya",
 			artis : "Raisa",
-            duration : "7",
+            duration : "00:07:10",
             genre : "Jazz",
 		},
         {   
             title : "Januari",
 			artis : "Glenn Fredly",
-            duration : "4",
+            duration : "00:04:55",
             genre : "Jazz",
-		},
-        {   
-            title : "Hits Spotify Indonesia 2022",
-			artis : "Ziva Magnolya",
-            duration : "90",
-            genre : "Pop",
 		},
         {   
             title : "Album Country",
 			artis : "Iwan Fals",
-            duration : "62",
+            duration : "00:32:22",
             genre : "Rock",
 		},
-	]
+	];
 
-function params(){
-    let first = namaBulan.find(function (element) {
-		return element===hasil[raisa].songList
-	});
-    console.log(first);
+function listArtist (songList, artis) {
+    let artist = songList.filter(data => data.artis == artis)
+    console.log(artist)
 }
+console.log("---------- Daftar Artis ----------")
+listArtist(songList, 'Raisa')
+
+
+function listGenre (songList, genre) {
+    let genree = songList.filter(data => data.genre == genre)
+    console.log(genree)
+}
+console.log("---------- Daftar Genre ----------")
+listGenre(songList, 'Jazz')
+
+function listDuration(){
+    let laguAwal=0;
+    let durasiAwal=0;
+    for (let i = 0; i < songList.length; i++) {
+        let awal = songList[i].duration.split(':');
+        let jam = parseInt(awal[0]) * 3600
+        let menit = parseInt(awal[1]) * 60
+        let detik = parseInt(awal[2]) * 1
+
+        durasiAwal = durasiAwal + (jam + menit + detik);
+        
+        if (durasiAwal < 3600) {
+            laguAwal++
+        }
+    }
+    for (let i = 0; i < laguAwal; i++) {
+        console.log(songList[i]);
+    }
+}
+console.log("---------- Daftar Musik selama 1 Jam ----------")
+listDuration()
