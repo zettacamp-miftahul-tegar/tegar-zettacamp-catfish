@@ -96,11 +96,10 @@ function listDuration(){
         }
     }
     for (let i = 0; i < laguAwal; i++) {
-        if(i === laguAwal-1) {
-            laguAwal -= songList.length+1
-        i=0
-        }
         console.log(songList[i]);
+        // if(i === laguAwal-1) {
+        //     laguAwal -= songList.length+1
+        // i=0
     }
 }
 console.log("---------- Daftar Musik selama 1 Jam ----------")
