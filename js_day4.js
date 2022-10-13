@@ -62,14 +62,15 @@ const songList =
 		},
 	];
 
+// artis
 function listArtist (songList, artis) {
     let artist = songList.filter(data => data.artis == artis)
     console.log(artist)
 }
 console.log("---------- Daftar Artis ----------")
-listArtist(songList, 'Raisa')
+listArtist(songList, 'Iwan Fals')
 
-
+// genre
 function listGenre (songList, genre) {
     let genree = songList.filter(data => data.genre == genre)
     console.log(genree)
@@ -77,11 +78,13 @@ function listGenre (songList, genre) {
 console.log("---------- Daftar Genre ----------")
 listGenre(songList, 'Jazz')
 
+// duration under 1 hours
 function listDuration(){
-    let laguAwal=0;
-    let durasiAwal=0;
+    let laguAwal = 0;
+    let durasiAwal = 0;
     for (let i = 0; i < songList.length; i++) {
         let awal = songList[i].duration.split(':');
+        // console.log(awal)
         let jam = parseInt(awal[0]) * 3600
         let menit = parseInt(awal[1]) * 60
         let detik = parseInt(awal[2]) * 1
