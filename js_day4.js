@@ -80,7 +80,7 @@ listGenre(songList, 'Jazz')
 
 // duration under 1 hours
 function listDuration(){
-    let laguAwal = 0;
+    let laguAwal = 5;
     let durasiAwal = 0;
     for (let i = 0; i < songList.length; i++) {
         let awal = songList[i].duration.split(':');
@@ -96,6 +96,10 @@ function listDuration(){
         }
     }
     for (let i = 0; i < laguAwal; i++) {
+        if(i === laguAwal-1) {
+            laguAwal -= songList.length+1
+        i=0
+        }
         console.log(songList[i]);
     }
 }
