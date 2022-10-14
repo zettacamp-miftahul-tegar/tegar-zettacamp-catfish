@@ -4,7 +4,7 @@ function pilter(n1: number, n2: number, showResult: boolean, text: string):strin
     if (showResult) {
         return filter;
     } else {
-        return 'Text Salah';
+        return 'Keyword error';
     }
 }
 

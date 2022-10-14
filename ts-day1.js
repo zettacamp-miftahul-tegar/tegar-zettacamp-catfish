@@ -4,7 +4,7 @@ function pilter(n1, n2, showResult, text) {
         return filter;
     }
     else {
-        return 'Text Salah';
+        return 'Keyword error';
     }
 }
 var first = 9;
