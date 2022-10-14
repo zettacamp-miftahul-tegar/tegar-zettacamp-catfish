@@ -101,3 +101,12 @@
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
   }
 }
+
+// {
+//   "compilerOptions": {
+//     "target": "es5",
+//     "module": "commonjs",
+//     "sourceMap": true,
+//     "watch": true
+//   }
+// }

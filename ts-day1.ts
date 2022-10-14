@@ -1,16 +1,17 @@
-function add(n1: number, n2: number, showResult: boolean, phrase: string) {
+function pilter(n1: number, n2: number, showResult: boolean, text: string):string {
 
-    const filter = phrase.slice(n1, n2);
+    const filter = text.slice(n1, n2);
     if (showResult) {
-        console.log(filter);
-    } else {
         return filter;
+    } else {
+        return 'Text Salah';
     }
 }
 
-const number1 = 9;
-const number2 = 19;
+const first = 9;
+const last = 19;
 const printResult = true;
-const resultPhrase = "Learning Typescript is different than Javascript";
+const text = "Learning Typescript is different than Javascript";
 
-add(number1, number2, printResult , resultPhrase);
+const result = pilter(first, last, printResult , text);
+console.log(result);
