@@ -8,8 +8,7 @@ console.log(printz(Case1));
 console.log(printz(Case2));
 var user = {
     name: "tegar",
-    age: 21,
-    alamat: "aaaa"
+    age: 21
 };
 // array
 var array;
@@ -28,7 +27,7 @@ var month;
     month[month["jun"] = 6] = "jun";
     month[month["jul"] = 7] = "jul";
 })(month || (month = {}));
-// console.log(month[3]);
+console.log(month[3]);
 var bulan = 4;
 console.log(month[bulan]);
 // enum (string)
@@ -41,6 +40,8 @@ console.log(month[bulan]);
 //     jun = "juni",
 //     jul = "july"
 // }
+// const bulan:month = januari
+// console.log(month[bulan]);
 // console.log(month);
 // any
 var hero = "batman";
@@ -58,3 +59,4 @@ function myPhone(phone) {
 myPhone("Iphone");
 myPhone("Samsung");
 myPhone("Xiaomi");
+// myPhone("hello")
