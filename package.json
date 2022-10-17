@@ -1,0 +1,23 @@
+{
+  "name": "tegar-zettacamp-catfish",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "typescript": "^4.8.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zettacamp-miftahul-tegar/tegar-zettacamp-catfish.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zettacamp-miftahul-tegar/tegar-zettacamp-catfish/issues"
+  },
+  "homepage": "https://github.com/zettacamp-miftahul-tegar/tegar-zettacamp-catfish#readme"
+}
