@@ -1,7 +1,7 @@
 type data = (string | number)[] // alias
 
 let Case1:data =  [1, "data", "3", "result"]
-let Case2:data = ["Bejo", "has", "4", "sport", "car"]
+let Case2:(string)[] = ["Bejo", "has", "4", "sport", "car"]
 
 const printz = (text:data):string => {
     // metode join() mengembalikan array sebagai string.
@@ -11,28 +11,58 @@ const printz = (text:data):string => {
 console.log(printz(Case1));
 console.log(printz(Case2));
 
-//--------------------------------------------------------
-
-// array
-let array:number[];
-array = [1,2,3,4,5]
-
-// tuple
-let biodata: [string, number, string];
-biodata = ["jogja",123, "111"]
+// --------------- Type Data ---------------
 
 // object
 type User = {
     name: string,
     age: number
-    alamat: string
+    alamat?: string
 };
 
 let user: User = {
     name: "tegar",
     age: 21,
-    alamat: "aaaa"
 }
+
+// array
+let array:number[];
+array = [1,2,3]
+
+// tuple
+let biodata: [string, number, string];
+biodata = ["jogja",123, "111"]
+
+// enum (numeric)
+enum month {
+    jan = 1,
+    feb,
+    mar,
+    apr,
+    mei,
+    jun,
+    jul
+}
+console.log(month[3]);
+
+const bulan:month=4
+console.log(month[bulan]);
+
+// enum (string)
+// enum month {
+//     jan = "januari",
+//     feb = "february",
+//     mar = "maret",
+//     apr = "april",
+//     mei = "mei",
+//     jun = "juni",
+//     jul = "july"
+// }
+
+// const bulan:month = januari
+// console.log(month[bulan]);
+
+// console.log(month);
 
 // any
 let hero:any = "batman"
@@ -42,37 +72,19 @@ hero = [];
 hero = {};
 hero = true || false
 
-// enum (numeric)
-// enum month {
-//     jan = 1,
-//     feb,
-//     mar,
-//     apr,
-//     mei,
-//     jun,
-//     jul
-// }
-// console.log(month);
-
-// enum (string)
-enum month {
-    jan = "januari",
-    feb = "february",
-    mar = "maret",
-    apr = "april",
-    mei = "mei",
-    jun = "juni",
-    jul = "july"
-}
-console.log(month);
-
-// literal
-// let a =  "laki-laki" | "perempuan"
-
-// let b = "laki-laki"
-// let c = "perempuan"
-
 // union
 let phone: number | string;
 phone = 62811111;
-phone = "085728669512";
+phone = "085728669512"
+
+// literal
+type Phone = "Iphone" | "Samsung" | "Xiaomi"
+
+function myPhone(phone: Phone): string {
+    return `My Phone is ${phone}`
+}
+
+myPhone("Iphone")
+myPhone("Samsung")
+myPhone("Xiaomi")
+// myPhone("hello")
