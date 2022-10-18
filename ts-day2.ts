@@ -87,4 +87,6 @@ function myPhone(phone: Phone): string {
 myPhone("Iphone")
 myPhone("Samsung")
 myPhone("Xiaomi")
+
+let a:Phone = "Iphone"
 // myPhone("hello")
