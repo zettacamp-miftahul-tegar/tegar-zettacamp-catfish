@@ -51,6 +51,9 @@ const routes : Routes = [
     MatIconModule,
     MatListModule,
     RouterModule.forChild(routes),
+  ],
+  exports: [
+    Component1Component
   ]
 })
 export class Module1Module { }
