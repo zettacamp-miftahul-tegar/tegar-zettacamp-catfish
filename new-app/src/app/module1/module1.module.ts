@@ -11,6 +11,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { Component3Component } from './component3/component3.component';
 import { Component4Component } from './component4/component4.component';
+import { Module2Module } from '../module2/module2.module';
+import { Component5Component } from '../module2/component5/component5.component';
+import { Component6Component } from '../module2/component6/component6.component';
 
 const routes : Routes = [
   // berhubungan dengan routes di administrator
@@ -31,6 +34,12 @@ const routes : Routes = [
       {
         path: 'settings',component:Component4Component
       },
+      {
+        path: 'componen5',component:Component5Component
+      },
+      {
+        path: 'componen6',component:Component6Component
+      },
     ]
   }
 ]
@@ -50,6 +59,7 @@ const routes : Routes = [
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    Module2Module,
     RouterModule.forChild(routes),
   ],
   exports: [
