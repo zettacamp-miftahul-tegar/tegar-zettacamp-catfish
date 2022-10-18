@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Component1Service } from './component1.service';
 
 @Component({
   selector: 'app-component1',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Component1Component implements OnInit {
 
-  constructor() { }
+  constructor(
+    private Component1Service : Component1Service
+  ) { }
 
+  dataFoods : any
+  columnTable = ['ID','Nama', 'Harga', 'Edit', 'Hapus']
+  titlePage = 'List Foods'
+  
   ngOnInit(): void {
+    this.getDataFoods()
+  }
+
+  getDataFoods(){
+    this.Component1Service.getDataFoods().subscribe(res => {
+      this.dataFoods = res
+      console.log(res)
+    })
   }
 
 }

@@ -1,1 +1,26 @@
-<p>component1 works!</p>
+<body>
+    <div class="container">
+        <div class="row">
+            <div><h3>{{titlePage}}</h3></div>
+            <div><button mat-raised-button color="primary" routerLink="./admin/add-foods"> Add data</button></div>
+        </div>
+        <table class="table-foods">
+            <thead>
+                <tr>
+                    <th *ngFor="let col of columnTable">
+                        {{col}}
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of dataFoods">
+                    <td>{{data.id}}</td>
+                    <td>{{data.nama_makanan}}</td>
+                    <td>{{data.harga}}</td>
+                    <td><button mat-raised-button color="accent" routerLink="./admin/add-foods"> Edit</button></td>
+                    <td><button mat-raised-button color="warn" routerLink="./admin/add-foods"> Hapus</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>

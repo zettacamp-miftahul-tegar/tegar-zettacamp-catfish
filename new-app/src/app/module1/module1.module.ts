@@ -23,10 +23,10 @@ const routes : Routes = [
         pathMatch:'full'
       },
       {
-        path: 'home',component:Component1Component
+        path: 'home',component:Component3Component
       },
       {
-        path: 'list.foods',component:Component3Component
+        path: 'list.foods',component:Component1Component
       },
       {
         path: 'settings',component:Component4Component
