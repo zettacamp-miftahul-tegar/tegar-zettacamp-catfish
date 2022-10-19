@@ -1,15 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { VideoComponent } from './video/video.component';
-
-
+import { VideosComponent } from './videos.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    VideoComponent
+    VideoComponent,
+    VideosComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
+  ],
+  exports: [
+    VideoComponent,
+    VideosComponent
   ]
 })
 export class VideosModule { }

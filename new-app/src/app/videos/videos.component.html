@@ -1,0 +1,16 @@
+<div>
+    <img class="gambar" src="../../assets/img/ALFAMART_LOGO_BARU.png">
+</div>
+
+<div style="text-align:center">
+    <h1>List Item</h1>
+</div>
+
+<div class="container">
+    <app-video *ngFor="let video of videos" [video]="video"></app-video>
+</div>
+
+<div> 
+    <input type="input" [(ngModel)]="name" placeholder="text ...">
+    <p> {{name}} </p>
+</div>

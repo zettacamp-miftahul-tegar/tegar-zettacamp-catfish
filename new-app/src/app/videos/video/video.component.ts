@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-video',
@@ -7,9 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VideoComponent implements OnInit {
 
-  constructor() { }
+  @Input() video:any
+  title : any 
+
+  constructor() {}
 
   ngOnInit(): void {
+    this.video = this.video;
+  }
+
+  changeTitle() {
+    if(!this.title){
+      this.video.content = "Warna Sukses Diganti"
+      this.title = 'berubah'
+    } else {
+      this.title = ''
+      this.video.content = 'Warna Kuning'
+    }
   }
 
 }

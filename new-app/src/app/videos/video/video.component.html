@@ -1,1 +1,13 @@
-<p>video works!</p>
+<div class="card" [ngStyle]=" { 'background-color': title == 'berubah' ? 'red' : 'yellow'} ">
+    <div class="card-header">
+        <h3> 
+            <!-- <span *ngIf="title == '' -->
+            {{video.title}}
+            <span *ngIf="title == 'berubah'"> &check; </span>
+        </h3>
+        <p>
+            {{video.content}}
+        </p>
+        <button (click)="changeTitle()"> click here</button>
+    </div>
+</div>
