@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="card">
+    <form (ngSubmit)="addName()">
+      <label name="input_name">Nama Lengkap</label><br><br>
+      <input type="text" class="form" name="input_name" [(ngModel)]="name" placeholder="Masukkan nama anda"><br><br>
+      <button type="submit">Tambah User</button>
+    </form>
+  </div>
+
+  <div class="card">
+    <table class="haa">
+      <tr *ngFor="let user of namePerson">
+        <td>
+          nama lengkap
+        </td>
+        <td>
+          <p> : {{ user.name }}</p>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
