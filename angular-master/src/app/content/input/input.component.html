@@ -1,6 +1,6 @@
 <div class="container">
   <div class="card">
-    <form (ngSubmit)="addName()">
+    <form (ngSubmit)="addName()" class="haa">
       <label name="input_name">Nama Lengkap</label><br><br>
       <input type="text" class="form" name="input_name" [(ngModel)]="name" placeholder="Masukkan nama anda"><br><br>
       <button type="submit">Tambah User</button>
@@ -8,6 +8,7 @@
   </div>
 
   <div class="card">
+    <h1> List User </h1>
     <table class="haa">
       <tr *ngFor="let user of namePerson">
         <td>

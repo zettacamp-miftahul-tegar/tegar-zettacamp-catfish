@@ -1,9 +1,10 @@
-import { Component,Input,Output, OnInit, EventEmitter } from '@angular/core';
+import { Component,Input,Output, OnInit, EventEmitter, ViewEncapsulation} from '@angular/core';
 
 @Component({
   selector: 'app-input',
   templateUrl: './input.component.html',
-  styleUrls: ['./input.component.css']
+  styleUrls: ['./input.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class InputComponent implements OnInit {
 
@@ -12,6 +13,7 @@ export class InputComponent implements OnInit {
   @Input() namePerson :any;
   @Output() nameChild: EventEmitter<any>;
 
+  // menjalankan aksi sebenernya
   constructor() { 
     this.nameChild = new EventEmitter();
   }
@@ -23,9 +25,8 @@ export class InputComponent implements OnInit {
     let newObject = {
       name : this.name
     }
-    console.log(newObject);
-    
 
+    // method buat ngirim
     this.nameChild.emit(newObject)
   } 
 

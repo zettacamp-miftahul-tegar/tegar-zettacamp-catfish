@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContentComponent implements OnInit {
 
-  person = [
-    {name: 'tegar'},
+  user = [
+    {name: 'Miftahul Tegar Pangestu'},
   ]
 
   constructor() { }
@@ -17,7 +17,7 @@ export class ContentComponent implements OnInit {
   }
 
   addNewName(row: { name:string;}) {
-    this.person.push(row);
+    this.user.push(row);
   }
 
 }
