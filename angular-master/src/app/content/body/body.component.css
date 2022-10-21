@@ -1,0 +1,66 @@
+body {
+    overflow-x: hidden;
+}
+
+.container {
+    padding: 20px;
+    display: flex;
+    background-color: antiquewhite;
+    color: black;
+    border: 1px solid black;
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 20px;
+    background-color: transparent;
+    justify-content: center;
+}
+
+.table-foods {
+    font-family: sans-serif;
+    color: #4444;
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #f2f5f7;
+    margin-right: 50px;
+}
+
+.table-foods tr th {
+    background: #35a9db;
+    color: #fff;
+    font-weight: normal;
+}
+
+.table-foods,
+th,
+td {
+    padding: 8px 20px;
+    text-align: center;
+    color: black;
+}
+
+.table-foods tr:hover {
+    background-color: #f2f5f5;
+}
+
+.table-foods tr:nth-child(even) {
+    background-color: #fee9e9;
+}
+
+.table-foods tr:nth-child(odd) {
+    background-color: #d4a8a8;
+}
+
+.row {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    line-height: 40px;
+    justify-content: space-between;
+}
