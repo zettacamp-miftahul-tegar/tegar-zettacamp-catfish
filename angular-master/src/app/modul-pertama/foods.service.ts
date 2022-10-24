@@ -16,7 +16,7 @@ export class FoodsService {
     {
       title: 'Lemon Tea',
       price: '5000',
-      status: 'Like'
+      status: 'Dislike'
     },
     {
       title: 'Black Coffea',
