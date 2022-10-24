@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FoodsService } from './foods.service';
 
 @Component({
@@ -11,7 +11,7 @@ export class ModulPertamaComponent implements OnInit {
 
   cards: any;
 
-  constructor(public data:FoodsService) {};
+  constructor(private data:FoodsService) {};
 
   // cards:{}[] = [];
 
