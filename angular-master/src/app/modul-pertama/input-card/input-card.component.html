@@ -1,0 +1,24 @@
+<form class="example-form">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Favorite food</mat-label>
+    <input matInput #accountName>
+  </mat-form-field><br>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Price</mat-label>
+    <input matInput #accountPrice>
+  </mat-form-field><br>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Status</mat-label>
+    <mat-select #status>
+      <mat-option value="Like">Like</mat-option>
+      <mat-option value="Dislike">Dislike</mat-option>
+    </mat-select>
+  </mat-form-field><br>
+
+</form>
+
+<button mat-raised-button color="primary" (click)="onCreateAccount(accountName.value, accountPrice.value, status.value)">
+  Add Product
+</button>

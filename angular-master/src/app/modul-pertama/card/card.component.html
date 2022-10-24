@@ -1,0 +1,13 @@
+<div class="row">
+  <mat-card>
+    <p> <b> {{ card.title}} </b>  </p>
+    <mat-card-subtitle>
+      <p> {{card.price}}</p>
+    </mat-card-subtitle>
+    <mat-card-content>
+      <p>{{ card.status }}</p>
+    </mat-card-content>
+    <button mat-raised-button color="primary" (click)="onSetTo('Like')">Like</button>
+    <button mat-raised-button color="accent" (click)="onSetTo('Dislike')">Dislike</button>
+  </mat-card>
+</div>

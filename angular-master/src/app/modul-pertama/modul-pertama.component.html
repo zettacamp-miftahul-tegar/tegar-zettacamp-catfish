@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="induk">
+      <app-input-card (accountAdded)="onAccountAdded($event)"></app-input-card>
+      <hr>
+      <div class="induk">
+        <app-card *ngFor="let acc of cards; let i = index" 
+        [card]="acc" 
+        [id]="i"
+          (statusChanged)="onStatusChanged($event)">
+        </app-card>
+      </div>
+    </div>
+  </div>
+</div>
