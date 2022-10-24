@@ -27,21 +27,6 @@ export class CardComponent implements OnInit {
     
   }
 
-  // const subjectt = new BehaviorSubject(123);
-
-  // two new subscribers will get initial value => output: 123, 123
-  // subject.subscribe(console.log);
-  // subject.subscribe(console.log);
-
-  // two subscribers will get new value => output: 456, 456
-  // subject3.next(456);
-
-  // new subscriber will get latest value (456) => output: 456
-  // subject4.subscribe(console.log);
-
-  // all three subscribers will get new value => output: 789, 789, 789
-  // subject5.next(789);
-
   @Input() card: any;
   @Input() id!: number;
   @Output() statusChanged = new EventEmitter<{id: number, newStatus: string}>();
