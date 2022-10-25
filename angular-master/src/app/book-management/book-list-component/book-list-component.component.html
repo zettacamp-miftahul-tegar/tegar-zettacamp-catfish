@@ -1,1 +1,4 @@
-<p>book-list-component works!</p>
+<mat-grid-list cols="2" rowHeight="2:1">
+  <app-book-card-component *ngFor="let acc of bookList; let i = index" [card]="acc">
+  </app-book-card-component>
+</mat-grid-list>

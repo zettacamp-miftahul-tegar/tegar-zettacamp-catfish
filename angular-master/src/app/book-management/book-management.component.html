@@ -1,1 +1,12 @@
-<p>book-management works!</p>
+<mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile class="body1">
+      <app-book-list-component></app-book-list-component>
+  </mat-grid-tile>
+  <mat-grid-tile class="body2">
+    <app-book-detail-component></app-book-detail-component>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<!-- <div class="p-col-3 p-offset-1" *ngIf="selectedData">
+  <app-book-list-component></app-book-list-component>
+</div> -->

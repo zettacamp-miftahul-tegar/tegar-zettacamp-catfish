@@ -1,0 +1,53 @@
+{
+  "bookList": [
+    {
+      "nama": "senja berkumandang",
+      "pengarang": "miftahul",
+      "penerbit": "miftah",
+      "tanggal": "20 agustus 2022",
+      "terbit": "25 agustus 2022"
+    },
+    {
+      "nama": "sore hari",
+      "pengarang": "tegar",
+      "penerbit": "teg",
+      "tanggal": "12 april 2022",
+      "terbit": "30 april 2022"
+    },
+    {
+      "nama": "detective conan",
+      "pengarang": "pangestu",
+      "penerbit": "tegpang",
+      "tanggal": "1 januari 2022",
+      "terbit": "12 januari 2022"
+    },
+    {
+      "nama": "senja akan tiba",
+      "pengarang": "ade",
+      "penerbit": "de",
+      "tanggal": "21 agustus 2022",
+      "terbit": "30 agustus 2022"
+    },
+    {
+      "nama": "pantai",
+      "pengarang": "hikmah",
+      "penerbit": "hik",
+      "tanggal": "12 april 2021",
+      "terbit": "30 mei 2021"
+    },
+    {
+      "nama": "bukit",
+      "pengarang": "nur",
+      "penerbit": "nur",
+      "tanggal": "1 januari 2020",
+      "terbit": "12 januari 2020"
+    },
+    {
+      "nama": "semangat membara",
+      "pengarang": "rizki",
+      "penerbit": "riz",
+      "tanggal": "20 desember 2021",
+      "terbit": "22 desember 2021"
+    }
+  ]
+}
