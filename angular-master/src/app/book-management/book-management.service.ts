@@ -8,10 +8,11 @@ import { Data } from './data.model'
 })
 export class BookManagementService {
 
-  bookList: BehaviorSubject<Data[]> = new BehaviorSubject<Data[]>([]);
+  // membuat bahavior baru
+  private bookList = new BehaviorSubject<Data[]>([]);
   bookList$ = this.bookList.asObservable();
 
-  selectedData: BehaviorSubject<Data | null> = new BehaviorSubject<Data | null>(null);
+  private selectedData = new BehaviorSubject<Data | null>(null);
   selectedData$ = this.selectedData.asObservable();
 
   constructor(private httpClient: HttpClient) { 
@@ -19,17 +20,17 @@ export class BookManagementService {
   }
 
   dummyInitList() {
-    this.fetchUserJson().subscribe(resp => {
-      let usersData = resp.bookList;
-      this.setAllUsersLists(usersData);
+    this.fetchDataJson().subscribe(resp => {
+      let bookData = resp.bookList;
+      this.setAllDataLists(bookData);
     })
   }
 
-  fetchUserJson() {
+  fetchDataJson() {
     return this.httpClient.get<any>('../../assets/data.json');
   }
 
-  setAllUsersLists(data: Data[]) {
+  setAllDataLists(data: Data[]) {
     this.bookList.next(data);
   }
 

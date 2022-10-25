@@ -21,8 +21,4 @@ export class BookListComponentComponent implements OnInit {
     })
   }
 
-  // selectData(data1: Data){
-  //   this.data.setSelectedData(data1);
-  // }
-
 }
