@@ -19,4 +19,8 @@ export class BookDetailComponentComponent implements OnInit {
 
   selectedData: Data | null = null;
 
+  closeDetail() {
+    this.data.resetSelectedData();
+  }
+
 }

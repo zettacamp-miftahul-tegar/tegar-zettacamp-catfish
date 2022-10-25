@@ -1,7 +1,18 @@
-<mat-list *ngIf="selectedData" class="pe">
-  <mat-list-item> Nama : {{selectedData.nama}} </mat-list-item>
-  <mat-list-item> Pengarang : {{selectedData.pengarang}} </mat-list-item>
-  <mat-list-item> Penerbit : {{selectedData.penerbit}} </mat-list-item>
-  <mat-list-item> Tanggal : {{selectedData.tanggal}}</mat-list-item>
-  <mat-list-item> Tanggal Terbit : {{selectedData.terbit}}</mat-list-item>
-</mat-list>
+<div *ngIf="selectedData">
+  <mat-list class="pe">  
+    <mat-list-item> Nama : {{selectedData.nama}} </mat-list-item>
+    <mat-list-item> Pengarang : {{selectedData.pengarang}} </mat-list-item>
+    <mat-list-item> Penerbit : {{selectedData.penerbit}} </mat-list-item>
+    <mat-list-item> Tanggal : {{selectedData.tanggal}}</mat-list-item>
+    <mat-list-item> Tanggal Terbit : {{selectedData.terbit}}</mat-list-item>
+    <mat-list-item>
+      <button type="button" (click)="closeDetail()" mat-raised-button color="warn">Close</button>
+    </mat-list-item>
+  </mat-list>
+</div>
+
+<div *ngIf="!selectedData">
+  <mat-list >
+    <mat-list-item> You dont have any selected book yet, Please select from list of book that available </mat-list-item>
+  </mat-list>
+</div>

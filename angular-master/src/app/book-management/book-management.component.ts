@@ -14,7 +14,7 @@ export class BookManagementComponent implements OnInit {
   constructor(private usersService: BookManagementService) {}
 
   ngOnInit(): void {
-    // Observe to selecteduser behaviourSubject, if there is change, then it will update selectedUser
+    // Amati perilaku pengguna yang dipilihSubjek, jika ada perubahan, maka itu akan memperbarui Pengguna yang dipilih
     this.usersService.selectedData$.subscribe((data) => {
       this.selectedData = data;
     });

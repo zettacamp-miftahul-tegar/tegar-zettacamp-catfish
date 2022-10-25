@@ -37,15 +37,7 @@ export class BookManagementService {
     this.selectedData.next(data1);
   }
 
-  // resetSelectedUser() {
-  //   this.selectedUser.next(null);
-  // }
-
-  // resetAllStudentsLists() {
-  //   this.bookList.next([]);
-  // }
-
-  // getValuetAllStudentsLists(): Data[] {
-  //   return this.bookList.getValue();
-  // }
+  resetSelectedData() {
+    this.selectedData.next(null);
+  }
 }
