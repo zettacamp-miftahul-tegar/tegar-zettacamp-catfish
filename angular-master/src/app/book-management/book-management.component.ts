@@ -18,6 +18,7 @@ export class BookManagementComponent implements OnInit {
     this.usersService.selectedData$.subscribe((data) => {
       this.selectedData = data;
     });
+    // this.usersService.selectedData$.next()
   }
 
 }
