@@ -2,4 +2,7 @@
     width: 35rem;
     margin: 1rem;
     background-color: blanchedalmond;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between
 }

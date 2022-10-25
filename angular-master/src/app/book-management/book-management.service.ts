@@ -11,8 +11,8 @@ export class BookManagementService {
   bookList: BehaviorSubject<Data[]> = new BehaviorSubject<Data[]>([]);
   bookList$ = this.bookList.asObservable();
 
-  selectedUser: BehaviorSubject<Data | null> = new BehaviorSubject<Data | null>(null);
-  selectedUser$ = this.selectedUser.asObservable();
+  selectedData: BehaviorSubject<Data | null> = new BehaviorSubject<Data | null>(null);
+  selectedData$ = this.selectedData.asObservable();
 
   constructor(private httpClient: HttpClient) { 
     this.dummyInitList();
@@ -33,18 +33,12 @@ export class BookManagementService {
     this.bookList.next(data);
   }
 
-  // setSelectedUser(data: Data) {
-  //   this.selectedUser.next(data);
-  // }
+  setSelectedData(data1: Data) {
+    this.selectedData.next(data1);
+  }
 
   // resetSelectedUser() {
   //   this.selectedUser.next(null);
-  // }
-
-  // addUserToList(data: Data) {
-  //   let tempUsers = this.getValuetAllStudentsLists();
-  //   tempUsers.push(data);
-  //   this.setAllUsersLists(tempUsers);
   // }
 
   // resetAllStudentsLists() {

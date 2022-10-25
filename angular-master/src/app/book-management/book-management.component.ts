@@ -8,7 +8,6 @@ import { BookManagementService } from './book-management.service';
   styleUrls: ['./book-management.component.css']
 })
 export class BookManagementComponent implements OnInit {
-[x: string]: any;
 
   selectedData: Data | null = null;
 
@@ -16,8 +15,8 @@ export class BookManagementComponent implements OnInit {
 
   ngOnInit(): void {
     // Observe to selecteduser behaviourSubject, if there is change, then it will update selectedUser
-    this.usersService.selectedUser$.subscribe((user) => {
-      this.selectedData = user;
+    this.usersService.selectedData$.subscribe((data) => {
+      this.selectedData = data;
     });
   }
 

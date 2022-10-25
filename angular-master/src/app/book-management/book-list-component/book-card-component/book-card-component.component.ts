@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { BookManagementService } from '../../book-management.service'
+import { Data } from '../../data.model'
 
 @Component({
   selector: 'app-book-card-component',
@@ -7,11 +9,18 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class BookCardComponentComponent implements OnInit {
 
-  constructor() { }
+  // bookList: Data[] = [];
+  // selectedUser: Data | null = null;
 
   ngOnInit(): void {
   }
 
   @Input() card: any;
+
+  constructor(private data:BookManagementService) {};
+
+  selectData(data1: Data){
+    this.data.setSelectedData(data1);
+  }
 
 }
