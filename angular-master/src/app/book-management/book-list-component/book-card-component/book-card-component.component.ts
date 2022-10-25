@@ -9,9 +9,6 @@ import { Data } from '../../data.model'
 })
 export class BookCardComponentComponent implements OnInit {
 
-  // bookList: Data[] = [];
-  // selectedUser: Data | null = null;
-
   ngOnInit(): void {
   }
 

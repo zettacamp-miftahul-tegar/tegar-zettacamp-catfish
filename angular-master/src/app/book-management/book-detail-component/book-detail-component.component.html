@@ -1,27 +1,7 @@
-<mat-card class="pe">
-  <div class="p-grid">
-    <div class="p-col-12 card-container">
-      <div class="p-grid" *ngIf="selectedData">
-        <div class="p-col-6">
-          <span>Nama : {{selectedData.nama}} </span>
-        </div>
-        <div class="p-col-12">
-          <span>Pengarang : {{selectedData.pengarang}} </span>
-        </div>
-        <div class="p-col-12 card-container">
-          <div class="p-grid">
-            <div class="p-col-12">
-              <span>Penerbit : {{selectedData.penerbit}} </span>
-            </div>
-            <div class="p-col-12">
-              <span>Tanggal : {{selectedData.tanggal}} </span>
-            </div>
-            <div class="p-col-12">
-              <span>Tanggal Terbit : {{selectedData.terbit}} </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</mat-card>
+<mat-list *ngIf="selectedData" class="pe">
+  <mat-list-item> Nama : {{selectedData.nama}} </mat-list-item>
+  <mat-list-item> Pengarang : {{selectedData.pengarang}} </mat-list-item>
+  <mat-list-item> Penerbit : {{selectedData.penerbit}} </mat-list-item>
+  <mat-list-item> Tanggal : {{selectedData.tanggal}}</mat-list-item>
+  <mat-list-item> Tanggal Terbit : {{selectedData.terbit}}</mat-list-item>
+</mat-list>
