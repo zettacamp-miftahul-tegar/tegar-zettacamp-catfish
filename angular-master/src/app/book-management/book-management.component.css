@@ -1,9 +1,11 @@
-a {
-    color: black;
+/* .body1{
+    background-color: aquamarine;
+    height: 100%;
 }
 
-span {
-    vertical-align: super;
+.body2{
+    background-color: antiquewhite;
+    height: 100%;
 }
 
 mat-toolbar {
@@ -38,4 +40,4 @@ mat-sidenav {
 
 mat-sidenav-container {
     height: calc(100vh - 65px);
-}
+} */

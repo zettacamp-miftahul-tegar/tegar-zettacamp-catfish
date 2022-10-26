@@ -1,0 +1,20 @@
+<div *ngIf="card">
+  <mat-list class="pe">  
+    <mat-list-item> ID : {{card.id}} </mat-list-item>
+    <mat-list-item> Nama : {{card.nama}} </mat-list-item>
+    <mat-list-item> Pengarang : {{card.pengarang}} </mat-list-item>
+    <mat-list-item> Penerbit : {{card.penerbit}} </mat-list-item>
+    <mat-list-item> Tanggal : {{card.tanggal}}</mat-list-item>
+    <mat-list-item> Tanggal Terbit : {{card.terbit}}</mat-list-item>
+    <!-- <mat-list-item>
+      <button type="button" (click)="closeDetail()" mat-raised-button color="warn">Close</button>
+    </mat-list-item> -->
+  </mat-list>
+</div>
+
+<div *ngIf="!card">
+  <mat-list >
+    <mat-list-item> You dont have any selected book yet, Please select from list of book that available </mat-list-item>
+  </mat-list>
+</div>
+

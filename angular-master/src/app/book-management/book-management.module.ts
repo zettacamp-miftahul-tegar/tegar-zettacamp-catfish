@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { BookManagementModule } from './book-management/book-management.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
+import { BookListComponentComponent } from './book-list-component/book-list-component.component';
+import { BookDetailComponentComponent } from './book-detail-component/book-detail-component.component';
+import { BookCardComponentComponent } from './book-list-component/book-card-component/book-card-component.component';
+import { BookManagementComponent } from './book-management.component';
 
 // Material Form Controls
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -47,17 +46,39 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule} from '@angular/common/http'
+import { RouterModule, Routes } from '@angular/router';
+import { AppRoutingModule } from '../app-routing.module';
+
+const routes : Routes = [
+  {
+    path:'', component:BookManagementComponent,
+    children:[
+      {
+        path: 'home',component:BookListComponentComponent
+      },
+      {
+        path: 'profile',component:BookDetailComponentComponent
+      },
+      {
+        path: 'home/profile/:id/:nama/:pengarang/:penerbit/:tanggal/:terbit',component:BookDetailComponentComponent
+      },
+      {
+        path: '**', component:BookDetailComponentComponent
+      }
+    ]
+  }
+]
 
 @NgModule({
   declarations: [
-    AppComponent
+    BookListComponentComponent,
+    BookDetailComponentComponent,
+    BookCardComponentComponent,
+    BookManagementComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BookManagementModule,
-    BrowserAnimationsModule,
+    CommonModule,
     MatAutocompleteModule,
     MatCheckboxModule,
     MatDatepickerModule,
@@ -99,8 +120,15 @@ import { HttpClientModule } from '@angular/common/http';
     MatButtonModule,
     MatIconModule,
     MatDividerModule,
+    AppRoutingModule,
+    RouterModule.forChild(routes),
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  exports: [
+    BookCardComponentComponent,
+    BookDetailComponentComponent,
+    BookListComponentComponent,
+    BookCardComponentComponent,
+    BookManagementComponent
+  ]
 })
-export class AppModule { }
+export class BookManagementModule { }
