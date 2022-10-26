@@ -3,7 +3,7 @@
     <h1> {{card.nama}} </h1>
   </div>
   <div class="p-col-6 button-alignment">
-    <a [routerLink]="['./profile', card.id, card.nama, card.pengarang, card.penerbit, card.tanggal, card.terbit]">
+    <a [routerLink]="['../profile', card.id, card.nama, card.pengarang, card.penerbit, card.tanggal, card.terbit]">
       <button type="button" mat-raised-button color="primary" (click)="selectData(card)"> Detail Books </button>
     </a>
   </div>

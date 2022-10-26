@@ -61,10 +61,10 @@ const routes : Routes = [
         path: 'profile',component:BookDetailComponentComponent
       },
       {
-        path: 'home/profile/:id/:nama/:pengarang/:penerbit/:tanggal/:terbit',component:BookDetailComponentComponent
+        path: 'profile/:id/:nama/:pengarang/:penerbit/:tanggal/:terbit',component:BookDetailComponentComponent
       },
       {
-        path: '**', component:BookDetailComponentComponent
+        path: '**', redirectTo:"profile"
       }
     ]
   }
