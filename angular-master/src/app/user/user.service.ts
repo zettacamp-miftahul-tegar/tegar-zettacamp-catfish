@@ -8,7 +8,7 @@ import { User } from './model/user.model'
 })
 export class UserService {
 
-  usert: any;
+  // users : any;
   
   // membuat bahavior baru
   private userList = new BehaviorSubject<User[]>([]);
@@ -34,17 +34,21 @@ export class UserService {
 
   addUser(val:any) {
     this.userData.push(val)
-    // console.log(this.bookData);
     this.userList.next(this.userData)
   }
 
-  updateData(currentId: any, newValue: any){
-    // console.log(this.usert[0].id);
+  updateData(currentId: string, newValue: any){
+    console.log(this.userData[0].id);
     let index = parseInt(currentId)-1;
-    if(this.usert[index].id == currentId){
-    this.usert[index] = newValue;
+    if(this.userData[index].id == currentId){
+    this.userData[index] = newValue;
     }
   }
+
+  // editUser(val:any, content:any){
+  //   this.userData[parseInt(val)-1] = content;
+  //   this.userList.next(this.userData)
+  // }
 
   fetchDataJson() {
     return this.httpClient.get<any>('../../assets/user.json');

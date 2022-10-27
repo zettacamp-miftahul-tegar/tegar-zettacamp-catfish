@@ -23,6 +23,9 @@ export class UserInputComponent implements OnInit {
   signupForm!: FormGroup;
   bebas : any;
 
+  user:any= {}
+  userId = null;
+
   constructor(private route: ActivatedRoute, private data: UserService) {}
 
   ngOnInit(): void {
@@ -44,21 +47,20 @@ export class UserInputComponent implements OnInit {
     }
 
     this.signupForm = new FormGroup({
-      'id': new FormControl(''),
-      'name': new FormControl(''),
-      'age': new FormControl(''),
-      'email': new FormControl(''),
-      'position': new FormControl(''),
-      'status': new FormControl(''),
-      'genders': new FormControl('male'),
+      'id': new FormControl(null, Validators.required),
+      'name': new FormControl(null, Validators.required),
+      'age': new FormControl(null, Validators.required),
+      'email': new FormControl(null, Validators.required),
+      'position': new FormControl(null, Validators.required),
+      'status': new FormControl(null, Validators.required),
+      'genders': new FormControl(null, Validators.required),
       'address': new FormGroup({
-        'address': new FormControl(''),
-        'zip': new FormControl(''),
-        'city': new FormControl(''),
-        'country': new FormControl('')
+        'address': new FormControl(null, Validators.required),
+        'zipcode': new FormControl(null, Validators.required),
+        'city': new FormControl(null, Validators.required),
+        'country': new FormControl(null, Validators.required)
       })
     });
-
     this.getData();
   }
 
@@ -67,18 +69,20 @@ export class UserInputComponent implements OnInit {
       this.bebas = x;
       // console.log(this.bebas);
       let user = this.bebas.filter((x: { id: any; }) => x.id == this.id);
-      console.log(user); 
-    })
+      let a = this.signupForm.patchValue(user[0]);
+    });
   }
-  
+
   onSubmit() {
     if (this.id) {
       let updateId = this.id
       let updateData = this.signupForm.value
       this.data.updateData(updateId, updateData)
+      alert('update data succes!')
     } else {
       console.log(this.signupForm);
       this.data.addUser(this.signupForm.value)
+      alert('upload data succes!')
     }
 
   }
