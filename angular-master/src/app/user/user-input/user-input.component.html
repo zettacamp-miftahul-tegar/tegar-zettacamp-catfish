@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label> <label for="id">ID</label> </mat-label>
+          <input matInput type="number" id="id" formControlName="id" class="form-control">
+        </mat-form-field><br>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label> <label for="name">Name</label> </mat-label>
+          <input matInput type="text" id="name" formControlName="name" class="form-control">
+        </mat-form-field><br>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label> <label for="age">Age</label> </mat-label>
+          <input matInput type="number" id="age" formControlName="age" class="form-control">
+        </mat-form-field><br>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label> <label for="email">email</label> </mat-label>
+          <input matInput type="email" id="email" formControlName="email" class="form-control">
+        </mat-form-field><br>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label> <label for="position">Position</label></mat-label>
+          <mat-select formControlName="position">
+            <mat-option value="backend"> Backend </mat-option>
+            <mat-option value="frondend"> FrondEnd </mat-option>
+            <mat-option value="qa"> QA </mat-option>
+          </mat-select>
+          <!-- <input matInput type="text" id="position" formControlName="position" class="form-control"> -->
+        </mat-form-field><br>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label> <label for="status">status</label></mat-label>
+          <mat-select formControlName="status">
+            <mat-option value="Married"> Married </mat-option>
+            <mat-option value="Singgle"> Singgle </mat-option>
+          </mat-select>
+          <!-- <mat-label> <label for="status">Marital Status</label></mat-label>
+          <input matInput type="text" id="status" formControlName="marital_status" class="form-control"> -->
+        </mat-form-field><br>
+
+        <label> Gender</label>
+        <div class="radio" *ngFor="let gender of genders">
+          <input type="radio" formControlName="genders" [value]="gender">{{ gender }}
+        </div><br>
+
+        <div formGroupName="address">
+          <h2>Address</h2>
+
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label> <label for="address">Address: </label></mat-label>
+            <input matInput id="address" type="text" formControlName="address">
+          </mat-form-field><br>
+
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label> <label for="zip">Zip Code: </label></mat-label>
+            <input matInput id="zip" type="text" formControlName="zip">
+          </mat-form-field><br>
+
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label> <label for="city">City: </label></mat-label>
+            <input matInput id="city" type="text" formControlName="city">
+          </mat-form-field><br>
+
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label> <label for="country">Country: </label></mat-label>
+            <input matInput id="country" type="text" formControlName="country">
+          </mat-form-field><br>
+        </div>
+
+        <button mat-raised-button color="primary" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

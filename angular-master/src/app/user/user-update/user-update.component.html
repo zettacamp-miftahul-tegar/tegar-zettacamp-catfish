@@ -1,0 +1,65 @@
+<!-- <div *ngIf="selectedUser">
+    <mat-list class="pe">  
+      <mat-list-item> Name : {{selectedUser.name}} </mat-list-item>
+      <mat-list-item> Age : {{selectedUser.age}} </mat-list-item>
+      <mat-list-item> Gender : {{selectedUser.gender}} </mat-list-item>
+      <mat-list-item> Email : {{selectedUser.email}}</mat-list-item>
+      <mat-list-item> Position : {{selectedUser.position}}</mat-list-item>
+      <mat-list-item> Status : {{selectedUser.status}}</mat-list-item>
+      <mat-list-item> Addreas : {{selectedUser.address.address}} </mat-list-item>
+
+     
+    </mat-list>
+  </div>
+
+  <div class="container" *ngIf="selectedUser">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="username">Name</label>
+            <input type="text" id="name" formControlName="name" class="form-control" [value]="selectedUser.name"> 
+          </div>
+          <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" id="age" formControlName="age" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="email">email</label>
+            <input type="email" id="email" formControlName="email" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="position">Postition</label>
+            <input type="text" id="position" formControlName="position" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="marital_status">Marital Status</label>
+            <input type="text" id="marital_status" formControlName="marital_status" class="form-control">
+          </div>
+  
+          <label> Gender</label>
+          <div class="radio" *ngFor="let gender of genders">
+            <input type="radio" formControlName="genders" [value]="gender">{{ gender }}
+          </div>
+  
+          <div formGroupName="address">
+            <h2>Address</h2>
+  
+            <label for="address">Address: </label>
+            <input id="address" type="text" formControlName="address">
+  
+            <label for="zip">Zip Code: </label>
+            <input id="zip" type="text" formControlName="zip">
+  
+            <label for="city">City: </label>
+            <input id="city" type="text" formControlName="city">
+  
+            <label for="country">Country: </label>
+            <input id="country" type="text" formControlName="country">
+          </div>
+          <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+   -->

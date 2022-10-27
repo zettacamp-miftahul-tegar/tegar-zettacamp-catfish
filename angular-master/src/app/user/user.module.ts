@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { UserModule } from './user/user.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
+import { UserComponent } from './user.component';
+import { UserListComponent } from './user-list/user-list.component';
+import { UserUpdateComponent } from './user-update/user-update.component';
+import { UserCardComponent } from './user-list/user-card/user-card.component';
 
 // Material Form Controls
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -47,18 +46,42 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule} from '@angular/common/http'
+import { RouterModule, Routes } from '@angular/router';
+import { AppRoutingModule } from '../app-routing.module';
+import { UserInputComponent } from './user-input/user-input.component';
 import { ReactiveFormsModule } from '@angular/forms';
+
+const routes : Routes = [
+  {
+    path:'', component:UserComponent,
+    children:[
+      {
+        path: 'home',component:UserListComponent
+      },
+      {
+        path: 'user', component:UserUpdateComponent
+      },
+      {
+        path: 'user/:id', component:UserInputComponent
+      },
+      {
+        path: 'home/input-user', component:UserInputComponent
+      }
+    ]
+  }
+]
 
 @NgModule({
   declarations: [
-    AppComponent
+    UserComponent,
+    UserListComponent,
+    UserUpdateComponent,
+    UserCardComponent,
+    UserInputComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    UserModule,
-    BrowserAnimationsModule,
+    CommonModule,
     MatAutocompleteModule,
     MatCheckboxModule,
     MatDatepickerModule,
@@ -100,9 +123,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatButtonModule,
     MatIconModule,
     MatDividerModule,
+    AppRoutingModule,
+    RouterModule.forChild(routes),
     ReactiveFormsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  exports: [
+    UserCardComponent,
+    UserComponent,
+    UserListComponent,
+    UserUpdateComponent
+  ]
 })
-export class AppModule { }
+export class UserModule { }

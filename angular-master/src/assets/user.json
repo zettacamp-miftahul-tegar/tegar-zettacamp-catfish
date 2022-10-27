@@ -1,0 +1,49 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "name": "miftahul",
+        "age": 21,
+        "genders": "male",
+        "email": "miftahul@yopmail.com",
+        "position": "lead",
+        "status": "married",
+        "address": {
+          "address": "Paris Street 13",
+          "zipcode": "75000",
+          "city": "Paris",
+          "country": "France"
+        }
+      },
+      {
+        "id": 2,
+        "name": "tegar",
+        "age": 21,
+        "genders": "male",
+        "email": "tegar@yopmail.com",
+        "position": "lead",
+        "status": "married",
+        "address": {
+          "address": "Paris Street 13",
+          "zipcode": "75000",
+          "city": "Paris",
+          "country": "France"
+        }
+      },
+      {
+        "id": 3,
+        "name": "pangestu",
+        "age": 21,
+        "genders": "male",
+        "email": "pangestu@yopmail.com",
+        "position": "lead",
+        "status": "married",
+        "address": {
+          "address": "Paris Street 13",
+          "zipcode": "75000",
+          "city": "Paris",
+          "country": "France"
+        }
+      }
+    ]
+  }

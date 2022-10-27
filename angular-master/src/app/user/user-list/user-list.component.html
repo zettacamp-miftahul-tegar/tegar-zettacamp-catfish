@@ -1,0 +1,11 @@
+<mat-action-list style="padding-left: 20px;">
+  <a routerLink='./input-user'>
+    <button type="button" mat-raised-button color="primary"> Add user </button>
+  </a>
+</mat-action-list>
+<mat-grid-list cols="2" rowHeight="2:1">
+  <app-user-card *ngFor="let acc of users;" [user]="acc">
+  </app-user-card>
+</mat-grid-list>
+
+<!-- <app-user-card></app-user-card> -->

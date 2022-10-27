@@ -1,0 +1,10 @@
+<mat-card class="comp">
+  <div>
+    <h1> {{user.name}} </h1>
+  </div>
+  <div class="p-col-6 button-alignment">
+    <a (click)="onClick(user)" routerLinkActive="active" ariaCurrentWhenActive="page" mat-raised-button color="primary">
+      <button mat-button >Edit</button>
+    </a>
+  </div>
+</mat-card>
