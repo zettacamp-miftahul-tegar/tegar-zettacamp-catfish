@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserComponent } from './user.component';
 import { UserListComponent } from './user-list/user-list.component';
-import { UserUpdateComponent } from './user-update/user-update.component';
 import { UserCardComponent } from './user-list/user-card/user-card.component';
 
 // Material Form Controls
@@ -60,7 +59,7 @@ const routes : Routes = [
         path: 'home',component:UserListComponent
       },
       {
-        path: 'user', component:UserUpdateComponent
+        path: 'user', component:UserInputComponent
       },
       {
         path: 'user/:id', component:UserInputComponent
@@ -76,7 +75,6 @@ const routes : Routes = [
   declarations: [
     UserComponent,
     UserListComponent,
-    UserUpdateComponent,
     UserCardComponent,
     UserInputComponent
   ],
@@ -131,7 +129,6 @@ const routes : Routes = [
     UserCardComponent,
     UserComponent,
     UserListComponent,
-    UserUpdateComponent
   ]
 })
 export class UserModule { }
