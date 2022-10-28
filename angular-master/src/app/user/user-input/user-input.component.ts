@@ -1,14 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import {
-  UserService
-} from '../user.service';
-import {
-  ActivatedRoute
-} from '@angular/router';
-import {
-  User
-} from '../model/user.model';
+import { UserService } from '../user.service';
+import { ActivatedRoute } from '@angular/router';
+import { User } from '../model/user.model';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-user-input',
@@ -23,10 +18,9 @@ export class UserInputComponent implements OnInit {
   signupForm!: FormGroup;
   bebas : any;
 
-  user:any= {}
-  userId = null;
+  selectedLang = 'en';
 
-  constructor(private route: ActivatedRoute, private data: UserService) {}
+  constructor(private route: ActivatedRoute, private data: UserService, public translateService: TranslateService) {}
 
   ngOnInit(): void {
     // const id = parseInt(this.route.snapshot.paramMap.get('id') !, 10);
@@ -85,5 +79,9 @@ export class UserInputComponent implements OnInit {
       alert('upload data succes!')
     }
 
+  }
+
+  setLanguage(lang: string) {
+    this.translateService.use(lang);
   }
 }

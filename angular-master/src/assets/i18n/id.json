@@ -1,0 +1,18 @@
+{
+    "signupForm": {
+      "id": "Nomor ID",
+      "name": "Nama",
+      "age": "Umur",
+      "genders": "Jenis Kelamin",
+      "email": "Surel",
+      "position": "Posisi",
+      "status": "Status Perkawinan",
+      "address": "Alamat",
+      "zipcode": "Kode Pos",
+      "city": "Kota",
+      "country": "Negara"
+    },
+    "actions": {
+      "submit": "Submit"
+    }
+  }

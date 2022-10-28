@@ -51,6 +51,14 @@ import { AppRoutingModule } from '../app-routing.module';
 import { UserInputComponent } from './user-input/user-input.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient } from '@angular/common/http';
+
+export function HttpLoaderFactory(httpClient: HttpClient) {
+  return new TranslateHttpLoader(httpClient);
+}
+
 const routes : Routes = [
   {
     path:'', component:UserComponent,
@@ -123,7 +131,15 @@ const routes : Routes = [
     MatDividerModule,
     AppRoutingModule,
     RouterModule.forChild(routes),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TranslateModule.forRoot({
+      defaultLanguage: 'en',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
   ],
   exports: [
     UserCardComponent,

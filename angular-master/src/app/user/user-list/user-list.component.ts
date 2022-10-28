@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../model/user.model'
+// import { User } from '../model/user.model'
 import { UserService } from '../user.service'
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-user-list',
@@ -8,6 +9,8 @@ import { UserService } from '../user.service'
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
+
+  // selectedLang = 'en';
 
   constructor(private data:UserService) {};
 
@@ -20,4 +23,9 @@ export class UserListComponent implements OnInit {
       console.log(bebas);
     });
   }
+
+  // setLanguage(lang: string) {
+  //   this.translateService.use(lang);
+  // }
+
 }
