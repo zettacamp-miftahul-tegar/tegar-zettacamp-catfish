@@ -38,7 +38,7 @@ export class UserService {
   }
 
   updateData(currentId: string, newValue: any){
-    console.log(this.userData[0].id);
+    // console.log(this.userData[0].id);
     let index = parseInt(currentId)-1;
     if(this.userData[index].id == currentId){
     this.userData[index] = newValue;

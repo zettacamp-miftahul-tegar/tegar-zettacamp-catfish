@@ -74,6 +74,9 @@ const routes : Routes = [
       },
       {
         path: 'home/input-user', component:UserInputComponent
+      },
+      {
+        path:'../../home',component:UserListComponent
       }
     ]
   }

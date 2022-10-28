@@ -13,7 +13,8 @@ import {
   UserService
 } from '../user.service';
 import {
-  ActivatedRoute
+  ActivatedRoute,
+  Router
 } from '@angular/router';
 import {
   User
@@ -21,7 +22,9 @@ import {
 import {
   TranslateService
 } from '@ngx-translate/core';
-import { first } from 'rxjs';
+import {
+  first
+} from 'rxjs';
 
 @Component({
   selector: 'app-user-input',
@@ -30,18 +33,18 @@ import { first } from 'rxjs';
 })
 export class UserInputComponent implements OnInit {
 
-  selectedUser: User | null | undefined;
+  selectedUser!: User;
   id: any;
   genders = ['male', 'female'];
   signupForm!: FormGroup;
   bebas: any;
 
   selectedLang = 'en';
-  isEdit: any;
+  isEdit: boolean = false;
   subcription: any;
-  // 
 
-  constructor(private route: ActivatedRoute, private data: UserService, public translateService: TranslateService, private fb: FormBuilder) {}
+
+  constructor(private route: ActivatedRoute, private data: UserService, public translateService: TranslateService, private fb: FormBuilder, private router: Router, ) {}
 
   ngOnInit(): void {
     // this.data.userList$.subscribe(data => {
@@ -49,11 +52,25 @@ export class UserInputComponent implements OnInit {
     // })
     this.initForm();
 
+    const id = this.route.snapshot.paramMap.get('id');
+    this.isEdit = id != null;
+
+    console.log(this.isEdit);
+    console.log(id);
+
+
     if (this.isEdit) {
       this.subcription = this.data.userList$
-        .pipe(first((users: User[]) => users.length !== 0))
-        .subscribe((users: any[]) => {
-          const user: any = users.find(user => user.id === this.id);
+        .pipe(first((items) => items.length !== 0))
+        .subscribe((items) => {
+          const user: any = items.find(items => {
+            console.log(items);
+            console.log(id);
+            
+            return items.id == this.id
+          });
+
+          console.log(user);
 
           for (let i = 0; i < user.address.length; i++) {
             this.onAddAddress();
@@ -76,14 +93,14 @@ export class UserInputComponent implements OnInit {
     }
 
     this.signupForm = new FormGroup({
-      'id': new FormControl(null, Validators.required),
-      'name': new FormControl(null, Validators.required),
-      'age': new FormControl(null, Validators.required),
-      'email': new FormControl(null, Validators.required),
-      'position': new FormControl(null, Validators.required),
-      'status': new FormControl(null, Validators.required),
-      'genders': new FormControl(null, Validators.required),
-      'address': new FormArray([])
+      'id': this.fb.control(null, Validators.required),
+      'name': this.fb.control(null, Validators.required),
+      'age': this.fb.control(null, Validators.required),
+      'email': this.fb.control(null, Validators.required),
+      'position': this.fb.control(null, Validators.required),
+      'status': this.fb.control(null, Validators.required),
+      'genders': this.fb.control(null, Validators.required),
+      'address': this.fb.array([])
     });
     this.getData();
   }
@@ -91,7 +108,6 @@ export class UserInputComponent implements OnInit {
   getData() {
     this.data.userList$.subscribe(x => {
       this.bebas = x;
-      // console.log(this.bebas);
       let user = this.bebas.filter((x: {
         id: any;
       }) => x.id == this.id);
@@ -105,31 +121,41 @@ export class UserInputComponent implements OnInit {
       let updateData = this.signupForm.value
       this.data.updateData(updateId, updateData)
       alert('update data succes!')
+      this.router.navigate(['/home']);
     } else {
       console.log(this.signupForm);
       this.data.addUser(this.signupForm.value)
       alert('upload data succes!')
+      this.router.navigate(['/home']);
     }
 
   }
+
 
   setLanguage(lang: string) {
     this.translateService.use(lang);
   }
 
+  get addr() {
+    return this.signupForm.controls['address'] as FormArray;
+  }
+
   onAddAddress() {
-    let creds = this.signupForm.controls['address'] as FormArray;
-    creds.push(new FormGroup({
-      address: new FormControl(null, Validators.required),
-      zipcode: new FormControl(null, Validators.required),
-      city: new FormControl(null, Validators.required),
-      country: new FormControl(null, Validators.required)
+    this.addr.push(new FormGroup({
+      address: this.fb.control(null, Validators.required),
+      zipcode: this.fb.control(null, Validators.required),
+      city: this.fb.control(null, Validators.required),
+      country: this.fb.control(null, Validators.required)
     }));
 
   }
 
-  get controls() {
-    return (this.signupForm.get('address') as FormArray).controls;
+  get controls(): FormArray {
+    return this.signupForm.get('address') as FormArray;
+  }
+
+  removeAddress(i: number) {
+    this.controls.removeAt(i);
   }
 
 }
