@@ -1,11 +1,7 @@
 <div class="language">
   <mat-form-field appearance="outline">
     <mat-label>Language</mat-label>
-    <mat-select
-      [(value)]="selectedLang"
-      #lang
-      (valueChange)="setLanguage(lang.value)"
-    >
+    <mat-select [(value)]="selectedLang" #lang (valueChange)="setLanguage(lang.value)">
       <mat-option value="en">English</mat-option>
       <mat-option value="id">Indonesian</mat-option>
     </mat-select>
@@ -48,8 +44,6 @@
             <mat-option value="Married"> Married </mat-option>
             <mat-option value="Singgle"> Singgle </mat-option>
           </mat-select>
-          <!-- <mat-label> <label for="status">Marital Status</label></mat-label>
-          <input matInput type="text" id="status" formControlName="marital_status" class="form-control"> -->
         </mat-form-field><br>
 
         <label> {{ "signupForm.genders" | translate }} </label>
@@ -57,28 +51,35 @@
           <input type="radio" formControlName="genders" [value]="gender">{{ gender }}
         </div><br>
 
-        <div formGroupName="address">
+        <div formArrayName="address">
           <h2>{{ "signupForm.address" | translate }}</h2>
 
-          <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label> {{ "signupForm.address" | translate }} <label for="address"> </label></mat-label>
-            <input matInput id="address" type="text" formControlName="address">
-          </mat-form-field><br>
+          <button type="button" (click)="onAddAddress()" mat-raised-button color="accent"> Add Address </button>
 
-          <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label> {{ "signupForm.zipcode" | translate }} <label for="zipcode"></label></mat-label>
-            <input matInput id="zipcode" type="text" formControlName="zipcode">
-          </mat-form-field><br>
+          <div *ngFor="let creds of controls; let i = index">
 
-          <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label> {{ "signupForm.city" | translate }} <label for="city"></label></mat-label>
-            <input matInput id="city" type="text" formControlName="city">
-          </mat-form-field><br>
+            <ng-container [formGroupName]="i">
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label> {{ "signupForm.address" | translate }} <label for="address"> </label></mat-label>
+                <input matInput id="address" type="text" formControlName="address">
+              </mat-form-field><br>
 
-          <mat-form-field class="example-full-width" appearance="fill">
-            <mat-label> {{ "signupForm.country" | translate }} <label for="country"> </label></mat-label>
-            <input matInput id="country" type="text" formControlName="country">
-          </mat-form-field><br>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label> {{ "signupForm.zipcode" | translate }} <label for="zipcode"></label></mat-label>
+                <input matInput id="zipcode" type="number" formControlName="zipcode">
+              </mat-form-field><br>
+
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label> {{ "signupForm.city" | translate }} <label for="city"></label></mat-label>
+                <input matInput id="city" type="text" formControlName="city">
+              </mat-form-field><br>
+
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label> {{ "signupForm.country" | translate }} <label for="country"> </label></mat-label>
+                <input matInput id="country" type="text" formControlName="country">
+              </mat-form-field><br>
+            </ng-container>
+          </div>
         </div>
         <a>
           <button mat-raised-button color="primary" type="submit">Submit</button>

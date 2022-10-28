@@ -8,12 +8,14 @@
         "email": "miftahul@yopmail.com",
         "position": "lead",
         "status": "married",
-        "address": {
+        "address": [
+          {
           "address": "Paris Street 13",
           "zipcode": "75000",
           "city": "Paris",
           "country": "France"
-        }
+          }
+        ]
       },
       {
         "id": 2,
@@ -23,12 +25,14 @@
         "email": "tegar@yopmail.com",
         "position": "lead",
         "status": "married",
-        "address": {
+        "address": [
+          {
           "address": "Paris Street 13",
           "zipcode": "75000",
           "city": "Paris",
           "country": "France"
-        }
+          }
+        ]
       },
       {
         "id": 3,
@@ -38,12 +42,14 @@
         "email": "pangestu@yopmail.com",
         "position": "lead",
         "status": "married",
-        "address": {
+        "address": [
+          {
           "address": "Paris Street 13",
           "zipcode": "75000",
           "city": "Paris",
           "country": "France"
-        }
+          }
+        ]
       }
     ]
   }
