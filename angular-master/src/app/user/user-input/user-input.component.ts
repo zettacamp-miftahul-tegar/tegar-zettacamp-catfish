@@ -59,7 +59,7 @@ export class UserInputComponent implements OnInit {
             this.onAddAddress();
           }
 
-          this.signupForm.patchValue(User);
+          this.signupForm.patchValue(user);
         });
     } else {
       this.onAddAddress();
