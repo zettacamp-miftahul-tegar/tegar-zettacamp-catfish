@@ -34,11 +34,11 @@ export class UserInputComponent implements OnInit {
   
 
   initForm() {
-    if (this.route.snapshot.params['id']) {
-      this.id = this.route.snapshot.params['id'];
-    } else {
-      this.id == null;
-    }
+    // if (this.route.snapshot.params['id']) {
+    //   this.id = this.route.snapshot.params['id'];
+    // } else {
+    //   this.id == null;
+    // }
 
     this.signupForm = new FormGroup({
       'id': new FormControl(null, Validators.required),
