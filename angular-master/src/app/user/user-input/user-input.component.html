@@ -1,5 +1,5 @@
 <div class="language">
-  <mat-form-field appearance="outline">
+  <mat-form-field appearance="outline" class="custom">
     <mat-label>Language</mat-label>
     <mat-select [(value)]="selectedLang" #lang (valueChange)="setLanguage(lang.value)">
       <mat-option value="en">English</mat-option>
@@ -11,24 +11,24 @@
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-        <mat-form-field class="example-full-width" appearance="fill">
+        <mat-form-field class="custom" appearance="fill">
           <mat-label> {{ "signupForm.id" | translate }} <label for="id"></label> </mat-label>
           <input matInput type="number" id="id" formControlName="id" class="form-control">
         </mat-form-field><br>
-        <mat-form-field class="example-full-width" appearance="fill">
+        <mat-form-field class="custom" appearance="fill">
           <mat-label> {{ "signupForm.name" | translate }} <label for="name"></label> </mat-label>
           <input matInput type="text" id="name" formControlName="name" class="form-control">
         </mat-form-field><br> 
-        <mat-form-field class="example-full-width" appearance="fill">
+        <mat-form-field class="custom" appearance="fill">
           <mat-label> {{ "signupForm.age" | translate }} <label for="age"></label> </mat-label>
           <input matInput type="number" id="age" formControlName="age" class="form-control">
         </mat-form-field><br>
-        <mat-form-field class="example-full-width" appearance="fill">
+        <mat-form-field class="custom" appearance="fill">
           <mat-label> {{ "signupForm.email" | translate }} <label for="email"></label> </mat-label>
           <input matInput type="email" id="email" formControlName="email" class="form-control">
         </mat-form-field><br>
 
-        <mat-form-field class="example-full-width" appearance="fill">
+        <mat-form-field class="custom" appearance="fill">
           <mat-label> {{ "signupForm.position" | translate }} <label for="position"></label></mat-label>
           <mat-select formControlName="position">
             <mat-option value="backend"> Backend </mat-option>
@@ -38,7 +38,7 @@
           <!-- <input matInput type="text" id="position" formControlName="position" class="form-control"> -->
         </mat-form-field><br>
 
-        <mat-form-field class="example-full-width" appearance="fill">
+        <mat-form-field class="custom" appearance="fill">
           <mat-label> {{ "signupForm.status" | translate }} <label for="status"></label></mat-label>
           <mat-select formControlName="status">
             <mat-option value="Married"> Married </mat-option>
@@ -52,43 +52,47 @@
         </div><br>
 
         <div formArrayName="address" *ngFor="let creds of controls.controls; let i = index">
-          <h2>{{ "signupForm.address" | translate }}</h2>
 
-          <a (click)="onAddAddress()">
-            <button type="button" mat-raised-button color="accent"> Add Address </button>
-          </a>
-
-          <h2> addreas {{i+1}} </h2>
-          <div [formGroupName]="i">
-            <ng-container>
-              <mat-form-field class="example-full-width" appearance="fill">
+          <div>
+            <a (click)="onAddAddress()">
+              <button type="button" mat-raised-button color="accent"> Add Address </button>
+            </a>
+          </div><br>
+          
+          <form>
+            <div>
+              <mat-form-field class="custom" appearance="fill">
                 <mat-label> {{ "signupForm.address" | translate }} <label for="address"> </label></mat-label>
                 <input matInput id="address" type="text" formControlName="address">
-              </mat-form-field><br>
+              </mat-form-field>
+            </div>
+
+            <div class="example-container">
 
               <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label> {{ "signupForm.zipcode" | translate }} <label for="zipcode"></label></mat-label>
                 <input matInput id="zipcode" type="number" formControlName="zipcode">
-              </mat-form-field><br>
+              </mat-form-field>
 
               <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label> {{ "signupForm.city" | translate }} <label for="city"></label></mat-label>
                 <input matInput id="city" type="text" formControlName="city">
-              </mat-form-field><br>
+              </mat-form-field>
 
               <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label> {{ "signupForm.country" | translate }} <label for="country"> </label></mat-label>
                 <input matInput id="country" type="text" formControlName="country">
-              </mat-form-field><br>
-            </ng-container>
-          </div>
-          <button mat-raised-button color="warn" (click)="removeAddress(i)" *ngIf="controls.length > 1">
-            Remove
-          </button>
+              </mat-form-field>
+
+            </div>
+            <div>
+              <button mat-raised-button color="warn" (click)="removeAddress(i)" *ngIf="controls.length > 1">
+                Remove
+              </button>
+            </div><br>
+          </form>
         </div>
-        <a>
-          <button mat-raised-button color="primary" type="submit">Submit</button>
-        </a>
+        <button mat-raised-button color="primary" type="submit">Submit</button>
       </form>
     </div>
   </div>

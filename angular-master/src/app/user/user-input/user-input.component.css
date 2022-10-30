@@ -1,9 +1,26 @@
 .container {
-    margin-top: 10px;
-}
-
-mat-form-field {
-    width: 50%;
     margin-left: auto;
     margin-right: auto;
-}
+    display: block;
+    width: 50%;
+    border: 1px solid black;
+  }
+  
+  mat-form-field{
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+  }
+  
+  .genders{
+    margin-left: 80px;
+  }
+  
+  .mat-raised-button{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+  
+  
