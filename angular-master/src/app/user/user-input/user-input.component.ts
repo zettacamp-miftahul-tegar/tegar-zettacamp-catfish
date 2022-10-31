@@ -155,10 +155,19 @@ export class UserInputComponent implements OnInit {
     this.controls.removeAt(i);
   }
 
-  getErrorMessage() {
-    this.signupForm.get('email')?.hasError('required')
+  getErrorMessageEmail() {
+    if (this.signupForm.get('email')?.hasError('required')) {
       return 'This email is required!';
+    }
+    return this.signupForm.get('email')?.hasError('email') ? 'This Email is fail' : '';
   }
+
+  // getErrorMessageZIP() {
+  //   if (this.signupForm.get('zipcode')?.hasError('required')) {
+  //     return 'This email is required!';
+  //   }
+  //   return this.signupForm.get('zipcode')?.hasError('zipcode') ? 'format error !' : '';
+  // }
 
   onSubmit() {
     if (this.id) {

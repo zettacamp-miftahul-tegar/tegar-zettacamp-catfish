@@ -34,7 +34,8 @@
           <mat-label> {{ "signupForm.email" | translate }} <label for="email"></label> </mat-label>
           <input matInput type="email" id="email" formControlName="email" class="form-control"
             placeholder="example@gmail.com">
-          <mat-error *ngIf="this.signupForm.get('email')?.invalid">{{getErrorMessage()}}</mat-error>
+          <mat-error *ngIf="this.signupForm.get('email')?.invalid && this.signupForm.get('email')?.touched">{{getErrorMessageEmail()}}</mat-error>
+          <!-- <mat-error *ngIf="this.signupForm.get('email')?.errors?.['email']">{{getErrorMessageEmail()}}</mat-error> -->
         </mat-form-field><br>
 
         <mat-form-field class="custom" appearance="fill">
@@ -83,6 +84,10 @@
                 <mat-label> {{ "signupForm.zipcode" | translate }} <label for="zipcode"></label></mat-label>
                 <input matInput id="zipcode" type="number" formControlName="zipcode">
                 <mat-error *ngIf="this.addr.at(i).get('zipcode')?.invalid"> This field is required! </mat-error>
+<!-- 
+                <mat-error *ngIf="this.signupForm.get('zipcode')?.errors?.['required']">{{getErrorMessageZIP()}}</mat-error>
+                <mat-error *ngIf="this.signupForm.get('zipcode')?.errors?.['zipcode']">{{getErrorMessageZIP()}}</mat-error> -->
+
               </mat-form-field>
 
               <mat-form-field class="example-full-width" appearance="fill">
