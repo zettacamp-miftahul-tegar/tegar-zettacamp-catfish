@@ -23,8 +23,9 @@ import {
   TranslateService
 } from '@ngx-translate/core';
 import {
-  first
+  first, Observable
 } from 'rxjs';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-user-input',
@@ -33,16 +34,19 @@ import {
 })
 export class UserInputComponent implements OnInit {
 
+  genders = ['male', 'female'];
+  position = ['Frond-End', 'Back-End', 'QA'];
+  status = ['Married', 'Single']
+
   selectedUser!: User;
   id: any;
-  genders = ['male', 'female'];
+
   signupForm!: FormGroup;
   bebas: any;
 
   selectedLang = 'en';
   isEdit: boolean = false;
   subcription: any;
-
 
   constructor(private route: ActivatedRoute, private data: UserService, public translateService: TranslateService, private fb: FormBuilder, private router: Router, ) {}
 
@@ -66,11 +70,11 @@ export class UserInputComponent implements OnInit {
           const user: any = items.find(items => {
             console.log(items);
             console.log(id);
-            
+
             return items.id == this.id
           });
 
-          console.log(user);
+          console.log(user.address.length);
 
           for (let i = 0; i < user.address.length; i++) {
             this.onAddAddress();
@@ -82,6 +86,15 @@ export class UserInputComponent implements OnInit {
       this.onAddAddress();
     }
 
+    this.signupForm.get('name')?.valueChanges.subscribe((value : any) => {
+      const regex = /[^a-z|\s]/i;
+      console.log(value);
+      
+      let temp : any = value;
+      temp = temp?.replace(regex, '');
+      this.signupForm.get('name')?.patchValue(temp, {emitEvent: false})
+
+    });
   }
 
 
@@ -91,17 +104,17 @@ export class UserInputComponent implements OnInit {
     } else {
       this.id == null;
     }
-
     this.signupForm = new FormGroup({
-      'id': this.fb.control(null, Validators.required),
-      'name': this.fb.control(null, Validators.required),
-      'age': this.fb.control(null, Validators.required),
-      'email': this.fb.control(null, Validators.required),
-      'position': this.fb.control(null, Validators.required),
-      'status': this.fb.control(null, Validators.required),
-      'genders': this.fb.control(null, Validators.required),
+      'id': new FormControl(null, Validators.required),
+      'name': new FormControl(null, [Validators.required]),
+      'age': new FormControl(null, [Validators.required, Validators.min(10)]),
+      'email': new FormControl(null, [Validators.required, Validators.email]),
+      'position': new FormControl(null, Validators.required),
+      'status': new FormControl(null, Validators.required),
+      'genders': new FormControl(null, Validators.required),
       'address': this.fb.array([])
     });
+
     this.getData();
   }
 
@@ -115,22 +128,6 @@ export class UserInputComponent implements OnInit {
     });
   }
 
-  onSubmit() {
-    if (this.id) {
-      let updateId = this.id
-      let updateData = this.signupForm.value
-      this.data.updateData(updateId, updateData)
-      alert('update data succes!')
-      this.router.navigate(['/home']);
-    } else {
-      console.log(this.signupForm);
-      this.data.addUser(this.signupForm.value)
-      alert('upload data succes!')
-      this.router.navigate(['/home']);
-    }
-
-  }
-
 
   setLanguage(lang: string) {
     this.translateService.use(lang);
@@ -142,10 +139,10 @@ export class UserInputComponent implements OnInit {
 
   onAddAddress() {
     this.addr.push(new FormGroup({
-      address: this.fb.control(null, Validators.required),
-      zipcode: this.fb.control(null, Validators.required),
-      city: this.fb.control(null, Validators.required),
-      country: this.fb.control(null, Validators.required)
+      address: new FormControl(null, Validators.required),
+      zipcode: new FormControl(null, [Validators.required, Validators.pattern('[0-9]*')]),
+      city: new FormControl(null, Validators.required),
+      country: new FormControl(null, Validators.required)
     }));
 
   }
@@ -156,6 +153,57 @@ export class UserInputComponent implements OnInit {
 
   removeAddress(i: number) {
     this.controls.removeAt(i);
+  }
+
+  getErrorMessage() {
+    this.signupForm.get('email')?.hasError('required')
+      return 'This email is required!';
+  }
+
+  onSubmit() {
+    if (this.id) {
+      let updateId = this.id
+      let updateData = this.signupForm.value
+      if (this.signupForm.valid) {
+        this.data.updateData(updateId, updateData)
+        console.log('berhasil');
+        Swal.fire(
+          'Success to edit ',
+          'Click to close',
+          'success'
+        )
+        this.router.navigate(['/home'])
+
+      } else {
+        console.log('gagal');
+        Swal.fire(
+          'Failed to Edit ',
+          'Click to close',
+          'error'
+        )
+      }
+    } else {
+      console.log(this.signupForm);
+      if (this.signupForm.valid) {
+        this.data.addUser(this.signupForm.value)
+        console.log('berhasil');
+        Swal.fire(
+          'Success to Upload User',
+          'Click to close',
+          'success'
+        )
+        this.router.navigate(['/home'])
+
+      } else {
+        console.log('gagal');
+        Swal.fire(
+          'Failed to Upload',
+          'Click to close',
+          'error'
+        )
+      }
+    }
+
   }
 
 }

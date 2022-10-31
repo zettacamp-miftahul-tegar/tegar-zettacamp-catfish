@@ -45,11 +45,6 @@ export class UserService {
     }
   }
 
-  // editUser(val:any, content:any){
-  //   this.userData[parseInt(val)-1] = content;
-  //   this.userList.next(this.userData)
-  // }
-
   fetchDataJson() {
     return this.httpClient.get<any>('../../assets/user.json');
   }
@@ -64,14 +59,6 @@ export class UserService {
 
   resetSelectedData() {
     this.selectedUser.next(null);
-  }
-
-  getBooks(): User[] {
-    return this.userList.getValue()
-  }
-
-  getBookById(id: number): User {
-    return this.getBooks().filter(acc => acc.id == id)[0];
   }
 
 }

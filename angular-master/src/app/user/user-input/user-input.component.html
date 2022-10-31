@@ -10,60 +10,70 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()"><br>
+
         <mat-form-field class="custom" appearance="fill">
           <mat-label> {{ "signupForm.id" | translate }} <label for="id"></label> </mat-label>
           <input matInput type="number" id="id" formControlName="id" class="form-control">
+          <mat-error *ngIf="this.signupForm.get('id')?.invalid"> This field is required! </mat-error>
         </mat-form-field><br>
+
         <mat-form-field class="custom" appearance="fill">
           <mat-label> {{ "signupForm.name" | translate }} <label for="name"></label> </mat-label>
           <input matInput type="text" id="name" formControlName="name" class="form-control">
-        </mat-form-field><br> 
+          <mat-error *ngIf="this.signupForm.get('name')?.invalid"> This field is required! </mat-error>
+        </mat-form-field><br>
+
         <mat-form-field class="custom" appearance="fill">
           <mat-label> {{ "signupForm.age" | translate }} <label for="age"></label> </mat-label>
           <input matInput type="number" id="age" formControlName="age" class="form-control">
+          <mat-error *ngIf="this.signupForm.get('age')?.invalid"> This field is required! </mat-error>
         </mat-form-field><br>
+
         <mat-form-field class="custom" appearance="fill">
           <mat-label> {{ "signupForm.email" | translate }} <label for="email"></label> </mat-label>
-          <input matInput type="email" id="email" formControlName="email" class="form-control">
+          <input matInput type="email" id="email" formControlName="email" class="form-control"
+            placeholder="example@gmail.com">
+          <mat-error *ngIf="this.signupForm.get('email')?.invalid">{{getErrorMessage()}}</mat-error>
         </mat-form-field><br>
 
         <mat-form-field class="custom" appearance="fill">
           <mat-label> {{ "signupForm.position" | translate }} <label for="position"></label></mat-label>
           <mat-select formControlName="position">
-            <mat-option value="backend"> Backend </mat-option>
-            <mat-option value="frondend"> FrondEnd </mat-option>
-            <mat-option value="qa"> QA </mat-option>
+            <mat-option value="{{ position }}" *ngFor="let position of position">{{ position }}</mat-option>
           </mat-select>
-          <!-- <input matInput type="text" id="position" formControlName="position" class="form-control"> -->
+          <mat-error *ngIf="this.signupForm.get('position')?.invalid"> This field is required! </mat-error>
         </mat-form-field><br>
 
         <mat-form-field class="custom" appearance="fill">
           <mat-label> {{ "signupForm.status" | translate }} <label for="status"></label></mat-label>
           <mat-select formControlName="status">
-            <mat-option value="Married"> Married </mat-option>
-            <mat-option value="Singgle"> Singgle </mat-option>
+            <mat-option value="{{ status }}" *ngFor="let status of status">{{ status }}</mat-option>
           </mat-select>
-        </mat-form-field><br> 
+          <mat-error *ngIf="this.signupForm.get('status')?.invalid"> This field is required! </mat-error>
+        </mat-form-field><br>
 
-        <label> {{ "signupForm.genders" | translate }} </label>
-        <div class="radio" *ngFor="let gender of genders">
+        <mat-label for="genders" class="genders">{{ "signupForm.genders" | translate }}</mat-label>
+        <mat-radio-group formControlName="genders" aria-label="Select an option" *ngFor="let gender of genders">
           <input type="radio" formControlName="genders" [value]="gender">{{ gender }}
+        </mat-radio-group><br><br><br>
+
+        <div>
+          <a (click)="onAddAddress()">
+            <button type="button" mat-raised-button color="accent"> Add Address </button>
+          </a>
         </div><br>
 
-        <div formArrayName="address">
+        <div formArrayName="address" *ngFor="let creds of controls.controls; let i = index">
 
-          <div>
-            <a (click)="onAddAddress()">
-              <button type="button" mat-raised-button color="accent"> Add Address </button>
-            </a>
-          </div><br>
-          
-          <form *ngFor="let creds of controls.controls; let i = index" [formGroupName]="i">
+          <h2 style="text-align: center;"> Address {{i+1}} </h2>
+
+          <form [formGroupName]="i">
             <div>
               <mat-form-field class="custom" appearance="fill">
                 <mat-label> {{ "signupForm.address" | translate }} <label for="address"> </label></mat-label>
                 <input matInput id="address" type="text" formControlName="address">
+                <mat-error *ngIf="this.signupForm.get('address')?.invalid"> This field is required! </mat-error>
               </mat-form-field>
             </div>
 
@@ -72,16 +82,19 @@
               <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label> {{ "signupForm.zipcode" | translate }} <label for="zipcode"></label></mat-label>
                 <input matInput id="zipcode" type="number" formControlName="zipcode">
+                <mat-error *ngIf="this.addr.at(i).get('zipcode')?.invalid"> This field is required! </mat-error>
               </mat-form-field>
 
               <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label> {{ "signupForm.city" | translate }} <label for="city"></label></mat-label>
                 <input matInput id="city" type="text" formControlName="city">
+                <mat-error *ngIf="this.addr.at(i).get('city')?.invalid"> This field is required! </mat-error>
               </mat-form-field>
 
               <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label> {{ "signupForm.country" | translate }} <label for="country"> </label></mat-label>
                 <input matInput id="country" type="text" formControlName="country">
+                <mat-error *ngIf="this.addr.at(i).get('country')?.invalid"> This field is required! </mat-error>
               </mat-form-field>
 
             </div>
@@ -92,7 +105,7 @@
             </div><br>
           </form>
         </div>
-        <button mat-raised-button color="primary" type="submit">Submit</button>
+        <button mat-raised-button color="primary" type="submit" style="width: 80%">Submit</button>
       </form>
     </div>
   </div>
