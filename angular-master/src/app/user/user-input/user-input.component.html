@@ -51,7 +51,7 @@
           <input type="radio" formControlName="genders" [value]="gender">{{ gender }}
         </div><br>
 
-        <div formArrayName="address" *ngFor="let creds of controls.controls; let i = index">
+        <div formArrayName="address">
 
           <div>
             <a (click)="onAddAddress()">
@@ -59,7 +59,7 @@
             </a>
           </div><br>
           
-          <form>
+          <form *ngFor="let creds of controls.controls; let i = index" [formGroupName]="i">
             <div>
               <mat-form-field class="custom" appearance="fill">
                 <mat-label> {{ "signupForm.address" | translate }} <label for="address"> </label></mat-label>
