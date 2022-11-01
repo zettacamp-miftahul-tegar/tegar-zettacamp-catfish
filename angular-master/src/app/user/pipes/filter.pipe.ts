@@ -20,8 +20,11 @@ export class FilterPipe implements PipeTransform {
     users = users.filter(user => {
       let name = this.accentPipe.transform(user.name)
       name = this.combinePipe.transform(name)
+      console.log(users);
+      
       return name.includes(keyword)
+      
     })
-    return users
+    return users;
   }
 }

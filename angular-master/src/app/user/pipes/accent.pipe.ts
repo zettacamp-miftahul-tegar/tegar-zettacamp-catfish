@@ -13,8 +13,7 @@ export class AccentPipe implements PipeTransform {
     })
     return aksenz.join('');
   }
-
 }
 
-
-// ['a','b`']  ['b',`]
+// ['t','e`','g','a`','r']
+// ['t','e','`','g','a`','r']
