@@ -1,0 +1,15 @@
+mat-action-list {
+    display: flex; 
+    justify-content: space-between;
+    padding-top: 10px;
+}
+
+button {
+    margin-right: 35px;
+    margin-top: 20px;
+}
+
+mat-form-field {
+    margin-left: 20px;
+    padding-top: 10px;
+}

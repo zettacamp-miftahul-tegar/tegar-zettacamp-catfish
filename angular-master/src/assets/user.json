@@ -2,16 +2,16 @@
     "users": [
       {
         "id": 1,
-        "name": "miftahul",
-        "age": 21,
+        "name": "Mr. Aryá Purnámá",
+        "age": 23,
         "genders": "male",
-        "email": "miftahul@yopmail.com",
+        "email": "AryaPurnama@yopmail.com",
         "position": "lead",
         "status": "married",
         "address": [
           {
-          "address": "Paris Street 13",
-          "zipcode": "75000",
+          "address": "Paris",
+          "zipcode": "2000",
           "city": "Paris",
           "country": "France"
           }
@@ -19,7 +19,7 @@
       },
       {
         "id": 2,
-        "name": "tegar",
+        "name": "Mr. Tègár Pángèstu",
         "age": 21,
         "genders": "male",
         "email": "tegar@yopmail.com",
@@ -36,7 +36,7 @@
       },
       {
         "id": 3,
-        "name": "pangestu",
+        "name": "Mrs. Aylá Náyla",
         "age": 21,
         "genders": "male",
         "email": "pangestu@yopmail.com",

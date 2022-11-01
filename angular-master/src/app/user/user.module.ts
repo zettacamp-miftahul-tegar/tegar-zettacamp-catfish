@@ -49,11 +49,15 @@ import { HttpClientModule} from '@angular/common/http'
 import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from '../app-routing.module';
 import { UserInputComponent } from './user-input/user-input.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
+import { CombinePipe } from './pipes/combine.pipe';
+import { AccentPipe } from './pipes/accent.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
+
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -87,13 +91,17 @@ const routes : Routes = [
     UserComponent,
     UserListComponent,
     UserCardComponent,
-    UserInputComponent
+    UserInputComponent,
+    CombinePipe,
+    AccentPipe,
+    FilterPipe,
   ],
   imports: [
     CommonModule,
     MatAutocompleteModule,
     MatCheckboxModule,
     MatDatepickerModule,
+    FormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatRadioModule,

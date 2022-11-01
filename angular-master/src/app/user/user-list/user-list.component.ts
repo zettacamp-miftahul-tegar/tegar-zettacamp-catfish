@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-// import { User } from '../model/user.model'
 import { UserService } from '../user.service'
+import { FormBuilder } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -10,12 +10,11 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class UserListComponent implements OnInit {
 
-  // selectedLang = 'en';
-
-  constructor(private data:UserService) {};
+  constructor(private data:UserService, private formBuilder: FormBuilder) {};
 
   users: any;
-  // selectedUser: User | null = null;
+  searchForm : any;
+  filterBy: string = '';
 
   ngOnInit(): void {
     this.data.userList$.subscribe(bebas => {
