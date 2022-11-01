@@ -14,7 +14,7 @@ export class UserListComponent implements OnInit {
 
   users: any;
   searchForm : any;
-  filterBy: string = '';
+  filterSekarang: string = '';
 
   ngOnInit(): void {
     this.data.userList$.subscribe(bebas => {
@@ -22,9 +22,4 @@ export class UserListComponent implements OnInit {
       console.log(bebas);
     });
   }
-
-  // setLanguage(lang: string) {
-  //   this.translateService.use(lang);
-  // }
-
 }

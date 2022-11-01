@@ -1,14 +1,17 @@
 <mat-action-list>
-  <mat-form-field class="wrap" appearance="fill" floatLabel="never">
-    <mat-icon matPrefix>search</mat-icon>
-    <mat-label for="filter">Search</mat-label>
-    <input matInput type="text" id="filter" [(ngModel)]="filterBy" />
-  </mat-form-field>
+  <div class="abc">
+    <mat-form-field class="wrap" appearance="fill" floatLabel="never">
+      <mat-icon matPrefix>search</mat-icon>
+      <mat-label for="filter">Search</mat-label>
+      <input matInput type="text" id="filter" [(ngModel)]="filterSekarang" />
+    </mat-form-field>
+    <button class="a" mat-button color="warn" *ngIf="filterSekarang" (click)="filterSekarang=''">Clear Data</button>
+  </div>
   <a routerLink='./input-user'>
     <button type="button" mat-raised-button color="primary"> Add user </button>
   </a>
 </mat-action-list>
 
 <mat-grid-list cols="2" rowHeight="2:1">
-  <app-user-card *ngFor="let acc of users | filter: filterBy" [user]="acc"> </app-user-card>
+  <app-user-card *ngFor="let acc of users | filter: filterSekarang" [user]="acc"> </app-user-card>
 </mat-grid-list>

@@ -36,6 +36,23 @@
       },
       {
         "id": 3,
+        "name": "Mrs. Adè Hikmáh",
+        "age": 21,
+        "genders": "male",
+        "email": "tegar@yopmail.com",
+        "position": "lead",
+        "status": "married",
+        "address": [
+          {
+          "address": "Paris Street 13",
+          "zipcode": "75000",
+          "city": "Paris",
+          "country": "France"
+          }
+        ]
+      },
+      {
+        "id": 4,
         "name": "Mrs. Aylá Náyla",
         "age": 21,
         "genders": "male",

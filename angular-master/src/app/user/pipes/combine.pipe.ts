@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class CombinePipe implements PipeTransform {
 
   transform(value: string): string {
-    return value.replace(/\s/g,'').toLocaleLowerCase();
+    return value.replace(/\s/g,'').toLowerCase();
   }
 
 }
