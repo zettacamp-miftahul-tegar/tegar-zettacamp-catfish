@@ -11,7 +11,7 @@ mat-action-list {
 }
 
 button {
-    margin-right: 35px;
+    /* margin-right: 20px; */
     margin-top: 20px;
 }
 
@@ -20,10 +20,18 @@ mat-form-field {
     padding-top: 10px;
 }
 
+mat-grid-list {
+    overflow-x: hidden;
+}
+
 .btn {
     padding-right: 100%;
 }
 
 .a {
-    padding-bottom: 20px;
+    padding-bottom: 10%;
+}
+
+a {
+    padding-right: 2%;
 }

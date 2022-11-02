@@ -1,9 +1,12 @@
 .comp {
-    width: 95%;
+    width: 97%;
     margin: 1rem;
     background-color: blanchedalmond;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    /* padding: 10px; */
+}
+
+a {
+    margin: 10px;
 }

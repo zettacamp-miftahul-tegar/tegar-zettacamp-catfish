@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from '../../user.service'
 import { User } from '../../model/user.model';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-user-card',
@@ -13,6 +14,8 @@ export class UserCardComponent implements OnInit {
   constructor(private data: UserService, private router:Router ) {};
 
   // private route: ActivatedRoute = new ActivatedRoute;
+
+  // allbooks!: Observable<User[]>;
   
   ngOnInit(): void {
   }
@@ -25,7 +28,21 @@ export class UserCardComponent implements OnInit {
 
   onClick(items:any){
     this.router.navigate([`user/${this.user.id}`])
-    
   }
+
+  // onDelete(i: number) {
+  //   this.data.userDelete(i);
+  // }
+
+  // getsoftBooks(){
+  //   this.user=this.data.getBooksFromStore();
+  //    }
+     
+  // onDelete(item:any){
+  //   this.data.userDelete(item)
+  //  .subscribe(user=>{
+  //    this.getsoftBooks();
+  //  })
+  // }
 
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from './model/user.model'
 
 @Injectable({
@@ -9,6 +9,8 @@ import { User } from './model/user.model'
 export class UserService {
 
   // users : any;
+
+  bookUrl="api/books"
   
   // membuat bahavior baru
   private userList = new BehaviorSubject<User[]>([]);
@@ -60,5 +62,20 @@ export class UserService {
   resetSelectedData() {
     this.selectedUser.next(null);
   }
+
+ 
+
+  // userDelete(id:number):Observable<number>{
+  //   let httpheaders=new HttpHeaders()
+  //   .set('Content-type','application/Json');
+  //   let options={
+  //     headers:httpheaders
+  //   };
+  //   return this.httpClient.delete<number>(this.userData.id);
+  // }
+
+  // getBooksFromStore():Observable<User[]>{
+  //   return this.httpClient.get<User[]>(this.userData.id);
+  // }
 
 }
