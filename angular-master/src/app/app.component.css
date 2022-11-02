@@ -1,0 +1,29 @@
+a {
+    color: black;
+}
+
+span {
+    vertical-align: super;
+}
+
+mat-toolbar {
+    background: #004a9f;
+    color: white;
+    height: 200px;
+}
+
+mat-sidenav {
+    margin: 16px;
+    width: 200px;
+    border-right: none;
+    background: #002b5c;
+    color: white;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+}
+
+h1 {
+    margin-left: auto;
+    margin-right: auto;
+}

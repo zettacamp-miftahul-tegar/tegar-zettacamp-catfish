@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { BlogsModule } from './blogs/blogs.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
+import { BlogComponent } from './input/blog.component';
+import { PostComponent } from './post/post.component';
+import { RouterModule, Routes } from '@angular/router';
+import { BlogsComponent } from './blogs.component';
 
 // Material Form Controls
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -47,18 +46,37 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule} from '@angular/common/http'
+import { AppRoutingModule } from '../app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PostListComponent } from './post/post-list/post-list.component';
+
+const routes : Routes = [
+  {
+    path:'', component:BlogsComponent,
+    children:[
+      {
+        path: 'other/home',component:BlogComponent
+      },
+      {
+        path: 'other', component:PostComponent
+      },
+      {
+        path: 'other/home/:id', component:BlogComponent
+      }
+    ]
+  }
+]
 
 @NgModule({
   declarations: [
-    AppComponent
+    BlogComponent,
+    PostComponent,
+    BlogsComponent,
+    PostListComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BlogsModule,
-    BrowserAnimationsModule,
+    CommonModule,
     MatAutocompleteModule,
     MatCheckboxModule,
     MatDatepickerModule,
@@ -100,9 +118,14 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatButtonModule,
     MatIconModule,
     MatDividerModule,
-    ReactiveFormsModule
+    AppRoutingModule,
+    RouterModule.forChild(routes),
+    ReactiveFormsModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  exports: [
+    BlogComponent,
+    PostComponent,
+    BlogsComponent
+  ]
 })
-export class AppModule { }
+export class BlogsModule { }

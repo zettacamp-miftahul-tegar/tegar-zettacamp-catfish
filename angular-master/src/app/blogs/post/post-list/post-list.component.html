@@ -1,0 +1,11 @@
+<mat-card class="comp">
+  <div>
+    <h1> {{post.title}} </h1>
+    <p> {{post.body}} </p>
+  </div>
+  <div class="p-col-6 button-alignment">
+    <a (click)="onClick(post)" routerLinkActive="active" ariaCurrentWhenActive="page" mat-raised-button color="primary">
+        <button mat-button >Edit</button>
+      </a>
+  </div>
+</mat-card>
