@@ -1,0 +1,94 @@
+{
+    "movies": [
+      {
+        "id": 1,
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBLA-qGxUv1Dx4Gcv4KoLO2eNLngvOkSIcorEaXjnuubmTGbhRNv513yo30umzJNVjr-s&usqp=CAU",
+        "movie": "Darah Garuda",
+        "director":"Frank Darabont",
+        "actor": "Stepen",
+        "actorz": ["Stephen King","Francis Ford Coppola","Mario Puzo"],
+        "description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency."
+      },
+      {
+        "id": 2,
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBLA-qGxUv1Dx4Gcv4KoLO2eNLngvOkSIcorEaXjnuubmTGbhRNv513yo30umzJNVjr-s&usqp=CAU",
+        "movie": "The Good Father",
+        "director":"Francis Ford Coppola",
+        "actor": "Mario Puzo",
+        "actorz": ["Stephen King","Francis Ford Coppola","Mario Puzo"],
+        "description": "The aging patriarch of an organized crime dynasty in postwar New York City transfers control of his clandestine empire to his reluctant youngest son."
+      },
+      {
+        "id": 3,
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBLA-qGxUv1Dx4Gcv4KoLO2eNLngvOkSIcorEaXjnuubmTGbhRNv513yo30umzJNVjr-s&usqp=CAU",
+        "movie": "The Dark Knight",
+        "director":"Christopher Nolan",
+        "actor":"Christopher Nolan",
+        "actorz": ["Jonathan nolan","Stephen King","Francis Ford Coppola","Mario Puzo"],
+        "description": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice."
+      },
+      {
+        "id": 4,
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBLA-qGxUv1Dx4Gcv4KoLO2eNLngvOkSIcorEaXjnuubmTGbhRNv513yo30umzJNVjr-s&usqp=CAU",
+        "movie": "The Godfather Part II",
+        "director":"Francis Ford Coppola",
+        "actor": "Mario Puzo",
+        "actorz": ["Jonathan nolan","Stephen King","Francis Ford Coppola","Mario Puzo"],
+        "description": "The aging patriarch of an organized crime dynasty in postwar New York City transfers control of his clandestine empire to his reluctant youngest son."
+      },
+      {
+        "id": 5,
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBLA-qGxUv1Dx4Gcv4KoLO2eNLngvOkSIcorEaXjnuubmTGbhRNv513yo30umzJNVjr-s&usqp=CAU",
+        "movie": "Schindler's List",
+        "director":"Steben",
+        "actor": "Stephen King",
+        "actorz": ["Jonathan nolan","Stephen King","Francis Ford Coppola","Mario Puzo"],
+        "description": "In German-occupied Poland during World War II, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis."
+      },
+      {
+        "id": 6,
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBLA-qGxUv1Dx4Gcv4KoLO2eNLngvOkSIcorEaXjnuubmTGbhRNv513yo30umzJNVjr-s&usqp=CAU",
+        "movie": "12 Angry Men",
+        "director":"Sidney Lumet",
+        "actor":"Christopher Nolan",
+        "actorz": ["Jonathan nolan","Stephen King","Francis Ford Coppola","Mario Puzo"],
+        "description": "The jury in a New York City murder trial is frustrated by a single member whose skeptical caution forces them to more carefully consider the evidence before jumping to a hasty verdict."
+      },
+      {
+        "id": 7,
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBLA-qGxUv1Dx4Gcv4KoLO2eNLngvOkSIcorEaXjnuubmTGbhRNv513yo30umzJNVjr-s&usqp=CAU",
+        "movie": "The Lord of the Rings: The Return of the King",
+        "director":"Pater Jackson",
+        "actor": "J.R.R Tolkien",
+        "actorz": ["Jonathan nolan","Stephen King","Francis Ford Coppola","Mario Puzo"],
+        "description": "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring."
+      },
+      {
+        "id": 8,
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBLA-qGxUv1Dx4Gcv4KoLO2eNLngvOkSIcorEaXjnuubmTGbhRNv513yo30umzJNVjr-s&usqp=CAU",
+        "movie": "Pulp Fiction",
+        "director":"Quentin Tarantino",
+        "actor": "Stephen King",
+        "actorz": ["Jonathan nolan","Stephen King","Francis Ford Coppola","Mario Puzo"],
+        "description": "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption."
+      },
+      {
+        "id": 9,
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBLA-qGxUv1Dx4Gcv4KoLO2eNLngvOkSIcorEaXjnuubmTGbhRNv513yo30umzJNVjr-s&usqp=CAU",
+        "movie": "The Lord of the Rings: The Fellowship of the Ring",
+        "director":"Peter Jackson",
+        "actor": "J.R.R. Tolkien",
+        "actorz": ["Jonathan nolan","Stephen King","Francis Ford Coppola","Mario Puzo"],
+        "description": "A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron."
+      },
+      {
+        "id": 10,
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBLA-qGxUv1Dx4Gcv4KoLO2eNLngvOkSIcorEaXjnuubmTGbhRNv513yo30umzJNVjr-s&usqp=CAU",
+        "movie": "Il buono, il brutto, il cattivo",
+        "director":"Peter Jackson",
+        "actor": "J.R.R. Tolkien",
+        "actorz": ["Jonathan nolan","Stephen King","Francis Ford Coppola","Mario Puzo"],
+        "description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency."
+      }
+    ]
+  }

@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
+import { BlogsComponent } from './blogs.component';
+import { MovieComponent } from './movie/movie.component';
+import { ActorComponent } from './actor/actor.component';
+import { AboutComponent } from './about/about.component';
+import { ActorCardComponent } from './actor/actor-card/actor-card.component';
+import { MovieCardComponent } from './movie/movie-card/movie-card.component';
 
 // Material Form Controls
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -46,19 +48,51 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule} from '@angular/common/http'
+import { AppRoutingModule } from '../app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { BlogsComponent } from './blogs/blogs.component';
-import { BlogsModule } from './blogs/blogs.module';
+import { RouterModule, Routes } from '@angular/router';
+import { MovieIdComponent } from './movie/movie-id/movie-id.component';
+import { MovieDetailComponent } from './movie/movie-id/movie-detail/movie-detail.component';
+import { ActorIdComponent } from './actor/actor-id/actor-id.component';
+
+const routes : Routes = [
+  {
+    path:'', component:BlogsComponent,
+    children:[
+      {
+        path:"home", component:MovieComponent
+      },
+      {
+        path:"actor", component:ActorComponent
+      },
+      {
+        path:"about", component:AboutComponent
+      },
+      {
+        path:"home/:id", component:MovieIdComponent
+      },
+      {
+        path:"actor/:id", component:ActorIdComponent
+      }
+    ]
+  }
+]
 
 @NgModule({
   declarations: [
-    AppComponent
+    BlogsComponent,
+    MovieComponent,
+    ActorComponent,
+    AboutComponent,
+    ActorCardComponent,
+    MovieCardComponent,
+    MovieIdComponent,
+    MovieDetailComponent,
+    ActorIdComponent,
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
+    CommonModule,
     MatAutocompleteModule,
     MatCheckboxModule,
     MatDatepickerModule,
@@ -100,10 +134,17 @@ import { BlogsModule } from './blogs/blogs.module';
     MatButtonModule,
     MatIconModule,
     MatDividerModule,
+    AppRoutingModule,
+    RouterModule.forChild(routes),
     ReactiveFormsModule,
-    BlogsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  exports: [
+    BlogsComponent,
+    AboutComponent,
+    ActorComponent,
+    ActorCardComponent,
+    MovieComponent,
+    MovieIdComponent
+  ]
 })
-export class AppModule { }
+export class BlogsModule { }

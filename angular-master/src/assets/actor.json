@@ -1,0 +1,64 @@
+{
+    "actors": [
+      {
+        "id": 1,
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBLA-qGxUv1Dx4Gcv4KoLO2eNLngvOkSIcorEaXjnuubmTGbhRNv513yo30umzJNVjr-s&usqp=CAU",
+        "actor":"Frank Darabont",
+        "motto": "hello guys"
+      },
+      {
+        "id": 2,
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBLA-qGxUv1Dx4Gcv4KoLO2eNLngvOkSIcorEaXjnuubmTGbhRNv513yo30umzJNVjr-s&usqp=CAU",
+        "actor": "Mario Puzo",
+        "motto": "hello guys"
+      },
+      {
+        "id": 3,
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBLA-qGxUv1Dx4Gcv4KoLO2eNLngvOkSIcorEaXjnuubmTGbhRNv513yo30umzJNVjr-s&usqp=CAU",
+        "actor": "Jonathan nolan",
+        "motto": "hello guys"
+      },
+      {
+        "id": 4,
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBLA-qGxUv1Dx4Gcv4KoLO2eNLngvOkSIcorEaXjnuubmTGbhRNv513yo30umzJNVjr-s&usqp=CAU",
+        "actor": "Mario Puzo",
+        "motto": "hello guys"
+      },
+      {
+        "id": 5,
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBLA-qGxUv1Dx4Gcv4KoLO2eNLngvOkSIcorEaXjnuubmTGbhRNv513yo30umzJNVjr-s&usqp=CAU",
+        "actor": "Stephen King B",
+        "motto": "hello guys"
+      },
+      {
+        "id": 6,
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBLA-qGxUv1Dx4Gcv4KoLO2eNLngvOkSIcorEaXjnuubmTGbhRNv513yo30umzJNVjr-s&usqp=CAU",
+        "actor": "Raginald Rose",
+        "motto": "hello guys"
+      },
+      {
+        "id": 7,
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBLA-qGxUv1Dx4Gcv4KoLO2eNLngvOkSIcorEaXjnuubmTGbhRNv513yo30umzJNVjr-s&usqp=CAU",
+        "actor": "J.R.R Tolkien",
+        "motto": "hello guys"
+      },
+      {
+        "id": 8,
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBLA-qGxUv1Dx4Gcv4KoLO2eNLngvOkSIcorEaXjnuubmTGbhRNv513yo30umzJNVjr-s&usqp=CAU",
+        "actor": "Stephen King A",
+        "motto": "hello guys"
+      },
+      {
+        "id": 9,
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBLA-qGxUv1Dx4Gcv4KoLO2eNLngvOkSIcorEaXjnuubmTGbhRNv513yo30umzJNVjr-s&usqp=CAU",
+        "actor": "J.R.R. Tolkien",
+        "motto": "hello guys"
+      },
+      {
+        "id": 10,
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBLA-qGxUv1Dx4Gcv4KoLO2eNLngvOkSIcorEaXjnuubmTGbhRNv513yo30umzJNVjr-s&usqp=CAU",
+        "actor": "J.R.R. Tolkien A",
+        "motto": "hello guys"
+      }
+    ]
+  }

@@ -1,0 +1,15 @@
+<mat-tab-group>
+  <mat-tab label="Detail">
+    <!-- <app-movie-detail *ngFor="let acc of movies;" [movie]="acc"></app-movie-detail> -->
+    <mat-list role="list">
+      <mat-list-item role="listitem">Movie : {{movies.movie}}</mat-list-item>
+      <mat-list-item role="listitem">Actor : {{movies.actor}}</mat-list-item>
+      <mat-list-item role="listitem"> Deskripsi : {{movies.description}}</mat-list-item>
+    </mat-list>
+  </mat-tab>
+  <mat-tab label="Actor">
+    <mat-list>
+      <mat-list-item role="listitem"> Nama Actor : {{movies.actorz}}</mat-list-item>
+    </mat-list>
+  </mat-tab>
+</mat-tab-group>
