@@ -1,11 +1,23 @@
 <mat-tab-group>
   <mat-tab label="Detail">
-    <!-- <app-movie-detail *ngFor="let acc of movies;" [movie]="acc"></app-movie-detail> -->
-    <mat-list role="list">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{movies.movie}}</mat-card-title>
+        <mat-card-subtitle>{{movies.actor}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="{{movies.img}}" alt="Photo of a Shiba Inu">
+      <mat-card-content>
+        <p>
+          {{movies.description}}
+        </p>
+      </mat-card-content>
+    </mat-card>
+    <!-- <mat-list role="list">
       <mat-list-item role="listitem">Movie : {{movies.movie}}</mat-list-item>
       <mat-list-item role="listitem">Actor : {{movies.actor}}</mat-list-item>
       <mat-list-item role="listitem"> Deskripsi : {{movies.description}}</mat-list-item>
-    </mat-list>
+    </mat-list> -->
   </mat-tab>
   <mat-tab label="Actor">
     <mat-list>
@@ -13,3 +25,11 @@
     </mat-list>
   </mat-tab>
 </mat-tab-group>
+
+<!-- <mat>
+  <appp ngfor></appp>
+</mat>
+<mat>
+  <aaa ngss></aaa>
+</mat> -->
+
