@@ -1,15 +1,15 @@
 <form class="example-form">
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Nama</mat-label>
-    <input matInput (keyup)="names($event.target)" #input>
+    <input matInput [formControl]="nameFilter">
   </mat-form-field>
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>User Type</mat-label>
-    <input matInput (keyup)="userz($event.target)" #inputuserz>
+    <input matInput [formControl]="userTypeFilter">
   </mat-form-field>
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Email</mat-label>
-    <input matInput (keyup)="emails($event.target)" #inputemailz>
+    <input matInput [formControl]="emailFilter">
   </mat-form-field>
   <mat-form-field appearance="fill" class="no-label-field">
     <mat-select [formControl]="sourceFilter">
