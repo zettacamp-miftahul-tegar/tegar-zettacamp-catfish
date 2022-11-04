@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
+import { TablesComponent } from './tables.component';
+import { TableComponent } from './table/table.component';
 
 // Material Form Controls
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -46,21 +44,32 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule} from '@angular/common/http'
+import { AppRoutingModule } from '../app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { TablesModule } from './tables/tables.module';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes : Routes = [
+  {
+    path:'', component:TablesComponent,
+    children:[
+      {
+        path:"home", component:TableComponent
+      },
+      {
+        path:"student", component:TableComponent
+      },
+    ]
+  }
+]
 
 @NgModule({
   declarations: [
-    AppComponent
+    TablesComponent,
+    TableComponent
   ],
   imports: [
-    BrowserModule,
-    ReactiveFormsModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
+    CommonModule,
     MatAutocompleteModule,
     MatCheckboxModule,
     MatDatepickerModule,
@@ -102,9 +111,12 @@ import { TablesModule } from './tables/tables.module';
     MatButtonModule,
     MatIconModule,
     MatDividerModule,
-    TablesModule
+    AppRoutingModule,
+    RouterModule.forChild(routes),
+    ReactiveFormsModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  exports: [
+    TableComponent
+  ]
 })
-export class AppModule { }
+export class TablesModule { }

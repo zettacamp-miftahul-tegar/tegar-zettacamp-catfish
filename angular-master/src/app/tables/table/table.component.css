@@ -1,0 +1,15 @@
+table {
+  width: 100%;
+}
+
+.vertical-form-field {
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.example-form {
+  margin: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
