@@ -1,19 +1,29 @@
 <form class="example-form">
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Nama</mat-label>
-    <input matInput [formControl]="nameFilter">
+    <input matInput [formControl]="nameFilter" [(ngModel)]="value">
+    <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+      <mat-icon>close</mat-icon>
+    </button>
   </mat-form-field>
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>User Type</mat-label>
-    <input matInput [formControl]="userTypeFilter">
+    <input matInput [formControl]="userTypeFilter" [(ngModel)]="value1">
+    <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">
+      <mat-icon>close</mat-icon>
+    </button>
   </mat-form-field>
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Email</mat-label>
-    <input matInput [formControl]="emailFilter">
+    <input matInput [formControl]="emailFilter" [(ngModel)]="value2">
+    <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value2=''">
+      <mat-icon>close</mat-icon>
+    </button>
   </mat-form-field>
-  <mat-form-field appearance="fill" class="no-label-field">
+  <mat-form-field appearance="fill">
+    <mat-label>Choose an option</mat-label>
     <mat-select [formControl]="sourceFilter">
-      <mat-option value=""> -- Filter Status -- </mat-option>
+      <mat-option value="">Selected Data</mat-option>
       <mat-option *ngFor="let source of availableSources" [value]="source.value">
         {{source.display}}
       </mat-option>
@@ -21,19 +31,43 @@
   </mat-form-field>
 </form>
 
+<div class="he">
+  <button mat-button [matMenuTriggerFor]="menu" mat-raised-button color="primary">Action</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>Add Data</button>
+    <button mat-menu-item>Edit Data</button>
+    <button mat-menu-item>Delete Data</button>
+  </mat-menu>
+</div>
+
 <div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource" matSort>
 
+    <!-- checkbox -->
+    <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-checkbox (change)="$event ? toggleAllRows() : null" [checked]="selection.hasValue() && isAllSelected()"
+          [indeterminate]="selection.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()">
+        </mat-checkbox>
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+          [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
+        </mat-checkbox>
+      </td>
+    </ng-container>
+
     <!-- Name -->
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <th mat-header-cell *matHeaderCellDef matTooltip="Name"
+        aria-label="th that displays a tooltip when focused or hovered over"> Name </th>
       <td mat-cell *matCellDef="let element"> {{element.civility}} . {{element.last_name}} {{element.first_name}} </td>
     </ng-container>
 
     <!-- user type -->
     <ng-container matColumnDef="user_type">
-      <th mat-header-cell *matHeaderCellDef> User Type </th>
-      <td mat-cell *matCellDef="let element"> {{element.company.user_type}} </td>
+      <th mat-header-cell *matHeaderCellDef matTooltip="User Type"> User Type </th>
+      <td mat-cell *matCellDef="let element" matTooltip="{{element.company.user_type}}"> {{element.company.user_type}} </td>
     </ng-container>
 
     <!-- email -->
@@ -44,10 +78,18 @@
 
     <!-- status -->
     <ng-container matColumnDef="status">
-      <th mat-header-cell *matHeaderCellDef> Status </th>
+      <th mat-header-cell *matHeaderCellDef matTooltip="Status"> Status </th>
       <td mat-cell *matCellDef="let element">
-        <mat-icon [ngStyle]="{color:'green'}" *ngIf="element.user_status === 'active'">done</mat-icon>
-        <mat-icon [ngStyle]="{color:'red'}" *ngIf="element.user_status === 'pending'">close</mat-icon>
+        <mat-icon [ngStyle]="{color:'green'}" *ngIf="element.user_status === 'active'" matTooltip="active">done</mat-icon>
+        <mat-icon [ngStyle]="{color:'red'}" *ngIf="element.user_status === 'pending'" matTooltip="pending">close</mat-icon>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef matTooltip="Action"> Action </th>
+      <td mat-cell *matCellDef="let element">
+        <mat-icon style="color: green;" matTooltip="edit">create</mat-icon>
+        <mat-icon style="color: red;" matTooltip="delete">delete</mat-icon>
       </td>
     </ng-container>
 
@@ -61,4 +103,6 @@
     </tr>
 
   </table>
+  <mat-paginator [pageSizeOptions]="[7]" showFirstLastButtons aria-label="Select page of periodic elements">
+  </mat-paginator>
 </div>

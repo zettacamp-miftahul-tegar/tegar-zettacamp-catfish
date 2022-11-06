@@ -48,6 +48,7 @@ import { HttpClientModule} from '@angular/common/http'
 import { AppRoutingModule } from '../app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { InputComponent } from './input/input.component';
 
 const routes : Routes = [
   {
@@ -57,7 +58,7 @@ const routes : Routes = [
         path:"home", component:TableComponent
       },
       {
-        path:"student", component:TableComponent
+        path:"student", component:InputComponent
       },
     ]
   }
@@ -66,7 +67,8 @@ const routes : Routes = [
 @NgModule({
   declarations: [
     TablesComponent,
-    TableComponent
+    TableComponent,
+    InputComponent
   ],
   imports: [
     CommonModule,

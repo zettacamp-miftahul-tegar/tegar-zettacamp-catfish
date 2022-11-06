@@ -1,10 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { DataService } from '../data.service';
 import { DropdownOption } from '../model/dropdown.model'
 import { MatTableDataSource } from '@angular/material/table';
 import { Datas } from '../model/data.model'
 import { sources } from '../model/drop.model'
 import { FormControl } from '@angular/forms';
+import { MatPaginator } from '@angular/material/paginator';
+import {SelectionModel} from '@angular/cdk/collections';
+import { Data } from '@angular/router';
 
 
 @Component({
@@ -14,7 +17,16 @@ import { FormControl } from '@angular/forms';
 })
 export class TableComponent implements OnInit {
 
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
+  
   users: any;
+  value = '';
+  value1 = '';
+  value2 = '';
   
   dataSource: MatTableDataSource <Datas> = new MatTableDataSource();
 
@@ -26,7 +38,7 @@ export class TableComponent implements OnInit {
     user_status : '',
   };
 
-  displayedColumns: string[] = ['name', 'user_type', 'email', 'status'];
+  displayedColumns: string[] = ['select', 'name', 'user_type', 'email', 'status', 'action'];
 
   constructor(private data: DataService) {}
 
@@ -91,51 +103,29 @@ export class TableComponent implements OnInit {
     };
     return myFilterPredicate;
   }
+
+  selection = new SelectionModel<Datas>(true, [])
+
+  isAllSelected() {
+    const numSelected = this.selection.selected.length;
+    const numRows = this.dataSource.data.length;
+    return numSelected === numRows;
+  }
+  
+  toggleAllRows() {
+    if (this.isAllSelected()) {
+      this.selection.clear();
+      return;
+    }
+
+    this.selection.select(...this.dataSource.data);
+  }
+
+  /** The label for the checkbox on the passed row */
+  checkboxLabel(row?: Datas): string {
+    if (!row) {
+      return `${this.isAllSelected() ? 'deselect' : 'select'} all`;
+    }
+    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row._id + 1}`;
+  }
 }
-
-// const nameMatch = true
-// const userTypeMatch = true
-// return nameMatch && userTypeMatch
-
-// return contact.user_status.indexOf(searchTerms.user_status) !== -1 && contact.first_name.toLowerCase().indexOf(nameMatch.first_name) || contact.last_name.toLowerCase().indexOf(nameMatch.civility) || contact.civility.toLowerCase().indexOf(nameMatch.last_name) && contact.company.user_type.toLowerCase().includes(filter) && contact.email.toLowerCase().includes(filter);
-
-// fil = fil.value
-// fil = fil.trim().toLowerCase()
-// this.dataSource.filter = fil
-
-
-// names(fil:any){
-//   this.dataSource.filterPredicate = function(data:any, filter: string) {
-//     console.log(data);
-//     return data.first_name.toLowerCase().includes(filter) || data.last_name.toLowerCase().includes(filter) || data.civility.toLowerCase().includes(filter)
-//   };
-
-//   fil = fil.value
-//   fil = fil.trim().toLowerCase()
-//   this.dataSource.filter = fil
-
-// }
-
-// userz(fil:any){
-//   this.dataSource.filterPredicate = function(data:any, filter: string) {
-//     console.log(data);
-//     return data.company.user_type.toLowerCase().includes(filter)
-//   };
-
-//   fil = fil.value
-//   fil = fil.trim().toLowerCase()
-//   this.dataSource.filter = fil
-
-// }
-
-// emails(fil:any){
-//   this.dataSource.filterPredicate = function(data:any, filter: string) {
-//     console.log(data);
-//     return data.email.toLowerCase().includes(filter)
-//   };
-
-//   fil = fil.value
-//   fil = fil.trim().toLowerCase()
-//   this.dataSource.filter = fil
-
-// }

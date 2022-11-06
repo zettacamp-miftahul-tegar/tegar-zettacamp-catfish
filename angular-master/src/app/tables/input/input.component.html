@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()"><br>
+  
+          <mat-form-field class="custom" appearance="fill">
+            <mat-label> <label for="id">ID</label> </mat-label>
+            <input matInput type="number" id="id" formControlName="id" class="form-control">
+            <!-- <mat-error *ngIf="this.signupForm.get('name')?.invalid"> This field is required! </mat-error> -->
+          </mat-form-field><br>
+          
+  
+          <mat-form-field class="custom" appearance="fill">
+            <mat-label> <label for="title">Email</label> </mat-label>
+            <input matInput type="text" id="email" formControlName="email" class="form-control">
+            <!-- <mat-error *ngIf="this.signupForm.get('age')?.invalid"> This field is required! </mat-error> -->
+          </mat-form-field><br>
+  
+          <mat-form-field class="custom" appearance="fill">
+            <mat-label> <label for="body">Civility</label> </mat-label>
+            <input matInput type="text" id="civility" formControlName="civility" class="form-control">
+            <!-- <mat-error *ngIf="this.signupForm.get('id')?.invalid"> This field is required! </mat-error> -->
+          </mat-form-field><br>
+
+          <mat-form-field class="custom" appearance="fill">
+            <mat-label> <label for="body">First Name</label> </mat-label>
+            <input matInput type="text" id="first_name" formControlName="first_name" class="form-control">
+            <!-- <mat-error *ngIf="this.signupForm.get('id')?.invalid"> This field is required! </mat-error> -->
+          </mat-form-field><br>
+
+          <mat-form-field class="custom" appearance="fill">
+            <mat-label> <label for="body">Last Name</label> </mat-label>
+            <input matInput type="text" id="last_name" formControlName="last_name" class="form-control">
+            <!-- <mat-error *ngIf="this.signupForm.get('id')?.invalid"> This field is required! </mat-error> -->
+          </mat-form-field><br>
+  
+          <mat-form-field class="custom" appearance="fill">
+            <mat-label> <label for="body">Company Name</label> </mat-label>
+            <input matInput type="text" id="company_name" formControlName="company_name" class="form-control">
+            <!-- <mat-error *ngIf="this.signupForm.get('id')?.invalid"> This field is required! </mat-error> -->
+          </mat-form-field><br>
+
+          <mat-form-field class="custom" appearance="fill">
+            <mat-label> <label for="body">Company User Type</label> </mat-label>
+            <input matInput type="text" id="company_user_type" formControlName="company_user_type" class="form-control">
+            <!-- <mat-error *ngIf="this.signupForm.get('id')?.invalid"> This field is required! </mat-error> -->
+          </mat-form-field><br>
+
+          <mat-form-field class="custom" appearance="fill">
+            <mat-label> <label for="body">User Status</label> </mat-label>
+            <input matInput type="text" id="user_status" formControlName="user_status" class="form-control">
+            <!-- <mat-error *ngIf="this.signupForm.get('id')?.invalid"> This field is required! </mat-error> -->
+          </mat-form-field><br>
+          <button mat-raised-button color="primary" type="submit" style="width: 80%">Submit</button>
+        </form>
+      </div>
+    </div>
