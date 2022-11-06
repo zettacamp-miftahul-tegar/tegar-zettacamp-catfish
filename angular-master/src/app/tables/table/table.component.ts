@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { DataService } from '../data.service';
 import { DropdownOption } from '../model/dropdown.model'
 import { MatTableDataSource } from '@angular/material/table';
@@ -6,8 +6,8 @@ import { Datas } from '../model/data.model'
 import { sources } from '../model/drop.model'
 import { FormControl } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
-import {SelectionModel} from '@angular/cdk/collections';
-import { Data } from '@angular/router';
+import { SelectionModel } from '@angular/cdk/collections';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -22,11 +22,11 @@ export class TableComponent implements OnInit {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
-  
-  users: any;
+
+  // users: any;
   value = '';
   value1 = '';
-  value2 = '';
+  value2 = '';  
   
   dataSource: MatTableDataSource <Datas> = new MatTableDataSource();
 
@@ -40,12 +40,12 @@ export class TableComponent implements OnInit {
 
   displayedColumns: string[] = ['select', 'name', 'user_type', 'email', 'status', 'action'];
 
-  constructor(private data: DataService) {}
+  constructor(private data: DataService, private router: Router) {}
 
   ngOnInit(): void {
     this.data.userList$.subscribe(bebas => {
       this.dataSource.data = bebas;
-      console.log(this.dataSource);
+      // console.log(this.dataSource);
     
       this.nameFilter.valueChanges.subscribe((nameFilterValue) => {
         this.filteredValues['name'] = nameFilterValue;
@@ -59,13 +59,18 @@ export class TableComponent implements OnInit {
         this.filteredValues['email'] = emailFilterValue;
         this.dataSource.filter = JSON.stringify(this.filteredValues);
       });
-      this.dataSource.filterPredicate = this.customFilterPredicate();
-    });
       this.sourceFilter.valueChanges.subscribe((sourceFilterValue) => {
         this.filteredValues['user_status'] = sourceFilterValue;
         this.dataSource.filter = JSON.stringify(this.filteredValues);
       });
+      
+      this.dataSource.filterPredicate = this.customFilterPredicate();
+    });
       // this.fieldListener();
+  };
+
+  onClick(parameter:any){
+    this.router.navigate([`student/${parameter.id}`])
   };
 
   availableSources: DropdownOption[] = sources;
@@ -126,6 +131,6 @@ export class TableComponent implements OnInit {
     if (!row) {
       return `${this.isAllSelected() ? 'deselect' : 'select'} all`;
     }
-    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row._id + 1}`;
+    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.id + 1}`;
   }
 }

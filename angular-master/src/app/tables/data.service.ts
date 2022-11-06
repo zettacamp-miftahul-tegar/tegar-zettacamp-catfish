@@ -8,19 +8,22 @@ import { Datas } from './model/data.model'
 })
 
 export class DataService {
-  [x: string]: any;
 
   constructor(private httpClient: HttpClient) { 
     this.dummyInitList();
   }
 
-  private userList:BehaviorSubject<any> = new BehaviorSubject<any>([]);
+  private userList = new BehaviorSubject<Datas[]>([]);
   userList$ = this.userList.asObservable();
+
+  private selectedUser = new BehaviorSubject<Datas | null>(null);
+  selectedUser$ = this.selectedUser.asObservable();
 
   userDatas:any;
 
   dummyInitList() {
     this.fetchDataJson().subscribe(resp => {
+      this.userDatas = resp;
       this.setAllDataLists(resp);
     })
   }
@@ -33,4 +36,15 @@ export class DataService {
     this.userList.next(data);
   }
   
+  // addUser(val:any) {
+  //   this.userDatas.push(val)
+  //   this.userList.next(this.userDatas)
+  // }
+
+  // updateData(currentId: string, newValue: any){
+  //   let index = parseInt(currentId)-1;
+  //   if(this.userDatas[index].id == currentId){
+  //   this.userDatas[index] = newValue;
+  //   }
+  // }
 }

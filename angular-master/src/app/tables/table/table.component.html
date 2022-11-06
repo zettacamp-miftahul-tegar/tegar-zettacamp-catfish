@@ -9,14 +9,14 @@
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>User Type</mat-label>
     <input matInput [formControl]="userTypeFilter" [(ngModel)]="value1">
-    <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">
+    <button *ngIf="value1" matSuffix mat-icon-button aria-label="Clear" (click)="value1=''">
       <mat-icon>close</mat-icon>
     </button>
   </mat-form-field>
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Email</mat-label>
     <input matInput [formControl]="emailFilter" [(ngModel)]="value2">
-    <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value2=''">
+    <button *ngIf="value2" matSuffix mat-icon-button aria-label="Clear" (click)="value2=''">
       <mat-icon>close</mat-icon>
     </button>
   </mat-form-field>
@@ -30,15 +30,6 @@
     </mat-select>
   </mat-form-field>
 </form>
-
-<div class="he">
-  <button mat-button [matMenuTriggerFor]="menu" mat-raised-button color="primary">Action</button>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item>Add Data</button>
-    <button mat-menu-item>Edit Data</button>
-    <button mat-menu-item>Delete Data</button>
-  </mat-menu>
-</div>
 
 <div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource" matSort>
@@ -88,7 +79,9 @@
     <ng-container matColumnDef="action">
       <th mat-header-cell *matHeaderCellDef matTooltip="Action"> Action </th>
       <td mat-cell *matCellDef="let element">
-        <mat-icon style="color: green;" matTooltip="edit">create</mat-icon>
+        <a (click)="onClick(element)">
+          <mat-icon style="color: green;" matTooltip="edit">create</mat-icon>
+        </a>
         <mat-icon style="color: red;" matTooltip="delete">delete</mat-icon>
       </td>
     </ng-container>
