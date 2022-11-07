@@ -1,9 +1,7 @@
 import { SelectionModel } from '@angular/cdk/collections';
 import { Component, OnInit } from '@angular/core';
-import { Inject } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
-import { Router } from '@angular/router';
 import { Users } from '../model/user.model';
 import { UsersService } from '../users.service';
 import { InputComponent } from '../input/input.component'
@@ -16,21 +14,25 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class UserComponent implements OnInit {
 
-  popUp!: string;
+  lat_name!: string;
 
   constructor(private data: UsersService, public translateService: TranslateService, public dialog: MatDialog) { }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(InputComponent, {
       width: '100%',
-      data: {popUp: this.popUp},
+      data: {popUp: this.lat_name},
       disableClose: true,
       hasBackdrop: true
     });
 
+
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.popUp = result;
+      this.lat_name = result;
+
+      console.log(result);
+      
     });
   }
 
@@ -38,6 +40,8 @@ export class UserComponent implements OnInit {
     this.data.userList$.subscribe(bebas => {
       this.dataSource.data = bebas; 
     })
+    // console.log(this.dialog);
+    
   }
 
   displayedColumns: string[] = ['Civility', 'Last_Name', 'First_Name', 'Date_of_Birth', 'Gender'];

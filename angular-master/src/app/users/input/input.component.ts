@@ -24,6 +24,8 @@ export class InputComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
+    console.log(this.data);
+    
   }
 
   selectedLang = 'en';
@@ -70,7 +72,9 @@ export class InputComponent implements OnInit {
         title: 'Success',
         text: 'Your work has been saved',
       });
-      this.dialogRef.close()
+      this.dialogRef.close({
+        name : "tegar"
+      })
     } else {
       console.log('gagal');
       Swal.fire({
