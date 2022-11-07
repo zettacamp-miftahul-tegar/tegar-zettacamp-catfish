@@ -15,9 +15,6 @@ export class UsersService {
   private userList = new BehaviorSubject<Users[]>([]);
   userList$ = this.userList.asObservable();
 
-  private selectedUser = new BehaviorSubject<Users | null>(null);
-  selectedUser$ = this.selectedUser.asObservable();
-
   userDatas:any;
 
   dummyInitList() {
