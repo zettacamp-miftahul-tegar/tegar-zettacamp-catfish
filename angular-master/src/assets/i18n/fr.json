@@ -1,0 +1,37 @@
+{
+  "signupForm": {
+    "civility": "Civilité",
+    "last_name": "Nom de famille",
+    "gender": "Le genre",
+    "first_name": "Prénom",
+    "date": "Date de naissance"
+  },
+  "mr": "Mr",
+  "mrs": "Mme",
+  "button": "Ajouter des données",
+  "first_name": "Prénom",
+  "last_name": "Nom de famille",
+  "date": "Date de naissance",
+  "gender": "Le genre",
+  "cancel": "annuler",
+  "submit": "nous faire parvenir",
+  "valid": "Ce champ est requis !",
+  "user_field": {
+    "civility": {
+      "options": {
+        "mr": "Mr",
+        "mrs": "Mme"
+      }
+    },
+    "gender": {
+      "options": {
+        "male": "Mâle",
+        "female": "Femelle"
+      }
+    }
+  },
+  "fail-text": "Quelque chose s'est mal passé !",
+  "fail-title": "Oops..",
+  "succes-text": "Votre travail a été enregistré",
+  "succes-title": "Succès"
+}

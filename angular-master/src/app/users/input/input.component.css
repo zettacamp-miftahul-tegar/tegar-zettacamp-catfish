@@ -1,0 +1,61 @@
+.example-form {
+  margin: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-left: 2%;
+}
+
+mat-radio-button {
+    margin: 10px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+td {
+  padding-right: 8px;
+}
+
+table {
+  width: 100%;
+}
+
+.vertical-form-field {
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.mat-elevation-z8 {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.demo-table {
+  width: 100%;
+}
+
+.mat-row .mat-cell {
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+  cursor: pointer;
+}
+
+.mat-row:hover .mat-cell {
+  border-color: currentColor;
+}
+
+.demo-row-is-clicked {
+  font-weight: bold;
+}
+
+.he {
+  padding: 10px 10px;
+  margin-left: 84%;
+}

@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="language">
+    <span *ngIf="selectedLang == 'en'"><img src="../../../assets/img/en.png" style="width: 20px; margin-right: 10px; padding-top: 15px;"></span>
+    <span *ngIf="selectedLang == 'fr'"><img src="../../../assets/img/fr.png" style="width: 20px; margin-right: 10px; padding-top: 15px;"></span>
+    <mat-form-field>
+      <mat-select [(value)]="selectedLang" #lang (valueChange)="setLanguage(lang.value)">
+        <mat-option value="en"><img src="../../../assets/img/en.png" style="width: 20px; margin-right: 10px; padding-top: 15px;">English</mat-option>
+        <mat-option value="fr"><img src="../../../assets/img/fr.png" style="width: 20px; margin-right: 10px; padding-top: 15px;">France</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  
+  <div style="padding-right: 5%; padding-top: 10px; padding-bottom: 5px;">
+    <button mat-raised-button color="primary" (click)="openDialog()"> {{ "button" | translate }} </button>
+  </div>
+</div>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!-- Civility Column -->
+  <ng-container matColumnDef="Civility">
+    <th mat-header-cell *matHeaderCellDef> {{ "signupForm.civility" | translate }} </th>
+    <td mat-cell *matCellDef="let element"> {{ ('user_field.civility.options.' + element.civility.toLowerCase()) | translate }} </td>
+  </ng-container>
+
+  <!-- Last Name Column -->
+  <ng-container matColumnDef="Last_Name">
+    <th mat-header-cell *matHeaderCellDef> {{ "signupForm.last_name" | translate }} </th>
+    <td mat-cell *matCellDef="let element"> {{element.last_name}} </td>
+  </ng-container>
+
+  <!-- First Name Column -->
+  <ng-container matColumnDef="First_Name">
+    <th mat-header-cell *matHeaderCellDef> {{ "signupForm.first_name" | translate }} </th>
+    <td mat-cell *matCellDef="let element"> {{element.first_name}} </td>
+  </ng-container>
+
+  <!-- Date Column -->
+  <ng-container matColumnDef="Date_of_Birth">
+    <th mat-header-cell *matHeaderCellDef> {{ "signupForm.date" | translate }} </th>
+    <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+  </ng-container>
+
+  <!-- Gender Column -->
+  <ng-container matColumnDef="Gender">
+    <th mat-header-cell *matHeaderCellDef> {{ "signupForm.gender" | translate }} </th>
+    <td mat-cell *matCellDef="let element"> {{ ('user_field.gender.options.' + element.gender.toLowerCase()) | translate }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

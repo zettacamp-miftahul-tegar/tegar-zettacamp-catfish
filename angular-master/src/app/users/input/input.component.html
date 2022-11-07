@@ -1,0 +1,51 @@
+<form class="example-form" [formGroup]="signupForm">
+
+  <mat-radio-group aria-label="Select an option" id="civility" formControlName="civility" class="form-control">
+    <mat-radio-button value="Mrs">{{ "mrs" | translate }}</mat-radio-button>
+    <mat-radio-button value="Mr"> {{ "mr" | translate }} </mat-radio-button>
+  </mat-radio-group>
+
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label> {{ "first_name" | translate }} </mat-label>
+          <input matInput type="text" id="first_name" formControlName="first_name" class="form-control">
+          <mat-error *ngIf="this.signupForm.get('first_name')?.invalid"> {{ "valid" | translate }} </mat-error>
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>{{ "last_name" | translate }}</mat-label>
+          <input matInput type="text" id="last_name" formControlName="last_name" class="form-control">
+          <mat-error *ngIf="this.signupForm.get('last_name')?.invalid"> {{ "valid" | translate }} </mat-error>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+
+  <mat-form-field appearance="fill">
+    <mat-label>{{ "date" | translate }}</mat-label>
+    <input matInput [matDatepicker]="picker" id="date" formControlName="date" class="form-control">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-error *ngIf="this.signupForm.get('date')?.invalid"> {{ "valid" | translate }} </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>{{ "gender" | translate }}</mat-label>
+    <mat-select id="gender" formControlName="gender" class="form-control">
+      <mat-option *ngFor="let gen of genders" [value]="gen.value">
+        {{'user_field.gender.options.' + gen.viewValue | translate}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="this.signupForm.get('gender')?.invalid"> This field is required! </mat-error>
+  </mat-form-field>
+
+</form>
+
+<div mat-dialog-actions style="padding-left: 85%;">
+  <button mat-raised-button color="warn" (click)="onNoClick()">{{ "cancel" | translate }}</button>
+  <button mat-raised-button color="accent" (click)="onSubmit()">{{"submit" | translate}}</button>
+</div>
