@@ -37,16 +37,20 @@ export class DataService {
     })
   }
 
-  getUsers(name: string):Observable<any> {
+  getUsers(name: string): Observable<any> {
     return this.apollo.query({
-      query: gql `
-      query($name: string){
-        GetAllUsers(pagination: {limit:10, page:0}, last_name: $name) {
+      query: gql`
+      query($name : String){
+        GetAllUsers ( pagination:{page:0,limit:20}, last_name : $name ){
+          _id
           civility
           first_name
           last_name
         }
-      }`
+      }
+      `, variables: {
+        name
+      }
     })
   }
 

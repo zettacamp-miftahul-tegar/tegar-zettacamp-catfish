@@ -24,6 +24,9 @@ import { FilterComponent } from './filter.component';
     FormsModule,
     ReactiveFormsModule,
     MatIconModule
+  ],
+  exports: [
+    FilterComponent
   ]
 })
 export class FilterModule { }

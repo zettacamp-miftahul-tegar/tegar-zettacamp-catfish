@@ -52,6 +52,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TablesModule } from './tables/tables.module';
 import { GraphQLModule } from './graphql.module';
 import { CardsModule } from './cards/cards.module';
+import { FilterModule } from './filter/filter.module';
 
 @NgModule({
   declarations: [
@@ -109,7 +110,12 @@ import { CardsModule } from './cards/cards.module';
     MatDividerModule,
     TablesModule,
     GraphQLModule,
-    CardsModule
+    CardsModule,
+    FilterModule,
+  ],
+  exports: [
+    ReactiveFormsModule,
+    MatFormFieldModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
