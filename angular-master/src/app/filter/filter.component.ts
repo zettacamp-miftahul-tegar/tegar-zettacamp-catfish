@@ -12,11 +12,10 @@ import { FormControl } from '@angular/forms';
 })
 export class FilterComponent implements OnInit {
 
-  searchName = new FormControl()
-
-  dataUser: Filter[] = []
-
   constructor(private data: DataService, private apollo: Apollo) { }
+
+  searchName = new FormControl()
+  dataUser: Filter[] = []
 
   private subs = new SubSink();
 
@@ -32,4 +31,5 @@ export class FilterComponent implements OnInit {
       }
     });
   }
+
 }
