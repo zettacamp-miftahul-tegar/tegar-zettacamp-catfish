@@ -1,0 +1,14 @@
+<mat-card class="example-card" *ngFor="let data of Datas">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{data.title}}</mat-card-title>
+    <mat-card-subtitle>{{data.sub_title}}</mat-card-subtitle> 
+    <span> {{data.ref}} </span>
+  </mat-card-header>
+  <img mat-card-image [src]="data.image_url" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+    <p>
+      {{data.description}}
+    </p>
+  </mat-card-content>
+</mat-card>
