@@ -1,7 +1,6 @@
 export interface Datas {
-    image_url: string;
-    title: string;
-    sub_title: string,
-    ref: string;
-    description: string;
+    ref: String;
+    title: String;
+    sub_title: String,
+    description: String;
 }

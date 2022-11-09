@@ -1,0 +1,48 @@
+<div>
+    <div *ngIf="this.isLoadingg">
+        <mat-spinner mode="indeterminate" value="50" ></mat-spinner>
+    </div>
+
+    <form class="example-form" [formGroup]="signupForm" (ngSubmit)="onSubmit()" *ngIf="!isLoadingg">
+
+    <h2 style="text-align: center;"> Add Data Promo </h2>
+
+    <table class="example-full-width" cellspacing="0">
+      <tr>
+        <td>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label> Ref </mat-label>
+            <input matInput type="text" id="ref" formControlName="ref" class="form-control">
+            <mat-error *ngIf="this.signupForm.get('ref')?.invalid"> This field is required ! </mat-error>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label> Title </mat-label>
+            <input matInput type="text" id="title" formControlName="title" class="form-control">
+            <mat-error *ngIf="this.signupForm.get('title')?.invalid"> This field is required ! </mat-error>
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label> Subs Title </mat-label>
+      <input matInput type="text" id="sub_title" formControlName="sub_title" class="form-control">
+      <mat-error *ngIf="this.signupForm.get('sub_title')?.invalid"> This field is required ! </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label> Description </mat-label>
+      <input matInput type="text" id="description" formControlName="description" class="form-control">
+      <mat-error *ngIf="this.signupForm.get('description')?.invalid"> This field is required !</mat-error>
+    </mat-form-field>
+
+
+    <div mat-dialog-actions style="padding-left: 80%;">
+      <button type="button" mat-raised-button color="warn" (click)="onNoClick()"> Cancel </button>
+      <button type="submit" mat-raised-button color="accent" [disabled]="signupForm.invalid"> Submit </button>
+    </div>
+
+  </form>
+</div>

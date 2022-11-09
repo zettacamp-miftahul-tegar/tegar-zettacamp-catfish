@@ -7,6 +7,7 @@ import { TablesModule } from '../tables/tables.module';
 import { AppComponent } from '../app.component';
 import { MaterialModule } from '../material/material.module';
 import { FilterComponent } from '../filter/filter.component';
+import { InputComponent } from './input/input.component';
 
 const routes : Routes = [
   {
@@ -27,7 +28,8 @@ const routes : Routes = [
 
 @NgModule({
   declarations: [
-    CardsComponent
+    CardsComponent,
+    InputComponent  
   ],
   imports: [
     CommonModule,
