@@ -1,5 +1,5 @@
 import { SelectionModel } from '@angular/cdk/collections';
-import { Component, OnInit, Output} from '@angular/core';
+import { Component, OnInit, Output, ViewChild} from '@angular/core';
 import { SubSink } from 'subsink';
 import { DataService } from '../data.service'
 import { Datas } from '../model/card.model';
@@ -8,6 +8,7 @@ import { InputComponent } from './input/input.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { QueryRef } from 'apollo-angular';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-cards',
@@ -85,4 +86,11 @@ export class CardsComponent implements OnInit {
       
     });
   }
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
+  
 }
