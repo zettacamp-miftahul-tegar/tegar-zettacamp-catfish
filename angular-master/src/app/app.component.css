@@ -6,11 +6,19 @@ div {
   border: 1px solid black;
 }
 
-.p-col > div {
-  height: 17rem;
+.baa {
+  height: 10rem;
 }
 
 .pm-0 {
   padding: 0;
   margin: 0;
+}
+
+.m {
+  margin: 1px;
+}
+
+.size {
+  height: 3rem;
 }
