@@ -1,4 +1,4 @@
-div {
+/* div {
   margin: 1rem;
 }
 
@@ -13,4 +13,29 @@ div {
 .pm-0 {
   padding: 0;
   margin: 0;
+} */
+
+div {
+  margin: 1rem;
+}
+
+.border {
+  border: 1px solid black;
+}
+
+.h-10 {
+  height: 10rem;
+}
+
+.pm-0 {
+  padding: 0;
+  margin: 0;
+}
+
+.m {
+  margin: 1px;
+}
+
+.size {
+  height: 3rem;
 }
