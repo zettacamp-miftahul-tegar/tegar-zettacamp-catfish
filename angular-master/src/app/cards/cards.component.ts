@@ -9,6 +9,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { QueryRef } from 'apollo-angular';
 import { MatPaginator } from '@angular/material/paginator';
+// import { Apollo, gql } from 'apollo-angular';
 
 @Component({
   selector: 'app-cards',
@@ -24,11 +25,20 @@ export class CardsComponent implements OnInit {
   Datas:Datas[]=[]
   ref: any;
 
-  constructor(private data : DataService, public dialog: MatDialog, private snackBar: MatSnackBar
+  constructor(private data : DataService, public dialog: MatDialog
     ) { }
 
   ngOnInit(): void {
     this.getDatas();
+
+    // this.apollo.watchQuery<Response>({
+    //   query:GET_IMP_TYPE
+    // })
+    // .valueChanges
+    // .pipe(map(result => result.data.imp_type))
+    // .subscribe((result: Datas[]) => this.dataSource = new MatTableDataSource(result));
+
+    // https://stackoverflow.com/questions/69067650/angular-material-table-pagination-with-graphql-backend
   }
 
   // ngOnDestroy(): void {
@@ -40,6 +50,7 @@ export class CardsComponent implements OnInit {
   getDatas() {
     this.isLoadingg = true
     this.subs.sink = this.data.getCards().valueChanges.subscribe((resp : any) => {
+      this.dataSource = new MatTableDataSource(resp);
       this.Datas.push(resp.data.GetAllPromos)
       this.dataSource = new MatTableDataSource(resp.data.GetAllPromos)
       // console.log(resp.data.GetAllPromos);
