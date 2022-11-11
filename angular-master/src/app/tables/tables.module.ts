@@ -7,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { InputComponent } from './input/input.component';
 import { TranslateModule } from '@ngx-translate/core'; 
 import { CardsComponent } from '../cards/cards.component';
+import { AuthGuard } from '../cards/auth.guard';
 
 const routes : Routes = [
   {
@@ -16,7 +17,7 @@ const routes : Routes = [
         path:"all-promos", component:TablesComponent
       },
       {
-        path:"all-cards", component:CardsComponent
+        path:"all-cards", component:CardsComponent, canActivate:[AuthGuard]
       }
     ]
   }
