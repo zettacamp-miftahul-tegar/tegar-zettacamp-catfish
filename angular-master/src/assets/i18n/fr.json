@@ -1,0 +1,17 @@
+{
+  "signupForm": {
+    "ref": "Réf",
+    "title": "Titre",
+    "sub_title": "Sous Titre",
+    "description": "la description"
+  },
+  "fail-text": "Something went wrong !",
+  "fail-title": "Oops..",
+  "succes-text": "Votre travail a été enregistré",
+  "succes-title": "Succèss",
+  "button": "Ajouter des données",
+  "valid": "Ce champ est requis !",
+  "submit": "nous faire parvenir",
+  "cancel": "annuler",
+  "add_promo": "Ajouter une promotion de données"
+}
