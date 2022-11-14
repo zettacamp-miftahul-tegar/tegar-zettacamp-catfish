@@ -18,7 +18,8 @@ export class AppComponent {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(LoginComponent, {
-      width: '30%',
+      width: '100%',
+      panelClass: 'bg-color',
       data: {
         email: this.email
       },

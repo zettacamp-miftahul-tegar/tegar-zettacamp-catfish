@@ -7,9 +7,15 @@
 }
 
 a:visited {
-  color: rgb(42, 51, 42);
+  color: white;
+  font-style: normal;
 }
 
 a:hover {
-  color: black;
+  color: rgb(152, 135, 135);
+}
+
+mat-toolbar {
+  position: absolute;
+  background-color:transparent
 }
