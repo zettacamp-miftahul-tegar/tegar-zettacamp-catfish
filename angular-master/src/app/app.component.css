@@ -1,0 +1,15 @@
+.filler {
+  flex: 1 1 auto;
+}
+
+.gap {
+  margin-right: 10px;
+}
+
+a:visited {
+  color: rgb(42, 51, 42);
+}
+
+a:hover {
+  color: black;
+}
