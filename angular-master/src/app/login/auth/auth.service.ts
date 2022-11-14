@@ -32,7 +32,7 @@ export class AuthService {
     localStorage.setItem(environment.tokenKey, JSON.stringify(data.login.token));
   }
 
-  logOut() {
-    localStorage.removeItem(environment.tokenKey);
-  }
+  // logOut() {
+  //   localStorage.removeItem(environment.tokenKey);
+  // }
 }
