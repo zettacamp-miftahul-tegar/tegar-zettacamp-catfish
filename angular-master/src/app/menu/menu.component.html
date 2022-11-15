@@ -1,1 +1,5 @@
-<p>menu works!</p>
+<div class="container">
+    <app-menu-recipe class="rep" *ngFor="let menu of recepien;" [recipe]="menu"></app-menu-recipe>
+</div>
+
+<mat-paginator #paginator class="promo-paginator" (page)="onPaginatorChange($event)" [pageSizeOptions]="[4]" showFirstLastButtons="true"></mat-paginator>

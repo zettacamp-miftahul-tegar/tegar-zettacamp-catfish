@@ -1,18 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MenuComponent } from './menu.component';
-
-
+import { MaterialModule } from '../material/material.module';
+import { MenuRecipeComponent } from './menu-recipe/menu-recipe.component';
 
 @NgModule({
   declarations: [
-    MenuComponent
+    MenuComponent,
+    MenuRecipeComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MaterialModule
   ],
   exports: [
-    MenuComponent
+    MenuComponent,
+    MenuRecipeComponent
   ]
 })
 export class MenuModule { }

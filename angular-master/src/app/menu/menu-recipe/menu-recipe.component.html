@@ -1,0 +1,24 @@
+<div class="example-card">
+  <mat-card class="cards">
+    <mat-card-header>
+      <mat-card-title>{{recipe.recipe_name}}</mat-card-title>
+      <mat-card-subtitle><b> Stock : {{recipe.available}} </b></mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image class="bg1" src="{{recipe.imgUrl}}" alt="images">
+    <mat-card-content>
+      <p>
+        Price : {{recipe.price}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <!-- <div *ngIf="!recepien">
+      </div> -->
+      <div>
+        <button mat-button>
+          <mat-icon color="primary">add_shopping_cart</mat-icon> add to cart
+        </button>
+      </div>
+    </mat-card-actions>
+    <div class="drop" *ngIf="recipe.available < 1"><img class="grayout" src="../../../assets/img/stock_habis.png"></div>
+  </mat-card>
+</div>

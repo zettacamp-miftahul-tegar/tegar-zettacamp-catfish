@@ -16,6 +16,12 @@ export class AuthService {
         mutation {
           login(email: "${email}", password: "${password}") {
             token
+            user {
+              email
+              first_name
+              last_name
+              role
+            }
           }
         }
       `
@@ -32,7 +38,7 @@ export class AuthService {
     localStorage.setItem(environment.tokenKey, JSON.stringify(data.login.token));
   }
 
-  // logOut() {
-  //   localStorage.removeItem(environment.tokenKey);
-  // }
+  logOut() {
+    localStorage.removeItem(environment.tokenKey);
+  }
 }

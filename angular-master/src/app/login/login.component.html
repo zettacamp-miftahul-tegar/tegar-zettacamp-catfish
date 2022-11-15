@@ -3,8 +3,7 @@
     <mat-card-header>
       <mat-card-title>Log in</mat-card-title>
     </mat-card-header>
-    <!-- <span *ngIf="this.signupForm != this.signupForm">Login failed !</span> -->
-    <form class="example-form" [formGroup]="signupForm" (click)="login()">
+    <form class="example-form" [formGroup]="signupForm">
       <mat-card-content>
         <mat-form-field class="example-full-width">
           <input matInput type="email" id="email" formControlName="email" placeholder="Email">
@@ -15,7 +14,7 @@
           <mat-error *ngIf="this.signupForm.get('password')?.invalid"> This field is required ! </mat-error>
         </mat-form-field>
       </mat-card-content>
-      <button mat-stroked-button color="primary" class="btn-block" >Login</button>
+      <button mat-stroked-button color="primary" class="btn-block" (click)="login()">Login</button>
     </form>
   </mat-card>
 </div>

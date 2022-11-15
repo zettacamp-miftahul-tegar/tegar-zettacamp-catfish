@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import { LoginComponent } from './login/login.component';
 
 @Component({
@@ -30,6 +31,10 @@ export class AppComponent {
     dialogRef.afterClosed().subscribe((result: any) => {
       this.email = result;
     });
+  }
+
+  logOut() {
+    localStorage.removeItem(environment.tokenKey);
   }
   
 }
