@@ -1,18 +1,45 @@
-@import url('https://www.w3schools.com/w3css/4/w3.css');
-
-.w3-container {
-  padding-top: 50px;
+.parents-img {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.w3-content {
-  max-width:700px
+.tit {
+  color: red;
+}
+
+.garis {
+  width: 600px;
+  border: 1px solid black;
+  box-shadow: teal;
+}
+
+.page {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 img {
-  padding-bottom: 50px;
+  width: 500px;
+  height: 500px;
+  box-shadow: 5px 10px #888888;
 }
 
-.w3-margin-top {
-  width:100%;
-  max-width:1000px
+p {
+  width: 600px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1 {
+  text-align: center;
+}
+
+.container {
+  padding-top: 100px;
+}
+
+.text {
+  margin-left: auto;
+  margin-right: auto;
 }

@@ -15,23 +15,22 @@ import { AuthService } from './auth/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  dataSource: MatTableDataSource <Logins> = new MatTableDataSource();
   signupForm!: FormGroup;
   private subs = new SubSink();
-  public loginInvalid = false;
-  public formSubmitAttempt = false;
 
   constructor(
     public dialogRef: MatDialogRef<LoginComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Logins,
     private router: Router,
     private authService: AuthService,
-    // private datas : DataService,d
   ) { }
 
   ngOnInit(): void {
     this.initForm();
-    // this.isLoadingg = trued
+  }
+
+  ngOnDestroy(): void {
+    this.subs.sink?.unsubscribe()
   }
 
   initForm() {
@@ -39,10 +38,10 @@ export class LoginComponent implements OnInit {
       'email': new FormControl(null, [Validators.required, Validators.email]),
       'password': new FormControl(null, [Validators.required, Validators.minLength(8)]),
     });
-    // this.getDatas()
   }
 
   login() {
+    const payload: Logins = this.signupForm.value;
     if (this.signupForm.valid) {
       const payload: Logins = this.signupForm.value;
       this.subs.sink = this.authService.loginUser(payload.email, payload.password).subscribe((resp: any) => {
@@ -52,44 +51,49 @@ export class LoginComponent implements OnInit {
           this.dialogRef.close();
         }
       })
-    } else if (this.signupForm.invalid) {
-      Swal.fire({
-        icon: 'error',
-        title: 'User not found !',
-      });
     } else {
-      Swal.fire({
-        icon: 'error',
-        title: 'password error !',
-      });
+      if (!this.signupForm.get('email')?.invalid) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Email incorrect !',
+        });
+      } else if (!this.signupForm.get('password')?.invalid) {
+        Swal.fire({
+          icon: 'error',
+          title: 'password incorrect !',
+        });
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Email or password is incorrect !',
+        });
+      }  
     }
   }
-
-  // login() {
-  //   if (this.signupForm.valid) {
-  //     const payload: Logins = this.signupForm.value;
-  //     this.subs.sink = this.authService.loginUser(payload.email, payload.password).subscribe(async (resp: any) => {
-  //       // console.log(resp);
-  //       if (resp) {
-  //         try {
-  //           const username = this.signupForm.get('username')?.value;
-  //           const password = this.signupForm.get('password')?.value;
-  //           await this.authService.loginUser(username, password);
-  //           this.router.navigate(['menu']);
-  //           this.dialogRef.close();
-  //         } catch (err) {
-  //           Swal.fire({
-  //             icon: 'error',
-  //             title: 'User not found !',
-  //           });
-  //         }
-  //       } else {
-  //         Swal.fire({
-  //           icon: 'error',
-  //           title: 'password not found !',
-  //         });
-  //       }
-  //     })
-  //   }
-  // }
 }
+
+// login() {
+//   const payload: Logins = this.signupForm.value;
+//   this.subs.sink = this.authService.loginUser(payload.email, payload.password).subscribe((resp: any) => {
+//     if (this.signupForm.valid) {
+//       // const payload: Logins = this.signupForm.value;
+//       // this.subs.sink = this.authService.loginUser(payload.email, payload.password).subscribe((resp: any) => {
+//         // console.log(resp);
+//         if (resp) {
+//           this.router.navigate(['menu']);
+//           this.dialogRef.close();
+//         }
+//     } else {
+//       if (!resp.payload.email) {
+//         Swal.fire({
+//           icon: 'error',
+//           title: 'Email incorrect !',
+//         });
+//       } else {
+//         Swal.fire({
+//           icon: 'error',
+//           title: 'password incorrect !',
+//         });
+//       }
+//     }
+// })
