@@ -4,6 +4,10 @@ img {
   margin: 5rem;
 }
 
+.style {
+  color: red;
+}
+
 .m-10 {
   margin: 5rem;
   padding-top: 150px;

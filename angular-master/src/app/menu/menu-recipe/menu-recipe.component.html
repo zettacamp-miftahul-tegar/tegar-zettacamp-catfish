@@ -5,6 +5,7 @@
       <mat-card-subtitle><b> Stock : {{recipe.available}} </b></mat-card-subtitle>
     </mat-card-header>
     <img mat-card-image class="bg1" src="{{recipe.imgUrl}}" alt="images">
+    <div class="drop" *ngIf="recipe.available < 1"><img class="grayout" src="../../../assets/img/stock_habis.png"></div>
     <mat-card-content>
       <p>
         Price : {{recipe.price}}
@@ -19,6 +20,5 @@
         </button>
       </div>
     </mat-card-actions>
-    <div class="drop" *ngIf="recipe.available < 1"><img class="grayout" src="../../../assets/img/stock_habis.png"></div>
   </mat-card>
 </div>

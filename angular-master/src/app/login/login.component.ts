@@ -41,31 +41,31 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    const payload: Logins = this.signupForm.value;
     if (this.signupForm.valid) {
       const payload: Logins = this.signupForm.value;
       this.subs.sink = this.authService.loginUser(payload.email, payload.password).subscribe((resp: any) => {
-        // console.log(resp);
+
+        // let userData = resp.data.user;
+        // console.log(userData);
+        // let userToken = resp.data.Login.token;
+        // localStorage.setItem('userToken', userToken);
+        // localStorage.setItem('userData', JSON.stringify(userData));
+
         if (resp) {
           this.router.navigate(['menu']);
           this.dialogRef.close();
         }
       })
     } else {
-      if (!this.signupForm.get('email')?.invalid) {
+      if (!this.signupForm.get('email')) {
         Swal.fire({
           icon: 'error',
-          title: 'Email incorrect !',
-        });
-      } else if (!this.signupForm.get('password')?.invalid) {
-        Swal.fire({
-          icon: 'error',
-          title: 'password incorrect !',
+          title: 'Email is incorrect !',
         });
       } else {
         Swal.fire({
           icon: 'error',
-          title: 'Email or password is incorrect !',
+          title: 'User not found ! !',
         });
       }  
     }

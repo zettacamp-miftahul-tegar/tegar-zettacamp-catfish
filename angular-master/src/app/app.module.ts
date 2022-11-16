@@ -9,6 +9,8 @@ import { HomepageModule } from './homepage/homepage.module';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginModule } from './login/login.module';
 import { GraphQLModule } from './graphql.module';
+import { StockManagementModule } from './stock-management/stock-management.module';
+import { MenuManagementModule } from './menu-management/menu-management.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { GraphQLModule } from './graphql.module';
     HomepageModule,
     LoginModule,
     HttpClientModule,
-    GraphQLModule
+    GraphQLModule,
+    StockManagementModule,
+    MenuManagementModule
   ],
   providers: [],
   bootstrap: [AppComponent]

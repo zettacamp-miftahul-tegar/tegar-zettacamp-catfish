@@ -14,7 +14,7 @@ export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
     // Use the setContext method to set the HTTP headers.
     operation.setContext({
       headers: {
-        Authorization: token ? `Bearer ${token}` : ''
+        Authorization: token ? `Bearer ${JSON.parse(token)}` : ''
       }
     });
 

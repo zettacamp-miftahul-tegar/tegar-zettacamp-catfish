@@ -12,9 +12,17 @@ import { LoginComponent } from './login/login.component';
 export class AppComponent {
   title = 'angular-master';
   email: any;
+  menus: any = [];
 
   constructor(private router: Router, public dialog: MatDialog) { 
     this.router.navigate(['homepage'])
+  }
+
+  ngOnInit(): void {
+    // let userData: any = localStorage.getItem('userData');
+    // userData = JSON.parse(userData);
+    // this.menus = userData.filter((val: any) => val.view === true);
+    // console.log(userData);
   }
 
   openDialog(): void {
@@ -24,8 +32,6 @@ export class AppComponent {
       data: {
         email: this.email
       },
-      // disableClose: true,
-      // hasBackdrop: true
     });
 
     dialogRef.afterClosed().subscribe((result: any) => {

@@ -5,11 +5,19 @@
   <a class="gap" routerLink="menu">
     Menu
   </a>
+  <a class="gap" routerLink="stock-management">
+    Stock Management
+  </a>
   <a class="filler" routerLink="about">
     About
   </a>
   <a class="gap">
     <button mat-button (click)="openDialog()">Login</button>
+  </a>
+  <a>
+    <button mat-button *ngFor="let menu of menus" [routerLink]="[menu?.slug]">
+      {{ menu?.name }}
+    </button>
   </a>
 
   <!-- <div>
@@ -27,6 +35,6 @@
 
 </mat-toolbar>
 
-<div>
+<div class="cons">
   <router-outlet></router-outlet>
 </div>

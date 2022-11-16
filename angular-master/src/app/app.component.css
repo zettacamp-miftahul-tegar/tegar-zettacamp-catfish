@@ -6,6 +6,10 @@
   margin-right: 10px;
 }
 
+a {
+  text-decoration: none;
+}
+
 a:visited {
   color: white;
   font-style: normal;
@@ -18,4 +22,9 @@ a:hover {
 mat-toolbar {
   position: absolute;
   background-color:transparent
+}
+
+.cons {
+  margin: 0;
+  padding: 0;
 }

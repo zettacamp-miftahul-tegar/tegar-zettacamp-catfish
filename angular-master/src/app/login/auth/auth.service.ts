@@ -17,10 +17,16 @@ export class AuthService {
           login(email: "${email}", password: "${password}") {
             token
             user {
-              email
               first_name
               last_name
-              role
+              user_id 
+              role {
+                user_type
+                view_permission {
+                  name
+                  access
+                }
+              }
             }
           }
         }
@@ -34,8 +40,11 @@ export class AuthService {
   }
 
   userLogin(data: any) {
-    console.log(data);
+    console.log(data.login.token);
+    console.log(JSON.stringify(data.login.token))
+    
     localStorage.setItem(environment.tokenKey, JSON.stringify(data.login.token));
+    localStorage.setItem(environment.user, JSON.stringify(data.login.user));
   }
 
   logOut() {

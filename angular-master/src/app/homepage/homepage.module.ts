@@ -9,6 +9,7 @@ import { MaterialModule } from '../material/material.module';
 import { MenuModule } from '../menu/menu.module';
 import { AboutModule } from '../about/about.module';
 import { HomepagesComponent } from './homepages/homepages.component';
+import { StockManagementComponent } from '../stock-management/stock-management.component';
 
 const routes : Routes = [
   {
@@ -22,6 +23,9 @@ const routes : Routes = [
       },
       {
         path:"about", component:AboutComponent
+      },
+      {
+        path:"stock-management", component: StockManagementComponent
       }
     ]
   }
