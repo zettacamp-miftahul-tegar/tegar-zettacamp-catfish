@@ -40,7 +40,7 @@ export class DataService {
         mutation : this.query,
         variables: {
           ...post
-        }
+      },
       })
   }
 
@@ -51,6 +51,7 @@ export class DataService {
         id
         name
         stock
+        status
       }
     }`
     const id = post
@@ -73,11 +74,10 @@ export class DataService {
         status
       }
     }`
-    
     return this.apollo.mutate({
       mutation : this.query,
       variables: {
-        id:localStorage.getItem("ingredient_id"), 
+        id: post.id,
         stock: post.stock,
         status: post.status
       }

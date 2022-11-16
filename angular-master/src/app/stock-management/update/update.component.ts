@@ -47,7 +47,13 @@ export class UpdateComponent implements OnInit {
 
   onSubmit() {
     if (this.signupForm.valid) {
-      this.data.updateStock(this.signupForm.value)
+      const ingre = {
+        id : this.datas.id,
+        ...this.signupForm.value
+      }
+      console.log(ingre);
+      
+      this.data.updateStock(ingre)
       .subscribe(({dash}: any) => {
         this.todos = dash        
         Swal.fire({

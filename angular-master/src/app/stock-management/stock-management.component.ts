@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { SubSink } from 'subsink';
+import Swal from 'sweetalert2';
 import { Stocks } from '../model/stock.model';
 import { InputComponent } from './input/input.component';
 import { DataService } from './service/data.service';
@@ -77,13 +78,6 @@ export class StockManagementComponent implements OnInit {
     this.data.getStock().refetch();
   }
 
-  onDelete(parameter:any){
-    this.data.deleteStock(parameter) 
-    console.log(typeof parameter);
-
-    this.refetchData()
-  };
-
   // --------------------------------------------
 
   openUpdate(parameter:any): void {
@@ -97,12 +91,66 @@ export class StockManagementComponent implements OnInit {
 
     console.log(id);
 
-    localStorage.setItem("ingredient_id", id)
+    // localStorage.setItem("ingredient_id", id)
 
     dialogRef.afterClosed().subscribe(result => {
       this.name = result;
     });
-    
   }
+
+  // ------------------------------------------------
+
+  onDelete(parameter:any){
+    console.log(typeof parameter);
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result:any) => {
+      if (result.isConfirmed) {
+      this.data.deleteStock(parameter) 
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+        this.refetchData()
+      }
+    })
+  };
+
+  // if () {
+  //   this.data.deleteStock(parameter)
+  //   console.log(typeof parameter);
+  //   Swal.fire({
+  //     title: 'Are you sure?',
+  //     text: "You won't be able to revert this!",
+  //     icon: 'warning',
+  //     showCancelButton: true,
+  //     confirmButtonColor: '#3085d6',
+  //     cancelButtonColor: '#d33',
+  //     confirmButtonText: 'Yes, delete it!'
+  //   }).then((result:any) => {
+  //     if (result.isConfirmed) {
+  //       Swal.fire(
+  //         'Deleted!',
+  //         'Your file has been deleted.',
+  //         'success'
+  //       )
+  //       this.refetchData()
+  //     }
+  //   })
+  // } else {
+  //   Swal.fire({
+  //     icon: 'error',
+  //     title: 'Oops...',
+  //     text: 'Something went wrong!',
+  //     footer: '<a href="">Why do I have this issue?</a>'
+  //   })
+  // }
 
 }
