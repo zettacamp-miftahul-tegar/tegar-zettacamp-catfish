@@ -1,29 +1,31 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { sources } from '../model/drop.model';
-import { DropdownOption } from '../model/dropdown.model';
-import { DataService } from '../service/data.service';
-import {Stocks} from '../../model/stock.model'
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { Stocks } from 'src/app/model/stock.model';
+import { DataService } from '../service/data.service';
 import Swal from 'sweetalert2'
+import { DropdownOption } from '../model/dropdown.model';
+import { sources } from '../model/drop.model';
+
 
 @Component({
-  selector: 'app-input',
-  templateUrl: './input.component.html',
-  styleUrls: ['./input.component.css']
+  selector: 'app-update',
+  templateUrl: './update.component.html',
+  styleUrls: ['./update.component.css']
 })
-export class InputComponent implements OnInit {
+export class UpdateComponent implements OnInit {
 
   signupForm!: FormGroup;
   todos: Stocks[] = [];
 
-  // availableSources: DropdownOption[] = sources;
+  availableSources: DropdownOption[] = sources;
+  submitClicked: any;
 
   constructor(
     private router: Router, 
     private data: DataService,
-    public dialogRef: MatDialogRef<InputComponent>,
+    public dialogRef: MatDialogRef<UpdateComponent>,
     @Inject(MAT_DIALOG_DATA) public datas: Stocks,
   ) { }
 
@@ -33,8 +35,9 @@ export class InputComponent implements OnInit {
 
   initForm() {
     this.signupForm = new FormGroup({
-      'name': new FormControl(null, [Validators.required]),
+      // 'id': new FormControl(''),
       'stock': new FormControl(null, [Validators.required]),
+      'status': new FormControl(null, [Validators.required]),
     });
   }
 
@@ -44,7 +47,7 @@ export class InputComponent implements OnInit {
 
   onSubmit() {
     if (this.signupForm.valid) {
-      this.data.addStock(this.signupForm.value)
+      this.data.updateStock(this.signupForm.value)
       .subscribe(({dash}: any) => {
         this.todos = dash        
         Swal.fire({
@@ -70,7 +73,6 @@ export class InputComponent implements OnInit {
       });
       this.signupForm.markAllAsTouched();
     }
-  }  
-
+  } 
 
 }

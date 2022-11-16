@@ -53,9 +53,7 @@ export class DataService {
         stock
       }
     }`
-    // console.log(post);
     const id = post
-    
     return this.apollo.mutate({
       mutation : this.query,
       variables: {
@@ -64,6 +62,26 @@ export class DataService {
     }).subscribe((subs) =>
       console.log(subs)
     )
+  }
+
+  updateStock(post:any) {
+    this.query = gql `
+    mutation updateIngredient($id: ID, $stock: Int, $status: String) {
+      updateIngredient(id: $id, stock: $stock, status: $status)  {
+        name
+        stock
+        status
+      }
+    }`
+    
+    return this.apollo.mutate({
+      mutation : this.query,
+      variables: {
+        id:localStorage.getItem("ingredient_id"), 
+        stock: post.stock,
+        status: post.status
+      }
+    })
   }
 
 }

@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { InputComponent } from './input/input.component';
 import { MaterialModule } from '../material/material.module';
 import { StockManagementComponent } from './stock-management.component';
+import { UpdateComponent } from './update/update.component';
 
 
 @NgModule({
   declarations: [
     InputComponent,
-    StockManagementComponent
+    StockManagementComponent,
+    UpdateComponent
   ],
   imports: [
     CommonModule,
@@ -16,7 +18,8 @@ import { StockManagementComponent } from './stock-management.component';
   ], 
   exports: [
     StockManagementComponent,
-    InputComponent
+    InputComponent,
+    UpdateComponent
   ]
 })
 export class StockManagementModule { }

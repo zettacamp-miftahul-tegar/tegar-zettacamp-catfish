@@ -6,6 +6,7 @@ import { SubSink } from 'subsink';
 import { Stocks } from '../model/stock.model';
 import { InputComponent } from './input/input.component';
 import { DataService } from './service/data.service';
+import { UpdateComponent } from './update/update.component';
 
 @Component({
   selector: 'app-stock-management',
@@ -79,6 +80,29 @@ export class StockManagementComponent implements OnInit {
   onDelete(parameter:any){
     this.data.deleteStock(parameter) 
     console.log(typeof parameter);
+
+    this.refetchData()
   };
+
+  // --------------------------------------------
+
+  openUpdate(parameter:any): void {
+    const id = parameter
+    const dialogRef = this.dialog.open(UpdateComponent, {
+      width: '100%',
+      data: {id: parameter},
+      disableClose: true,
+      hasBackdrop: true,      
+    });
+
+    console.log(id);
+
+    localStorage.setItem("ingredient_id", id)
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.name = result;
+    });
+    
+  }
 
 }
