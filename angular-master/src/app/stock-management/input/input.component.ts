@@ -36,10 +36,18 @@ export class InputComponent implements OnInit {
       'name': new FormControl(null, [Validators.required]),
       'stock': new FormControl(null, [Validators.required]),
     });
+    this.signupForm.patchValue(this.signupForm.value)
+    console.log(this.signupForm.value);
+    
   }
 
   onNoClick(): void {
     this.dialogRef.close();
+  }
+
+  pagination: any = {
+    page: 0,
+    limit: 10
   }
 
   onSubmit() {
@@ -55,7 +63,7 @@ export class InputComponent implements OnInit {
           this.dialogRef.close({
             status : "berhasil"
           })
-          this.data.getStock().refetch()
+          this.data.getStock(this.pagination).refetch()
         });
       }
       );

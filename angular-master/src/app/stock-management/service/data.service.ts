@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Apollo, gql } from 'apollo-angular';
 import { Stocks } from 'src/app/model/stock.model';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -12,18 +13,30 @@ export class DataService {
 
   constructor(private apollo: Apollo) { }
 
-  getStock() {
+  getStock(pagination:any) {
     return this.apollo.watchQuery({
-      query : gql `query getAllIngredient{
-        getAllIngredient {
+      query : gql `query getAllIngredient (
+        $page: Int, $limit: Int, $name: String
+      ) {
+        getAllIngredient (
+          page: $page
+          limit: $limit
+          name : $name
+        ) {
           ingredients {
             id
             name
             stock
             status
           }
+          page
+          currentDocs
+          totalDocs
         }
       }`,
+      variables: {
+        ...pagination
+      },
       fetchPolicy: "network-only" // ketika ada perubahan ngambil server  
     })
   }
@@ -41,10 +54,10 @@ export class DataService {
         variables: {
           ...post
       },
-      })
+    })
   }
 
-  deleteStock(post:any) {
+  deleteStock(post:Stocks) {
     this.query = gql `
     mutation($id: ID) {
       deleteIngredient (id: $id) {
@@ -60,15 +73,21 @@ export class DataService {
       variables: {
         id:post
       }
-    }).subscribe((subs) =>
+    }).subscribe(subs => {
       console.log(subs)
+    }, err => 
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Something went wrong!',
+    })
     )
   }
 
-  updateStock(post:any) {
+  updateStock(post:Stocks) {
     this.query = gql `
-    mutation updateIngredient($id: ID, $stock: Int, $status: String) {
-      updateIngredient(id: $id, stock: $stock, status: $status)  {
+    mutation updateIngredient($id: ID, $name: String, $stock: Int, $status: String) {
+      updateIngredient(id: $id, name: $name, stock: $stock, status: $status)  {
         name
         stock
         status
@@ -78,10 +97,17 @@ export class DataService {
       mutation : this.query,
       variables: {
         id: post.id,
+        name: post.name,
         stock: post.stock,
         status: post.status
       }
     })
   }
+
+  // private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
+
+  // get isLoggedIn() {
+  //   return this.loggedIn.asObservable();
+  // }
 
 }

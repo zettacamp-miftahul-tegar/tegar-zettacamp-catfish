@@ -4,6 +4,12 @@
   display: block;
   width: 50%;
   border: 1px solid black;
+  overflow-y: scroll;
+  height: 800px;
+}
+
+.container::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
 }
 
 mat-form-field {
@@ -24,5 +30,5 @@ mat-form-field {
 }
 
 .hee {
-    padding: 20px;
+  padding: 20px;
 }

@@ -18,12 +18,9 @@ export class UpdateComponent implements OnInit {
 
   signupForm!: FormGroup;
   todos: Stocks[] = [];
-
   availableSources: DropdownOption[] = sources;
-  submitClicked: any;
 
   constructor(
-    private router: Router, 
     private data: DataService,
     public dialogRef: MatDialogRef<UpdateComponent>,
     @Inject(MAT_DIALOG_DATA) public datas: Stocks,
@@ -31,11 +28,12 @@ export class UpdateComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm()
+    this.signupForm.patchValue(this.datas)    
   }
 
   initForm() {
     this.signupForm = new FormGroup({
-      // 'id': new FormControl(''),
+      'name': new FormControl(null, [Validators.required]),
       'stock': new FormControl(null, [Validators.required]),
       'status': new FormControl(null, [Validators.required]),
     });
@@ -45,13 +43,16 @@ export class UpdateComponent implements OnInit {
     this.dialogRef.close();
   }
 
+  pagination: any
+  name:any
+
   onSubmit() {
     if (this.signupForm.valid) {
       const ingre = {
         id : this.datas.id,
         ...this.signupForm.value
       }
-      console.log(ingre);
+      // console.log(ingre);
       
       this.data.updateStock(ingre)
       .subscribe(({dash}: any) => {
@@ -64,7 +65,7 @@ export class UpdateComponent implements OnInit {
           this.dialogRef.close({
             status : "berhasil"
           })
-          this.data.getStock().refetch()
+          this.data.getStock(this.pagination).refetch()
         });
       }
       );

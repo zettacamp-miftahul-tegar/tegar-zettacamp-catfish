@@ -39,10 +39,7 @@ export class AuthService {
       );
   }
 
-  userLogin(data: any) {
-    console.log(data.login.token);
-    console.log(JSON.stringify(data.login.token))
-    
+  userLogin(data: any) {    
     localStorage.setItem(environment.tokenKey, JSON.stringify(data.login.token));
     localStorage.setItem(environment.user, JSON.stringify(data.login.user));
   }

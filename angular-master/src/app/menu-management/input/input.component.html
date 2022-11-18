@@ -1,1 +1,61 @@
-<p>input works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+        
+      <form class="hee" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+
+        <mat-form-field class="custom" appearance="fill">
+          <mat-label> Images <label for="imgUrl"></label> </mat-label>
+          <input matInput type="text" id="imgUrl" formControlName="imgUrl" class="form-control">
+        </mat-form-field><br>
+
+        <mat-form-field class="custom" appearance="fill">
+          <mat-label> Recipe Name <label for="recipeName"></label> </mat-label>
+          <input matInput type="text" id="recipeName" formControlName="recipeName" class="form-control">
+        </mat-form-field><br>
+
+        <mat-form-field class="custom" appearance="fill">
+          <mat-label> Price <label for="price"></label> </mat-label>
+          <input matInput type="number" id="price" formControlName="price" class="form-control">
+        </mat-form-field><br>
+
+
+        <div formArrayName="ingredients">
+
+          <div>
+            <a (click)="onIngredients()">
+              <button type="button" mat-raised-button color="accent" style="width: 80%;"> Add Ingredients </button>
+            </a>
+          </div><br>
+
+          <form *ngFor="let creds of controls.controls; let i = index" >
+
+            <div class="example-container" [formGroupName]="i">
+
+                <mat-form-field appearance="fill">
+                  <mat-label>Ingredient</mat-label>
+                  <mat-select formControlName="ingredient_id">
+                    <mat-option *ngFor="let menu of ingredient" [value]="menu.id">
+                      {{menu.name}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label> Stock Used <label for="stock_used"></label></mat-label>
+                <input matInput id="stock_used" type="number" formControlName="stock_used">
+              </mat-form-field>
+
+            </div>
+            <div>
+              <button mat-raised-button color="warn" style="width: 80%;" (click)="removeIngredients(i)" *ngIf="controls.length > 1">
+                Remove
+              </button>
+            </div><br>
+          </form>
+        </div>
+        <button mat-raised-button color="primary" style="width: 80%;" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -24,7 +24,8 @@ export class MenuComponent implements OnInit {
 
     const pagination: any = {
       page: paginationObj?.page ?? 1,
-      limit: paginationObj?.limit ?? 4
+      limit: paginationObj?.limit ?? 4,
+      status: "active"
     }
 
     this.subs.sink = this.data.getRecipies(pagination).valueChanges.subscribe((resp : any) => {

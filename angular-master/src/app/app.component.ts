@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { LoginComponent } from './login/login.component';
+import { DataService } from './stock-management/service/data.service'
 
 @Component({
   selector: 'app-root',
@@ -12,26 +14,23 @@ import { LoginComponent } from './login/login.component';
 export class AppComponent {
   title = 'angular-master';
   email: any;
-  menus: any = [];
+  menus! : boolean | null
+  // isLoggedIn$!: Observable<boolean>;
 
-  constructor(private router: Router, public dialog: MatDialog) { 
+  constructor(private router: Router, public dialog: MatDialog, private authService : DataService ) { 
     this.router.navigate(['homepage'])
   }
 
   ngOnInit(): void {
-    // let userData: any = localStorage.getItem('userData');
-    // userData = JSON.parse(userData);
-    // this.menus = userData.filter((val: any) => val.view === true);
-    // console.log(userData);
+    let data = localStorage.getItem('token') ? true : false
+    this.menus = data
   }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(LoginComponent, {
       width: '100%',
       panelClass: 'bg-color',
-      data: {
-        email: this.email
-      },
+      data: this.menus
     });
 
     dialogRef.afterClosed().subscribe((result: any) => {

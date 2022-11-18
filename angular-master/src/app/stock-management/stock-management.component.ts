@@ -1,6 +1,8 @@
 import { SelectionModel } from '@angular/cdk/collections';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { SubSink } from 'subsink';
 import Swal from 'sweetalert2';
@@ -23,27 +25,59 @@ export class StockManagementComponent implements OnInit {
   constructor(
     private data: DataService, 
     public dialog: MatDialog
-  ) { }
+    ) { }
+    
+    ngOnInit(): void {
+      this.getDatas()
+      this.refetchData()
+    }
+    
+    displayedColumns: string[] = ['name', 'stock', 'status', 'action'];
+  
+    dataSource: MatTableDataSource <Stocks> = new MatTableDataSource();
+  
+    selection = new SelectionModel<Stocks>(true, [])
+    
+    getDatas(paginationObj?: any) {
 
-  ngOnInit(): void {
-    this.getDatas()
-    this.refetchData()
-  }
+    const pagination: any = {
+      page: paginationObj?.page ?? 0,
+      limit: paginationObj?.limit ?? 10
+    }
+    
+    // const name: string = paginationObj.name
 
-  getDatas() {
-    this.subs.sink = this.data.getStock().valueChanges.subscribe((resp : any) => {
+    this.subs.sink = this.data.getStock(pagination).valueChanges.subscribe((resp : any) => {
+
+      this.paginator.length = resp.data.getAllIngredient.totalDocs;      
+      this.paginator.pageSize = this.pageSizeOptions[0];
+
+      // console.log(resp.data);
+
       this.dataSource = new MatTableDataSource(resp);
       this.Datas.push(resp.data.getAllIngredient.ingredients)
       this.dataSource = new MatTableDataSource(resp.data.getAllIngredient.ingredients)
-      // console.log(resp.data.getAllIngredient.ingredients);
+
+      this.nameFilter.valueChanges.subscribe((nameFilterValue) => {
+        this.filteredValues['name'] = nameFilterValue;
+        this.dataSource.filter = JSON.stringify(this.filteredValues);
+      });
+      this.dataSource.filterPredicate = this.customFilterPredicate();
     })
   }
 
-  displayedColumns: string[] = ['name', 'stock', 'status', 'action'];
+  @ViewChild('paginator') paginator!: MatPaginator;
 
-  dataSource: MatTableDataSource <Stocks> = new MatTableDataSource();
+  pageSizeOptions: number[] = [10];
 
-  selection = new SelectionModel<Stocks>(true, [])
+  onPaginatorChange(event: PageEvent) {
+    const pagination = {
+      limit: event.pageSize,
+      page: event.pageIndex+1,
+    }
+    this.getDatas(pagination)
+  }
+
 
   isAllSelected() {
     const numSelected = this.selection.selected.length;
@@ -73,9 +107,14 @@ export class StockManagementComponent implements OnInit {
     });
   }
 
+  pagination: any = {
+    page: 0,
+    limit: 10
+  }
+
   refetchData() {
-    // const pagination = this.pagination;
-    this.data.getStock().refetch();
+    const pagination = this.pagination;
+    this.data.getStock(this.pagination).refetch();
   }
 
   // --------------------------------------------
@@ -84,24 +123,21 @@ export class StockManagementComponent implements OnInit {
     const id = parameter
     const dialogRef = this.dialog.open(UpdateComponent, {
       width: '100%',
-      data: {id: parameter},
+      // data: {id : parameter},
+      data: parameter,
       disableClose: true,
       hasBackdrop: true,      
     });
 
-    console.log(id);
-
-    // localStorage.setItem("ingredient_id", id)
-
     dialogRef.afterClosed().subscribe(result => {
-      this.name = result;
+      console.log('The dialog was closed');
     });
   }
 
   // ------------------------------------------------
 
   onDelete(parameter:any){
-    console.log(typeof parameter);
+    // console.log(typeof parameter);
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -112,7 +148,7 @@ export class StockManagementComponent implements OnInit {
       confirmButtonText: 'Yes, delete it!'
     }).then((result:any) => {
       if (result.isConfirmed) {
-      this.data.deleteStock(parameter) 
+        this.data.deleteStock(parameter)
         Swal.fire(
           'Deleted!',
           'Your file has been deleted.',
@@ -123,34 +159,34 @@ export class StockManagementComponent implements OnInit {
     })
   };
 
-  // if () {
-  //   this.data.deleteStock(parameter)
-  //   console.log(typeof parameter);
-  //   Swal.fire({
-  //     title: 'Are you sure?',
-  //     text: "You won't be able to revert this!",
-  //     icon: 'warning',
-  //     showCancelButton: true,
-  //     confirmButtonColor: '#3085d6',
-  //     cancelButtonColor: '#d33',
-  //     confirmButtonText: 'Yes, delete it!'
-  //   }).then((result:any) => {
-  //     if (result.isConfirmed) {
-  //       Swal.fire(
-  //         'Deleted!',
-  //         'Your file has been deleted.',
-  //         'success'
-  //       )
-  //       this.refetchData()
-  //     }
-  //   })
-  // } else {
-  //   Swal.fire({
-  //     icon: 'error',
-  //     title: 'Oops...',
-  //     text: 'Something went wrong!',
-  //     footer: '<a href="">Why do I have this issue?</a>'
-  //   })
-  // }
+  // ------------------------------------------------------
+
+  nameFilter = new FormControl();
+  value = '';
+  filteredValues: any = {
+    name: '',
+  };
+
+  customFilterPredicate() {
+    const myFilterPredicate = function (data: Stocks, filter: string): boolean {
+
+      const array = Object.entries(data);
+      const objFromArray = Object.fromEntries(array);
+
+      let searchString = JSON.parse(filter);
+      // console.log(data);
+      
+      let nameFound =
+        data.name
+        .toString()
+        .trim()
+        .toLowerCase()
+        .includes((searchString.name || '').toLowerCase())
+
+      return nameFound;
+    };
+    return myFilterPredicate;
+  }
+
 
 }

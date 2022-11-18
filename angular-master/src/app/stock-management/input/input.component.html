@@ -14,7 +14,7 @@
     <mat-error *ngIf="this.signupForm.get('stock')?.invalid"> This field is required !</mat-error>
   </mat-form-field>
 
-  <div mat-dialog-actions style="padding-left: 90%;">
+  <div mat-dialog-actions style="float: right;">
     <button type="button" mat-raised-button color="warn" (click)="onNoClick()"> Cancel </button>
     <button type="submit" mat-raised-button color="accent" [disabled]="signupForm.invalid"> Submit </button>
   </div>

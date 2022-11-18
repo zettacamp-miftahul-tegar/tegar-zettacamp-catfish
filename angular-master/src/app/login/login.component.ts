@@ -18,6 +18,9 @@ export class LoginComponent implements OnInit {
   signupForm!: FormGroup;
   private subs = new SubSink();
 
+  auth:boolean = false;
+  token : any;
+
   constructor(
     public dialogRef: MatDialogRef<LoginComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Logins,
@@ -44,16 +47,10 @@ export class LoginComponent implements OnInit {
     if (this.signupForm.valid) {
       const payload: Logins = this.signupForm.value;
       this.subs.sink = this.authService.loginUser(payload.email, payload.password).subscribe((resp: any) => {
-
-        // let userData = resp.data.user;
-        // console.log(userData);
-        // let userToken = resp.data.Login.token;
-        // localStorage.setItem('userToken', userToken);
-        // localStorage.setItem('userData', JSON.stringify(userData));
-
         if (resp) {
+          // this.auth = resp.auth
           this.router.navigate(['menu']);
-          this.dialogRef.close();
+          this.dialogRef.close();          
         }
       })
     } else {
@@ -71,29 +68,3 @@ export class LoginComponent implements OnInit {
     }
   }
 }
-
-// login() {
-//   const payload: Logins = this.signupForm.value;
-//   this.subs.sink = this.authService.loginUser(payload.email, payload.password).subscribe((resp: any) => {
-//     if (this.signupForm.valid) {
-//       // const payload: Logins = this.signupForm.value;
-//       // this.subs.sink = this.authService.loginUser(payload.email, payload.password).subscribe((resp: any) => {
-//         // console.log(resp);
-//         if (resp) {
-//           this.router.navigate(['menu']);
-//           this.dialogRef.close();
-//         }
-//     } else {
-//       if (!resp.payload.email) {
-//         Swal.fire({
-//           icon: 'error',
-//           title: 'Email incorrect !',
-//         });
-//       } else {
-//         Swal.fire({
-//           icon: 'error',
-//           title: 'password incorrect !',
-//         });
-//       }
-//     }
-// })

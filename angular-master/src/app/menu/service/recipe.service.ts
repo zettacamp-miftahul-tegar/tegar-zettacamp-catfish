@@ -11,11 +11,12 @@ export class RecipeService {
   getRecipies(pagination: any) {
     return this.apollo.watchQuery({
       query : gql `query getAllRecipe(
-        $page: Int, $limit: Int
+        $page: Int, $limit: Int, $status: String
       ) { 
         getAllRecipe(
           page: $page
           limit: $limit
+          status: $status
         ) {
           page
           maxPage
@@ -30,7 +31,8 @@ export class RecipeService {
         }
       }`,
       variables: {
-        ...pagination, 
+        ...pagination,
+        status: 'active'
       },
       fetchPolicy: "network-only" // ketika ada perubahan ngambil server  
     })

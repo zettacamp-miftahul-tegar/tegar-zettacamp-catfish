@@ -8,30 +8,23 @@
   <a class="gap" routerLink="stock-management">
     Stock Management
   </a>
+  <a class="gap" routerLink="menu-management">
+    Menu Management
+  </a>
   <a class="filler" routerLink="about">
     About
   </a>
-  <a class="gap">
+  <a class="gap" *ngIf="!menus">
     <button mat-button (click)="openDialog()">Login</button>
   </a>
-  <a>
+  <a class="gap" *ngIf="menus" >
+    <button mat-button (click)="logOut()">Logout</button>
+  </a>
+  <!-- <a>
     <button mat-button *ngFor="let menu of menus" [routerLink]="[menu?.slug]">
       {{ menu?.name }}
     </button>
-  </a>
-
-  <!-- <div>
-    <div *ngIf="">
-      <a class="gap">
-        <button mat-button (click)="openDialog()">Login</button>
-      </a>
-    </div>
-    <div *ngIf="">
-      <a class="gap">
-        <button mat-button (click)="logOut()">Logout</button>
-      </a>
-    </div>
-  </div> -->
+  </a> -->
 
 </mat-toolbar>
 
