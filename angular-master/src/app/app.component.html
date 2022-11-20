@@ -11,6 +11,9 @@
   <a class="gap" routerLink="menu-management">
     Menu Management
   </a>
+  <a class="gap" routerLink="cart-management">
+    Cart
+  </a>
   <a class="filler" routerLink="about">
     About
   </a>
@@ -20,12 +23,6 @@
   <a class="gap" *ngIf="menus" >
     <button mat-button (click)="logOut()">Logout</button>
   </a>
-  <!-- <a>
-    <button mat-button *ngFor="let menu of menus" [routerLink]="[menu?.slug]">
-      {{ menu?.name }}
-    </button>
-  </a> -->
-
 </mat-toolbar>
 
 <div class="cons">

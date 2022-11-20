@@ -4,7 +4,7 @@
 
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label> Name </mat-label>
-    <input matInput type="text" id="name" formControlName="name">
+    <input matInput type="text" id="name" formControlName="name" >
     <mat-error *ngIf="this.signupForm.get('name')?.invalid"> This field is required ! </mat-error>
   </mat-form-field>
 

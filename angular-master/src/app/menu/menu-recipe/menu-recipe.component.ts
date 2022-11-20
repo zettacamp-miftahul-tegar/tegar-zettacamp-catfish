@@ -1,7 +1,6 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator, PageEvent } from '@angular/material/paginator';
-import { Recepiens } from 'src/app/model/recepient.model';
-import { RecipeService } from '../service/recipe.service';
+import { MatDialog } from '@angular/material/dialog';
+import { InputComponent } from '../input/input.component';
 
 @Component({
   selector: 'app-menu-recipe',
@@ -12,17 +11,30 @@ export class MenuRecipeComponent implements OnInit {
 
   @Input() recipe: any;
   
-  // pagination: any
-  
-  constructor(private data: RecipeService) {}
+  constructor(
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
   }
 
-  // selectData(){
-  //   this.data.getRecipies(this.pagination);
-  // }
+  openDialog(parameter: any): void {
+    const dialogRef = this.dialog.open(InputComponent, {
+      width: '100%',
+      data: parameter,
+      // disableClose: true,
+      // hasBackdrop: true
+    });
 
+    console.log(parameter.id);
+    
 
+    dialogRef.afterClosed().subscribe((result: any) => {
+      // if (result) {
+      //   this.getDatas() 
+      // }
+      
+    })
+  }
 
 }

@@ -1,13 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Router } from '@angular/router';
-import { Stocks } from 'src/app/model/stock.model';
-import { DataService } from '../service/data.service';
-import Swal from 'sweetalert2'
-import { DropdownOption } from '../model/dropdown.model';
-import { sources } from '../model/drop.model';
-
+import Swal from 'sweetalert2';
+import { CartService } from '../service/cart.service';
 
 @Component({
   selector: 'app-update',
@@ -17,16 +12,12 @@ import { sources } from '../model/drop.model';
 export class UpdateComponent implements OnInit {
 
   signupForm!: FormGroup;
-  todos: Stocks[] = [];
-  availableSources: DropdownOption[] = sources;
 
-  isValid : boolean = true
-  hello! : boolean
 
   constructor(
-    private data: DataService,
+    @Inject(MAT_DIALOG_DATA) public datas: any,
     public dialogRef: MatDialogRef<UpdateComponent>,
-    @Inject(MAT_DIALOG_DATA) public datas: Stocks,
+    private data: CartService
   ) { }
 
   ngOnInit(): void {
@@ -36,29 +27,26 @@ export class UpdateComponent implements OnInit {
 
   initForm() {
     this.signupForm = new FormGroup({
-      'name': new FormControl(null, [Validators.required]),
-      'stock': new FormControl(null, [Validators.required]),
-      'status': new FormControl(null, [Validators.required]),
+      amount: new FormControl(null, Validators.required),
+      note: new FormControl(''),
     });
   }
 
-  onNoClick(): void {
+  onNoClick() {
     this.dialogRef.close();
   }
 
-  pagination: any
-  name:any
-
   onSubmit() {
     if (this.signupForm.valid) {
+
       const ingre = {
-        id : this.datas.id,
+        item_id : this.datas.id,
         ...this.signupForm.value
       }
-      
+
       this.data.updateStock(ingre)
       .subscribe(({dash}: any) => {
-        this.todos = dash        
+        this.datas = dash        
         Swal.fire({
           icon: 'success',
           title: 'Success',
@@ -67,7 +55,7 @@ export class UpdateComponent implements OnInit {
           this.dialogRef.close({
             status : "berhasil"
           })
-          this.data.getStock(this.pagination).refetch()
+          this.data.getCart().refetch()
         });
       }
       );
@@ -83,5 +71,4 @@ export class UpdateComponent implements OnInit {
       this.signupForm.markAllAsTouched();
     }
   } 
-
 }

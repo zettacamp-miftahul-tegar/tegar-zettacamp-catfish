@@ -5,6 +5,7 @@ import { Apollo, gql } from 'apollo-angular';
   providedIn: 'root'
 })
 export class RecipeService {
+  query: any;
 
   constructor(private apollo: Apollo) { }
 
@@ -23,6 +24,7 @@ export class RecipeService {
           currentDocs
           totalDocs
           recipes {
+            id
             imgUrl
             recipe_name
             price
@@ -37,5 +39,32 @@ export class RecipeService {
       fetchPolicy: "network-only" // ketika ada perubahan ngambil server  
     })
   }
+
+  addCart(post: any) {
+
+    this.query = gql `mutation AddCart($cart: MenuInput) {
+      addCart(cart: $cart) {
+        _id
+        user_id
+        cart {
+          recipe_id {
+            recipe_name
+            price
+          }
+          id
+          amount
+          note
+        }
+      }
+    }`
+    return this.apollo.mutate({
+      mutation : this.query,
+      variables: {
+        cart:post
+    },
+    fetchPolicy: "network-only" // ketika ada perubahan ngambil server  
+  })}
+
+  
 
 }

@@ -1,9 +1,10 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { Menus } from 'src/app/model/menu.model';
+import Swal from 'sweetalert2';
 import { DataService } from '../service/data.service';
 
 @Component({
@@ -21,38 +22,47 @@ export class UpdateComponent implements OnInit {
   paginations:any;
   testing : any;
   dataMenu: any;
-  
-  // const subcription = new FormGroup({
-  //   ingredient_id: new FormControl(this.datas.id.ingredients[i].ingredient_id.name, Validators.required),
-  //   stock_used: new FormControl(this.datas.id.ingredients[i].stock_used, Validators.required),
-  // });
-
-  // (<FormArray>this.signupForm.get('ingredients')).push(subcription)
 
   constructor(
     private route: ActivatedRoute, 
     private data: DataService, 
     public dialogRef: MatDialogRef<UpdateComponent>, 
     @Inject(MAT_DIALOG_DATA) public datas: any,
+    private fb:FormBuilder
   ) {}
 
   subcription: any;
 
   ngOnInit(): void {
-    this.initForm()    
+    this.initForm()   
     
-    this.ingredient = this.data
-      .datalength(this.datas.id.id).subscribe((item: any) => {
+    this.data.getStock(this.paginations).valueChanges.subscribe(( dass: any) => {
+      this.ingredient = dass.data.getAllIngredient.ingredients      
+      this.signupForm.patchValue(dass.data.getAllIngredient.ingredients);
+    })   
+  }
 
-        this.dataMenu = item.data.getOneRecipes;
+  initForm() {
+    this.signupForm = this.fb.group({
+      imgUrl: ['', Validators.required],
+      recipe_name: ['', Validators.required],
+      price: ['', Validators.required],
+      ingredients: this.fb.array([]),
+    });
+    this.pusingg()
+  }
+
+  pusingg() {
+    this.data.datalength(this.datas.id).subscribe((item: any) => {
+        this.dataMenu = item.data.getOneRecipe
 
         for (let i = 0; i < item.data.getOneRecipe.totalLength; i++) {
-          this.onIngredients()
+          this.addNewIngredients()
         }
+
         let tempIngredId: { ingredient_id: any; stock_used: any; }[] = [];
 
-          this.signupForm.ingredients.forEach((ingre: { ingredient_id: { id: any; }; stock_used: any; }) => {
-            // console.log(ingre);
+          this.dataMenu.ingredients.forEach((ingre: { ingredient_id: { id: any; }; stock_used: any; }) => {
             tempIngredId.push({
               ingredient_id: ingre.ingredient_id.id, 
               stock_used: ingre.stock_used
@@ -63,46 +73,28 @@ export class UpdateComponent implements OnInit {
             ...this.dataMenu,
             ingredients : tempIngredId
           };
-
-          // console.log(tempMenu);
           this.signupForm.patchValue(tempMenu);
-        });
-      
-      this.data.getStock(this.paginations).valueChanges.subscribe(( dass: any) => {
-        this.ingredient = dass.data.getAllIngredient.ingredients      
-        this.signupForm.patchValue(dass.data.getAllIngredient.ingredients);
-    })    
-
-    this.signupForm.patchValue(this.datas.id);
-
+        }); 
+        this.signupForm.patchValue(this.datas);
   }
 
   get addr() {
     return this.signupForm.controls['ingredients'] as FormArray;
   }
 
-  initForm() {
-    this.signupForm = new FormGroup({
-      imgUrl: new FormControl(null, Validators.required),
-      recipe_name: new FormControl(null, Validators.required),
-      price: new FormControl(null, Validators.required),
-      ingredients: new FormArray([])
+  onIngredients() {    
+    return this.fb.group({
+      ingredient_id: ['', [Validators.required]],
+      stock_used: ['', [Validators.required]],
     });
   }
 
-  onIngredients() {
-    console.log(this.datas.getOneRecipe);
-    
-    this.addr.push(new FormGroup({
-      ingredient_id: new FormControl(null, Validators.required),
-      stock_used: new FormControl(null, Validators.required),
-    }));
-  }
-
-  
-
   get controls(): FormArray {
     return this.signupForm.get('ingredients') as FormArray;
+  }
+
+  addNewIngredients(){
+    this.controls.push(this.onIngredients());
   }
 
   removeIngredients(i: number) {
@@ -114,26 +106,43 @@ export class UpdateComponent implements OnInit {
     limit: 10
   }
 
+  haii: any;
+  post:any
+
   onSubmit(){
-    const ingre = {
-      id : this.datas.id,
-      ...this.signupForm.value
-    }
+    if(this.signupForm.valid){
 
-    // console.log(ingre);
-    
-
-    let stock = (this.signupForm.value.ingredients)    
-
-    this.signupForm.value.ingredients.map((data:any)=>{
-      data.stock_used = parseInt(data.stock_used)
-    })
-    
-    this.data.updateRecipe(ingre).subscribe((dash:any) => {
-      this.todos = dash
-    })    
-
-    this.dialogRef.close(true)
+      const bebas = {
+        id: this.datas.id,
+        ...this.signupForm.value
+      }
+      this.data.updateRecipe(bebas).subscribe({
+        next:()=>{
+          Swal.fire({
+            title: "Updated",
+            text: "Data Has Been Updated",
+            icon: "success",
+            confirmButtonText: "Ok"
+          }).then(()=>{
+            this.dialogRef.close();
+          });
+        },
+        error:()=>{
+          Swal.fire({
+            title: "Error!",
+            text: "Faled to upload!",
+            icon: "error",
+            confirmButtonText: "OK"
+          });
+        }
+      });
+    }else{
+      Swal.fire({
+        title: "Error!",
+        text: "Data Invalid!",
+        icon: "error",
+        confirmButtonText: "OK"
+      });
+    };
   }
-
 }

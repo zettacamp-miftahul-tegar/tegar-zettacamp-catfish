@@ -1,12 +1,9 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { sources } from '../model/drop.model';
-import { DropdownOption } from '../model/dropdown.model';
-import { DataService } from '../service/data.service';
-import {Stocks} from '../../model/stock.model'
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import Swal from 'sweetalert2'
+import { CartService } from 'src/app/cart/service/cart.service';
+import Swal from 'sweetalert2';
+import { RecipeService } from '../service/recipe.service';
 
 @Component({
   selector: 'app-input',
@@ -16,12 +13,13 @@ import Swal from 'sweetalert2'
 export class InputComponent implements OnInit {
 
   signupForm!: FormGroup;
-  todos: Stocks[] = [];
+  todos: any;
 
   constructor(
-    private data: DataService,
     public dialogRef: MatDialogRef<InputComponent>,
-    @Inject(MAT_DIALOG_DATA) public datas: Stocks,
+    private data: RecipeService,
+    @Inject(MAT_DIALOG_DATA) public datas: any,
+    private data1 : CartService
   ) { }
 
   ngOnInit(): void {
@@ -30,25 +28,28 @@ export class InputComponent implements OnInit {
 
   initForm() {
     this.signupForm = new FormGroup({
-      'name': new FormControl(null, [Validators.required]),
-      'stock': new FormControl(null, [Validators.required]),
+      amount: new FormControl(null, Validators.required),
+      note: new FormControl(''),
     });
-    this.signupForm.patchValue(this.signupForm.value)
-    // console.log(this.signupForm.value);
   }
 
   onNoClick(): void {
     this.dialogRef.close();
   }
 
-  pagination: any = {
-    page: 0,
-    limit: 10
+  refetchData() {
+    this.data1.getCart().refetch();
   }
 
   onSubmit() {
     if (this.signupForm.valid) {
-      this.data.addStock(this.signupForm.value)
+
+      const bebas = {
+        recipe_id: this.datas.id,
+        ...this.signupForm.value
+      }
+
+      this.data.addCart(bebas)
       .subscribe(({dash}: any) => {
         this.todos = dash        
         Swal.fire({
@@ -59,7 +60,6 @@ export class InputComponent implements OnInit {
           this.dialogRef.close({
             status : "berhasil"
           })
-          this.data.getStock(this.pagination).refetch()
         },
         err => 
         Swal.fire({
@@ -70,8 +70,6 @@ export class InputComponent implements OnInit {
         );
       }
       );
-      // console.log('berhasil');
-     
     } else {
       console.log('gagal');
       Swal.fire({
@@ -81,7 +79,6 @@ export class InputComponent implements OnInit {
       });
       this.signupForm.markAllAsTouched();
     }
-  }  
-
+  }
 
 }

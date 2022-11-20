@@ -28,6 +28,7 @@ export class DataService {
             name
             stock
             status
+            isUsed
           }
           page
           currentDocs
@@ -55,6 +56,15 @@ export class DataService {
           ...post
       },
     })
+    // .subscribe(subs => {
+    //   console.log(subs)
+    // }, err => 
+    // Swal.fire({
+    //   icon: 'error',
+    //   title: 'Oops...',
+    //   text: 'name already to used !',
+    // })
+    // )
   }
 
   deleteStock(post:Stocks) {
@@ -79,7 +89,7 @@ export class DataService {
     Swal.fire({
       icon: 'error',
       title: 'Oops...',
-      text: 'Something went wrong!',
+      text: 'stock already to used !',
     })
     )
   }
@@ -102,12 +112,15 @@ export class DataService {
         status: post.status
       }
     })
+    // .subscribe(subs => {
+    //   console.log(subs)
+    // }, err => 
+    // Swal.fire({
+    //   icon: 'error',
+    //   title: 'Oops...',
+    //   text: 'stock already to used !',
+    // })
+    // )
   }
-
-  // private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
-
-  // get isLoggedIn() {
-  //   return this.loggedIn.asObservable();
-  // }
 
 }

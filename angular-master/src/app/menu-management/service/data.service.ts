@@ -18,8 +18,8 @@ export class DataService {
 
   getRecipe(pagination:Menus) {
     return this.apollo.watchQuery({
-      query : gql `query GetAllRecipe($recipeName: String, $page: Int, $limit: Int, $status: String) {
-        getAllRecipe(recipe_name: $recipeName, page: $page, limit: $limit, status:$status ) {
+      query : gql `query GetAllRecipes($recipeName: String, $page: Int, $limit: Int, $status: String) {
+        getAllRecipes(recipe_name: $recipeName, page: $page, limit: $limit, status:$status ) {
           totalDocs
           recipes {
             id
@@ -49,7 +49,7 @@ export class DataService {
   addRecipe(post: any) {
 
     let {recipe_name, price, imgUrl, ingredients:{ingredient_id, stock_used}} = post
-    console.log("menu manegemnt", post);
+    // console.log("menu manegemnt", post);
 
     this.query = gql `mutation CreateRecipe($recipeName: String, $input: [RecipeIngredient], $price: Int, $imgUrl: String) {
       createRecipe(recipe_name: $recipeName, input: $input, price: $price, imgUrl: $imgUrl) {
@@ -128,9 +128,7 @@ export class DataService {
     })
   )}
 
-  updateRecipe(post:any) {
-
-    let {id, recipe_name, price, imgUrl, ingredients:{ingredient_id, stock_used}} = post
+  updateRecipe(post: Menus) {
 
     this.query = gql `
     mutation UpdateRecipe($updateRecipeId: ID, $recipeName: String, $input: [RecipeIngredient], $price: Int, $imgUrl: String) {
@@ -141,6 +139,7 @@ export class DataService {
         imgUrl
         ingredients {
           ingredient_id {
+            id
             name
             stock
           }
@@ -151,7 +150,11 @@ export class DataService {
     return this.apollo.mutate({
       mutation : this.query,
       variables: {
-        ...post,input:post.ingredients
+        updateRecipeId: post.id,
+        recipeName: post.recipe_name,
+        price: post.price,
+        imgUrl: post.imgUrl,
+        input: post.ingredients
       }
     })
   }
@@ -170,6 +173,7 @@ export class DataService {
                 name
                 id
               }
+              stock_used
             }
             totalLength
           }

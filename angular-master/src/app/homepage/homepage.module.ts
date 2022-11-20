@@ -11,6 +11,7 @@ import { AboutModule } from '../about/about.module';
 import { HomepagesComponent } from './homepages/homepages.component';
 import { StockManagementComponent } from '../stock-management/stock-management.component';
 import { MenuManagementComponent } from '../menu-management/menu-management.component';
+import { CartComponent } from '../cart/cart.component';
 
 const routes : Routes = [
   {
@@ -30,6 +31,9 @@ const routes : Routes = [
       },
       {
         path:"menu-management", component: MenuManagementComponent
+      },
+      {
+        path:"cart-management", component: CartComponent
       }
     ]
   }

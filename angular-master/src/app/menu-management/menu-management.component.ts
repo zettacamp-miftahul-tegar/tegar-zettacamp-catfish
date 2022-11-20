@@ -73,12 +73,12 @@ export class MenuManagementComponent implements OnInit {
 
     this.subs.sink = this.data.getRecipe(pagination).valueChanges.subscribe((resp: any) => {
 
-      this.paginator.length = resp.data.getAllRecipe.totalDocs;      
+      this.paginator.length = resp.data.getAllRecipes.totalDocs;      
       this.paginator.pageSize = this.pageSizeOptions[0];
-      
+
       this.dataSource = new MatTableDataSource(resp);
-      this.Menue.push(resp.data.getAllRecipe.recipes)
-      this.dataSource = new MatTableDataSource(resp.data.getAllRecipe.recipes)
+      this.Menue.push(resp.data.getAllRecipes.recipes)
+      this.dataSource = new MatTableDataSource(resp.data.getAllRecipes.recipes)
 
       // console.log(resp.data.getAllRecipe.recipes);
       
@@ -141,20 +141,17 @@ export class MenuManagementComponent implements OnInit {
   // -----------------------------------------------------
 
   openUpdate(parameter:any): void {
-    // const id = parameter
     const dialogRef = this.dialog.open(UpdateComponent, {
       width: '100%',
-      data: {id : parameter},
-      // data: parameter,
+      data: parameter
       // disableClose: true,
       // hasBackdrop: true,      
     });    
 
-    // console.log(parameter.id);
-    
-
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      if (result) {
+        this.getDatas() 
+      }
     });
   }
 

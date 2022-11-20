@@ -1,0 +1,44 @@
+<div class="example-card">
+  <mat-card class="cards">
+    <img mat-card-image class="bg1" src="{{cart.recipe_id.imgUrl}}" alt="images">
+    <mat-card-header>
+      <mat-card-title> <p class="p"> <b> {{cart.recipe_id.recipe_name}} </b> </p> </mat-card-title>
+      <mat-card-title class="pad"> <p> <b> note : </b> <span class="custom1"> {{cart.note}} </span> </p> </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <h2 class="cartperice">
+        <b>amount : {{cart.amount}}</b>
+        <span>
+          <a (click)="openUpdate(cart)">
+            <button mat-button>
+              <mat-icon style="color: green;" matTooltip="edit">create</mat-icon>
+            </button>
+          </a>
+        </span>
+      </h2>
+    </mat-card-content>
+    <mat-card-content>
+      <h2 class="cartperice">
+        <b>Rp. {{cart.recipe_id.price}}</b>
+      </h2>
+    </mat-card-content>
+    <mat-card-content>
+      <h2>
+        Rp. {{cart.total_price}}
+      </h2>
+    </mat-card-content>
+    <mat-card-actions>
+      <a (click)="deleteCart(cart.id)">
+        <button mat-button>
+          <mat-icon style="color: red;" matTooltip="delete">delete</mat-icon>
+        </button>
+      </a>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
+<a (click)="deleteAllCart(cart)">
+  <button mat-button>
+    <mat-icon style="color: red;" matTooltip="delete">delete</mat-icon>
+  </button>
+</a>

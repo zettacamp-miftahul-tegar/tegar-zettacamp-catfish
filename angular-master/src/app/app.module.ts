@@ -11,6 +11,7 @@ import { LoginModule } from './login/login.module';
 import { GraphQLModule } from './graphql.module';
 import { StockManagementModule } from './stock-management/stock-management.module';
 import { MenuManagementModule } from './menu-management/menu-management.module';
+import { CartModule } from './cart/cart.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { MenuManagementModule } from './menu-management/menu-management.module';
     BrowserAnimationsModule,
     MaterialModule,
     HomepageModule,
+    CartModule,
     LoginModule,
     HttpClientModule,
     GraphQLModule,
