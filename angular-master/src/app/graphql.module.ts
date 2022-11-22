@@ -4,21 +4,19 @@ import {ApolloClientOptions, ApolloLink, InMemoryCache} from '@apollo/client/cor
 import {HttpLink} from 'apollo-angular/http';
 import { environment } from 'src/environments/environment';
 
-const uri = environment.apiUrl; // <-- add the URL of the GraphQL server here
+const uri = environment.apiUrl;
 export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
   const http = httpLink.create({ uri: uri });
   const authLink = new ApolloLink((operation, forward) => {
-    // Get the authentication token from local storage if it exists
     const token = localStorage.getItem(environment.tokenKey);
+    const user = localStorage.getItem(environment.user);
 
-    // Use the setContext method to set the HTTP headers.
     operation.setContext({
       headers: {
         Authorization: token ? `Bearer ${JSON.parse(token)}` : ''
       }
     });
 
-    // Call the next link in the middleware chain.
     return forward(operation);
   });
 

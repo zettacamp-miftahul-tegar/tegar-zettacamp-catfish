@@ -1,27 +1,53 @@
 <mat-toolbar color="primary">
   <a class="gap" routerLink="homepage">
-    Homepage
+    <button mat-button style="color: white;">{{ "homepage" | translate }}</button>
   </a>
   <a class="gap" routerLink="menu">
-    Menu
+    <button mat-button style="color: white;">{{ "menu" | translate }}</button>
   </a>
-  <a class="gap" routerLink="stock-management">
-    Stock Management
+  <a class="gap" routerLink="stock-management" *ngIf="user_type=='admin'">
+    <button mat-button style="color: white;">{{ "stock-management" | translate }}</button>
   </a>
-  <a class="gap" routerLink="menu-management">
-    Menu Management
+  <a class="gap" routerLink="menu-management" *ngIf="user_type=='admin'">
+    <button mat-button style="color: white;">{{ "menu-management" | translate }}</button>
   </a>
-  <a class="gap" routerLink="cart-management">
-    Cart
+  <a class="gap" matBadge="{{cart_length}}" matBadgeColor="warn" matBadgeOverlap="false" class="demo-section" color="accent" *ngIf="token">
+    <button mat-button [matMenuTriggerFor]="menu">{{ "cart" | translate }}</button>
+    <mat-menu #menu="matMenu">
+      <a routerLink="cart-management">
+        <button mat-menu-item>{{ "cart" | translate }}</button>
+      </a>
+      <a routerLink="cart-management">
+        <button mat-menu-item>{{ "history" | translate }}</button>
+      </a>
+    </mat-menu>
   </a>
+  <!-- <a class="gap" routerLink="cart-management" matBadge="{{cart_length}}" matBadgeColor="warn" matBadgeOverlap="false" class="demo-section" color="accent" *ngIf="token">
+    <button mat-button style="color: white;">{{ "stock-management" | translate }}</button>
+    {{ "cart" | translate }}
+  </a> -->
   <a class="filler" routerLink="about">
-    About
+    <button mat-button style="color: white;">{{ "about" | translate }}</button>
   </a>
-  <a class="gap" *ngIf="!menus">
-    <button mat-button (click)="openDialog()">Login</button>
+  <a>
+    <div class="hehe">
+      <div class="language">
+        <span *ngIf="selectedLang == 'en'"><img src="../../../assets/img/en.png" class="gambar"></span>
+        <span *ngIf="selectedLang == 'fr'"><img src="../../../assets/img/fr.png" class="gambar"></span>
+        <mat-form-field>
+          <mat-select [(value)]="selectedLang" #lang (valueChange)="setLanguage(lang.value)">
+            <mat-option value="en"><img src="../../../assets/img/en.png" class="gambar">English</mat-option>
+            <mat-option value="fr"><img src="../../../assets/img/fr.png" class="gambar">France</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
   </a>
-  <a class="gap" *ngIf="menus" >
-    <button mat-button (click)="logOut()">Logout</button>
+  <a class="gap" *ngIf="!token">
+    <button mat-button (click)="openDialog()">{{ "login" | translate }}</button>
+  </a>
+  <a class="gap" *ngIf="token">
+    <button mat-button (click)="logOut()">{{ "logout" | translate }}</button>
   </a>
 </mat-toolbar>
 

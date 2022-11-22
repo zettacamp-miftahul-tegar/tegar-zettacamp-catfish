@@ -8,18 +8,23 @@ import Swal from 'sweetalert2';
   providedIn: 'root'
 })
 export class DataService {
+  
   query: any;
-  selectedCard: any;
-
   constructor(private apollo: Apollo) { }
 
-  private userList = new BehaviorSubject<Menus[]>([]);
-  userList$ = this.userList.asObservable();
+  getRecipe(pagination:Menus, val:any) {
 
-  getRecipe(pagination:Menus) {
-    return this.apollo.watchQuery({
+    let nameFilter : any = ""
+    if (val) {
+      nameFilter = val
+    }
+
+    return this.apollo.query({
       query : gql `query GetAllRecipes($recipeName: String, $page: Int, $limit: Int, $status: String) {
         getAllRecipes(recipe_name: $recipeName, page: $page, limit: $limit, status:$status ) {
+          page
+          maxPage
+          currentDocs
           totalDocs
           recipes {
             id
@@ -40,6 +45,7 @@ export class DataService {
       }`,
       variables: {
         ...pagination,
+        recipeName:nameFilter,
         status: "deleted"
       },
       fetchPolicy: "network-only" // ketika ada perubahan ngambil server  
@@ -49,13 +55,13 @@ export class DataService {
   addRecipe(post: any) {
 
     let {recipe_name, price, imgUrl, ingredients:{ingredient_id, stock_used}} = post
-    // console.log("menu manegemnt", post);
 
     this.query = gql `mutation CreateRecipe($recipeName: String, $input: [RecipeIngredient], $price: Int, $imgUrl: String) {
       createRecipe(recipe_name: $recipeName, input: $input, price: $price, imgUrl: $imgUrl) {
         imgUrl
         recipe_name
         price
+        status
         ingredients {
           ingredient_id {
             name
@@ -109,8 +115,6 @@ export class DataService {
         recipe_name
       }
     }`
-    const id = post
-    console.log(id);
     
     return this.apollo.mutate({
       mutation : this.query,
@@ -184,4 +188,36 @@ export class DataService {
       }
     )
   }
+
+  updateAvailable(post: any) {
+
+    console.log("test", post);
+
+    this.query = gql `
+    mutation UpdateRecipe($updateRecipeId: ID, $status: String) {
+      updateRecipe(id: $updateRecipeId, status: $status) {
+        id
+        recipe_name
+        price
+        imgUrl
+        status
+        ingredients {
+          ingredient_id {
+            id
+            name
+            stock
+          }
+          stock_used
+        }
+      }
+    }`
+    return this.apollo.mutate({
+      mutation : this.query,
+      variables: {
+        updateRecipeId: post.id,
+        status: post.status,
+      }
+    })
+  }
+
 }

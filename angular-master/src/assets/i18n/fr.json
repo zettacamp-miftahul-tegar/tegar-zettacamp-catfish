@@ -1,0 +1,31 @@
+{
+  "homepage": "Page d'accueil",
+  "menu": "Menu",
+  "menu-management": "Gestion des menus",
+  "stock-management": "Gestion de stock",
+  "about": "À propos de",
+  "cart": "Chariot",
+  "login": "Connexion",
+  "logout": "Se déconnecter",
+  "email": "E-mail",
+  "password": "Mot de passe",
+  "add_card": "Ajouter à la carte",
+  "submit": "Soumettre",
+  "cancel": "Annuler",
+  "soldout": "Épuisé",
+  "stock": {
+    "name": "Name",
+    "stock": "Stock",
+    "status": "Status",
+    "action": "Action"
+  },
+  "menu-ma": {
+    "recipe_name": "Recipe Name",
+    "ingredients": "Ingredients",
+    "price": "Price",
+    "available": "Available",
+    "status": "Status",
+    "action": "Action"
+  },
+  "history": "History"
+}

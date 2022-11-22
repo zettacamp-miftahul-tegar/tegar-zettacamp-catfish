@@ -45,6 +45,7 @@ export class InputComponent implements OnInit {
     page: 0,
     limit: 10
   }
+  search:any;
 
   onSubmit() {
     if (this.signupForm.valid) {
@@ -54,24 +55,19 @@ export class InputComponent implements OnInit {
         Swal.fire({
           icon: 'success',
           title: 'Success',
-          text: 'Your work has been saved',
+          text: 'Stock added successfully!',
         }).then((bebas: any) => {
-          this.dialogRef.close({
-            status : "berhasil"
-          })
-          this.data.getStock(this.pagination).refetch()
-        },
-        err => 
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'name already to used !',
-        })
-        );
-      }
+          this.dialogRef.close(true)
+          this.data.getStock(this.pagination, this.search).refetch()
+        });
+      },
+      err => 
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'name already to used !',
+      })
       );
-      // console.log('berhasil');
-     
     } else {
       console.log('gagal');
       Swal.fire({

@@ -10,10 +10,15 @@ import Swal from 'sweetalert2';
 export class DataService {
 
   query: any;
-
   constructor(private apollo: Apollo) { }
 
-  getStock(pagination:any) {
+  getStock(pagination:any, val:any) {
+
+    let nameFilter : any = ""
+    if (val) {
+      nameFilter = val
+    }
+
     return this.apollo.watchQuery({
       query : gql `query getAllIngredient (
         $page: Int, $limit: Int, $name: String
@@ -31,12 +36,14 @@ export class DataService {
             isUsed
           }
           page
+          maxPage
           currentDocs
           totalDocs
         }
       }`,
       variables: {
-        ...pagination
+        ...pagination,
+        name:nameFilter
       },
       fetchPolicy: "network-only" // ketika ada perubahan ngambil server  
     })
@@ -56,15 +63,6 @@ export class DataService {
           ...post
       },
     })
-    // .subscribe(subs => {
-    //   console.log(subs)
-    // }, err => 
-    // Swal.fire({
-    //   icon: 'error',
-    //   title: 'Oops...',
-    //   text: 'name already to used !',
-    // })
-    // )
   }
 
   deleteStock(post:Stocks) {
@@ -112,15 +110,34 @@ export class DataService {
         status: post.status
       }
     })
-    // .subscribe(subs => {
-    //   console.log(subs)
-    // }, err => 
-    // Swal.fire({
-    //   icon: 'error',
-    //   title: 'Oops...',
-    //   text: 'stock already to used !',
-    // })
-    // )
+  }
+
+  getFilter(pagination:any, searchText:any) {
+
+    console.log(pagination, searchText);
+    
+    return this.apollo.watchQuery({
+      query : gql `query GetAllIngredients($page: Int, $name: String) {
+        getAllIngredient(page: $page, name: $name) {
+          totalDocs
+          page
+          maxPage
+          currentDocs
+          ingredients {
+            id
+            name
+            stock
+            isUsed
+            status
+          }
+        }
+      }`,
+      variables: {
+        ...pagination.page,
+        name : searchText.name
+      },
+      fetchPolicy: "network-only" // ketika ada perubahan ngambil server  
+    })
   }
 
 }

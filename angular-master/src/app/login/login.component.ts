@@ -48,8 +48,7 @@ export class LoginComponent implements OnInit {
       const payload: Logins = this.signupForm.value;
       this.subs.sink = this.authService.loginUser(payload.email, payload.password).subscribe((resp: any) => {
         if (resp) {
-          // this.auth = resp.auth
-          this.router.navigate(['menu']);
+          window.location.reload()
           this.dialogRef.close();          
         }
       })
@@ -57,12 +56,12 @@ export class LoginComponent implements OnInit {
       if (!this.signupForm.get('email')) {
         Swal.fire({
           icon: 'error',
-          title: 'Email is incorrect !',
+          title: 'email or password invalid !',
         });
       } else {
         Swal.fire({
           icon: 'error',
-          title: 'User not found ! !',
+          title: 'email or password invalid !',
         });
       }  
     }

@@ -5,6 +5,7 @@ import { MenuManagementComponent } from './menu-management.component';
 import { MaterialModule } from '../material/material.module';
 import { UpdateComponent } from './update/update.component';
 
+
 @NgModule({
   declarations: [
     InputComponent,

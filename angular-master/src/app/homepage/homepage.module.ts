@@ -12,6 +12,7 @@ import { HomepagesComponent } from './homepages/homepages.component';
 import { StockManagementComponent } from '../stock-management/stock-management.component';
 import { MenuManagementComponent } from '../menu-management/menu-management.component';
 import { CartComponent } from '../cart/cart.component';
+import { GuardGuard } from '../login/auth/guard.guard'
 
 const routes : Routes = [
   {
@@ -27,13 +28,13 @@ const routes : Routes = [
         path:"about", component:AboutComponent
       },
       {
-        path:"stock-management", component: StockManagementComponent
+        path:"stock-management", component: StockManagementComponent, canActivate:[GuardGuard]
       },
       {
-        path:"menu-management", component: MenuManagementComponent
+        path:"menu-management", component: MenuManagementComponent, canActivate:[GuardGuard]
       },
       {
-        path:"cart-management", component: CartComponent
+        path:"cart-management", component: CartComponent, canActivate:[GuardGuard]
       }
     ]
   }

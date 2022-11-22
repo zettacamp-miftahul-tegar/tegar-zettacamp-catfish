@@ -20,9 +20,6 @@ export class UpdateComponent implements OnInit {
   todos: Stocks[] = [];
   availableSources: DropdownOption[] = sources;
 
-  isValid : boolean = true
-  hello! : boolean
-
   constructor(
     private data: DataService,
     public dialogRef: MatDialogRef<UpdateComponent>,
@@ -39,6 +36,7 @@ export class UpdateComponent implements OnInit {
       'name': new FormControl(null, [Validators.required]),
       'stock': new FormControl(null, [Validators.required]),
       'status': new FormControl(null, [Validators.required]),
+      'isUsed': new FormControl()
     });
   }
 
@@ -47,7 +45,7 @@ export class UpdateComponent implements OnInit {
   }
 
   pagination: any
-  name:any
+  search: any;
 
   onSubmit() {
     if (this.signupForm.valid) {
@@ -62,23 +60,24 @@ export class UpdateComponent implements OnInit {
         Swal.fire({
           icon: 'success',
           title: 'Success',
-          text: 'Your work has been saved',
+          text: 'Data successfully updated!',
         }).then((bebas: any) => {
-          this.dialogRef.close({
-            status : "berhasil"
-          })
-          this.data.getStock(this.pagination).refetch()
+          this.dialogRef.close(true)
+          this.data.getStock(this.pagination, this.search).refetch()
         });
-      }
-      );
-      console.log('berhasil');
-     
+      }, err => 
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'stock already to used !',
+      })
+    );
     } else {
       console.log('gagal');
       Swal.fire({
         icon: 'error',
         title: 'Error',
-        text: 'Something went wrong !',
+        text: 'Data unsuccessfully updated!',
       });
       this.signupForm.markAllAsTouched();
     }

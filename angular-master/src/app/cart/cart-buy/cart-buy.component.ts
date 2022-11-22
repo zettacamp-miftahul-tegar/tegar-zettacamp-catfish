@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import Swal from 'sweetalert2';
 import { CartService } from '../service/cart.service';
@@ -11,22 +11,24 @@ import { UpdateComponent } from '../update/update.component';
 })
 export class CartBuyComponent implements OnInit {
 
-  @Input() cart: any;
+  @Input() getAllCart: any;
+  @Output() refetchall! : EventEmitter<any>;
 
   constructor(
     public dialog: MatDialog,
-    private data : CartService
-  ) { }
+    private data : CartService,
+  ) {
+    this.refetchall = new EventEmitter();
+   }
 
   ngOnInit(): void {
   }
 
-  refetchData() {
-    this.data.getCart().refetch();
-  }
+  // refetchData() {
+  //   this.data.getCart().refetch();
+  // }
 
   deleteCart(parameter: any) {
-    console.log(parameter);
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -37,37 +39,48 @@ export class CartBuyComponent implements OnInit {
       confirmButtonText: 'Yes, delete it!'
     }).then((result:any) => {
       if (result.isConfirmed) {
-        this.data.deleteOneCart(parameter)
+        this.data.deleteOneCart(parameter.id)
         Swal.fire(
           'Deleted!',
           'Your file has been deleted.',
           'success'
         )
-        this.refetchData()
+        // this.refetchData()
+        this.refetchall.emit()
       }
     })
   }
 
-  deleteAllCart() {
-    this.data.deleteAllCart()
-  }
-
   openUpdate(parameter:any): void {
     const dialogRef = this.dialog.open(UpdateComponent, {
-      width: '100%',
-      data: parameter
-      // disableClose: true,
-      // hasBackdrop: true,      
+      width: '30%',
+      data: parameter,
+      disableClose: true,
+      hasBackdrop: true,      
     });    
 
-    // console.log(parameter.recipe_id.id);
-    
-
     dialogRef.afterClosed().subscribe(result => {
-      // if (result) {
-      //   this.getDatas() 
-      // }
+      if (result) {
+        this.refetchall.emit(result)
+      }
     });
   }
 
+  // ------------------------------------------------------------
+
+  minesAmounts(parameter:any) {
+    setTimeout(() => {
+      this.data.minusAmount(parameter)
+    }, 1000)
+    this.refetchall.emit()
+    // this.refetchData() 
+  }
+
+  plesAmounts(parameter:any) {
+    setTimeout(() => {
+      this.data.plesAmounts(parameter)
+    }, 1000)
+    this.refetchall.emit()
+    // this.refetchData() 
+  }
 }

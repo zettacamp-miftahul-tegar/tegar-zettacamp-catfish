@@ -1,3 +1,30 @@
 <div class="container">
-    <app-cart-buy class="rep" *ngFor="let menu of carts;" [cart]="menu"></app-cart-buy>
+  <app-cart-buy class="rep" *ngFor="let menu of carts;" [getAllCart]="menu" (refetchall)="getCard_id($event)"></app-cart-buy>
+</div>
+
+<div class="containerB" *ngIf="cart_length > 0">
+  <div class="example-card">
+    <mat-card class="cards">
+      <mat-card-header>
+        <mat-card-title class="pad">
+          <p> <span class="custom1"> <b>Total Price :</b> </span> </p>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <h2 class="cartperice">
+          <b>Rp. {{total_price}}</b>
+        </h2>
+      </mat-card-content>
+      <mat-card-actions>
+        <a>
+          <button mat-raised-button color="accent" (click)="deleteAllCart()">Delete</button>
+          <button mat-raised-button color="primary" (click)="buyCart()">Buy</button>
+        </a>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+
+<div class="containerC" *ngIf="cart_length == 0">
+  <img src="../../assets/img/empty-cart.png">
 </div>

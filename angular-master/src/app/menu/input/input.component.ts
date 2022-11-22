@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CartService } from 'src/app/cart/service/cart.service';
+import { SubSink } from 'subsink';
 import Swal from 'sweetalert2';
 import { RecipeService } from '../service/recipe.service';
 
@@ -23,12 +24,23 @@ export class InputComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getDatas()
+    this.initForm()
+  }
+
+  recepien:any
+
+  getDatas() {
+    const bebas = {
+      available: this.datas.available
+    }
+    this.recepien = bebas.available
     this.initForm()
   }
 
   initForm() {
     this.signupForm = new FormGroup({
-      amount: new FormControl(null, Validators.required),
+      amount: new FormControl(null, [Validators.required, Validators.max(this.recepien)]),
       note: new FormControl(''),
     });
   }
@@ -55,11 +67,12 @@ export class InputComponent implements OnInit {
         Swal.fire({
           icon: 'success',
           title: 'Success',
-          text: 'Your work has been saved',
+          text: 'Successfully added to cart!',
         }).then((bebas: any) => {
           this.dialogRef.close({
             status : "berhasil"
           })
+          this.refetchData()
         },
         err => 
         Swal.fire({

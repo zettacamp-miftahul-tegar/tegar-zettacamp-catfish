@@ -6,7 +6,6 @@ import { CartBuyComponent } from './cart-buy/cart-buy.component';
 import { UpdateComponent } from './update/update.component';
 
 
-
 @NgModule({
   declarations: [
     CartComponent,

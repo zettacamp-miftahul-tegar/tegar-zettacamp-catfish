@@ -42,6 +42,7 @@ export class AuthService {
   userLogin(data: any) {    
     localStorage.setItem(environment.tokenKey, JSON.stringify(data.login.token));
     localStorage.setItem(environment.user, JSON.stringify(data.login.user));
+    localStorage.setItem(environment.user_type, JSON.stringify(data.login.user.role.user_type))
   }
 
   logOut() {

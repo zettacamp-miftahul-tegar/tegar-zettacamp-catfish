@@ -9,6 +9,8 @@ import { Menus } from '../model/menu.model';
 import { InputComponent } from './input/input.component';
 import { DataService } from './service/data.service';
 import { UpdateComponent } from './update/update.component';
+import copy from 'fast-copy';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-menu-management',
@@ -28,10 +30,9 @@ export class MenuManagementComponent implements OnInit {
 
   ngOnInit(): void {
     this.getDatas()
-    this.refetchData()
   }
 
-  displayedColumns: string[] = ['recipe_name', 'ingredients', 'price', 'available', 'status', 'action'];
+  displayedColumns: string[] = ['recipe_name', 'price', 'available', 'status', 'action'];
 
   dataSource: MatTableDataSource <Menus> = new MatTableDataSource();
 
@@ -71,18 +72,22 @@ export class MenuManagementComponent implements OnInit {
       limit: paginationObj?.limit ?? 10
     }
 
-    this.subs.sink = this.data.getRecipe(pagination).valueChanges.subscribe((resp: any) => {
+    this.subs.sink = this.data.getRecipe(pagination, this.search).subscribe((resp: any) => {
+      if(resp?.data?.getAllRecipes){
 
-      this.paginator.length = resp.data.getAllRecipes.totalDocs;      
-      this.paginator.pageSize = this.pageSizeOptions[0];
-
-      this.dataSource = new MatTableDataSource(resp);
-      this.Menue.push(resp.data.getAllRecipes.recipes)
-      this.dataSource = new MatTableDataSource(resp.data.getAllRecipes.recipes)
-
-      // console.log(resp.data.getAllRecipe.recipes);
-      
+        this.paginator.length = resp.data.getAllRecipes.totalDocs;      
+        this.paginator.pageSize = this.pageSizeOptions[0];
+        this.dataSource = new MatTableDataSource(resp.data.getAllRecipes.recipes)
+      } else {
+        this.paginator.length = 0;
+        this.dataSource.data = [];
+      }
+    },
+    (err) => {
+      this.paginator.length = 0;
+      this.dataSource.data = [];
     })
+    this.searchFilter()
   }
 
   pagination: any = {
@@ -90,16 +95,19 @@ export class MenuManagementComponent implements OnInit {
     limit: 10
   }
 
-  refetchData() {
-    const pagination = this.pagination;
-    this.data.getRecipe(this.pagination).refetch();
-  }
+  // refetchData(paginationObj?: any) {
+  //   const pagination: any = {
+  //     page: paginationObj?.page ?? 0,
+  //     limit: paginationObj?.limit ?? 10
+  //   }
+  //   this.data.getRecipe(pagination, this.search).refetch();
+  // }
 
   // --------------------------------------------------
 
   openDialog(): void {
     const dialogRef = this.dialog.open(InputComponent, {
-      width: '100%',
+      width: '30%',
       data: {name: this.recipe_name},
       // disableClose: true,
       // hasBackdrop: true
@@ -116,24 +124,23 @@ export class MenuManagementComponent implements OnInit {
   // ------------------------------------------------
 
   onDelete(parameter:any){
-    // console.log(parameter);
     Swal.fire({
       title: 'Are you sure?',
-      text: "You won't be able to revert this!",
+      text: "menu will be permanently deleted!",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
+      confirmButtonText: 'Yes, delete now!'
     }).then((result:any) => {
       if (result.isConfirmed) {
         this.data.deleteRecepies(parameter)
         Swal.fire(
           'Deleted!',
-          'Your file has been deleted.',
+          'Your menu has been deleted.',
           'success'
         )
-        this.refetchData()
+        this.getDatas()
       }
     })
   };
@@ -142,7 +149,7 @@ export class MenuManagementComponent implements OnInit {
 
   openUpdate(parameter:any): void {
     const dialogRef = this.dialog.open(UpdateComponent, {
-      width: '100%',
+      width: '30%',
       data: parameter
       // disableClose: true,
       // hasBackdrop: true,      
@@ -155,4 +162,61 @@ export class MenuManagementComponent implements OnInit {
     });
   }
 
+  // --------------------------------------------------
+
+  updateStatus(data:any) {
+    data = copy(data)
+    if (data.status === 'publish') {
+      data.status = 'unpublish'
+    }
+    else if (data.status === 'unpublish') {
+      data.status = 'publish'
+    }
+    else {
+      data.status = 'deleted'
+    }
+    Swal.fire({
+      title: 'Do you want to edit status to ' + data.status + '?',
+      showDenyButton: false,
+      showCancelButton: true,
+      showConfirmButton: true,
+      denyButtonText: `Yes`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.subs.sink = this.data.updateAvailable(data).subscribe(resp => {
+          if (resp) {
+            this.getDatas()
+            Swal.fire('Menu status has been changed to ' + data.status)
+          }
+        })
+      }
+    })
+  }
+
+  onPublish(event: any, element: any) {
+    const data = {
+      id: element.id,
+      publish: event.checked ? 'Publish' : 'Unpublish',
+    };
+    
+    this.data.updateAvailable(data).subscribe(() => {
+      this.getDatas()
+    });
+  }
+
+  // ---------------------------------------------
+
+  value = '';
+  nameFilter = new FormControl();
+  page = 1;
+  search : any;
+  maxPage : any;
+  dataIngredients : any;
+
+  searchFilter() {
+    this.nameFilter.valueChanges.subscribe((val) => {
+      this.search = val
+      this.getDatas()
+    });
+  }
 }

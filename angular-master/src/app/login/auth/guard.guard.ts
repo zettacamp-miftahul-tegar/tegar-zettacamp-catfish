@@ -13,12 +13,13 @@ export class GuardGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+
       const userToken = localStorage.getItem('token');
+      const user_type = JSON.parse(localStorage.getItem('user_type')!)
 
       if (userToken) {
         return true;
       } else {
-        // Force Logout if there is no token
         this.router.navigate(['homepage']);
         return false;
       }

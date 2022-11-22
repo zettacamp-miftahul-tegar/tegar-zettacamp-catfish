@@ -11,12 +11,15 @@
         Price : {{recipe.price}}
       </p>
     </mat-card-content>
-    <mat-card-actions>
-      <!-- <div *ngIf="!recepien">
-      </div> -->
-      <div>
-        <button mat-button (click)="openDialog(recipe)">
-          <mat-icon color="primary">add_shopping_cart</mat-icon> add to cart
+    <mat-card-actions *ngIf="token">
+      <div *ngIf="recipe.available > 0">
+        <button (click)="openDialog(recipe)" mat-stroked-button color="primary">
+          <mat-icon color="primary">add_shopping_cart</mat-icon> {{ "add_card" | translate }}
+        </button>
+      </div>
+      <div *ngIf="recipe.available == 0" class="cez">
+        <button (click)="openDialog(recipe)" mat-stroked-button color="primary" disabled="true">
+          <mat-icon color="primary">add_shopping_cart</mat-icon> {{ "add_card" | translate }}
         </button>
       </div>
     </mat-card-actions>

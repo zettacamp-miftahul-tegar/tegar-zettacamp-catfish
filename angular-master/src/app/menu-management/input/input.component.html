@@ -7,16 +7,19 @@
         <mat-form-field class="custom" appearance="fill">
           <mat-label> Images <label for="imgUrl"></label> </mat-label>
           <input matInput type="text" id="imgUrl" formControlName="imgUrl" class="form-control">
+          <mat-error *ngIf="this.signupForm.get('imgUrl')?.invalid"> only field images ! </mat-error>
         </mat-form-field><br>
 
         <mat-form-field class="custom" appearance="fill">
           <mat-label> Recipe Name <label for="recipeName"></label> </mat-label>
           <input matInput type="text" id="recipeName" formControlName="recipeName" class="form-control">
+          <mat-error *ngIf="this.signupForm.get('recipeName')?.invalid"> This name min 3 length ! </mat-error>
         </mat-form-field><br>
 
         <mat-form-field class="custom" appearance="fill">
           <mat-label> Price <label for="price"></label> </mat-label>
-          <input matInput type="number" id="price" formControlName="price" class="form-control">
+          <input matInput type="number" id="price" formControlName="price" class="form-control" min="0">
+          <mat-error *ngIf="this.signupForm.get('price')?.invalid"> This price min 1 length ! </mat-error>
         </mat-form-field><br>
 
 
@@ -24,11 +27,13 @@
 
           <div>
             <a (click)="onIngredients()">
-              <button type="button" mat-raised-button color="accent" style="width: 80%;"> Add Ingredients </button>
+              <button type="button" mat-raised-button color="accent" style="width: 100%;"> Add Ingredients </button>
             </a>
-          </div><br>
+          </div><br><hr><br>
 
           <form *ngFor="let creds of controls.controls; let i = index" >
+
+            <h2 style="text-align: center;"> Ingredients {{i+1}} </h2>
 
             <div class="example-container" [formGroupName]="i">
 
@@ -39,22 +44,31 @@
                       {{menu.name}}
                     </mat-option>
                   </mat-select>
+                  <mat-error *ngIf="this.signupForm.get('ingredient_id')?.invalid"> This field is required ! </mat-error>
                 </mat-form-field>
 
               <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label> Stock Used <label for="stock_used"></label></mat-label>
                 <input matInput id="stock_used" type="number" formControlName="stock_used">
+                <mat-error *ngIf="this.signupForm.get('stock_used')?.invalid"> This price min 1 length ! </mat-error>
               </mat-form-field>
 
             </div>
             <div>
-              <button mat-raised-button color="warn" style="width: 80%;" (click)="removeIngredients(i)" *ngIf="controls.length > 1">
+              <button mat-raised-button color="warn" style="width: 100%;" (click)="removeIngredients(i)" *ngIf="controls.length > 1">
                 Remove
               </button>
             </div><br>
           </form>
         </div>
-        <button mat-raised-button color="primary" style="width: 80%;" type="submit">Submit</button>
+        <!-- <div mat-dialog-actions style="float: right;">
+          <button type="button" mat-raised-button color="warn" (click)="onNoClick()"> Cancel </button>
+          <button type="submit" mat-raised-button color="accent" [disabled]="signupForm.invalid"> Submit </button>
+        </div> -->
+        <div>
+          <button type="button" mat-raised-button color="warn" (click)="onNoClick()" style="width: 100%;"> Cancel </button><br>
+          <button mat-raised-button color="primary" style="width: 100%;" type="submit" [disabled]="signupForm.invalid">Submit</button>
+        </div>
       </form>
     </div>
   </div>

@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Menus } from 'src/app/model/menu.model';
-import Swal from 'sweetalert2';
 import { DataService } from '../service/data.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-input',
@@ -38,17 +37,17 @@ export class InputComponent implements OnInit {
 
   initForm() {
     this.signupForm = new FormGroup({
-      imgUrl: new FormControl(null, Validators.required),
-      recipeName: new FormControl(null, Validators.required),
-      price: new FormControl(null, Validators.required),
+      imgUrl: new FormControl(null, [Validators.required, Validators.minLength(5)]),
+      recipeName: new FormControl(null, [Validators.required, Validators.minLength(4)]),
+      price: new FormControl(null, [Validators.required, Validators.min(1)]),
       ingredients: new FormArray([])
     });
   }
 
   onIngredients() {
-    this.addr.push(new FormGroup({
+    this.addr.push(new FormGroup({  
       ingredient_id: new FormControl(null, Validators.required),
-      stock_used: new FormControl(null, Validators.required),
+      stock_used: new FormControl(null, [Validators.required, Validators.min(1)]),
     }));
   }
 
@@ -58,6 +57,10 @@ export class InputComponent implements OnInit {
 
   removeIngredients(i: number) {
     this.controls.removeAt(i);
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 
   pagination: any = {
@@ -76,7 +79,7 @@ export class InputComponent implements OnInit {
         Swal.fire({
           icon: 'success',
           title: 'Success',
-          text: 'Your work has been saved',
+          text: 'Menu added successfully!',
         }).then((bebas) => {
           this.dialogRef.close(true)
         });

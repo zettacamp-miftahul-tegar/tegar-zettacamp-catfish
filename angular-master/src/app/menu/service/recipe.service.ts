@@ -34,7 +34,7 @@ export class RecipeService {
       }`,
       variables: {
         ...pagination,
-        status: 'active'
+        status: 'publish'
       },
       fetchPolicy: "network-only" // ketika ada perubahan ngambil server  
     })

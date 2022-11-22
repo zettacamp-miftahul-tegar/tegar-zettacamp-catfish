@@ -1,0 +1,31 @@
+{
+  "homepage": "Homepage",
+  "menu": "Menu",
+  "menu-management": "Menu Management",
+  "stock-management": "Stock Management",
+  "about": "About",
+  "cart": "Cart",
+  "login": "Login",
+  "logout": "Logout",
+  "email": "Email",
+  "password": "Password",
+  "add_card": "Add to Card",
+  "submit": "Submit",
+  "cancel": "Cancel",
+  "soldout": "Soldout",
+  "stock": {
+      "name": "Name",
+      "stock": "Stock",
+      "status": "Status",
+      "action": "Action"
+  },
+  "menu-ma": {
+    "recipe_name": "Recipe Name",
+    "ingredients": "Ingredients",
+    "price": "Price",
+    "available": "Available",
+    "status": "Status",
+    "action": "Action"
+  },
+  "history": "History"
+}

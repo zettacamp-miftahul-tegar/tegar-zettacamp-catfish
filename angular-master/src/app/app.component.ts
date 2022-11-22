@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { TranslateService } from '@ngx-translate/core';
+import { SubSink } from 'subsink';
+import { CartService } from './cart/service/cart.service';
 import { LoginComponent } from './login/login.component';
 import { DataService } from './stock-management/service/data.service'
 
@@ -14,23 +15,41 @@ import { DataService } from './stock-management/service/data.service'
 export class AppComponent {
   title = 'angular-master';
   email: any;
-  menus! : boolean | null
-  // isLoggedIn$!: Observable<boolean>;
+  private subs = new SubSink();
+  cart_length:any
 
-  constructor(private router: Router, public dialog: MatDialog, private authService : DataService ) { 
-    this.router.navigate(['homepage'])
+  token : string | null = ""
+  user_type: string | null = "";
+
+  constructor(private router: Router, public dialog: MatDialog, private authService : DataService, private cart: CartService, private translateService : TranslateService ) { 
+    // this.router.navigate(['homepage'])
+  }
+
+  selectedLang = 'en';
+
+  setLanguage(lang: string) {
+    this.translateService.use(lang);
   }
 
   ngOnInit(): void {
-    let data = localStorage.getItem('token') ? true : false
-    this.menus = data
+    if (localStorage.getItem('token')){
+      this.token = localStorage.getItem('token')
+      this.user_type = JSON.parse(localStorage.getItem('user_type')!)
+    }
+    this.getCard_id()
+  }
+
+  getCard_id() {
+    this.subs.sink = this.cart.getCart().valueChanges.subscribe((item: any) => {
+      this.cart_length = item.data.getAllCart.cart_length
+    });
   }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(LoginComponent, {
       width: '100%',
       panelClass: 'bg-color',
-      data: this.menus
+      data: this.cart_length
     });
 
     dialogRef.afterClosed().subscribe((result: any) => {
@@ -39,7 +58,11 @@ export class AppComponent {
   }
 
   logOut() {
-    localStorage.removeItem(environment.tokenKey);
+      localStorage.removeItem('token');
+      localStorage.removeItem('user_type');
+      this.router.navigate(['homepage']).then(()=>{
+        window.location.reload()
+    })
   }
   
 }
