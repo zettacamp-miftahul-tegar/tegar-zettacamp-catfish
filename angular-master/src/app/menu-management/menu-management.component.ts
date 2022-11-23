@@ -11,6 +11,8 @@ import { DataService } from './service/data.service';
 import { UpdateComponent } from './update/update.component';
 import copy from 'fast-copy';
 import { FormControl } from '@angular/forms';
+import { debounceTime } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu-management',
@@ -25,7 +27,8 @@ export class MenuManagementComponent implements OnInit {
 
   constructor(
     private data: DataService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -187,6 +190,7 @@ export class MenuManagementComponent implements OnInit {
           if (resp) {
             this.getDatas()
             Swal.fire('Menu status has been changed to ' + data.status)
+            this.router.navigate(['menu'])
           }
         })
       }
@@ -214,7 +218,7 @@ export class MenuManagementComponent implements OnInit {
   dataIngredients : any;
 
   searchFilter() {
-    this.nameFilter.valueChanges.subscribe((val) => {
+    this.nameFilter.valueChanges.pipe(debounceTime(300)).subscribe((val) => {
       this.search = val
       this.getDatas()
     });

@@ -72,14 +72,25 @@
       <ng-container matColumnDef="action">
         <th class="poss" mat-header-cell *matHeaderCellDef matTooltip="Action"> <b>Action</b> </th>
         <td mat-cell *matCellDef="let element">
-          <a (click)="openUpdate(element)">
+          <a (click)="openUpdate(element)" *ngIf="element.status == 'unpublish'">
             <button mat-stroked-button color="primary">
               <mat-icon style="color: green;" matTooltip="edit">create</mat-icon>
             </button>
           </a>
-          <a (click)="onDelete(element.id)">
+          <a (click)="onDelete(element.id)" *ngIf="element.status == 'unpublish'">
             <button mat-stroked-button color="primary">
               <mat-icon style="color: red;" matTooltip="delete">delete</mat-icon>
+            </button>
+          </a>
+
+          <a  *ngIf="element.status == 'publish'" >
+            <button mat-stroked-button (click)="openUpdate(element)" color="primary" disabled="true">
+              <mat-icon style="color: green;" matTooltip="disabled edit">create</mat-icon>
+            </button>
+          </a>
+          <a  *ngIf="element.status == 'publish'">
+            <button mat-stroked-button color="primary" (click)="onDelete(element.id)" disabled="true">
+              <mat-icon style="color: red;" matTooltip="disabled delete">delete</mat-icon>
             </button>
           </a>
 

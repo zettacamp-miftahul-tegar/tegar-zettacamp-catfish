@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { SubSink } from 'subsink';
 import Swal from 'sweetalert2';
 import { CartService } from './service/cart.service';
@@ -16,24 +17,32 @@ export class CartComponent implements OnInit {
   total_price: any;
   cart_length: any;
   datas:any
+  @Output() refetchNotif : EventEmitter<any>;
 
-  constructor(private data: CartService) {}
+
+  constructor(
+    private data: CartService,
+    private router: Router,
+  ) {
+    this.refetchNotif = new EventEmitter();
+  }
 
   ngOnInit(): void {
-    this.getCard_id(this.datas)
+    this.getCard_id(this.carts)
   }
+  
 
   getCard_id(event:any) {
     this.subs.sink = this.data.getCart().valueChanges.subscribe((item: any) => {
-      this.carts = item.data.getAllCart.cart
-      this.total_price = item.data.getAllCart.total_price
-      this.cart_length = item.data.getAllCart.cart_length
+      this.carts = item?.data?.getAllCart?.cart
+      this.total_price = item?.data?.getAllCart?.total_price
+      this.cart_length = item?.data?.getAllCart?.cart_length
     });
   }
 
-  // refetchData() {
-  //   this.data.getCart().refetch();
-  // }
+  refetchData() {
+    this.data.getCart().refetch();
+  }
 
   deleteAllCart() {
     Swal.fire({
@@ -52,9 +61,9 @@ export class CartComponent implements OnInit {
           'Your file has been deleted.',
           'success'
         )
-        // this.getCard_id(this.datas)
-        // this.getCard_id(this.datas)
-        window.location.reload()
+        this.carts = []
+        this.cart_length = 0
+        this.refetchNotif.emit(true)
       }
     })
   }
@@ -76,8 +85,8 @@ export class CartComponent implements OnInit {
           'your order is being processed',
           'success'
         )
-        this.getCard_id(this.datas)
-        window.location.reload()
+        this.carts = []
+        this.cart_length = 0
       }
     })
   }

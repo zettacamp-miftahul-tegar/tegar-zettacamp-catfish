@@ -1,5 +1,15 @@
+<mat-form-field>
+  <mat-label>Search</mat-label>
+  <input matInput [formControl]="nameFilter" placeholder="Ex. Telur Goreng" [(ngModel)]="value">
+  <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-form-field>
+
+
 <div class="container">
-    <app-menu-recipe class="rep" *ngFor="let menu of recepien;" [recipe]="menu"></app-menu-recipe>
+  <app-menu-recipe class="rep" *ngFor="let menu of recepien;" [recipe]="menu"></app-menu-recipe>
 </div>
 
-<mat-paginator #paginator class="promo-paginator" (page)="onPaginatorChange($event)" [pageSizeOptions]="[4]" showFirstLastButtons="true"></mat-paginator>
+<mat-paginator #paginator class="promo-paginator" (page)="onPaginatorChange($event)" [pageSizeOptions]="[4]"
+  showFirstLastButtons="true"></mat-paginator>

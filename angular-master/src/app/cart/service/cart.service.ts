@@ -152,9 +152,6 @@ export class CartService {
         status
       }
     }`
-    // console.log(post.id);
-    // console.log(post.amount);
-    
     return this.apollo.mutate({
       mutation : this.query,
       variables: {
@@ -163,10 +160,6 @@ export class CartService {
       },
       fetchPolicy: "network-only" // ketika ada perubahan ngambil server  
       })
-      .subscribe(subs => {
-        console.log(subs)
-      }
-    )
   }
 
   plesAmounts(post:any) {
@@ -189,9 +182,6 @@ export class CartService {
         status
       }
     }`
-    // console.log(post.id);
-    // console.log(post.amount);
-    
     return this.apollo.mutate({
       mutation : this.query,
       variables: {
@@ -200,10 +190,6 @@ export class CartService {
       },
       fetchPolicy: "network-only" // ketika ada perubahan ngambil server  
       })
-      .subscribe(subs => {
-        console.log(subs)
-      }
-    )
   }
 
   addBuyPrice() {

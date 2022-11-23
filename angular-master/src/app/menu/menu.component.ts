@@ -1,8 +1,11 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { SubSink } from 'subsink';
 import { RecipeService } from './service/recipe.service';
 import { Recepiens } from '../model/recepient.model'
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import { FormControl } from '@angular/forms';
+import { debounceTime } from 'rxjs';
+
 
 @Component({
   selector: 'app-menu',
@@ -14,9 +17,13 @@ export class MenuComponent implements OnInit {
   private subs = new SubSink();
   recepien:Recepiens[] = []
 
+  @Input('debounce')
+  public debounceTime: number = 300;
+
   constructor(private data: RecipeService) { }
 
   ngOnInit(): void {
+    this.searchFilter()
     this.getDatas()
   }
 
@@ -28,12 +35,19 @@ export class MenuComponent implements OnInit {
       status: "publish"
     }
 
-    this.subs.sink = this.data.getRecipies(pagination).valueChanges.subscribe((resp : any) => {
-
-      this.paginator.length = resp.data.getAllRecipe.totalDocs;
-      this.paginator.pageSize = this.pageSizeOptions[0];
-
-      this.recepien = resp.data.getAllRecipe.recipes
+    this.subs.sink = this.data.getRecipies(pagination, this.search).valueChanges.subscribe((resp : any) => {
+      if(resp?.data?.getAllRecipe){
+        this.paginator.length = resp.data.getAllRecipe.totalDocs;
+        this.paginator.pageSize = this.pageSizeOptions[0];
+        this.recepien = resp.data.getAllRecipe.recipes
+      } else {
+        this.paginator.length = 0;
+        this.recepien = [];
+      }
+    },
+    (err) => {
+      this.paginator.length = 0;
+      this.recepien = [];
     })
   }
 
@@ -47,6 +61,24 @@ export class MenuComponent implements OnInit {
       page: event.pageIndex+1,
     }
     this.getDatas(pagination)
+  }
+
+  // ------------------------------
+
+  value = '';
+  nameFilter = new FormControl();
+  page = 1;
+  search : any;
+  maxPage : any;
+  dataIngredients : any;
+
+  searchFilter(paginationObj?:any) {
+    this.nameFilter.valueChanges.pipe(debounceTime(300)).subscribe((val) => {
+      this.search = val
+      console.log(this.search);
+      
+      this.getDatas()
+    });
   }
 
 }

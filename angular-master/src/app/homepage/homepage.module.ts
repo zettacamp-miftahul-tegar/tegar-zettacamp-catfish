@@ -13,6 +13,7 @@ import { StockManagementComponent } from '../stock-management/stock-management.c
 import { MenuManagementComponent } from '../menu-management/menu-management.component';
 import { CartComponent } from '../cart/cart.component';
 import { GuardGuard } from '../login/auth/guard.guard'
+import { HistoryComponent } from '../history/history.component';
 
 const routes : Routes = [
   {
@@ -35,6 +36,9 @@ const routes : Routes = [
       },
       {
         path:"cart-management", component: CartComponent, canActivate:[GuardGuard]
+      },
+      {
+        path:"history", component: HistoryComponent, canActivate:[GuardGuard]
       }
     ]
   }

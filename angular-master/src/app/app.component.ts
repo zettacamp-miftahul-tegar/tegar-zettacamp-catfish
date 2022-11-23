@@ -21,8 +21,11 @@ export class AppComponent {
   token : string | null = ""
   user_type: string | null = "";
 
-  constructor(private router: Router, public dialog: MatDialog, private authService : DataService, private cart: CartService, private translateService : TranslateService ) { 
-    // this.router.navigate(['homepage'])
+  constructor(
+    private router: Router,
+    public dialog: MatDialog, 
+    private cart: CartService, 
+    private translateService : TranslateService ) { 
   }
 
   selectedLang = 'en';
@@ -36,12 +39,14 @@ export class AppComponent {
       this.token = localStorage.getItem('token')
       this.user_type = JSON.parse(localStorage.getItem('user_type')!)
     }
-    this.getCard_id()
+    this.getCard_id(this.data)
   }
 
-  getCard_id() {
+  data:any
+
+  getCard_id(event:any) {
     this.subs.sink = this.cart.getCart().valueChanges.subscribe((item: any) => {
-      this.cart_length = item.data.getAllCart.cart_length
+      this.cart_length = item?.data?.getAllCart?.cart_length
     });
   }
 

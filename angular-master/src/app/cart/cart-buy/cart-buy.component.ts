@@ -14,6 +14,7 @@ export class CartBuyComponent implements OnInit {
   @Input() getAllCart: any;
   @Output() refetchall! : EventEmitter<any>;
 
+
   constructor(
     public dialog: MatDialog,
     private data : CartService,
@@ -45,8 +46,7 @@ export class CartBuyComponent implements OnInit {
           'Your file has been deleted.',
           'success'
         )
-        // this.refetchData()
-        this.refetchall.emit()
+        this.refetchall.emit(true)
       }
     })
   }
@@ -61,7 +61,7 @@ export class CartBuyComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.refetchall.emit(result)
+        this.refetchall.emit(true)
       }
     });
   }
@@ -69,18 +69,14 @@ export class CartBuyComponent implements OnInit {
   // ------------------------------------------------------------
 
   minesAmounts(parameter:any) {
-    setTimeout(() => {
-      this.data.minusAmount(parameter)
-    }, 1000)
-    this.refetchall.emit()
-    // this.refetchData() 
+    this.data.minusAmount(parameter).subscribe((item) => {
+      this.refetchall.emit(true)
+    })
   }
 
   plesAmounts(parameter:any) {
-    setTimeout(() => {
-      this.data.plesAmounts(parameter)
-    }, 1000)
-    this.refetchall.emit()
-    // this.refetchData() 
+    this.data.plesAmounts(parameter).subscribe((item) => {
+      this.refetchall.emit(true)
+    })
   }
 }

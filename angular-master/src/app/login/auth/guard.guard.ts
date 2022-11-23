@@ -12,17 +12,32 @@ export class GuardGuard implements CanActivate {
   ) {}
   canActivate(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    state: RouterStateSnapshot): Observable < boolean | UrlTree > | Promise < boolean | UrlTree > | boolean | UrlTree {
 
-      const userToken = localStorage.getItem('token');
-      const user_type = JSON.parse(localStorage.getItem('user_type')!)
+    const userToken = localStorage.getItem('token');
+    let user_type = JSON.parse(localStorage.getItem('user_type') !);
+    
+    let user_types = localStorage.getItem('user_type');
 
-      if (userToken) {
-        return true;
-      } else {
-        this.router.navigate(['homepage']);
-        return false;
-      }
+    if (userToken) {
+      return true;
+    } else {
+      this.router.navigate(['homepage']);
+      return false;
+    }
+
+    // if (userToken) {
+    //   if (user_type == "admin") {
+    //     return true;
+    //   } else {
+    //     this.router.navigate(['homepage']);
+    //     return false;
+    //   }
+    // } else {
+    //   this.router.navigate(['homepage']);
+    //   return false;
+    // }
+
   }
-  
+
 }

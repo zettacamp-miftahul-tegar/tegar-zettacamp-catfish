@@ -11,21 +11,17 @@
   <a class="gap" routerLink="menu-management" *ngIf="user_type=='admin'">
     <button mat-button style="color: white;">{{ "menu-management" | translate }}</button>
   </a>
-  <a class="gap" matBadge="{{cart_length}}" matBadgeColor="warn" matBadgeOverlap="false" class="demo-section" color="accent" *ngIf="token">
+  <a class="gap" matBadge="{{cart_length}}" matBadgeColor="warn" matBadgeOverlap="false" class="demo-section" color="accent" *ngIf="token" (refetchNotif)="getCard_id($event)">
     <button mat-button [matMenuTriggerFor]="menu">{{ "cart" | translate }}</button>
     <mat-menu #menu="matMenu">
       <a routerLink="cart-management">
         <button mat-menu-item>{{ "cart" | translate }}</button>
       </a>
-      <a routerLink="cart-management">
+      <a routerLink="history">
         <button mat-menu-item>{{ "history" | translate }}</button>
       </a>
     </mat-menu>
   </a>
-  <!-- <a class="gap" routerLink="cart-management" matBadge="{{cart_length}}" matBadgeColor="warn" matBadgeOverlap="false" class="demo-section" color="accent" *ngIf="token">
-    <button mat-button style="color: white;">{{ "stock-management" | translate }}</button>
-    {{ "cart" | translate }}
-  </a> -->
   <a class="filler" routerLink="about">
     <button mat-button style="color: white;">{{ "about" | translate }}</button>
   </a>

@@ -1,4 +1,4 @@
-<div class="example-card">
+<!-- <div class="example-card">
   <mat-card class="cards">
     <img mat-card-image class="bg1" src="{{getAllCart.recipe_id.imgUrl}}" alt="images">
     <mat-card-header>
@@ -52,4 +52,57 @@
       </a>
     </mat-card-actions>
   </mat-card>
-</div>
+</div> -->
+
+<mat-card class="card">
+  <div class="flex">
+    <img [src]="getAllCart.recipe_id.imgUrl" alt="me" />
+    <div>
+      <mat-card-title>{{getAllCart.recipe_id.recipe_name}}</mat-card-title>
+      <mat-card-subtitle> 
+        <span class="custom1">Note : {{getAllCart.note}} </span>
+      </mat-card-subtitle>
+    </div>
+  </div>
+  <mat-card-actions align="end" class="input">
+    <h2 style="margin: 70px;">
+      <b>amount : 
+        <span>
+          <a (click)="minesAmounts(getAllCart)">
+            <button mat-button>
+              <mat-icon style="color: green;" matTooltip="minus">keyboard_arrow_left</mat-icon>
+            </button>
+          </a>
+        </span>
+        {{getAllCart.amount}}
+        <span>
+          <a (click)="plesAmounts(getAllCart)">
+            <button mat-button>
+              <mat-icon style="color: green;" matTooltip="plus">keyboard_arrow_right</mat-icon>
+            </button>
+          </a>
+        </span>
+      </b>
+    </h2>
+    <h2 style="margin: 70px;">
+      <b>Rp. {{getAllCart.recipe_id.price}}</b>
+    </h2>
+    <h2 style="margin: 70px;">
+      Rp. {{getAllCart.total_price}}
+    </h2>
+  </mat-card-actions>
+  <div class="btn">
+    <span>
+      <a (click)="openUpdate(getAllCart)">
+        <button mat-raised-button color="primary">
+           + Note 
+        </button><br>
+      </a>
+    </span> 
+    <a (click)="deleteCart(getAllCart)">
+      <button mat-button color="warn">
+        <mat-icon style="color: red;" matTooltip="delete">delete</mat-icon>
+      </button>
+    </a>
+  </div>
+</mat-card>

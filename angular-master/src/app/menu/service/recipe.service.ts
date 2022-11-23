@@ -9,15 +9,22 @@ export class RecipeService {
 
   constructor(private apollo: Apollo) { }
 
-  getRecipies(pagination: any) {
+  getRecipies(pagination: any, val:any) {
+
+    let nameFilter : any = ""
+    if (val) {
+      nameFilter = val
+    }
+
     return this.apollo.watchQuery({
       query : gql `query getAllRecipe(
-        $page: Int, $limit: Int, $status: String
+        $page: Int, $limit: Int, $status: String, $recipeName: String
       ) { 
         getAllRecipe(
           page: $page
           limit: $limit
           status: $status
+          recipe_name: $recipeName
         ) {
           page
           maxPage
@@ -34,6 +41,7 @@ export class RecipeService {
       }`,
       variables: {
         ...pagination,
+        recipeName: nameFilter,
         status: 'publish'
       },
       fetchPolicy: "network-only" // ketika ada perubahan ngambil server  

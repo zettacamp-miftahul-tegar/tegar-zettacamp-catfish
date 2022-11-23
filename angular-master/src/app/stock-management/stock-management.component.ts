@@ -10,6 +10,7 @@ import { InputComponent } from './input/input.component';
 import { DataService } from './service/data.service';
 import { UpdateComponent } from './update/update.component';
 import Swal from 'sweetalert2';
+import { debounceTime } from 'rxjs';
 
 @Component({
   selector: 'app-stock-management',
@@ -167,7 +168,7 @@ export class StockManagementComponent implements OnInit {
   dataIngredients : any;
 
   searchFilter(paginationObj?:any) {
-    this.nameFilter.valueChanges.subscribe((val) => {
+    this.nameFilter.valueChanges.pipe(debounceTime(300)).subscribe((val) => {
       this.search = val
       this.getDatas()
     });

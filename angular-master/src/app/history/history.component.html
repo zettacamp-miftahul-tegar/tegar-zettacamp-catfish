@@ -1,0 +1,52 @@
+<div>
+  <mat-form-field>
+    <mat-label>Order Date</mat-label>
+    <input matInput type="date" [formControl]="nameFilter">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Status</mat-label>
+    <mat-select [formControl]="statusFilter" [(ngModel)]="value">
+      <mat-option *ngFor="let food of foods" [value]="food.value">
+        {{food.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div class="container">
+  <div class="cons">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="order_date">
+        <th class="pos" mat-header-cell *matHeaderCellDef> <b>Order Date</b> </th>
+        <td mat-cell *matCellDef="let element">{{element.order_date}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="total_price">
+        <th class="pos" mat-header-cell *matHeaderCellDef> <b>Total Price</b> </th>
+        <td mat-cell *matCellDef="let element">Rp. {{element.total_price}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="order_status">
+        <th class="pos" mat-header-cell *matHeaderCellDef> <b>Status</b> </th>
+        <td mat-cell *matCellDef="let element"> 
+            <mat-icon [ngStyle]="{color:'green'}" *ngIf="element.order_status === 'success'" matTooltip="Successful Transaction">check_circle</mat-icon> 
+            <mat-icon [ngStyle]="{color:'red'}" *ngIf="element.order_status === 'failed'" matTooltip="Transaction Failed">highlight_off</mat-icon> 
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4" style="text-align: center;">
+          No Data to Show
+        </td>
+      </tr>
+
+    </table>
+  </div>
+
+  <mat-paginator #paginator class="promo-paginator" (page)="onPaginatorChange($event)" [pageSizeOptions]="[10]" showFirstLastButtons="true"></mat-paginator>
+
+</div>
