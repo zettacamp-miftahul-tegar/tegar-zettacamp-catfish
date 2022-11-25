@@ -7,11 +7,11 @@
     </div>
   </div>
 </section>
-<div>
+<div class="special"> 
   <div> <h2 style="text-align: center; padding-top: 20px;"> <b> Special Offer </b> </h2></div>
   <app-menu-heightlight *ngFor="let menu of menus;" [recipe]="menu"></app-menu-heightlight>
 </div>
-<div>
+<div class="menu">
   <div> <h2 style="text-align: center; padding-top: 20px;"> <b> Menu Highlight </b> </h2></div>
   <app-special-offer *ngFor="let menue of menus1" [recipe]="menue"></app-special-offer>
 </div>

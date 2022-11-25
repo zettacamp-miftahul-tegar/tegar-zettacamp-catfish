@@ -70,5 +70,5 @@ mat-toolbar {
 
 button.active {
   color: white !important;
-  background-color: rgb(142, 182, 235);
+  background-color: #2f4a96;
 }

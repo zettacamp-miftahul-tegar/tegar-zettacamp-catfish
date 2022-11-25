@@ -39,23 +39,23 @@ export class DataService {
 
   getRecipies_menus() {
     return this.apollo.watchQuery({
-      query : gql `query GetAllRecipes($highlight: Boolean) {
-        getAllRecipes(highlight: $highlight) {
-          recipes {
-            id
-            recipe_name
-            special_offer
-            highlight
-            price
-            special_offer_price
-            status
-            imgUrl
-            __typename
-          }
+      query : gql `query getAllRecipe($highlight: Boolean) {
+        getAllRecipe(
+          highlight: $highlight
+        ) {
           page
           maxPage
           currentDocs
           totalDocs
+          recipes {
+            id
+            special_offer_price
+            imgUrl
+            recipe_name
+            price
+            available
+            __typename
+          }
           __typename
         }
       }`,
