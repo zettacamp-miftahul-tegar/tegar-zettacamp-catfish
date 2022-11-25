@@ -1,17 +1,22 @@
 <section class="mbr-section" id="top">
   <div class="pricing" id="pricing">
     <div class="container">
-      <div class="section-head-lite text-center col-md-4 col-md-offset-2 space80">
-        <h1 class="mbr-title-font"> <b>DISCOVER THE TASTE REAL OF FOODS WITH</b> <span style="color:black"><b> UNIC <span style="color: red;"> <b> FOODS </b></span> </b></span> </h1>
+      <div class="pad">
+        <p class="mbr-title-font"> <span style="color: white;">UNIC</span> <br><br><br> <span style="color: red;"><b>RESTAURANT</b></span> </p><br>
+        <p style="font-size: 20px; color:white">Five star quality street restaurant</p>
       </div>
     </div>
   </div>
 </section>
-<div class="special"> 
+<div> 
   <div> <h2 style="text-align: center; padding-top: 20px;"> <b> Special Offer </b> </h2></div>
-  <app-menu-heightlight *ngFor="let menu of menus;" [recipe]="menu"></app-menu-heightlight>
+  <div class="menu">
+    <app-menu-heightlight *ngFor="let menu of menus;" [recipe]="menu"></app-menu-heightlight>
+  </div>
 </div>
-<div class="menu">
+<div>
   <div> <h2 style="text-align: center; padding-top: 20px;"> <b> Menu Highlight </b> </h2></div>
-  <app-special-offer *ngFor="let menue of menus1" [recipe]="menue"></app-special-offer>
+  <div class="menu">
+    <app-special-offer *ngFor="let menue of menus1" [recipe]="menue"></app-special-offer>
+  </div>
 </div>

@@ -3,6 +3,11 @@
 html,
 body {
   height: 100%;
+  background-image: url('https://img.freepik.com/free-vector/elegant-white-background-with-shiny-lines_1017-17580.jpg?w=2000');
+}
+
+.html::-webkit-scrollbar {
+  display: none;
 }
 
 body {

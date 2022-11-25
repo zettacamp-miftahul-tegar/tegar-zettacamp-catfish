@@ -33,6 +33,9 @@ export class DataService {
           totalDocs
           recipes {
             id
+            highlight
+            special_offer
+            special_offer_price
             recipe_name
             price
             special_offer_price
@@ -199,8 +202,6 @@ export class DataService {
 
   updateAvailable(post: any) {
 
-    console.log("test", post);
-
     this.query = gql `
     mutation UpdateRecipe($updateRecipeId: ID, $status: String) {
       updateRecipe(id: $updateRecipeId, status: $status) {
@@ -224,6 +225,29 @@ export class DataService {
       variables: {
         updateRecipeId: post.id,
         status: post.status,
+      }
+    })
+  }
+
+  updateMenu(post: any) {
+
+    this.query = gql `
+    mutation UpdateRecipe($updateRecipeId: ID, $highlight: Boolean) {
+      updateRecipe(id: $updateRecipeId, highlight: $highlight) {
+        status
+        special_offer_price
+        special_offer
+        recipe_name
+        price
+        imgUrl
+        highlight
+      }
+    }`
+    return this.apollo.mutate({
+      mutation : this.query,
+      variables: {
+        updateRecipeId: post.id,
+        highlight: post.highlight,
       }
     })
   }

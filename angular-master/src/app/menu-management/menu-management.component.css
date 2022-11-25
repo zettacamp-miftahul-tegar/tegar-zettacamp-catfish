@@ -5,6 +5,10 @@
   padding-right: 3%;
 }
 
+.container::-webkit-scrollbar { 
+  display: none; 
+}
+
 th {
   height: 20px;
 }

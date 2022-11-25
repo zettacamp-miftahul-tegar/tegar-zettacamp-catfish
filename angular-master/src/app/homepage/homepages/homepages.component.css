@@ -4,6 +4,11 @@ img {
   margin: 5rem;
 }
 
+.mbr-section {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
 .style {
   color: red;
 }
@@ -37,8 +42,6 @@ img {
 .mbr-title-font {
   color: green;
   width: 500px;
-  margin-left: auto;
-  margin-right: auto;
   padding-top: 100px;
 }
 
@@ -57,12 +60,11 @@ img {
 }
 
 .mbr-section {
-  background-image: url('../../../assets/img/background.jpg');
+  background-image: url('https://png.pngtree.com/background/20210710/original/pngtree-gourmet-japanese-restaurant-sushi-creative-simple-business-poster-design-picture-image_1016307.jpg');
   background-position: center;
   background-size: 100%;
-  height: 500px;
+  height: 650px;
   background-repeat: no-repeat;
-
 }
 
 .mbr-button {
@@ -70,6 +72,11 @@ img {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.pad {
+  margin: 0;
+  padding: 0;
 }
 
 .section-head-lite h1 {
@@ -81,6 +88,11 @@ img {
 .section-head-lite p {
   color: #fff;
   opacity: 0.7
+}
+
+.mbr-title-font {
+  text-align: left;
+  font-size: 50px;
 }
 
 .btn {
@@ -226,26 +238,22 @@ body {
   margin-left: 30%;
 }
 
-.kolom {
-  float: left;
-  width: 35%;
-  padding: 5px;
-  text-align: justify;
-  margin-left: 10%;
-  opacity: 0.6;
-}
-
-.baris:after {
-  content: "";
-  display: flex;
-  clear: both;
-  text-transform: uppercase;
-}
-
 /* ------------------------ */
 
-app-menu-heightlight {
+.menu {
   display: flex;
   flex-wrap: wrap;
   margin: 2rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+app-special-offer {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+app-menu-heightlight {
+  margin-left: auto;
+  margin-right: auto;
 }

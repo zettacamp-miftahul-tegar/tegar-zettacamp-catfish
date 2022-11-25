@@ -47,7 +47,7 @@ export class MenuManagementComponent implements OnInit {
     this.statusFilterr()
   }
 
-  displayedColumns: string[] = ['recipe_name', 'price', 'available', 'spesial-h', 'menu-h','status', 'action'];
+  displayedColumns: string[] = ['recipe_name', 'price', 'available', 'menu-h','status', 'action'];
 
   dataSource: MatTableDataSource <Menus> = new MatTableDataSource();
 
@@ -239,6 +239,47 @@ export class MenuManagementComponent implements OnInit {
     this.statusFilter.valueChanges.pipe(debounceTime(300)).subscribe((val) => {
       this.statusF = val
       this.getDatas()
+    });
+  }
+
+  // ----------------------------------------------
+
+  updateMenu(data:any) {
+    data = copy(data)
+    if (data.highlight === true) {
+      data.highlight = false
+    }
+    else {
+      data.highlight = true
+    }
+    Swal.fire({
+      title: 'Do you want to edit status to ' + data.status + '?',
+      showDenyButton: false,
+      showCancelButton: true,
+      showConfirmButton: true,
+      denyButtonText: `Yes`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.subs.sink = this.data.updateMenu(data).subscribe(resp => {
+          if (resp) {
+            this.getDatas(true)
+            Swal.fire('Menu status has been changed to ' + data.status)
+            .then((res) => {
+              this.router.navigate(['homepage'])
+            })
+          }
+        })
+      }
+    })
+  }
+
+  publishMenu(element: any) {
+    const data = {
+      id: element.id
+    };
+    
+    this.data.updateMenu(data).subscribe(() => {
+      this.getDatas(true)
     });
   }
 

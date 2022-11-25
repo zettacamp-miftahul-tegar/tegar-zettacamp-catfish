@@ -29,8 +29,6 @@ export class HomepagesComponent implements OnInit {
   getDatas1() {
     this.subs.sink = this.data.getRecipies_menus().valueChanges.subscribe((resp : any) => {
       this.menus1 = resp?.data?.getAllRecipe.recipes
-      console.log(this.menus1);
-      
     })
   }
 

@@ -1,74 +1,24 @@
-.filler {
-  flex: 1 1 auto;
-  padding-left: 20px;
-}
-
-.gap {
-  margin-right: 20px;
-}
-
-a {
-  text-decoration: none;
-}
-
-a:visited {
-  color: white;
-  font-style: normal;
-}
-
-a:hover {
-  color: rgb(152, 135, 135);
-}
-
 mat-toolbar {
   position: fixed;
-  background-color:transparent;
+  /* background-color:transparent; */
+  background-color: rgb(22, 19, 19);
   z-index:100;
 }
 
-.cons {
-  margin: 0;
-  padding: 0;
+.header {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
 }
-
-.demo-section + .demo-section {
-  margin-top: 16px;
-}
-
 
 .language {
   padding-right: 5%;
 }
 
-.hehe {
-  padding-right: 10px;
-}
-
-.gambar {
-  width: 20px; 
-  margin-right: 10px; 
-  padding-top: 15px;
-}
-
-.addData {
-  padding-right: 5%;
-  padding-top: 10px;
-  padding-bottom: 5px;
-}
-
-.load {
-  padding-left: 50%;
-}
-
-.promo-paginator {
-  position: fixed;
-}
-
-.size {
-  font-size: 14px;
-}
-
 button.active {
   color: white !important;
   background-color: #2f4a96;
+}
+.const::-webkit-scrollbar {
+  display: none;
 }

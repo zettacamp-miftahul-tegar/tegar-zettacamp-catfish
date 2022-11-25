@@ -1,19 +1,11 @@
-<mat-toolbar color="primary">
-  <a class="gap" routerLink="homepage">
-    <button mat-button style="color: white;" routerLinkActive="active">{{ "homepage" | translate }}</button>
-  </a>
-  <a class="gap" routerLink="menu">
-    <button mat-button style="color: white;" routerLinkActive="active">{{ "menu" | translate }}</button>
-  </a>
-  <a class="gap" routerLink="stock-management" *ngIf="user_type=='admin'">
-    <button mat-button style="color: white;" routerLinkActive="active">{{ "stock-management" | translate }}</button>
-  </a>
-  <a class="gap" routerLink="menu-management" *ngIf="user_type=='admin'">
-    <button mat-button style="color: white;" routerLinkActive="active">{{ "menu-management" | translate }}</button>
-  </a>
-  <!-- matBadge="{{cart_length}}" -->
-  <a class="gap"  matBadgeColor="warn" matBadgeOverlap="false" class="demo-section" color="accent" *ngIf="token" (refetchNotif)="getCard_id($event)">
-    <button mat-button [matMenuTriggerFor]="menu" routerLinkActive="active">{{ "cart" | translate }}</button>
+<mat-toolbar>
+  <p class="name"><span style="color:white">Unic</span> <span style="color: red;">Foods</span></p>
+  <div class="header">
+    <button mat-button routerLink="homepage" style="color: white;" routerLinkActive="active">{{ "homepage" | translate }}</button>
+    <button mat-button routerLink="menu" style="color: white;" routerLinkActive="active">{{ "menu" | translate }}</button>
+    <button mat-button routerLink="stock-management" *ngIf="user_type=='admin'" style="color: white;" routerLinkActive="active">{{ "stock-management" | translate }}</button>
+    <button mat-button routerLink="menu-management" *ngIf="user_type=='admin'" style="color: white;" routerLinkActive="active">{{ "menu-management" | translate }}</button>
+    <button mat-button *ngIf="token" [matMenuTriggerFor]="menu" routerLinkActive="active" style="color: white;">{{ "cart" | translate }}</button>
     <mat-menu #menu="matMenu">
       <a routerLink="cart-management">
         <button mat-menu-item >{{ "cart" | translate }}</button>
@@ -22,12 +14,17 @@
         <button mat-menu-item routerLinkActive="active">{{ "history" | translate }}</button>
       </a>
     </mat-menu>
-  </a>
-  <a class="filler" routerLink="about">
-    <button mat-button style="color: white;" routerLinkActive="active">{{ "about" | translate }}</button>
-  </a>
-
-  <!-- <a>
+    <button mat-button routerLink="about" style="color: white;" routerLinkActive="active">{{ "about" | translate }}</button>
+    <button mat-button *ngIf="!token" (click)="openDialog()" routerLinkActive="active">{{ "login" | translate }}</button>
+    <!-- <button mat-button [matMenuTriggerFor]="menu" routerLinkActive="active"> {{first_name}} {{last_name}} <span *ngIf="user_type == 'admin'"> -- {{user_type}} </span> </button> -->
+    <!-- <mat-menu #menu="matMenu" *ngIf="token"> -->
+        <button *ngIf="token" mat-button (click)="logOut()" routerLinkActive="active" style="color: white;">{{ "logout" | translate }}</button>
+    <!-- </mat-menu> -->
+  </div>
+</mat-toolbar>
+    
+<!-- 
+  <a>
     <div class="hehe">
       <div class="language">
         <span *ngIf="selectedLang == 'en'"><img src="../../../assets/img/en.png" class="gambar"></span>
@@ -41,19 +38,6 @@
       </div>
     </div>
   </a> -->
-  <a class="gap" *ngIf="!token">
-    <button mat-button (click)="openDialog()" routerLinkActive="active">{{ "login" | translate }}</button>
-  </a>
-
-  <a class="gap" *ngIf="token">
-    <button mat-button [matMenuTriggerFor]="menu" routerLinkActive="active">  {{first_name}} {{last_name}} <span *ngIf="user_type == 'admin'"> -- {{user_type}} </span> </button>
-    <mat-menu #menu="matMenu">
-      <a *ngIf="token">
-        <button mat-menu-item (click)="logOut()" routerLinkActive="active">{{ "logout" | translate }}</button>
-      </a>
-    </mat-menu>
-  </a>
-</mat-toolbar>
 
 <div class="cons">
   <router-outlet></router-outlet>
