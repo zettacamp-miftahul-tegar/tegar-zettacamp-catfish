@@ -25,6 +25,7 @@ export class CartService {
             total_price
             recipe_id {
               id
+              special_offer_price
               recipe_name
               price
               imgUrl
@@ -215,16 +216,39 @@ export class CartService {
       mutation : this.query,
       fetchPolicy: "network-only" // ketika ada perubahan ngambil server  
     })
-    .subscribe(subs => {
-      // console.log(subs)
-    },
-    err =>
-    Swal.fire({
-      icon: 'error',
-      title: 'Oops...',
-      text: 'purchase failed !',
+    
+  }
+
+  getRecipies(pagination: any) {
+
+    return this.apollo.watchQuery({
+      query : gql `query getAllRecipe(
+        $page: Int, $limit: Int, $status: String, $recipeName: String
+      ) { 
+        getAllRecipe(
+          page: $page
+          limit: $limit
+          status: $status
+          recipe_name: $recipeName
+        ) {
+          page
+          maxPage
+          currentDocs
+          totalDocs
+          recipes {
+            id
+            special_offer_price
+            imgUrl
+            recipe_name
+            price
+            available
+          }
+        }
+      }`,
+      variables: {
+        ...pagination,
+      },
     })
-    )
   }
 
 

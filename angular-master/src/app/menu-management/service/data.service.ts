@@ -12,11 +12,16 @@ export class DataService {
   query: any;
   constructor(private apollo: Apollo) { }
 
-  getRecipe(pagination:Menus, val:any) {
+  getRecipe(pagination:Menus, val:any, nameF:any) {
 
     let nameFilter : any = ""
     if (val) {
       nameFilter = val
+    }
+
+    let statusFilter : any = ""
+    if (nameF) {
+      statusFilter = nameF
     }
 
     return this.apollo.query({
@@ -30,6 +35,7 @@ export class DataService {
             id
             recipe_name
             price
+            special_offer_price
             imgUrl
             available
             status
@@ -46,7 +52,7 @@ export class DataService {
       variables: {
         ...pagination,
         recipeName:nameFilter,
-        status: "deleted"
+        status: statusFilter
       },
       fetchPolicy: "network-only" // ketika ada perubahan ngambil server  
     })
@@ -82,12 +88,13 @@ export class DataService {
   getStock(pagination:Menus) {
     return this.apollo.watchQuery({
       query : gql `query getAllIngredient (
-        $page: Int, $limit: Int, $name: String
+        $page: Int, $limit: Int, $name: String, $status: String,
       ) {
         getAllIngredient (
           page: $page
           limit: $limit
           name : $name
+          status: $status
         ) {
           ingredients {
             id
@@ -101,7 +108,8 @@ export class DataService {
         }
       }`,
       variables: {
-        ...pagination
+        ...pagination,
+        status: 'active'
       },
       fetchPolicy: "network-only" // ketika ada perubahan ngambil server  
     })

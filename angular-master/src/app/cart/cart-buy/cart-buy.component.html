@@ -1,62 +1,7 @@
-<!-- <div class="example-card">
-  <mat-card class="cards">
-    <img mat-card-image class="bg1" src="{{getAllCart.recipe_id.imgUrl}}" alt="images">
-    <mat-card-header>
-      <mat-card-title> <p class="p"> <b> {{getAllCart.recipe_id.recipe_name}} </b> </p> </mat-card-title>
-      <mat-card-title class="pad"> <p> <b>
-        <span>
-          <a (click)="openUpdate(getAllCart)">
-            <button mat-button>
-              <mat-icon style="color: green;" matTooltip="edit">create</mat-icon> Note : 
-            </button><br>
-          </a>
-        </span> </b> <span class="custom1"> {{getAllCart.note}} </span> </p>
-      </mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <h2 class="cartperice">
-        <b>amount : 
-          <span>
-            <a (click)="minesAmounts(getAllCart)">
-              <button mat-button>
-                <mat-icon style="color: green;" matTooltip="minus">keyboard_arrow_left</mat-icon>
-              </button>
-            </a>
-          </span>
-          {{getAllCart.amount}}
-          <span>
-            <a (click)="plesAmounts(getAllCart)">
-              <button mat-button>
-                <mat-icon style="color: green;" matTooltip="plus">keyboard_arrow_right</mat-icon>
-              </button>
-            </a>
-          </span>
-        </b>
-      </h2>
-    </mat-card-content>
-    <mat-card-content>
-      <h2 class="cartperice">
-        <b>Rp. {{getAllCart.recipe_id.price}}</b>
-      </h2>
-    </mat-card-content>
-    <mat-card-content>
-      <h2>
-        Rp. {{getAllCart.total_price}}
-      </h2>
-    </mat-card-content>
-    <mat-card-actions>
-      <a (click)="deleteCart(getAllCart)">
-        <button mat-button>
-          <mat-icon style="color: red;" matTooltip="delete">delete</mat-icon>
-        </button>
-      </a>
-    </mat-card-actions>
-  </mat-card>
-</div> -->
-
 <mat-card class="card">
   <div class="flex">
-    <img [src]="getAllCart.recipe_id.imgUrl" alt="me" />
+    <img [src]="getAllCart.recipe_id.imgUrl" alt="me">
+    <img src="../../../assets/img/stock_habis.png" *ngIf="dataz == 1">
     <div>
       <mat-card-title>{{getAllCart.recipe_id.recipe_name}}</mat-card-title>
       <mat-card-subtitle> 
@@ -65,7 +10,7 @@
     </div>
   </div>
   <mat-card-actions align="end" class="input">
-    <h2 style="margin: 70px;">
+    <h2 style="margin: 5%;">
       <b>amount : 
         <span>
           <a (click)="minesAmounts(getAllCart)">
@@ -84,10 +29,10 @@
         </span>
       </b>
     </h2>
-    <h2 style="margin: 70px;">
-      <b>Rp. {{getAllCart.recipe_id.price}}</b>
+    <h2 style="margin: 5%;">
+      <b>Rp. {{getAllCart.recipe_id.special_offer_price}}</b>
     </h2>
-    <h2 style="margin: 70px;">
+    <h2 style="margin: 5%;">
       Rp. {{getAllCart.total_price}}
     </h2>
   </mat-card-actions>
@@ -106,3 +51,16 @@
     </a>
   </div>
 </mat-card>
+
+<!-- <mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title-group>
+      <mat-card-title>Shiba Inu</mat-card-title>
+      <mat-card-subtitle>Small</mat-card-subtitle>
+      <img mat-card-sm-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
+    </mat-card-title-group>
+  </mat-card-header>
+  <mat-card-content>
+    {{getAllCart.note}}
+  </mat-card-content>
+</mat-card> -->

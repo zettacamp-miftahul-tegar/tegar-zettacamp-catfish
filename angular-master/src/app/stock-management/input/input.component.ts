@@ -46,6 +46,7 @@ export class InputComponent implements OnInit {
     limit: 10
   }
   search:any;
+  statusF:any
 
   onSubmit() {
     if (this.signupForm.valid) {
@@ -58,7 +59,7 @@ export class InputComponent implements OnInit {
           text: 'Stock added successfully!',
         }).then((bebas: any) => {
           this.dialogRef.close(true)
-          this.data.getStock(this.pagination, this.search).refetch()
+          this.data.getStock(this.pagination, this.search, this.statusF).refetch()
         });
       },
       err => 

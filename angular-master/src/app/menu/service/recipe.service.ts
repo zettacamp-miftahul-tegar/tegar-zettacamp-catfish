@@ -5,6 +5,7 @@ import { Apollo, gql } from 'apollo-angular';
   providedIn: 'root'
 })
 export class RecipeService {
+  
   query: any;
 
   constructor(private apollo: Apollo) { }
@@ -32,6 +33,7 @@ export class RecipeService {
           totalDocs
           recipes {
             id
+            special_offer_price
             imgUrl
             recipe_name
             price

@@ -12,21 +12,27 @@ export class DataService {
   query: any;
   constructor(private apollo: Apollo) { }
 
-  getStock(pagination:any, val:any) {
+  getStock(pagination:any, val:any, statusF:any) {
 
     let nameFilter : any = ""
     if (val) {
       nameFilter = val
     }
 
+    let statusFilter : any = ""
+    if (statusF) {
+      statusFilter = statusF
+    }
+
     return this.apollo.watchQuery({
       query : gql `query getAllIngredient (
-        $page: Int, $limit: Int, $name: String
+        $page: Int, $limit: Int, $name: String, $status: String
       ) {
         getAllIngredient (
           page: $page
           limit: $limit
           name : $name
+          status: $status
         ) {
           ingredients {
             id
@@ -43,7 +49,8 @@ export class DataService {
       }`,
       variables: {
         ...pagination,
-        name:nameFilter
+        name:nameFilter,
+        status: statusFilter
       },
       fetchPolicy: "network-only" // ketika ada perubahan ngambil server  
     })

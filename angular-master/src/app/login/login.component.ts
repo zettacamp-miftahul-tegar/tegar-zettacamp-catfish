@@ -44,26 +44,27 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    if (this.signupForm.valid) {
-      const payload: Logins = this.signupForm.value;
-      this.subs.sink = this.authService.loginUser(payload.email, payload.password).subscribe((resp: any) => {
-        if (resp) {
+    const payload: Logins = this.signupForm.value;
+    this.subs.sink = this.authService.loginUser(payload.email, payload.password).subscribe(resp => {
+      if (resp) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Login Succesful',
+        })
+        this.router.navigate(['homepage']).then(()=>{
+          setTimeout(() => {
+            window.location.reload()
+          }, 1000)
+          this.dialogRef.close()
           window.location.reload()
-          this.dialogRef.close();          
-        }
-      })
-    } else {
-      if (!this.signupForm.get('email')) {
-        Swal.fire({
-          icon: 'error',
-          title: 'email or password invalid !',
-        });
-      } else {
-        Swal.fire({
-          icon: 'error',
-          title: 'email or password invalid !',
-        });
-      }  
-    }
+        })
+      }
+    }, err => {
+      Swal.fire({
+        icon: 'error',
+        title: err.message,
+      })}
+    )
   }
+
 }

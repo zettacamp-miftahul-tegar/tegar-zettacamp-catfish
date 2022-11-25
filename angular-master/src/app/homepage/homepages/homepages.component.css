@@ -9,7 +9,7 @@ img {
 }
 
 .m-10 {
-  margin: 5rem;
+  margin: 4rem;
   padding-top: 100px;
 }
 
@@ -22,7 +22,7 @@ img {
 }
 
 .content {
-  width: 600px;
+  width: 500px;
   text-align: justify;
 }
 
@@ -196,8 +196,6 @@ body {
   margin: 0;
 }
 
-
-
 .text-center {
   text-align: center;
 }
@@ -242,4 +240,12 @@ body {
   display: flex;
   clear: both;
   text-transform: uppercase;
+}
+
+/* ------------------------ */
+
+app-menu-heightlight {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2rem;
 }

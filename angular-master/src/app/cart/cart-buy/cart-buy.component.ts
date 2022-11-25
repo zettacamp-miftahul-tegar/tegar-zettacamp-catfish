@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { SubSink } from 'subsink';
 import Swal from 'sweetalert2';
 import { CartService } from '../service/cart.service';
 import { UpdateComponent } from '../update/update.component';
@@ -13,7 +14,8 @@ export class CartBuyComponent implements OnInit {
 
   @Input() getAllCart: any;
   @Output() refetchall! : EventEmitter<any>;
-
+  private subs = new SubSink();
+  dataz:any
 
   constructor(
     public dialog: MatDialog,
@@ -22,7 +24,18 @@ export class CartBuyComponent implements OnInit {
     this.refetchall = new EventEmitter();
    }
 
-  ngOnInit(): void {
+  ngOnInit(paginationObj?: any): void {
+
+    const pagination: any = {
+      page: paginationObj?.page,
+      limit: paginationObj?.limit,
+    }
+
+    this.subs.sink = this.data.getRecipies(pagination).valueChanges.subscribe((item:any) => {
+      this.dataz = item?.data?.getAllRecipe.recipes
+      console.log(this.dataz);
+      
+    })
   }
 
   // refetchData() {

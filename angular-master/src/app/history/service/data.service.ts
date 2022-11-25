@@ -10,7 +10,7 @@ export class DataService {
 
   constructor(private apollo: Apollo) { }
 
-  getHistory(pagination:any, val:any, status:any) {
+  getHistory(pagination:any, val:any, status:any, last:any) {
 
     let nameFilter : any = ""
     if (val) {
@@ -22,13 +22,15 @@ export class DataService {
       statusFilter = status
     }
 
-    // console.log(statusFilter);
-    
+    let lastFilter : any = ""
+    if (last) {
+      lastFilter = last
+    }
 
     return this.apollo.watchQuery({
       query : gql `
-      query GetAllTransaction ($page: Int, $limit: Int, $orderDate: String, $orderStatus: String) {
-        getAllTransaction (page: $page, limit: $limit, order_date: $orderDate, order_status: $orderStatus) {
+      query GetAllTransaction ($page: Int, $limit: Int, $orderDate: String, $orderStatus: String, $lastName: String) {
+        getAllTransaction (page: $page, limit: $limit, order_date: $orderDate, order_status: $orderStatus, last_name: $lastName) {
           page
           maxPage
           currentDocs
@@ -39,13 +41,28 @@ export class DataService {
             order_status
             order_date
             status
+            user_id {
+              first_name
+              last_name
+            }
+            menu {
+              id
+              recipe_id {
+                recipe_name
+              }
+              amount
+              total_price
+              note
+            }
           }
+          
         }
       }`,
       variables: {
         ...pagination,
         orderDate:nameFilter,
-        orderStatus:statusFilter
+        orderStatus:statusFilter,
+        lastName: lastFilter
       },
       fetchPolicy: "network-only" // ketika ada perubahan ngambil server  
     })

@@ -6,11 +6,11 @@
 }
 
 th {
-  height: 20px;
+  height: 30px;
 }
 
 .mat-header-cell {
-  padding: 20px 0px 20px 20px
+  padding: 20px 0px 20px 0px
 }
 
 .cons {
@@ -34,8 +34,29 @@ mat-paginator {
 .pos {
   margin: 0;
   padding: 0;
+  padding-top: 20px;
+}
+
+.noFilter1 {
+  padding-bottom: 50px;
+  text-align: left;
+}
+
+.noFilter2 {
+  padding-bottom: 50px;
+  padding-left: 2%;
+  text-align: left;
 }
 
 .poss {
   padding-left: 3%;
+}
+
+.padz {
+  padding: 0;
+  margin: 0;
+}
+
+.ez {
+  padding-left: 10%;
 }

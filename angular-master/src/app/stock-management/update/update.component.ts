@@ -28,7 +28,19 @@ export class UpdateComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm()
-    this.signupForm.patchValue(this.datas)    
+    this.signupForm.patchValue(this.datas)  
+    this.inputDisabled()  
+  }
+
+  a :any;
+  b: any;
+  c: any;
+  disabledd:any;
+
+  inputDisabled() {
+    this.data.getStock(this.a, this.b, this.c).valueChanges.subscribe((item) => {
+      this.disabledd = item.data
+    })
   }
 
   initForm() {
@@ -46,6 +58,7 @@ export class UpdateComponent implements OnInit {
 
   pagination: any
   search: any;
+  statusF:any
 
   onSubmit() {
     if (this.signupForm.valid) {
@@ -63,7 +76,7 @@ export class UpdateComponent implements OnInit {
           text: 'Data successfully updated!',
         }).then((bebas: any) => {
           this.dialogRef.close(true)
-          this.data.getStock(this.pagination, this.search).refetch()
+          this.data.getStock(this.pagination, this.search, this.statusF).refetch()
         });
       }, err => 
       Swal.fire({

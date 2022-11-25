@@ -12,6 +12,11 @@ import { UpdateComponent } from './update/update.component';
 import Swal from 'sweetalert2';
 import { debounceTime } from 'rxjs';
 
+interface Food {
+  value: string;
+  viewValue: string;
+}
+
 @Component({
   selector: 'app-stock-management',
   templateUrl: './stock-management.component.html',
@@ -23,6 +28,12 @@ export class StockManagementComponent implements OnInit {
   Datas:Stocks[]=[]
   name: any;
 
+  foods: Food[] = [
+    {value: '', viewValue: 'All'},
+    {value: 'active', viewValue: 'Active'},
+    {value: 'deleted', viewValue: 'Deleted'},
+  ];
+
   constructor(
     private data: DataService, 
     public dialog: MatDialog
@@ -31,7 +42,7 @@ export class StockManagementComponent implements OnInit {
     ngOnInit(): void {
       this.searchFilter()
       this.getDatas()
-      // this.refetchData()
+      this.statusFilterr()
     }
     
     displayedColumns: string[] = ['name', 'stock', 'status', 'action'];
@@ -45,7 +56,7 @@ export class StockManagementComponent implements OnInit {
       limit: paginationObj?.limit ?? 10
     }
     
-    this.subs.sink = this.data.getStock(pagination, this.search).valueChanges.subscribe((resp : any) => {
+    this.subs.sink = this.data.getStock(pagination, this.search, this.statusF).valueChanges.subscribe((resp : any) => {
       if(resp?.data?.getAllIngredient){
         this.paginator.length = resp.data.getAllIngredient.totalDocs;      
         this.paginator.pageSize = this.pageSizeOptions[0];
@@ -110,11 +121,6 @@ export class StockManagementComponent implements OnInit {
     limit: 10
   }
 
-  // refetchData() {
-  //   const pagination = this.pagination;
-  //   this.data.getStock(this.pagination, this.search).refetch();
-  // }
-
   // --------------------------------------------
 
   openUpdate(parameter:any): void {
@@ -152,7 +158,6 @@ export class StockManagementComponent implements OnInit {
           'Your stock has been deleted.',
           'success'
         )
-        // this.refetchData()
         this.getDatas()
       }
     })
@@ -164,12 +169,23 @@ export class StockManagementComponent implements OnInit {
   nameFilter = new FormControl();
   page = 1;
   search : any;
-  maxPage : any;
-  dataIngredients : any;
 
   searchFilter(paginationObj?:any) {
     this.nameFilter.valueChanges.pipe(debounceTime(300)).subscribe((val) => {
       this.search = val
+      this.getDatas()
+    });
+  }
+
+  // -------------------------------------------------------
+
+  valuee = '';
+  statusFilter = new FormControl();
+  statusF:any
+
+  statusFilterr() {
+    this.statusFilter.valueChanges.pipe(debounceTime(300)).subscribe((val) => {
+      this.statusF = val
       this.getDatas()
     });
   }

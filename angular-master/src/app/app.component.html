@@ -1,31 +1,33 @@
 <mat-toolbar color="primary">
   <a class="gap" routerLink="homepage">
-    <button mat-button style="color: white;">{{ "homepage" | translate }}</button>
+    <button mat-button style="color: white;" routerLinkActive="active">{{ "homepage" | translate }}</button>
   </a>
   <a class="gap" routerLink="menu">
-    <button mat-button style="color: white;">{{ "menu" | translate }}</button>
+    <button mat-button style="color: white;" routerLinkActive="active">{{ "menu" | translate }}</button>
   </a>
   <a class="gap" routerLink="stock-management" *ngIf="user_type=='admin'">
-    <button mat-button style="color: white;">{{ "stock-management" | translate }}</button>
+    <button mat-button style="color: white;" routerLinkActive="active">{{ "stock-management" | translate }}</button>
   </a>
   <a class="gap" routerLink="menu-management" *ngIf="user_type=='admin'">
-    <button mat-button style="color: white;">{{ "menu-management" | translate }}</button>
+    <button mat-button style="color: white;" routerLinkActive="active">{{ "menu-management" | translate }}</button>
   </a>
-  <a class="gap" matBadge="{{cart_length}}" matBadgeColor="warn" matBadgeOverlap="false" class="demo-section" color="accent" *ngIf="token" (refetchNotif)="getCard_id($event)">
-    <button mat-button [matMenuTriggerFor]="menu">{{ "cart" | translate }}</button>
+  <!-- matBadge="{{cart_length}}" -->
+  <a class="gap"  matBadgeColor="warn" matBadgeOverlap="false" class="demo-section" color="accent" *ngIf="token" (refetchNotif)="getCard_id($event)">
+    <button mat-button [matMenuTriggerFor]="menu" routerLinkActive="active">{{ "cart" | translate }}</button>
     <mat-menu #menu="matMenu">
       <a routerLink="cart-management">
-        <button mat-menu-item>{{ "cart" | translate }}</button>
+        <button mat-menu-item >{{ "cart" | translate }}</button>
       </a>
       <a routerLink="history">
-        <button mat-menu-item>{{ "history" | translate }}</button>
+        <button mat-menu-item routerLinkActive="active">{{ "history" | translate }}</button>
       </a>
     </mat-menu>
   </a>
   <a class="filler" routerLink="about">
-    <button mat-button style="color: white;">{{ "about" | translate }}</button>
+    <button mat-button style="color: white;" routerLinkActive="active">{{ "about" | translate }}</button>
   </a>
-  <a>
+
+  <!-- <a>
     <div class="hehe">
       <div class="language">
         <span *ngIf="selectedLang == 'en'"><img src="../../../assets/img/en.png" class="gambar"></span>
@@ -38,12 +40,18 @@
         </mat-form-field>
       </div>
     </div>
-  </a>
+  </a> -->
   <a class="gap" *ngIf="!token">
-    <button mat-button (click)="openDialog()">{{ "login" | translate }}</button>
+    <button mat-button (click)="openDialog()" routerLinkActive="active">{{ "login" | translate }}</button>
   </a>
+
   <a class="gap" *ngIf="token">
-    <button mat-button (click)="logOut()">{{ "logout" | translate }}</button>
+    <button mat-button [matMenuTriggerFor]="menu" routerLinkActive="active">  {{first_name}} {{last_name}} <span *ngIf="user_type == 'admin'"> -- {{user_type}} </span> </button>
+    <mat-menu #menu="matMenu">
+      <a *ngIf="token">
+        <button mat-menu-item (click)="logOut()" routerLinkActive="active">{{ "logout" | translate }}</button>
+      </a>
+    </mat-menu>
   </a>
 </mat-toolbar>
 

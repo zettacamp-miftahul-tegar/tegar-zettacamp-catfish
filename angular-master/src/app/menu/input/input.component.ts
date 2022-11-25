@@ -15,20 +15,19 @@ export class InputComponent implements OnInit {
 
   signupForm!: FormGroup;
   todos: any;
+  recepien: any
 
   constructor(
-    public dialogRef: MatDialogRef<InputComponent>,
+    public dialogRef: MatDialogRef < InputComponent > ,
     private data: RecipeService,
     @Inject(MAT_DIALOG_DATA) public datas: any,
-    private data1 : CartService
-  ) { }
+    private data1: CartService
+  ) {}
 
   ngOnInit(): void {
     this.getDatas()
     this.initForm()
   }
-
-  recepien:any
 
   getDatas() {
     const bebas = {
@@ -40,7 +39,7 @@ export class InputComponent implements OnInit {
 
   initForm() {
     this.signupForm = new FormGroup({
-      amount: new FormControl(null, [Validators.required, Validators.max(this.recepien)]),
+      amount: new FormControl(null, [Validators.required, Validators.max(this.recepien), Validators.min(1)]),
       note: new FormControl(''),
     });
   }
@@ -62,27 +61,26 @@ export class InputComponent implements OnInit {
       }
 
       this.data.addCart(bebas)
-      .subscribe(({dash}: any) => {
-        this.todos = dash        
-        Swal.fire({
-          icon: 'success',
-          title: 'Success',
-          text: 'Successfully added to cart!',
-        }).then((bebas: any) => {
-          this.dialogRef.close({
-            status : "berhasil"
-          })
-          this.refetchData()
-        },
-        err => 
+        .subscribe(({ dash }: any) => {
+          this.todos = dash
+          Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: 'Successfully added to cart!',
+          }).then((bebas: any) => {
+              this.dialogRef.close({
+                status: "berhasil"
+              })
+              this.refetchData()
+            }
+          );
+        }, err => 
         Swal.fire({
           icon: 'error',
           title: 'Oops...',
-          text: 'name already to used !',
+          text: 'Menu is already in cart !',
         })
-        );
-      }
-      );
+      )
     } else {
       console.log('gagal');
       Swal.fire({

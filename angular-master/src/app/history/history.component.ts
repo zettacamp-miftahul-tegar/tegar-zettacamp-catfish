@@ -26,6 +26,7 @@ export class HistoryComponent implements OnInit {
   ];
 
   private subs = new SubSink();
+  recipe_names: any;
 
   constructor(
     private data: DataService
@@ -35,9 +36,10 @@ export class HistoryComponent implements OnInit {
     this.getDatas()
     this.searchFilter()
     this.statusFilterr()
+    this.nameFilterr()
   }
 
-  displayedColumns: string[] = ['order_date', 'total_price', 'order_status'];
+  displayedColumns: string[] = ['name', 'recipe_name', 'order_date', 'total_price', 'order_status'];
 
   dataSource: MatTableDataSource <any> = new MatTableDataSource();
 
@@ -64,7 +66,7 @@ export class HistoryComponent implements OnInit {
       limit: paginationObj?.limit ?? 10
     }
 
-    this.subs.sink = this.data.getHistory(pagination, this.search, this.statusF).valueChanges.subscribe((resp: any) => {
+    this.subs.sink = this.data.getHistory(pagination, this.search, this.statusF, this.statusLast).valueChanges.subscribe((resp: any) => {
       if(resp?.data?.getAllTransaction){
         this.paginator.length = resp.data.getAllTransaction.totalDocs;      
         this.paginator.pageSize = this.pageSizeOptions[0];
@@ -116,9 +118,20 @@ export class HistoryComponent implements OnInit {
   statusFilterr() {
     this.statusFilter.valueChanges.pipe(debounceTime(300)).subscribe((val) => {
       this.statusF = val
+      this.getDatas()
+    });
+  }
 
-      // console.log(this.statusF);
-      
+  // -----------------------------------------------
+
+
+  lastFilter = new FormControl();
+  statusLast:any
+  valuee = '';
+
+  nameFilterr() {
+    this.lastFilter.valueChanges.pipe(debounceTime(300)).subscribe((val) => {
+      this.statusLast = val
       this.getDatas()
     });
   }

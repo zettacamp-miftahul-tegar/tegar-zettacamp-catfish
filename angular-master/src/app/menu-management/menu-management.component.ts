@@ -14,12 +14,23 @@ import { FormControl } from '@angular/forms';
 import { debounceTime } from 'rxjs';
 import { Router } from '@angular/router';
 
+interface Food {
+  value: string;
+  viewValue: string;
+}
+
 @Component({
   selector: 'app-menu-management',
   templateUrl: './menu-management.component.html',
   styleUrls: ['./menu-management.component.css']
 })
 export class MenuManagementComponent implements OnInit {
+
+  foods: Food[] = [
+    {value: '', viewValue: 'All'},
+    {value: 'publish', viewValue: 'Publish'},
+    {value: 'unpublish', viewValue: 'Unpublish'},
+  ];
 
   private subs = new SubSink();
   Menue: Menus[] = []
@@ -33,9 +44,10 @@ export class MenuManagementComponent implements OnInit {
 
   ngOnInit(): void {
     this.getDatas()
+    this.statusFilterr()
   }
 
-  displayedColumns: string[] = ['recipe_name', 'price', 'available', 'status', 'action'];
+  displayedColumns: string[] = ['recipe_name', 'price', 'available', 'spesial-h', 'menu-h','status', 'action'];
 
   dataSource: MatTableDataSource <Menus> = new MatTableDataSource();
 
@@ -75,7 +87,7 @@ export class MenuManagementComponent implements OnInit {
       limit: paginationObj?.limit ?? 10
     }
 
-    this.subs.sink = this.data.getRecipe(pagination, this.search).subscribe((resp: any) => {
+    this.subs.sink = this.data.getRecipe(pagination, this.search, this.statusF).subscribe((resp: any) => {
       if(resp?.data?.getAllRecipes){
 
         this.paginator.length = resp.data.getAllRecipes.totalDocs;      
@@ -97,14 +109,6 @@ export class MenuManagementComponent implements OnInit {
     page: 0,
     limit: 10
   }
-
-  // refetchData(paginationObj?: any) {
-  //   const pagination: any = {
-  //     page: paginationObj?.page ?? 0,
-  //     limit: paginationObj?.limit ?? 10
-  //   }
-  //   this.data.getRecipe(pagination, this.search).refetch();
-  // }
 
   // --------------------------------------------------
 
@@ -188,23 +192,24 @@ export class MenuManagementComponent implements OnInit {
       if (result.isConfirmed) {
         this.subs.sink = this.data.updateAvailable(data).subscribe(resp => {
           if (resp) {
-            this.getDatas()
+            this.getDatas(true)
             Swal.fire('Menu status has been changed to ' + data.status)
-            this.router.navigate(['menu'])
+            .then((res) => {
+              this.router.navigate(['menu'])
+            })
           }
         })
       }
     })
   }
 
-  onPublish(event: any, element: any) {
+  onPublish(element: any) {
     const data = {
-      id: element.id,
-      publish: event.checked ? 'Publish' : 'Unpublish',
+      id: element.id
     };
     
     this.data.updateAvailable(data).subscribe(() => {
-      this.getDatas()
+      this.getDatas(true)
     });
   }
 
@@ -223,4 +228,18 @@ export class MenuManagementComponent implements OnInit {
       this.getDatas()
     });
   }
+
+  // ----------------------------------------------
+
+  statusFilter = new FormControl();
+  statusF:any
+  valuee = '';
+
+  statusFilterr() {
+    this.statusFilter.valueChanges.pipe(debounceTime(300)).subscribe((val) => {
+      this.statusF = val
+      this.getDatas()
+    });
+  }
+
 }

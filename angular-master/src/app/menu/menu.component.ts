@@ -17,8 +17,7 @@ export class MenuComponent implements OnInit {
   private subs = new SubSink();
   recepien:Recepiens[] = []
 
-  @Input('debounce')
-  public debounceTime: number = 300;
+  @Input('debounce') public debounceTime: number = 300;
 
   constructor(private data: RecipeService) { }
 
@@ -31,8 +30,7 @@ export class MenuComponent implements OnInit {
 
     const pagination: any = {
       page: paginationObj?.page ?? 1,
-      limit: paginationObj?.limit ?? 4,
-      status: "publish"
+      limit: paginationObj?.limit ?? 3,
     }
 
     this.subs.sink = this.data.getRecipies(pagination, this.search).valueChanges.subscribe((resp : any) => {
@@ -53,7 +51,7 @@ export class MenuComponent implements OnInit {
 
   @ViewChild('paginator') paginator!: MatPaginator;
 
-  pageSizeOptions: number[] = [4];
+  pageSizeOptions: number[] = [3];
 
   onPaginatorChange(event: PageEvent) {
     const pagination = {

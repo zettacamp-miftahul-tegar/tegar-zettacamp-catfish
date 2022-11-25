@@ -21,8 +21,9 @@ a:hover {
 }
 
 mat-toolbar {
-  position: absolute;
-  background-color:transparent
+  position: fixed;
+  background-color:transparent;
+  z-index:100;
 }
 
 .cons {
@@ -61,4 +62,13 @@ mat-toolbar {
 
 .promo-paginator {
   position: fixed;
+}
+
+.size {
+  font-size: 14px;
+}
+
+button.active {
+  color: white !important;
+  background-color: rgb(142, 182, 235);
 }

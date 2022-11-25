@@ -26,18 +26,6 @@ export class GuardGuard implements CanActivate {
       return false;
     }
 
-    // if (userToken) {
-    //   if (user_type == "admin") {
-    //     return true;
-    //   } else {
-    //     this.router.navigate(['homepage']);
-    //     return false;
-    //   }
-    // } else {
-    //   this.router.navigate(['homepage']);
-    //   return false;
-    // }
-
   }
 
 }

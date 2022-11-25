@@ -8,18 +8,18 @@
     <div class="drop" *ngIf="recipe.available < 1"><img class="grayout" src="../../../assets/img/stock_habis.png"></div>
     <mat-card-content>
       <p>
-        Price : {{recipe.price}}
+        Price : {{recipe.special_offer_price}}
       </p>
     </mat-card-content>
     <mat-card-actions *ngIf="token">
       <div *ngIf="recipe.available > 0">
         <button (click)="openDialog(recipe)" mat-stroked-button color="primary">
-          <mat-icon color="primary">add_shopping_cart</mat-icon> {{ "add_card" | translate }}
+          <mat-icon color="primary">add_shopping_cart</mat-icon> add to cart
         </button>
       </div>
       <div *ngIf="recipe.available == 0" class="cez">
         <button (click)="openDialog(recipe)" mat-stroked-button color="primary" disabled="true">
-          <mat-icon color="primary">add_shopping_cart</mat-icon> {{ "add_card" | translate }}
+          <mat-icon color="primary">add_shopping_cart</mat-icon> add to cart
         </button>
       </div>
     </mat-card-actions>

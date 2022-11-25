@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { SubSink } from 'subsink';
+import Swal from 'sweetalert2';
 import { CartService } from './cart/service/cart.service';
 import { LoginComponent } from './login/login.component';
 import { DataService } from './stock-management/service/data.service'
@@ -18,8 +19,10 @@ export class AppComponent {
   private subs = new SubSink();
   cart_length:any
 
-  token : string | null = ""
+  token : string | null = "";
   user_type: string | null = "";
+  first_name: any;
+  last_name: any;
 
   constructor(
     private router: Router,
@@ -39,7 +42,9 @@ export class AppComponent {
       this.token = localStorage.getItem('token')
       this.user_type = JSON.parse(localStorage.getItem('user_type')!)
     }
-    this.getCard_id(this.data)
+    this.first_name = JSON.parse(localStorage.getItem('first_name') !);
+    this.last_name = JSON.parse(localStorage.getItem('last_name') !);
+    this.getCard_id(true)
   }
 
   data:any
@@ -63,10 +68,29 @@ export class AppComponent {
   }
 
   logOut() {
-      localStorage.removeItem('token');
-      localStorage.removeItem('user_type');
-      this.router.navigate(['homepage']).then(()=>{
-        window.location.reload()
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "are you sure to exit?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, exit now'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'success !',
+          'you made it out',
+          'success'
+        ).then((result) => {
+          localStorage.removeItem('token');
+            localStorage.removeItem('user_type');
+            this.router.navigate(['homepage']).then(()=>{
+              window.location.reload()
+            }
+          )
+        })
+      }
     })
   }
   

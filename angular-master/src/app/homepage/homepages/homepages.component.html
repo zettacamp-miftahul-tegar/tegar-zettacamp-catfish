@@ -2,20 +2,16 @@
   <div class="pricing" id="pricing">
     <div class="container">
       <div class="section-head-lite text-center col-md-4 col-md-offset-2 space80">
-        <h1 class="mbr-title-font"> <b>DISCOVER THE TASTE REAL OF FOODS WITH</b> <span style="color:black"><b> MADANG <span style="color: red;"> <b> SLURR </b></span> </b></span> </h1>
+        <h1 class="mbr-title-font"> <b>DISCOVER THE TASTE REAL OF FOODS WITH</b> <span style="color:black"><b> UNIC <span style="color: red;"> <b> FOODS </b></span> </b></span> </h1>
       </div>
     </div>
   </div>
 </section>
-<div class="foods">
-    <div>
-        <img src="../../../assets/img/content.jpg">
-    </div>
-    <div class="m-10">
-        <p class="head"> ABOUT <br ><br> <span> <b> MADANG </b> </span> <span class="style"> <b> SLURR </b> </span> </p>
-        <p class="content"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique consectetur repudiandae quas, quasi excepturi dolorem autem sequi impedit enim laborum cupiditate nesciunt aliquam esse, expedita dolore at. Aliquid, nisi eos! </p>
-        <a routerLink="../about">
-            <button mat-raised-button color="accent">Accent</button>
-        </a>
-    </div>
+<div>
+  <div> <h2 style="text-align: center; padding-top: 20px;"> <b> Special Offer </b> </h2></div>
+  <app-menu-heightlight *ngFor="let menu of menus;" [recipe]="menu"></app-menu-heightlight>
+</div>
+<div>
+  <div> <h2 style="text-align: center; padding-top: 20px;"> <b> Menu Highlight </b> </h2></div>
+  <app-special-offer *ngFor="let menue of menus1" [recipe]="menue"></app-special-offer>
 </div>
