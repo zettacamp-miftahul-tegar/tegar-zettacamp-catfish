@@ -49,9 +49,9 @@ const routes : Routes = [
       {
         path:"history", component: HistoryComponent, canActivate:[GuardGuard]
       },
-      // {
-      //   path:"**", component:HomepageComponent, redirectTo:'homepage'
-      // }
+      {
+        path:"**", redirectTo:"homepage"
+      }
     ]
   }
 ]

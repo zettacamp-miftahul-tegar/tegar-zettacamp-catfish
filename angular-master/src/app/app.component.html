@@ -15,7 +15,7 @@
       </a>
     </mat-menu>
     <button mat-button routerLink="about" style="color: white;" routerLinkActive="active">{{ "about" | translate }}</button>
-    <button mat-button *ngIf="!token" (click)="openDialog()" routerLinkActive="active">{{ "login" | translate }}</button>
+    <button mat-button *ngIf="!token" (click)="openDialog()" routerLinkActive="active" style="color: white;">{{ "login" | translate }}</button>
     <!-- <button mat-button [matMenuTriggerFor]="menu" routerLinkActive="active"> {{first_name}} {{last_name}} <span *ngIf="user_type == 'admin'"> -- {{user_type}} </span> </button> -->
     <!-- <mat-menu #menu="matMenu" *ngIf="token"> -->
         <button *ngIf="token" mat-button (click)="logOut()" routerLinkActive="active" style="color: white;">{{ "logout" | translate }}</button>
