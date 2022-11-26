@@ -217,10 +217,7 @@ export class MenuManagementComponent implements OnInit {
 
   value = '';
   nameFilter = new FormControl();
-  page = 1;
   search : any;
-  maxPage : any;
-  dataIngredients : any;
 
   searchFilter() {
     this.nameFilter.valueChanges.pipe(debounceTime(300)).subscribe((val) => {
@@ -246,14 +243,16 @@ export class MenuManagementComponent implements OnInit {
 
   updateMenu(data:any) {
     data = copy(data)
-    if (data.highlight === true) {
-      data.highlight = false
-    }
-    else {
+    if (data.highlight === false) {
       data.highlight = true
     }
+    else if (data.highlight === true) {
+      data.highlight = false
+    } else {
+      data.highlight === false
+    }
     Swal.fire({
-      title: 'Do you want to edit status to ' + data.status + '?',
+      title: 'Do you want to edit status to ' + data.highlight + '?',
       showDenyButton: false,
       showCancelButton: true,
       showConfirmButton: true,
@@ -261,10 +260,10 @@ export class MenuManagementComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.subs.sink = this.data.updateMenu(data).subscribe(resp => {
-          if (resp) {
-            this.getDatas(true)
-            Swal.fire('Menu status has been changed to ' + data.status)
-            .then((res) => {
+        if (resp) {
+          this.getDatas(true)
+          Swal.fire('Menu status has been changed to ' + data.highlight)
+          .then((res) => {
               this.router.navigate(['homepage'])
             })
           }
@@ -273,11 +272,11 @@ export class MenuManagementComponent implements OnInit {
     })
   }
 
-  // publishMenu(element: any) {
+  // onHeighlight(element: any) {
   //   const data = {
   //     id: element.id
   //   };
-
+    
   //   this.data.updateMenu(data).subscribe(() => {
   //     this.getDatas(true)
   //   });

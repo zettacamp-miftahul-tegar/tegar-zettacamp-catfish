@@ -9,6 +9,10 @@
   display: none; 
 }
 
+mat-form-field {
+  width: 100px;
+}
+
 th {
   height: 20px;
 }
@@ -42,12 +46,12 @@ mat-paginator {
 }
 
 .noFilter1 {
-  padding-bottom: 50px;
+  padding-bottom: 55px;
 }
 
 .noFilter2 {
-  padding-bottom: 50px;
-  padding-left: 5%;
+  padding-bottom: 55px;
+  padding-left: 3%;
 }
 
 .noFilter21 {

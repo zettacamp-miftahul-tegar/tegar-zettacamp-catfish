@@ -4,12 +4,17 @@ div {
   height: 100px;
 }
 
+.imges {
+  display: flex;
+}
+
 .container {
   display: inline-block;
   width: 300px;
   height: 150px;
   background-color: antiquewhite;
   position: relative;
+  padding-bottom: 60px;
 }
 
 div img {

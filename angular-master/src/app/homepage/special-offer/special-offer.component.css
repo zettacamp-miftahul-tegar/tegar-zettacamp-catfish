@@ -4,8 +4,8 @@ div {
   height: 100px;
 }
 
-.example-card {
-  background-color: transparent;
+.imges {
+  display: flex;
 }
 
 .container {
@@ -14,6 +14,7 @@ div {
   height: 150px;
   background-color: antiquewhite;
   position: relative;
+  padding-bottom: 60px;
 }
 
 div img {
