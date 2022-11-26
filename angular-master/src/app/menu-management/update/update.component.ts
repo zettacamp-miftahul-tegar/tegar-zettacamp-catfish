@@ -49,6 +49,7 @@ export class UpdateComponent implements OnInit {
       imgUrl: ['', [Validators.required, Validators.minLength(5)]],
       recipe_name: ['', [Validators.required, Validators.minLength(4)]],
       price: ['', [Validators.required, Validators.min(1)]],
+      discount: [[Validators.min(1)]],
       ingredients: this.fb.array([]),
     });
     this.byDataLength()
@@ -82,11 +83,11 @@ export class UpdateComponent implements OnInit {
 
       this.signupForm.patchValue(tempMenu);
 
-      this.dataMenu = tempMenu.map((val:any)=>{
-        console.log(this.dataMenu);
+      // this.dataMenu = tempMenu.map((val:any)=>{
+      //   console.log(this.dataMenu);
         
-        return val.ingredient_id
-      })
+      //   return val.ingredient_id
+      // })
 
     });
     this.signupForm.patchValue(this.datas);

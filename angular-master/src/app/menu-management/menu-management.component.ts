@@ -47,7 +47,7 @@ export class MenuManagementComponent implements OnInit {
     this.statusFilterr()
   }
 
-  displayedColumns: string[] = ['recipe_name', 'price', 'available', 'menu-h','status', 'action'];
+  displayedColumns: string[] = ['recipe_name', 'price', 'available', 'special-h', 'menu-h','status', 'action'];
 
   dataSource: MatTableDataSource <Menus> = new MatTableDataSource();
 
@@ -282,5 +282,35 @@ export class MenuManagementComponent implements OnInit {
   //     this.getDatas(true)
   //   });
   // }
+
+  //----------------------------------------------------
+
+  updateSpecial(data:any) {
+    data = copy(data)
+    if (data.special_offer === true) {
+      data.special_offer = false
+    } else {
+      data.special_offer = true
+    }
+    Swal.fire({
+      title: 'Do you want to edit status to ' + data.special_offer + '?',
+      showDenyButton: false,
+      showCancelButton: true,
+      showConfirmButton: true,
+      denyButtonText: `Yes`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.subs.sink = this.data.updateSpecial(data).subscribe(resp => {
+          if (resp) {
+            this.getDatas(true)
+            Swal.fire('Menu status has been changed to ' + data.special_offer)
+            .then((res) => {
+              this.router.navigate(['homepage'])
+            })
+          }
+        })
+      }
+    })
+  }
 
 }

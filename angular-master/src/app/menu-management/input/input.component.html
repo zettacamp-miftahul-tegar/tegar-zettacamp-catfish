@@ -22,6 +22,11 @@
           <mat-error *ngIf="this.signupForm.get('price')?.invalid"> This price min 1 length ! </mat-error>
         </mat-form-field><br>
 
+        <mat-form-field class="custom" appearance="fill">
+          <mat-label> Diskon <label for="discount"></label> </mat-label>
+          <input matInput type="number" id="discount" formControlName="discount" class="form-control">
+          <mat-error *ngIf="this.signupForm.get('discount')?.invalid"> This name min 3 length ! </mat-error>
+        </mat-form-field><br>
 
         <div formArrayName="ingredients">
 

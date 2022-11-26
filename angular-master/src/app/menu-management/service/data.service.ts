@@ -33,9 +33,9 @@ export class DataService {
           totalDocs
           recipes {
             id
+            discount
             highlight
             special_offer
-            special_offer_price
             recipe_name
             price
             special_offer_price
@@ -63,10 +63,10 @@ export class DataService {
 
   addRecipe(post: any) {
 
-    let {recipe_name, price, imgUrl, ingredients:{ingredient_id, stock_used}} = post
+    let {recipe_name, price, imgUrl, ingredients:{ingredient_id, stock_used}, discount} = post
 
-    this.query = gql `mutation CreateRecipe($recipeName: String, $input: [RecipeIngredient], $price: Int, $imgUrl: String) {
-      createRecipe(recipe_name: $recipeName, input: $input, price: $price, imgUrl: $imgUrl) {
+    this.query = gql `mutation CreateRecipe($recipeName: String, $input: [RecipeIngredient], $price: Int, $imgUrl: String, $discount: Float) {
+      createRecipe(recipe_name: $recipeName, input: $input, price: $price, imgUrl: $imgUrl, discount: $discount) {
         imgUrl
         recipe_name
         price
@@ -143,11 +143,11 @@ export class DataService {
     })
   )}
 
-  updateRecipe(post: Menus) {
+  updateRecipe(post: any) {
 
     this.query = gql `
-    mutation UpdateRecipe($updateRecipeId: ID, $recipeName: String, $input: [RecipeIngredient], $price: Int, $imgUrl: String) {
-      updateRecipe(id: $updateRecipeId, recipe_name: $recipeName, input: $input, price: $price, imgUrl: $imgUrl) {
+    mutation UpdateRecipe($updateRecipeId: ID, $recipeName: String, $input: [RecipeIngredient], $price: Int, $imgUrl: String, $discount: Float) {
+      updateRecipe(id: $updateRecipeId, recipe_name: $recipeName, input: $input, price: $price, imgUrl: $imgUrl, discount: $discount) {
         id
         recipe_name
         price
@@ -169,7 +169,8 @@ export class DataService {
         recipeName: post.recipe_name,
         price: post.price,
         imgUrl: post.imgUrl,
-        input: post.ingredients
+        input: post.ingredients,
+        discount: post.discount
       }
     })
   }
@@ -248,6 +249,29 @@ export class DataService {
       variables: {
         updateRecipeId: post.id,
         highlight: post.highlight,
+      }
+    })
+  }
+
+  updateSpecial(post: any) {
+
+    this.query = gql `
+    mutation UpdateRecipe($updateRecipeId: ID, $specialOffer: Boolean) {
+      updateRecipe(id: $updateRecipeId, special_offer: $specialOffer) {
+        status
+        special_offer_price
+        special_offer
+        recipe_name
+        price
+        imgUrl
+        highlight
+      }
+    }`
+    return this.apollo.mutate({
+      mutation : this.query,
+      variables: {
+        updateRecipeId: post.id,
+        specialOffer: post.special_offer,
       }
     })
   }

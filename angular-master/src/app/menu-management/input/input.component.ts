@@ -40,6 +40,7 @@ export class InputComponent implements OnInit {
       imgUrl: new FormControl(null, [Validators.required, Validators.minLength(5)]),
       recipeName: new FormControl(null, [Validators.required, Validators.minLength(4)]),
       price: new FormControl(null, [Validators.required, Validators.min(1)]),
+      discount: new FormControl(null, [Validators.min(0)]),
       ingredients: new FormArray([])
     });
   }

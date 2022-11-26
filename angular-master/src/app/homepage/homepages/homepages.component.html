@@ -9,14 +9,17 @@
     </div>
   </div>
 </section>
-<div> 
-  <div> <h2 style="text-align: center; padding-top: 20px;"> <b> Special Offer </b> </h2></div>
+
+<h2 style="text-align: center; padding-top: 20px;"> <b> Special Offer </b> </h2>
+<div class="parent">
   <div class="menu">
-    <app-menu-heightlight *ngFor="let menu of menus;" [recipe]="menu"></app-menu-heightlight>
+    <button mat-raised-button color="warn" type="button" class="prev" appPrev>prev</button>
+    <app-menu-heightlight class="item" *ngFor="let menu of menus;" [recipe]="menu"></app-menu-heightlight>
+    <button mat-raised-button color="warn" type="button" class="next" appNext>next</button>
   </div>
 </div>
 
-<h2 style="text-align: center; padding-top: 20px;"> <b> Special Offer </b> </h2>
+<h2 style="text-align: center; padding-top: 20px;"> <b> Menu Highlight </b> </h2>
 <div class="parent">
   <div class="menu">
     <button mat-raised-button color="warn" type="button" class="prev" appPrev>prev</button>
