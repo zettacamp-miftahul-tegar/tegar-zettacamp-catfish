@@ -1,31 +1,26 @@
-<div class="class">
-  <app-cart-buy class="rep" *ngFor="let menu of carts;" [getAllCart]="menu" (refetchall)="getCard_id($event)"></app-cart-buy>
-</div>
+<div class="breng">
+  <div class="class">
+    <app-cart-buy class="rep" *ngFor="let menu of carts;" [getAllCart]="menu" (refetchall)="getCard_id($event)">
+    </app-cart-buy>
+  </div>
 
-<div class="containerB" *ngIf="cart_length > 0">
-  <div class="example-card">
-    <mat-card class="cards" align="end">
-      <mat-card-header>
-        <mat-card-title class="pad">
-          <p> <span class="custom1"> <b>Total Price :</b> </span> </p>
-        </mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <h2 class="cartperice">
-          <b>Rp. {{total_price}}</b>
-        </h2>
-      </mat-card-content>
-      <mat-card-actions>
-        <a>
+  <div class="container" *ngIf="cart_length > 0">
+    <div class="beha">
+      <div class="main">
+        <h2> <b> TOTAL : Rp. {{total_price}}</b> </h2>
+      </div>
+      <div class="main1">
+        <div>
           <button mat-raised-button color="accent" (click)="deleteAllCart()">Remove all items</button>
+        </div>
+        <div style="margin: 0 0 0 30px">
           <button mat-raised-button color="primary" (click)="buyCart()">Buy Now</button>
-        </a>
-      </mat-card-actions>
-    </mat-card>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
 <div class="containerC" *ngIf="cart_length == 0">
-  <img src="../../assets/img/empty-cart.png">
+  <img class="cust" src="../../assets/img/empty-cart.png">
 </div>
-

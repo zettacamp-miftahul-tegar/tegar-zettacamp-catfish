@@ -114,7 +114,7 @@ export class MenuManagementComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(InputComponent, {
-      width: '30%',
+      width: '50%',
       data: {name: this.recipe_name},
       // disableClose: true,
       // hasBackdrop: true
@@ -156,7 +156,7 @@ export class MenuManagementComponent implements OnInit {
 
   openUpdate(parameter:any): void {
     const dialogRef = this.dialog.open(UpdateComponent, {
-      width: '30%',
+      width: '50%',
       data: parameter
       // disableClose: true,
       // hasBackdrop: true,      

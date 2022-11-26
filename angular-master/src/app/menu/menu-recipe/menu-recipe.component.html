@@ -1,17 +1,18 @@
-<div class="example-card">
-  <mat-card class="cards">
-    <mat-card-header>
-      <mat-card-title>{{recipe.recipe_name}}</mat-card-title>
-      <mat-card-subtitle><b> Stock : {{recipe.available}} </b></mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image class="bg1" src="{{recipe.imgUrl}}" alt="images">
-    <div class="drop" *ngIf="recipe.available < 1"><img class="grayout" src="../../../assets/img/stock_habis.png"></div>
-    <mat-card-content>
-      <p>
-        Price : {{recipe.special_offer_price}}
-      </p>
-    </mat-card-content>
-    <mat-card-actions *ngIf="token">
+<div class="const">
+  <div class="imgb">
+    <img class="bg1" src="{{recipe.imgUrl}}" alt="images">
+  </div>
+  <div class="mainz">
+    <p class="p"><b>{{recipe.recipe_name}} </b></p>
+  </div>
+  <div class="mainz">
+    <p class="p"><b> Stock : {{recipe.available}} </b></p>
+  </div>
+  <div class="main">
+    <div class="mainzz">
+      <p class="pe">Price : {{recipe.special_offer_price}}</p>
+    </div>
+    <div class="bot" *ngIf="token">
       <div *ngIf="recipe.available > 0">
         <button (click)="openDialog(recipe)" mat-stroked-button color="primary">
           <mat-icon color="primary">add_shopping_cart</mat-icon> add to cart
@@ -22,6 +23,6 @@
           <mat-icon color="primary">add_shopping_cart</mat-icon> add to cart
         </button>
       </div>
-    </mat-card-actions>
-  </mat-card>
+    </div>
+  </div>
 </div>

@@ -21,8 +21,8 @@ a {
 }
 
 button.active {
-  color: black !important;
-  background-color: #2f4a96;
+  color: white !important;
+  background-color: red;
 }
 
 .const::-webkit-scrollbar {

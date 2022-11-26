@@ -1,4 +1,4 @@
-.qty{
+/* .qty{
   margin-right: 20px;
   width: 80px;
 }
@@ -41,4 +41,49 @@ img {
 
 mat-card-subtitle {
   padding-top: 20px;
+} */
+
+.container {
+  display: flex;
+  width: 100%;
+  margin: 1rem;
+  background-color: rgb(188, 156, 169);
+}
+
+.beha {
+  display: flex;
+  width: 100%;
+  margin: 1rem;
+}
+
+img {
+  margin-right: 1rem;
+  width: 30%;
+  height: 180px;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+.buttomcss {
+  margin-left: auto;
+  display: flex;
+}
+
+.head {
+  display: flex;
+  border: 1px solid;
+}
+
+.body {
+  display: flex;
+  border: 1px solid;
+}
+
+.footer {
+  display: flex;
+  border: 1px solid;
 }

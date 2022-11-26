@@ -14,15 +14,21 @@ export class DataService {
     return this.apollo.watchQuery({
       query : gql `query GetAllRecipe($specialOffer: Boolean) {
         getAllRecipe(special_offer: $specialOffer) {
+          page
+          maxPage
+          currentDocs
+          totalDocs
           recipes {
             id
+            special_offer_price
+            special_offer
+            imgUrl
             recipe_name
             price
-            imgUrl
-            special_offer
-            special_offer_price
-            highlight
+            available
+            __typename
           }
+          __typename
         }
       }`,
       variables: {

@@ -18,27 +18,35 @@ export class RecipeService {
     }
 
     return this.apollo.watchQuery({
-      query : gql `query getAllRecipe(
-        $page: Int, $limit: Int, $status: String, $recipeName: String
-      ) { 
-        getAllRecipe(
-          page: $page
-          limit: $limit
-          status: $status
-          recipe_name: $recipeName
-        ) {
+      query : gql `query GetAllRecipe($page: Int, $limit: Int, $status: String, $recipeName: String) {
+        getAllRecipe(page: $page, limit: $limit, status: $status, recipe_name: $recipeName) {
+          recipes {
+            id
+            recipe_name
+            ingredients {
+              ingredient_id {
+                id
+                name
+                stock
+                isUsed
+                status
+              }
+              stock_used
+            }
+            totalLength
+            price
+            imgUrl
+            available
+            status
+            special_offer
+            special_offer_price
+            highlight
+            discount
+          }
           page
           maxPage
           currentDocs
           totalDocs
-          recipes {
-            id
-            special_offer_price
-            imgUrl
-            recipe_name
-            price
-            available
-          }
         }
       }`,
       variables: {

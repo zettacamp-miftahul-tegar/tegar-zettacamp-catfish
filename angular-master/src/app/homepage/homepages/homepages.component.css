@@ -46,20 +46,6 @@ img {
   padding-top: 100px;
 }
 
-.col-sm-4:after {
-  -webkit-transform: rotate(6deg) translate3d(15px, 0, 0);
-  transform: rotate(6deg) translate3d(15px, 0, 0);
-}
-
-.col-sm-4:before {
-  -webkit-transform: rotate(-6deg) translate3d(-15px, 0, 0);
-  transform: rotate(-6deg) translate3d(-15px, 0, 0);
-}
-
-.space80 {
-  margin-bottom: 20px;
-}
-
 .mbr-section {
   background-image: url('https://png.pngtree.com/background/20210710/original/pngtree-gourmet-japanese-restaurant-sushi-creative-simple-business-poster-design-picture-image_1016307.jpg');
   background-position: center;
