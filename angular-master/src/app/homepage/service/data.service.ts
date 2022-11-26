@@ -10,24 +10,19 @@ export class DataService {
 
   constructor(private apollo: Apollo) { }
 
-  getRecipies() {
+  getRecipies_special() {
     return this.apollo.watchQuery({
-      query : gql `query GetAllRecipes($specialOffer: Boolean) {
-        getAllRecipes(special_offer: $specialOffer) {
+      query : gql `query GetAllRecipe($specialOffer: Boolean) {
+        getAllRecipe(special_offer: $specialOffer) {
           recipes {
             id
             recipe_name
-            special_offer
-            highlight
             price
-            special_offer_price
-            status
             imgUrl
+            special_offer
+            special_offer_price
+            highlight
           }
-          page
-          maxPage
-          currentDocs
-          totalDocs
         }
       }`,
       variables: {

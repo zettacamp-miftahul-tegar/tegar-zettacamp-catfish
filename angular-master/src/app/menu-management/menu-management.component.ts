@@ -273,14 +273,14 @@ export class MenuManagementComponent implements OnInit {
     })
   }
 
-  publishMenu(element: any) {
-    const data = {
-      id: element.id
-    };
-    
-    this.data.updateMenu(data).subscribe(() => {
-      this.getDatas(true)
-    });
-  }
+  // publishMenu(element: any) {
+  //   const data = {
+  //     id: element.id
+  //   };
+
+  //   this.data.updateMenu(data).subscribe(() => {
+  //     this.getDatas(true)
+  //   });
+  // }
 
 }

@@ -23,6 +23,8 @@ import { MatListModule } from '@angular/material/list';
 import { GuardPermissionGuard } from '../login/auth/guard-permission.guard';
 import { SpecialOfferComponent } from './special-offer/special-offer.component';
 import { MenuHeightlightComponent } from './menu-heightlight/menu-heightlight.component';
+import { NextDirective } from './menu-heightlight/next.directive';
+import { PrevDirective } from './menu-heightlight/prev.directive';
 
 const routes : Routes = [
   {
@@ -62,7 +64,9 @@ const routes : Routes = [
     HomepagesComponent,
     SpecialOfferComponent,
     MenuHeightlightComponent,
-    MenuHeightlightComponent
+    MenuHeightlightComponent,
+    NextDirective,
+    PrevDirective
   ],
   imports: [
     CommonModule,

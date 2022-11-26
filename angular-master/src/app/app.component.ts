@@ -3,10 +3,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { SubSink } from 'subsink';
-import Swal from 'sweetalert2';
 import { CartService } from './cart/service/cart.service';
 import { LoginComponent } from './login/login.component';
-import { DataService } from './stock-management/service/data.service'
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-root',

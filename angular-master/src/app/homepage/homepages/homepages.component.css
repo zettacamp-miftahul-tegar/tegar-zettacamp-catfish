@@ -242,8 +242,8 @@ body {
 
 .menu {
   display: flex;
-  flex-wrap: wrap;
-  margin: 2rem;
+  flex-wrap: nowrap;
+  margin: 1rem;
   margin-right: auto;
   margin-left: auto;
 }
@@ -256,4 +256,26 @@ app-special-offer {
 app-menu-heightlight {
   margin-left: auto;
   margin-right: auto;
+}
+
+/* ---------------------------- */
+
+.parent {
+  overflow: hidden;
+}
+
+.prev {
+  position: absolute;
+  left: 50px;
+  z-index: 100;
+  margin-top: 70px;
+  transform: translate(-50%, -50%);
+}
+
+.next {
+  position: absolute;
+  margin-top: 42px;
+  right: 50px;
+  z-index: 100;
+  transform: translate(50%, 50%);
 }

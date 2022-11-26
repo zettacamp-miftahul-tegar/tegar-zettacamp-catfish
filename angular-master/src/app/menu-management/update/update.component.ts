@@ -54,6 +54,10 @@ export class UpdateComponent implements OnInit {
     this.byDataLength()
   }
 
+  noDup() {
+    
+  }
+
   byDataLength() {
     this.data.datalength(this.datas.id).subscribe((item: any) => {
       this.dataMenu = item.data.getOneRecipe
@@ -62,15 +66,9 @@ export class UpdateComponent implements OnInit {
         this.addNewIngredients()
       }
 
-      let tempIngredId: {
-        ingredient_id: any;stock_used: any;
-      } [] = [];
+      let tempIngredId: { ingredient_id: any; stock_used: any; } [] = [];
 
-      this.dataMenu.ingredients.forEach((ingre: {
-        ingredient_id: {
-          id: any;
-        };stock_used: any;
-      }) => {
+      this.dataMenu.ingredients.forEach((ingre: { ingredient_id: { id: any; };stock_used: any; }) => {
         tempIngredId.push({
           ingredient_id: ingre.ingredient_id.id,
           stock_used: ingre.stock_used
@@ -81,7 +79,15 @@ export class UpdateComponent implements OnInit {
         ...this.dataMenu,
         ingredients: tempIngredId
       };
+
       this.signupForm.patchValue(tempMenu);
+
+      this.dataMenu = tempMenu.map((val:any)=>{
+        console.log(this.dataMenu);
+        
+        return val.ingredient_id
+      })
+
     });
     this.signupForm.patchValue(this.datas);
   }

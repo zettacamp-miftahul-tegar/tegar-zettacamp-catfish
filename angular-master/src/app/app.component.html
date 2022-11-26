@@ -8,7 +8,7 @@
     <button mat-button *ngIf="token" [matMenuTriggerFor]="menu" routerLinkActive="active" style="color: white;">{{ "cart" | translate }}</button>
     <mat-menu #menu="matMenu">
       <a routerLink="cart-management">
-        <button mat-menu-item >{{ "cart" | translate }}</button>
+        <button mat-menu-item routerLinkActive="active">{{ "cart" | translate }}</button>
       </a>
       <a routerLink="history">
         <button mat-menu-item routerLinkActive="active">{{ "history" | translate }}</button>
