@@ -28,3 +28,27 @@ button.active {
 .const::-webkit-scrollbar {
   display: none;
 }
+
+.language a{
+  cursor: pointer;
+}
+
+.language a img {
+  margin-left: 10px;
+  width: 28px;
+  height: 28px;
+}
+
+.language-other{
+position: relative;
+left: 35vw;
+}
+
+.language-other a{
+cursor: pointer;
+}
+
+.language-other a img {
+width: 28px;
+height: 28px;
+}

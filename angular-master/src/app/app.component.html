@@ -1,5 +1,10 @@
 <mat-toolbar>
   <p class="name"><span style="color:white">Unic</span> <span style="color: red;">Foods</span></p>
+  <div class="language">
+    <a *ngIf="currentLanguage" (click)="changeLanguage(currentLanguage)"
+      ><img [src]="srcImages"
+    /></a>
+  </div>
   <div class="header">
     <button mat-button routerLink="homepage" style="color: white;" routerLinkActive="active">{{ "homepage" | translate }}</button>
     <button mat-button routerLink="menu" style="color: white;" routerLinkActive="active">{{ "menu" | translate }}</button>

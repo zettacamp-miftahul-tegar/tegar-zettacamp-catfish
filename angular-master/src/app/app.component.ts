@@ -23,18 +23,35 @@ export class AppComponent {
   first_name: any;
   last_name: any;
 
+  currentLanguage = 'en';
+  srcImages: string = 'https://cdn-icons-png.flaticon.com/512/323/323329.png';
+
   constructor(
     private router: Router,
     public dialog: MatDialog, 
     private cart: CartService, 
-    private translateService : TranslateService ) { 
+    private translate : TranslateService ) { 
+      translate.addLangs(['en', 'fr']);
+      translate.setDefaultLang('en');
   }
 
-  selectedLang = 'en';
-
-  setLanguage(lang: string) {
-    this.translateService.use(lang);
+  changeLanguage(lang: any) {
+    console.log(lang);
+    if (lang === 'en') {
+      this.translate.use('fr');
+      this.currentLanguage = 'fr';
+      this.srcImages =
+        '../assets/img/icons8-france-48.png';
+    } else {
+      this.translate.use('en');
+      this.currentLanguage = 'en';
+      this.srcImages = 'https://cdn-icons-png.flaticon.com/512/323/323329.png';
+    }
   }
+
+  // setLanguage(lang: string) {
+  //   this.translate.use(lang);
+  // }
 
   ngOnInit(): void {
     if (localStorage.getItem('token')){
