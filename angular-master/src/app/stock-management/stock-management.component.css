@@ -1,8 +1,13 @@
 .container {
   padding-top: 100px;
   padding-bottom: 10px;
-  float: right;
   padding-right: 3%;
+  display: flex;
+  justify-content: space-between;
+}
+
+h2 {
+  padding-left: 3%;
 }
 
 th {

@@ -2,29 +2,136 @@
   <div class="pricing" id="pricing">
     <div class="container">
       <div class="pad">
-        <!-- <mat-card style="background:none; visibility: none;"> </mat-card> -->
-        <p class="mbr-title-font"> <span style="color: white;">UNIC</span> <br><br><br> <span style="color: red;"><b>RESTAURANT</b></span> </p><br>
+        <p class="mbr-title-font"> <span style="color: white; font-family: Verdana;">UNIC</span> <br><br><br> <span
+            style="color: red; letter-spacing: 10px; font-family: Lucida Sans;"><b>FOODS</b></span> </p><br>
         <p style="font-size: 20px; color:white" *ngIf="!token">Five star quality street restaurant</p>
-        <p style="font-size: 20px; color:white" *ngIf="token">Welcome <span style="color: red;"><b>{{first_name}} {{last_name}}</b></span> </p>
+        <p style="font-size: 20px; color:white" *ngIf="token">Welcome <span style="color: red;"><b>{{first_name}}
+              {{last_name}}</b></span> </p>
       </div>
     </div>
   </div>
 </section>
 
-<h2 style="text-align: center; padding-top: 20px;"> <b> Special Offer </b> </h2>
-<div class="parent">
-  <div class="menu">
-    <button mat-raised-button color="warn" type="button" class="prev" appPrev>prev</button>
-    <app-menu-heightlight class="item" *ngFor="let menu of menus;" [recipe]="menu"></app-menu-heightlight>
-    <button mat-raised-button color="warn" type="button" class="next" appNext>next</button>
+<!-- no menu and special -->
+
+<div style="top: 0; margin:0; padding: 0" *ngIf="!menus2length && !menus1length">
+  <div style="display: flex; flex-wrap: wrap; width: 100%; margin-right: auto; margin-left: auto; height: 200px;">
+    <div style="background-color: red; width: 50%; padding-top: 50px;">
+      <h2 style="color: white; text-align: right; margin-right: 5px"> <b>UNIC</b> </h2>
+      <p style="text-align: right; margin-right: 5px">choix de plats et de boissons au goût distinctif</p>
+    </div>
+    <div style="background-color: white; width: 50%; padding-top: 50px;">
+      <h2 style="color: red; padding-left: 5px;"> <b>FOODS</b> </h2> 
+      <p style="padding-left: 5px;">five star taste street food with unique atmosphere</p>
+    </div>
   </div>
 </div>
 
-<h2 style="text-align: center; padding-top: 20px;"> <b> Menu Highlight </b> </h2>
-<div class="parent">
-  <div class="menu">
-    <button mat-raised-button color="warn" type="button" class="prev" appPrev>prev</button>
-    <app-special-offer class="item" *ngFor="let menue of menus1" [recipe]="menue"></app-special-offer>
-    <button mat-raised-button color="warn" type="button" class="next" appNext>next</button>
+<div class="parent" *ngIf="menus1length > 0">
+  <h2 style="text-align: center; padding-top: 20px;"> <b> {{ 'special_offer' | translate }} </b> </h2>
+  <div class="parent">
+    <div class="menu">
+      <button mat-raised-button color="warn" type="button" class="prev" appPrev>prev</button>
+      <app-menu-heightlight class="item" *ngFor="let menu of menus;" [recipe]="menu"></app-menu-heightlight>
+      <button mat-raised-button color="warn" type="button" class="next" appNext>next</button>
+    </div>
   </div>
 </div>
+
+<!-- <div class="cust" *ngIf="!menus1length">
+  <h2 style="padding-left: 10%; padding-top: 20px;"> <b> {{ 'special_offer' | translate }} </b> </h2>
+  <img src="https://mmc.tirto.id/image/otf/880x495/2019/11/21/istock-1061632246_ratio-16x9.jpg">
+</div> -->
+
+<!-- header special -->
+
+<!-- <div class="atasA" *ngIf="menus1length > 0">
+  <div class="atas">
+    <div>
+      <h2> <b> {{ 'special_offer' | translate }} </b> </h2>
+    </div>
+    <div class="bawahchild">
+      <div style="margin-right: 70px;">
+        <button mat-raised-button color="warn" type="button" class="prev" appPrev>
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+      </div>
+      <div class="anyar" *ngIf="menus1length > 0">
+        <div class="menu">
+          <app-menu-heightlight class="item" *ngFor="let menu of menus;" [recipe]="menu"></app-menu-heightlight>
+        </div>
+      </div>
+      <div style="margin-right: 30px;">
+        <button mat-raised-button color="warn" type="button" class="next" appNext>
+          <mat-icon>arrow_forward</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- content special -->
+
+<!-- <div class="anyar" *ngIf="menus1length > 0">
+  <div class="menu">
+    <app-menu-heightlight class="item" *ngFor="let menu of menus;" [recipe]="menu"></app-menu-heightlight>
+    </div>
+</div> -->
+
+<!-- // testing  -->
+
+<!-- <div class="atasA" style="padding-top: 50px;">
+  <div class="atas">
+    <div>
+      <h2> <b> {{ 'special_offer' | translate }} </b> </h2>
+    </div>
+    <div class="bawahchild">
+      <div style="margin-right: 70px;">
+        <button mat-raised-button color="warn" type="button" class="prev" appPrev>
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+      </div>
+      <div style="margin-right: 30px;">
+        <button mat-raised-button color="warn" type="button" class="next" appNext>
+          <mat-icon>arrow_forward</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- <div class="anyar" *ngIf="!menus1length">
+  <div class="anyarchild">
+    <div class="gambar1">
+      <img class="gambar" src="https://mmc.tirto.id/image/otf/880x495/2019/11/21/istock-1061632246_ratio-16x9.jpg">
+    </div>
+    <div>
+      <h2> Bakso Bakar </h2>
+    </div>
+    <div class="d-flex">
+      <div style="padding-top: 10px;">
+        <p>
+          <span style="text-decoration: line-through red; font-size: 12px;"><b>Rp. 10000</b> </span> 
+          <span style="padding-left: 5px;"> <b>Rp. 8000</b> </span> 
+        </p>
+      </div>
+      <div>
+        <button mat-raised-button color="warn">buy now</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- menus -->
+
+<div class="parent" *ngIf="menus2length > 0">
+  <h2 style="text-align: center; padding-top: 20px;"> <b> Menu Highlight </b> </h2>
+  <div class="parent">
+    <div class="menu">
+      <button mat-raised-button color="warn" type="button" class="prev" appPrev>prev</button>
+      <app-special-offer class="item" *ngFor="let menue of menus1" [recipe]="menue"></app-special-offer>
+      <button mat-raised-button color="warn" type="button" class="next" appNext>next</button>
+    </div>
+  </div>
+</div>
+

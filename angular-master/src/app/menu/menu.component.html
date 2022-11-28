@@ -6,8 +6,18 @@
   </button>
 </mat-form-field>
 
+<!-- *ngIf="leng > 1" -->
+
 <div class="container">
   <app-menu-recipe class="rep" *ngFor="let menu of recepien;" [recipe]="menu"></app-menu-recipe>
+</div>
+
+<!-- <div class="anyar">
+  <app-menu-recipe class="anyarchild" *ngFor="let menu of recepien;" [recipe]="menu"></app-menu-recipe>
+</div> -->
+
+<div class="container" *ngIf="leng == 0">
+  <img src="../../assets/img/empty-cart.png">
 </div>
 
 <mat-paginator #paginator class="promo-paginator" (page)="onPaginatorChange($event)" [pageSizeOptions]="[6]" showFirstLastButtons="true"></mat-paginator>

@@ -1,6 +1,6 @@
 {
   "homepage": "Page d'accueil",
-  "menu": "Menu",
+  "menu": "Menue",
   "menu-management": "Gestion des menus",
   "stock-management": "Gestion de stock",
   "about": "À propos de",
@@ -13,6 +13,9 @@
   "submit": "Soumettre",
   "cancel": "Annuler",
   "soldout": "Épuisé",
+  "welcome":"Bienvenue",
+  "special_offer": "Offre spéciale",
+  "maenu_highlight": "Mise en surbrillance du menu",
   "stock": {
     "name": "Name",
     "stock": "Stock",

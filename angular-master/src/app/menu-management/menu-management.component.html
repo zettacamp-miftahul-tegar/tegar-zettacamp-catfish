@@ -1,6 +1,8 @@
 <div class="container">
-  <button mat-raised-button color="warn" (click)="openDialog()"> Add Menu </button>
+    <h2> Menu Management </h2>
+    <button mat-raised-button color="warn" (click)="openDialog()"> Add Menu </button>
 </div>
+
 <div>
 
   <div class="cons">
@@ -31,15 +33,8 @@
       </ng-container>
 
       <ng-container matColumnDef="special-h">
-        <th class="pos" mat-header-cell *matHeaderCellDef class="noFilter3"> 
-          <div> <b>Special Offer</b> </div>
-          <mat-form-field>
-            <mat-select [formControl]="statusFilter" [(ngModel)]="valuee">
-              <mat-option *ngFor="let food of foods" [value]="food.value">
-                {{food.viewValue}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>  
+        <th class="pos" mat-header-cell *matHeaderCellDef class="noFilter0"> 
+           <b>Special Offer</b>
         </th>
 
         <td mat-cell *matCellDef="let element" class="noFilter31">
@@ -58,15 +53,8 @@
       </ng-container>
 
       <ng-container matColumnDef="menu-h">
-        <th class="pos" mat-header-cell *matHeaderCellDef class="noFilter3"> 
-          <div> <b>Menu Highlight</b> </div>
-          <mat-form-field>
-            <mat-select [formControl]="statusFilter" [(ngModel)]="valuee">
-              <mat-option *ngFor="let food of foods" [value]="food.value">
-                {{food.viewValue}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>  
+        <th class="pos" mat-header-cell *matHeaderCellDef class="noFilter0"> 
+         <b>Menu Highlight</b> 
         </th>
 
         <td mat-cell *matCellDef="let element" class="noFilter31">
@@ -82,26 +70,6 @@
           </a>
         </td>
       </ng-container>
-<!-- 
-      <ng-container matColumnDef="menu-h">
-        <th class="pos" mat-header-cell *matHeaderCellDef class="noFilter3"> 
-          <div> <b>Menu Highlight</b> </div>
-          <mat-form-field>
-            <mat-select [formControl]="statusFilter" [(ngModel)]="valuee">
-              <mat-option *ngFor="let food of foods" [value]="food.value">
-                {{food.viewValue}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>  
-        </th>
-        <td mat-cell *matCellDef="let element" (click)="updateStatus(element)" class="noFilter31">
-          <a>
-            <mat-slide-toggle matTooltip={{element.status}} [checked]="element.status == 'publish'"
-              (change)="onPublish(element)" color="primary">
-            </mat-slide-toggle>
-          </a>
-        </td>
-      </ng-container> -->
 
       <ng-container matColumnDef="status">
         <th class="pos" mat-header-cell *matHeaderCellDef class="noFilter3"> 

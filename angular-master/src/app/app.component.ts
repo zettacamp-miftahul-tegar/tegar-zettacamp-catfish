@@ -36,7 +36,6 @@ export class AppComponent {
   }
 
   changeLanguage(lang: any) {
-    console.log(lang);
     if (lang === 'en') {
       this.translate.use('fr');
       this.currentLanguage = 'fr';
@@ -48,10 +47,6 @@ export class AppComponent {
       this.srcImages = 'https://cdn-icons-png.flaticon.com/512/323/323329.png';
     }
   }
-
-  // setLanguage(lang: string) {
-  //   this.translate.use(lang);
-  // }
 
   ngOnInit(): void {
     if (localStorage.getItem('token')){

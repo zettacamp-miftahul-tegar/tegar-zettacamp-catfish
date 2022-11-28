@@ -5,6 +5,12 @@
     margin-right: auto;
 }
 
+img {
+    width: 50%;
+    padding-top: 20px;
+    height: auto;
+}
+
 .rep {
     margin-left: auto;
     margin-right: auto;

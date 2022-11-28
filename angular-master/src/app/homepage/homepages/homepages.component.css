@@ -1,9 +1,7 @@
-img {
-  width: 300px;
-  height: 400px;
-  margin: 5rem;
-  padding-top: 100px;
-}
+.cust {
+  margin-right: auto;
+  margin-left: auto;
+} 
 
 .mbr-section {
   overflow-x: hidden;
@@ -14,30 +12,13 @@ img {
   color: red;
 }
 
-.m-10 {
-  margin: 4rem;
-  padding-top: 100px;
-}
-
 .pricing {
-  padding-top: 100px; padding-bottom: 200px;
+  padding-top: 100px; 
+  /* padding-bottom: 200px; */
 }
 
 .head {
   font-size: 2rem;
-}
-
-.content {
-  width: 500px;
-  text-align: justify;
-}
-
-.foods {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 3rem;
-  padding: 10px;
-  box-shadow: 5px 10px #888888;
 }
 
 .mbr-title-font {
@@ -47,34 +28,18 @@ img {
 }
 
 .mbr-section {
-  background-image: url('https://png.pngtree.com/background/20210710/original/pngtree-gourmet-japanese-restaurant-sushi-creative-simple-business-poster-design-picture-image_1016307.jpg');
+  background-image: url('../../../assets/img/bg1.jpg');
   background-position: center;
   background-size: 100%;
   height: 650px;
+  padding: 0;
+  margin: 0;
   background-repeat: no-repeat;
-}
-
-.mbr-button {
-  background-color: #e8edea;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .pad {
   margin: 0;
   padding: 0;
-}
-
-.section-head-lite h1 {
-  font-size: 25px;
-  letter-spacing: 3px;
-  color: #fff
-}
-
-.section-head-lite p {
-  color: #fff;
-  opacity: 0.7
 }
 
 .mbr-title-font {
@@ -88,26 +53,6 @@ img {
   font-size: 14px;
   padding: 11px 28px;
   border-radius: 5px;
-}
-
-.btn-primary {
-  background: #3185eb;
-  border: 1px solid #29d9c2;
-  color: #fff;
-  padding: center;
-  margin: center;
-}
-
-.pricing__item {
-  margin: 0;
-  padding: 40px 40px 40px;
-  text-align: left;
-  color: #000;
-  background: #fff;
-  position: relative;
-  box-shadow: 2px 2px 0px 2px rgba(0, 0, 0, 0.05);
-  border: none;
-  border-radius: 3px
 }
 
 .pricing__title {
@@ -143,7 +88,7 @@ img {
 .pricing__feature-list {
   font-size: 0.95em;
   margin: 12px;
-  padding: 0 0 2.5em;
+  /* padding: 0 0 2.5em; */
   text-align: justify;
   color: #666;
 }
@@ -206,25 +151,6 @@ body {
   margin-left: auto;
 }
 
-.col-sm-4 {
-  position: relative;
-  min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px;
-  float: center;
-  width: 33.33333333%;
-}
-
-.col-sm-6 {
-  position: relative;
-  min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px;
-  float: center;
-  width: 33.33333333%;
-  margin-left: 30%
-}
-
 /* ------------------------ */
 
 .menu {
@@ -251,7 +177,7 @@ app-menu-heightlight {
   overflow: hidden;
 }
 
-.prev {
+/* .prev {
   position: absolute;
   left: 50px;
   z-index: 100;
@@ -265,4 +191,74 @@ app-menu-heightlight {
   right: 50px;
   z-index: 100;
   transform: translate(50%, 50%);
+} */
+
+img {
+  width: 70%;
+  height: 150px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 50%;
+}
+
+.anyar {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  margin: 2rem;
+  gap:2rem;
+  overflow: hidden;
+}
+
+.anyarchild {
+  width: 25%;
+  flex-wrap: nowrap;
+  background-color: #ffffff;
+  border-radius: 20px 20px 20px 20px;
+  box-shadow: -3px -3px 2px rgba(0,0,0,0.4);
+  padding: 10px;
+  border: 1px dashed grey;
+}
+
+.gambar {
+  margin: 10px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.gambar1 {
+  
+  display: flex;
+}
+
+.d-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.atas {
+  display: flex;
+  width: 91%;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: space-between;
+
+}
+
+.bawahchild {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 1rem;
+}
+
+.prev {
+  position: absolute;
+  z-index: 100;
+  right: 100px;
+}
+
+.next {
+  position: absolute;
+  z-index: 100;
+  right: 20px;
 }

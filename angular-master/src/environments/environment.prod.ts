@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://90ba-36-68-10-238.ap.ngrok.io/',
+  apiUrl: 'https://9b0a-103-236-192-220.ap.ngrok.io/',
   tokenKey: 'token',
   user: 'user',
   user_type: 'user_type',

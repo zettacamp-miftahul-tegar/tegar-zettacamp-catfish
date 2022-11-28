@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
 
   auth:boolean = false;
   token : any;
+  hide = true;
 
   constructor(
     public dialogRef: MatDialogRef<LoginComponent>,
@@ -43,6 +44,13 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  getErrorMessageEmail() {
+    if (this.signupForm.get('email')?.hasError('required')) {
+      return 'This email is required!';
+    }
+    return this.signupForm.get('email')?.hasError('email') ? 'This email is fail' : '';
+  }
+
   login() {
     const payload: Logins = this.signupForm.value;
     this.subs.sink = this.authService.loginUser(payload.email, payload.password).subscribe(resp => {
@@ -52,10 +60,11 @@ export class LoginComponent implements OnInit {
           title: 'Login Succesful',
         })
         this.router.navigate(['homepage']).then(()=>{
-          setTimeout(() => {
-            window.location.reload()
-          }, 1000)
+          // setTimeout(() => {
+          //   window.location.reload()
+          // }, 1000)
           this.dialogRef.close()
+        }).then((result) => {
           window.location.reload()
         })
       }

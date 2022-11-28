@@ -13,6 +13,9 @@
   "submit": "Submit",
   "cancel": "Cancel",
   "soldout": "Soldout",
+  "welcome":"Welcome",
+  "special_offer": "Special offer for you",
+  "maenu_highlight": "Menu Highlight",
   "stock": {
       "name": "Name",
       "stock": "Stock",

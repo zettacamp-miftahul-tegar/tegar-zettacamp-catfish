@@ -25,6 +25,13 @@ import { SpecialOfferComponent } from './special-offer/special-offer.component';
 import { MenuHeightlightComponent } from './menu-heightlight/menu-heightlight.component';
 import { NextDirective } from './menu-heightlight/next.directive';
 import { PrevDirective } from './menu-heightlight/prev.directive';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { HttpClient } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+export function HttpLoaderFactory(httpClient: HttpClient) {
+  return new TranslateHttpLoader(httpClient);
+}
 
 const routes : Routes = [
   {
@@ -79,6 +86,14 @@ const routes : Routes = [
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    TranslateModule.forRoot({
+      defaultLanguage: 'en',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
   ],
   exports: [
     HomepageComponent,

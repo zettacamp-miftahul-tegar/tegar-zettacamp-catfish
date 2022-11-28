@@ -16,6 +16,7 @@ export class MenuComponent implements OnInit {
 
   private subs = new SubSink();
   recepien:Recepiens[] = []
+  leng:any;
 
   @Input('debounce') public debounceTime: number = 300;
 
@@ -38,6 +39,8 @@ export class MenuComponent implements OnInit {
         this.paginator.length = resp.data.getAllRecipe.totalDocs;
         this.paginator.pageSize = this.pageSizeOptions[0];
         this.recepien = resp.data.getAllRecipe.recipes
+        console.log(this.recepien);
+        this.leng = resp?.data?.getAllRecipe?.recipes?.totalLength
       } else {
         this.paginator.length = 0;
         this.recepien = [];
