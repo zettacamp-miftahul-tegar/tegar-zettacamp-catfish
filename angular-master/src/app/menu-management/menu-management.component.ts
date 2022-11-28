@@ -195,7 +195,7 @@ export class MenuManagementComponent implements OnInit {
             this.getDatas(true)
             Swal.fire('Menu status has been changed to ' + data.status)
             .then((res) => {
-              this.router.navigate(['menu'])
+              // this.router.navigate(['menu'])
             })
           }
         })
@@ -264,7 +264,7 @@ export class MenuManagementComponent implements OnInit {
           this.getDatas(true)
           Swal.fire('Menu status has been changed to ' + data.highlight)
           .then((res) => {
-              this.router.navigate(['homepage'])
+              // this.router.navigate(['homepage'])
             })
           }
         })
@@ -304,7 +304,7 @@ export class MenuManagementComponent implements OnInit {
             this.getDatas(true)
             Swal.fire('Menu status has been changed to ' + data.special_offer)
             .then((res) => {
-              this.router.navigate(['homepage'])
+              // this.router.navigate(['homepage'])
             })
           }
         })

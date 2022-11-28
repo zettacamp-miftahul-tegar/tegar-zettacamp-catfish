@@ -28,6 +28,7 @@ import { PrevDirective } from './menu-heightlight/prev.directive';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { InputComponent } from './input/input.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -73,7 +74,8 @@ const routes : Routes = [
     MenuHeightlightComponent,
     MenuHeightlightComponent,
     NextDirective,
-    PrevDirective
+    PrevDirective,
+    InputComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,123 @@
+mat-form-field {
+    width: 100%;
+    padding: 5px 0px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+
+  /* .example-card {
+  display: flex;
+  flex-wrap: wrap;
+  width: 300px;
+  padding-top: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+.cez {
+  margin: 0;
+  padding: 0;
+}
+
+.bg1 {
+  width: 100%;
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cards {
+  margin: 2rem;
+  box-shadow: 1px 2px 2px 2px #888888;
+
+}
+
+p {
+  padding-left: 2%;
+}
+
+.mat-card-actions {
+  padding-left: 2%;
+}
+
+.drop {
+  position: absolute;
+  top: 10px;
+}
+
+.grayout {
+  padding-top: 200px;
+  width: 100%;
+  height: 200px;
+} */
+
+img {
+  width: 50%;
+  height: 100px;
+  padding: 10px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+div img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.imgb {
+  display: flex;
+}
+
+.bot {
+  padding-bottom: 5px;
+}
+
+.mainz {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+mat-button {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cus {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mainzz {
+  display: flex;
+
+}
+
+.p {
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.pe {
+  padding-left: 10px;
+}
+
+.const {
+  width: 300px;
+  margin-right: auto;
+  margin-left: auto;
+  background-image: url('https://lzd-img-global.slatic.net/g/p/7a8931f614f9d53b44773244e04e1dee.jpg_720x720q80.jpg_.webp');
+  margin: 1rem;
+  border-radius: 20px 20px 0px 20px;
+  border: 1px solid black;
+}
+
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}

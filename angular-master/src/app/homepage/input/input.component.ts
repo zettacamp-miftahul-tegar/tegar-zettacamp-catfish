@@ -1,0 +1,92 @@
+import { Component, Inject, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import Swal from 'sweetalert2';
+import { DataService } from '../service/data.service';
+
+@Component({
+  selector: 'app-input',
+  templateUrl: './input.component.html',
+  styleUrls: ['./input.component.css']
+})
+export class InputComponent implements OnInit {
+
+  signupForm!: FormGroup;
+  todos: any;
+  recepien: any
+
+  constructor(
+    public dialogRef: MatDialogRef < InputComponent > ,
+    private data: DataService,
+    @Inject(MAT_DIALOG_DATA) public datas: any,
+  ) { }
+
+  ngOnInit(): void {
+    this.initForm()
+    this.getDatas()
+  }
+
+  getDatas() {
+    const bebas = {
+      available: this.datas.available
+    }
+    this.recepien = bebas.available
+    this.initForm()
+  }
+
+  initForm() {
+    this.signupForm = new FormGroup({
+      amount: new FormControl(null, [Validators.required, Validators.max(this.recepien), Validators.min(1)]),
+      note: new FormControl(''),
+    });
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+  // refetchData() {
+  //   this.data.getCart().refetch();
+  // }
+
+  onSubmit() {
+    if (this.signupForm.valid) {
+
+      const bebas = {
+        recipe_id: this.datas.id,
+        ...this.signupForm.value
+      }
+
+      this.data.addCart(bebas)
+        .subscribe(({ dash }: any) => {
+          this.todos = dash
+          Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: 'Successfully added to cart!',
+          }).then((bebas: any) => {
+              this.dialogRef.close({
+                status: "berhasil"
+              })
+              // this.refetchData()
+            }
+          );
+        }, err => 
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Menu is already in cart !',
+        })
+      )
+    } else {
+      console.log('gagal');
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Something went wrong !',
+      });
+      this.signupForm.markAllAsTouched();
+    }
+  }
+
+}

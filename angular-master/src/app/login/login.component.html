@@ -13,7 +13,7 @@
         
         <mat-form-field class="example-full-width">
           <input matInput [type]="hide ? 'password' : 'text'" id="password" formControlName="password" placeholder="Password">
-          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </button>
           <mat-error *ngIf="this.signupForm.get('password')?.invalid"> This field is required ! </mat-error>
@@ -21,7 +21,8 @@
       
       </mat-card-content>
       
-      <button mat-stroked-button color="primary" class="btn-block" (click)="login()"> {{ "login" | translate }} </button>
+      <button mat-stroked-button color="primary" class="btn-block" type="submit" (click)="login()"> {{ "login" | translate }} </button>
+      
     </form>
   </mat-card>
 </div>
