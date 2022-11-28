@@ -156,6 +156,7 @@ body {
 .menu {
   display: flex;
   flex-wrap: nowrap;
+  width: 100%;
   margin: 1rem;
   margin-right: auto;
   margin-left: auto;
@@ -261,4 +262,13 @@ img {
   position: absolute;
   z-index: 100;
   right: 20px;
+}
+
+.item {
+  border-radius: 20px 20px 20px 20px;
+  border: 1px solid black;
+  box-shadow: -3px -3px 2px rgba(0,0,0,0.4);
+  padding: 10px;
+  border: 1px dashed grey;
+  margin: 1rem;
 }

@@ -27,39 +27,45 @@
   </div>
 </div>
 
+<!-- special -->
+
 <div class="parent" *ngIf="menus1length > 0">
   <h2 style="text-align: center; padding-top: 20px;"> <b> {{ 'special_offer' | translate }} </b> </h2>
-  <div class="parent">
+  <div class="anyar">
     <div class="menu">
-      <button mat-raised-button color="warn" type="button" class="prev" appPrev>prev</button>
+      <button mat-raised-button color="warn" type="button" class="prev" appPrev><mat-icon>arrow_back</mat-icon></button>
       <app-menu-heightlight class="item" *ngFor="let menu of menus;" [recipe]="menu"></app-menu-heightlight>
-      <button mat-raised-button color="warn" type="button" class="next" appNext>next</button>
+      <button mat-raised-button color="warn" type="button" class="next" appNext><mat-icon>arrow_forward</mat-icon>
+      </button>
     </div>
   </div>
 </div>
 
-<!-- <div class="cust" *ngIf="!menus1length">
-  <h2 style="padding-left: 10%; padding-top: 20px;"> <b> {{ 'special_offer' | translate }} </b> </h2>
-  <img src="https://mmc.tirto.id/image/otf/880x495/2019/11/21/istock-1061632246_ratio-16x9.jpg">
-</div> -->
+<!-- menus -->
+
+<div class="parent" *ngIf="menus2length > 0">
+  <h2 style="text-align: center; padding-top: 20px;"> <b> Menu Highlight </b> </h2>
+  <div class="anyar">
+    <div class="menu">
+      <button mat-raised-button color="warn" type="button" class="prev" appPrev><mat-icon>arrow_back</mat-icon></button>
+      <app-special-offer class="item" *ngFor="let menue of menus1" [recipe]="menue"></app-special-offer>
+      <button mat-raised-button color="warn" type="button" class="next" appNext><mat-icon>arrow_forward</mat-icon></button>
+    </div>
+  </div>
+</div>
 
 <!-- header special -->
 
 <!-- <div class="atasA" *ngIf="menus1length > 0">
   <div class="atas">
     <div>
-      <h2> <b> {{ 'special_offer' | translate }} </b> </h2>
+      <h2> <b> {{ 'menu_highligth' | translate }} </b> </h2>
     </div>
     <div class="bawahchild">
       <div style="margin-right: 70px;">
         <button mat-raised-button color="warn" type="button" class="prev" appPrev>
           <mat-icon>arrow_back</mat-icon>
         </button>
-      </div>
-      <div class="anyar" *ngIf="menus1length > 0">
-        <div class="menu">
-          <app-menu-heightlight class="item" *ngFor="let menu of menus;" [recipe]="menu"></app-menu-heightlight>
-        </div>
       </div>
       <div style="margin-right: 30px;">
         <button mat-raised-button color="warn" type="button" class="next" appNext>
@@ -75,7 +81,7 @@
 <!-- <div class="anyar" *ngIf="menus1length > 0">
   <div class="menu">
     <app-menu-heightlight class="item" *ngFor="let menu of menus;" [recipe]="menu"></app-menu-heightlight>
-    </div>
+  </div>
 </div> -->
 
 <!-- // testing  -->
@@ -121,17 +127,3 @@
     </div>
   </div>
 </div> -->
-
-<!-- menus -->
-
-<div class="parent" *ngIf="menus2length > 0">
-  <h2 style="text-align: center; padding-top: 20px;"> <b> Menu Highlight </b> </h2>
-  <div class="parent">
-    <div class="menu">
-      <button mat-raised-button color="warn" type="button" class="prev" appPrev>prev</button>
-      <app-special-offer class="item" *ngFor="let menue of menus1" [recipe]="menue"></app-special-offer>
-      <button mat-raised-button color="warn" type="button" class="next" appNext>next</button>
-    </div>
-  </div>
-</div>
-

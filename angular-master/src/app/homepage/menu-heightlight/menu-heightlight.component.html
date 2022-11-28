@@ -1,4 +1,4 @@
-<button mat-button>
+<!-- <button mat-button>
   <div class="container">
     <div class="imges">
       <img src="{{recipe.imgUrl}}">
@@ -6,9 +6,9 @@
   </div>
 </button>
 <p style="text-align: center; padding-top: 10px">{{recipe.special_offer_price}}</p>
-<h2>{{recipe.recipe_name}}</h2>
+<h2>{{recipe.recipe_name}}</h2> -->
 
-<!-- <div class="gambar1">
+<div class="gambar1">
   <img class="gambar" src="{{recipe.imgUrl}}">
 </div>
 <div>
@@ -21,7 +21,7 @@
       <span style="padding-left: 5px;"> <b>Rp. 8000</b> </span> 
     </p>
   </div>
-  <div>
+  <div *ngIf="token">
     <button mat-raised-button color="warn">buy now</button>
   </div>
-</div> -->
+</div>

@@ -1,4 +1,4 @@
-div {
+/* div {
   max-width: 200px;
   margin: 2rem;
   height: 100px;
@@ -31,4 +31,118 @@ img {
 
 h2 {
   text-align: center;
+} */
+
+
+
+/* ------------------------ */
+
+.menu {
+  display: flex;
+  flex-wrap: nowrap;
+  margin: 1rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+app-special-offer {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+app-menu-heightlight {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------------------------- */
+
+.parent {
+  overflow: hidden;
+}
+
+/* .prev {
+  position: absolute;
+  left: 50px;
+  z-index: 100;
+  margin-top: 70px;
+  transform: translate(-50%, -50%);
+}
+
+.next {
+  position: absolute;
+  margin-top: 42px;
+  right: 50px;
+  z-index: 100;
+  transform: translate(50%, 50%);
+} */
+
+img {
+  width: 70%;
+  height: 150px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 50%;
+}
+
+.anyar {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  margin: 2rem;
+  gap:2rem;
+  overflow: hidden;
+}
+
+.anyarchild {
+  width: 25%;
+  flex-wrap: nowrap;
+  background-color: #ffffff;
+  border-radius: 20px 20px 20px 20px;
+  box-shadow: -3px -3px 2px rgba(0,0,0,0.4);
+  padding: 10px;
+  border: 1px dashed grey;
+}
+
+.gambar {
+  margin: 10px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.gambar1 {
+  width: 230px;
+  display: flex;
+}
+
+.d-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.atas {
+  display: flex;
+  width: 91%;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: space-between;
+
+}
+
+.bawahchild {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 1rem;
+}
+
+.prev {
+  position: absolute;
+  z-index: 100;
+  right: 100px;
+}
+
+.next {
+  position: absolute;
+  z-index: 100;
+  right: 20px;
 }

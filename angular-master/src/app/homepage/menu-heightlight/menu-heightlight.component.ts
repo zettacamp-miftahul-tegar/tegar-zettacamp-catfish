@@ -8,10 +8,14 @@ import { Component, Input, OnInit } from '@angular/core';
 export class MenuHeightlightComponent implements OnInit {
 
   @Input() recipe: any;
+  token!: string | null;
 
   constructor() { }
 
   ngOnInit(): void {
+    if (localStorage.getItem('token')){
+      this.token = localStorage.getItem('token')
+    }
   }
 
 }

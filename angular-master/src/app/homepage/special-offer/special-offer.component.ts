@@ -7,11 +7,15 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class SpecialOfferComponent implements OnInit {
 
-  @Input() recipe:any;
+  @Input() recipe: any;
+  token!: string | null;
 
   constructor() { }
 
   ngOnInit(): void {
+    if (localStorage.getItem('token')){
+      this.token = localStorage.getItem('token')
+    }
   }
 
 }
