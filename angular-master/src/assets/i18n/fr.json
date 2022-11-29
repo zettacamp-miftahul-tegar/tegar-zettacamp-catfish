@@ -142,5 +142,17 @@
     "confirm5": "Votre stock a été supprimé.",
     "confirm6": "le menu sera définitivement supprimé !",
     "confirm7": "Votre menu a été supprimé."
+  },
+  "a": {
+    "nom" : "Nom",
+    "stockU": "Stock utilisé",
+    "stock": "Stock"
+  },
+  "b" : {
+    "recipe_name" : "Nom de la recette",
+    "montant": "Montant",
+    "remarque" : "Remarque",
+    "totale" : "Totale",
+    "totalp" : "Prix total"
   }
 }

@@ -61,15 +61,15 @@ mat-card-subtitle {
 }
 
 img {
-  margin-right: 1rem;
-  width: 30%;
+  margin-right: 3rem;
+  width: 25%;
   height: 180px;
 }
 
 .main {
   display: flex;
   flex-direction: column;
-  width: 70%;
+  width: 80%;
 }
 
 .buttomcss {
@@ -90,4 +90,8 @@ img {
 .footer {
   display: flex;
   /* border: 1px solid; */
+}
+
+.buttomcss {
+  margin-left: 100px;
 }

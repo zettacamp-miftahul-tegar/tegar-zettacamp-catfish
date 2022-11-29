@@ -1,0 +1,27 @@
+<table class="table-foods" style="float: right; background-color: white;">
+    <thead>
+        <tr>
+            <th style="text-align:left">
+                {{ 'a.name' | translate }}
+            </th>
+            <th>
+                {{ 'a.stock' | translate }}
+            </th>
+            <th>
+                {{ 'a.stockU' | translate }}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of datas.ingredients">
+            <td style="text-align:left">{{item.ingredient_id.name}}</td>
+            <td>{{item.ingredient_id.stock}}</td>
+            <td>{{item.stock_used}}</td>
+        </tr>
+    </tbody>
+
+    <!-- <div style="margin-left: 100%;">
+        <button type="button" mat-raised-button color="warn" (click)="onNoClick()"> close </button>
+    </div> -->
+
+</table>

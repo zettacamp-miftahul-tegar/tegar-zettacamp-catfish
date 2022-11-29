@@ -31,7 +31,7 @@ export class MenuComponent implements OnInit {
 
     const pagination: any = {
       page: paginationObj?.page ?? 1,
-      limit: paginationObj?.limit ?? 6,
+      limit: paginationObj?.limit ?? 8,
     }
 
     this.subs.sink = this.data.getRecipies(pagination, this.search).valueChanges.subscribe((resp : any) => {
@@ -54,7 +54,7 @@ export class MenuComponent implements OnInit {
 
   @ViewChild('paginator') paginator!: MatPaginator;
 
-  pageSizeOptions: number[] = [6];
+  pageSizeOptions: number[] = [8];
 
   onPaginatorChange(event: PageEvent) {
     const pagination = {

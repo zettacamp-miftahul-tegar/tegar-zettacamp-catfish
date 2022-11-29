@@ -1,45 +1,43 @@
-<div>
+<table class="table-foods" style="float: right; background-color: white;">
+  <thead>
+    <tr>
+      <th style="text-align:left">
+        {{ 'b.recipe_name' | translate }}
 
-  <div class="cons">
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" >
+      </th>
+      <th>
+        {{ 'b.amount' | translate }}
+      </th>
+      <th>
+        {{ 'b.note' | translate }}
+      </th>
+      <th>
+        {{ 'b.total' | translate }}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of datas.menu">
+      <td style="text-align:left">
+        <p>{{item.recipe_id.recipe_name}}</p>
+      </td>
+      <td>{{item.amount}}</td>
+      <td>{{item.note}}</td>
+      <td> Rp. {{item.total_price}}</td>
+    </tr>
+  </tbody>
 
-      <ng-container matColumnDef="recipe_name">
-        <th class="pos" mat-header-cell *matHeaderCellDef class="noFilter1"> <b>Price</b> </th>
-        <td mat-cell *matCellDef="let element"> 
-          <div *ngFor="let item of element.menu">
-            {{item.recipe_id.recipe_name}} 
-          </div>
-        </td>
-      </ng-container>
+  <tfoot>
+    <tr>
+      <td></td>
+      <td></td>
+      <td> {{ 'b.totalp' | translate }} </td>
+      <td> Rp. {{dataz}}</td>
+    </tr>
+  </tfoot>
 
-      <ng-container matColumnDef="note">
-        <th class="pos" mat-header-cell *matHeaderCellDef class="noFilter1"> <b>Note</b> </th>
-        <td mat-cell *matCellDef="let element">
-          <div *ngFor="let item of element.menu">
-            {{item.note}} 
-          </div>  
-        </td>
-      </ng-container>
+  <!-- <div style="margin-left: 100%;">
+      <button type="button" mat-raised-button color="warn" (click)="onNoClick()"> close </button>
+  </div> -->
 
-      <ng-container matColumnDef="price">
-        <th class="pos" mat-header-cell *matHeaderCellDef class="noFilter1"> <b>Price</b> </th>
-        <td mat-cell *matCellDef="let element"> 
-          <div *ngFor="let item of element.menu">
-            {{item.price}} 
-          </div>  
-        </td>
-      </ng-container>
-
-      <!-- <ng-container matColumnDef="available">
-        <th class="pos" mat-header-cell *matHeaderCellDef class="noFilter1"> <b>Available</b> </th>
-        <td mat-cell *matCellDef="let element"> {{element.available}} </td>
-      </ng-container> -->
-
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
-    </table>
-  </div>
-  
-</div>
+</table>

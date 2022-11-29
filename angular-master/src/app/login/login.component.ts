@@ -23,6 +23,10 @@ export class LoginComponent implements OnInit {
   token : any;
   hide = true;
 
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
   constructor(
     public dialogRef: MatDialogRef<LoginComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Logins,

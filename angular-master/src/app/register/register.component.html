@@ -1,5 +1,8 @@
 <div class="login-wrapper">
   <mat-card class="box">
+    <div class="custom">
+      <button mat-button color="warn" (click)="onNoClick()">Close</button>
+    </div>
     <mat-card-header>
       <mat-card-title> {{'register' | translate }} </mat-card-title>
     </mat-card-header>
@@ -41,10 +44,10 @@
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
-          <input matInput [type]="hide ? 'password' : 'text'" id="confirmPassword" formControlName="confirmPassword"
+          <input matInput [type]="hidee ? 'password' : 'text'" id="confirmPassword" formControlName="confirmPassword"
             placeholder="{{ 'reg.cpass' | translate }}">
-          <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-            [attr.aria-pressed]="hide">
+          <button type="button" mat-icon-button matSuffix (click)="hidee = !hidee" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hidee">
             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </button>
           <mat-error *ngIf="this.signupForm.get('confirmPassword')?.invalid"> {{ 'error' | translate }} </mat-error>

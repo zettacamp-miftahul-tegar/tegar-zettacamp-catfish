@@ -54,7 +54,7 @@ p {
 } */
 
 img {
-  width: 50%;
+  width: 100%;
   height: 100px;
   padding: 10px;
   margin-right: auto;
@@ -64,6 +64,8 @@ img {
 div img {
   width: 100px;
   height: 100px;
+  margin-right: auto;
+  margin-left: auto;
   border-radius: 50%;
 }
 
@@ -120,4 +122,26 @@ mat-button {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+/* --------------------- */
+
+.gambar1 {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+img.gambar {
+  display: block;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.parent {
+  border-radius: 20px 20px 20px 20px;
+  box-shadow: -3px -3px 2px rgba(0,0,0,0.4);
+  padding: 10px;
+  border: 1px dashed grey;
 }

@@ -42,7 +42,7 @@ export class HistoryComponent implements OnInit {
     this.nameFilterr()
   }
 
-  displayedColumns: string[] = ['name', 'detail', 'recipe_name', 'order_date', 'total_price', 'order_status'];
+  displayedColumns: string[] = ['name', 'detail', 'order_date', 'total_price', 'order_status'];
 
   dataSource: MatTableDataSource <any> = new MatTableDataSource();
 

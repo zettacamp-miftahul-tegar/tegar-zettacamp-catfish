@@ -32,7 +32,7 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCard_id(this.carts)
-    this.getCard_Length(this.datas)
+    // this.getCard_Length(this.datas)
   }
   
 
@@ -44,15 +44,19 @@ export class CartComponent implements OnInit {
     });
   }
 
-  getCard_Length(event:any) {
-    this.subs.sink = this.data.getCart().valueChanges.subscribe((item: any) => {
-      this.cart_length = item?.data?.getAllCart?.cart_length
-    });
-  }
+  // getCard_Length(event:any) {
+  //   this.subs.sink = this.data.getCart().valueChanges.subscribe((item: any) => {
+  //     this.cart_length = item?.data?.getAllCart?.cart_length
+  //   });
+  // }
 
 
   refetchData() {
     this.data.getCart().refetch();
+  }
+
+  routing() {
+    this.router.navigate(['menu'])
   }
 
   deleteAllCart() {
@@ -75,7 +79,7 @@ export class CartComponent implements OnInit {
           // this.refetchNotif.emit(true)
           // this.getCard_id(this.cart_length)
           // this.refetchData()
-          this.getCard_Length(this.datas1)
+          // this.getCard_Length(this.datas1)
           this.carts = []
           this.cart_length = 0
         })
@@ -84,7 +88,7 @@ export class CartComponent implements OnInit {
   }
 
   buyCart() {
-    this.data.addBuyPrice().subscribe(subs => {
+   
       Swal.fire({
         title: this.translateService.instant('cartz.confirm2'),
         text: this.translateService.instant('cartz.confirm1'),
@@ -95,6 +99,14 @@ export class CartComponent implements OnInit {
         confirmButtonText: this.translateService.instant('cartz.confirm'),
       }).then((result:any) => {
         if (result.isConfirmed) {
+          this.data.addBuyPrice().subscribe(subs => { },
+            err =>
+            Swal.fire({
+              icon: 'error',
+              title: this.translateService.instant('cartz.fail'),
+              text: this.translateService.instant('cartz.fail2'),
+            })
+          )
           Swal.fire(
             this.translateService.instant('cartz.bravo'),
             this.translateService.instant('cartz.bravo1'),
@@ -106,13 +118,6 @@ export class CartComponent implements OnInit {
           })
         }
       })
-    },
-    err =>
-    Swal.fire({
-      icon: 'error',
-      title: this.translateService.instant('cartz.fail'),
-      text: this.translateService.instant('cartz.fail2'),
-    })
-    )
+      
   }
 }

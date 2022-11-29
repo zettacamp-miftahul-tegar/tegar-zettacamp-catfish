@@ -85,7 +85,7 @@
     "stock" : "Stock",
     "price" : "Price",
     "out" : "All Out of stock",
-    "in" : "Add to Card",
+    "in" : "Add to Cart",
     "search" : "Search",
     "searchp" : "Search last name"
   },
@@ -117,7 +117,7 @@
     "fail": "Menu is already in cart !",
     "fail1": "Oops...",
     "a": "Do you want to edit status to ",
-    "b": "Menu status has been changed to"
+    "b": "Menu status has been changed to "
   },
   "stockT" : {
     "bravo": "Success",
@@ -142,5 +142,17 @@
     "confirm5" : "Your stock has been deleted.",
     "confirm6" : "menu will be permanently deleted!",
     "confirm7" : "Your menu has been deleted."
+  },
+  "a": {
+    "name" : "Name",
+    "stockU": "Stock Used",
+    "stock": "Stock"
+  },
+  "b" : {
+    "recipe_name" : "Recipe Name",
+    "amount": "Amount",
+    "note" : "Note",
+    "total" : "Total",
+    "totalp" : "Total Price"
   }
 }

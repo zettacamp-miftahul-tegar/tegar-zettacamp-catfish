@@ -14,6 +14,7 @@ import { FormControl } from '@angular/forms';
 import { debounceTime } from 'rxjs';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { DetailComponent } from './detail/detail.component';
 
 interface Food {
   value: string;
@@ -40,7 +41,6 @@ export class MenuManagementComponent implements OnInit {
   constructor(
     private data: DataService,
     public dialog: MatDialog,
-    private router: Router,
     private translateService : TranslateService,
   ) {}
 
@@ -49,7 +49,7 @@ export class MenuManagementComponent implements OnInit {
     this.statusFilterr()
   }
 
-  displayedColumns: string[] = ['recipe_name', 'price', 'available', 'special-h', 'menu-h','status', 'action'];
+  displayedColumns: string[] = ['recipe_name', 'detail', 'price', 'available', 'special-h', 'menu-h','status', 'action'];
 
   dataSource: MatTableDataSource <Menus> = new MatTableDataSource();
 
@@ -121,6 +121,28 @@ export class MenuManagementComponent implements OnInit {
       // disableClose: true,
       // hasBackdrop: true
     });
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      if (result) {
+        this.getDatas() 
+      }
+      
+    })
+  }
+
+  // --------------------------------------------------
+
+  openDetail(parameter:any): void {
+    const dialogRef = this.dialog.open(DetailComponent, {
+      width: '50%',
+      data: parameter,
+      panelClass: 'bg-color',
+      // disableClose: true,
+      // hasBackdrop: true
+    });
+
+    console.log(parameter.id);
+    
 
     dialogRef.afterClosed().subscribe((result: any) => {
       if (result) {
@@ -243,35 +265,39 @@ export class MenuManagementComponent implements OnInit {
 
   // ----------------------------------------------
 
-  updateMenu(data:any) {
-    data = copy(data)
-    if (data.highlight === false) {
-      data.highlight = true
+  updateMenu(dataa:any) {
+    dataa = copy(dataa)
+    if (dataa.highlight === false) {
+      dataa.highlight = true
     }
-    else if (data.highlight === true) {
-      data.highlight = false
+    else if (dataa.highlight === true) {
+      dataa.highlight = false
     } else {
-      data.highlight === false
+      dataa.highlight === false
     }
     Swal.fire({
-      title: this.translateService.instant('menusT.a') + data.highlight + '?',
+      title: this.translateService.instant('menusT.a' ) + dataa.highlight + '?',
       showDenyButton: false,
       showCancelButton: true,
       showConfirmButton: true,
       denyButtonText: `Yes`,
     }).then((result) => {
       if (result.isConfirmed) {
-        this.subs.sink = this.data.updateMenu(data).subscribe(resp => {
+        this.subs.sink = this.data.updateMenu(dataa).subscribe(resp => {
         if (resp) {
           this.getDatas(true)
-          Swal.fire(this.translateService.instant('menusT.b') + data.highlight)
+          Swal.fire(this.translateService.instant('menusT.b' ) + dataa.highlight)
           .then((res) => {
               // this.router.navigate(['homepage'])
             })
           }
         })
+      } else if (!result.isConfirmed) {
+        this.getDatas()
+      } else {
+        this.getDatas()
       }
-    })
+    }) 
   }
 
   onPublishh(element: any) {

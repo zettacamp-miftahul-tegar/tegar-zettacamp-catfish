@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { SubSink } from 'subsink';
 import Swal from 'sweetalert2';
 import { DataService } from '../service/data.service';
 
@@ -24,6 +25,17 @@ export class InputComponent implements OnInit {
   ngOnInit(): void {
     this.initForm()
     this.getDatas()
+    this.getDatas_special()
+  }
+
+  private subs = new SubSink();
+  menus:any
+
+  getDatas_special() {
+    this.subs.sink = this.data.getRecipies_special().valueChanges.subscribe((resp : any) => {
+      this.menus = resp?.data?.getAllRecipe?.recipes
+      console.log(this.menus);
+    })
   }
 
   getDatas() {

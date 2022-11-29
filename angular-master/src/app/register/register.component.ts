@@ -25,11 +25,16 @@ export class RegisterComponent implements OnInit {
   ];
 
   hide = true;
+  hidee = true;
   signupForm!: FormGroup;
   private subs = new SubSink();
 
   ngOnInit(): void {
     this.initForm();
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 
   constructor(

@@ -8,10 +8,24 @@ import { UpdateComponent } from './update/update.component';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HomepageComponent } from '../homepage/homepage.component';
+import { RouterModule, Routes } from '@angular/router';
+import { MenuComponent } from '../menu/menu.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
 }
+
+const routes : Routes = [
+  {
+    path:'', component:HomepageComponent,
+    children:[
+      {
+        path:"menu", component:MenuComponent
+      }
+    ]
+  }
+]
 
 
 @NgModule({
@@ -23,6 +37,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   imports: [
     CommonModule,
     MaterialModule,
+    RouterModule.forChild(routes),
     TranslateModule.forChild({
       defaultLanguage: 'en',
       loader: {

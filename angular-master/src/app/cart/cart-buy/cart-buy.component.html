@@ -1,57 +1,57 @@
 <div class="container">
   <div class="beha">
     <img [src]="getAllCart.recipe_id.imgUrl" alt="">
-  <div class="main">
-    <div class="head">
-      <div>
-        <h2>{{getAllCart.recipe_id.recipe_name}}</h2>
-        <p>
-          <b>{{'cartz.amount' | translate }} : 
-            <span>
-              <a (click)="minesAmounts(getAllCart)">
-                <button mat-button>
-                  <mat-icon style="color: green;" matTooltip="minus">keyboard_arrow_left</mat-icon>
-                </button>
-              </a>
-            </span>
-            {{getAllCart.amount}}
-            <span>
-              <a (click)="plesAmounts(getAllCart)">
-                <button mat-button>
-                  <mat-icon style="color: green;" matTooltip="plus">keyboard_arrow_right</mat-icon>
-                </button>
-              </a>
-            </span>
-          </b>
-        </p>
+    <div class="main">
+      <div class="head">
+        <div>
+          <h2>{{getAllCart.recipe_id.recipe_name}}</h2>
+          <p>
+            <b>{{'cartz.amount' | translate }} : 
+              <span>
+                <a (click)="minesAmounts(getAllCart)">
+                  <button mat-button>
+                    <mat-icon style="color: green;" matTooltip="minus">keyboard_arrow_left</mat-icon>
+                  </button>
+                </a>
+              </span>
+              {{getAllCart.amount}}
+              <span>
+                <a (click)="plesAmounts(getAllCart)">
+                  <button mat-button>
+                    <mat-icon style="color: green;" matTooltip="plus">keyboard_arrow_right</mat-icon>
+                  </button>
+                </a>
+              </span>
+            </b>
+          </p>
+        </div>
+        <div>
+          <p style="margin: 3.5rem 2rem;">
+            <b>Rp. {{getAllCart.recipe_id.special_offer_price}}</b>
+          </p>
+        </div>
+        <div>
+          <p style="margin: 3.5rem 2rem;">
+            <span style="color: red;"><b> {{ 'cartz.total' | translate }} : </b></span> <b>Rp.{{getAllCart.total_price}}</b>
+          </p>
+        </div>
+        <div class="buttomcss">
+          <a (click)="openUpdate(getAllCart)">
+            <button mat-raised-button color="primary">
+              {{ 'cartz.note' | translate }}
+            </button><br>
+          </a>
+          <a (click)="deleteCart(getAllCart)">
+            <button mat-button color="warn">
+              <mat-icon style="color: red;" matTooltip="delete">delete</mat-icon>
+            </button>
+          </a>
+        </div>
       </div>
-      <div>
-        <p style="margin: 3.5rem 2rem;">
-          <b>Rp. {{getAllCart.recipe_id.special_offer_price}}</b>
-        </p>
-      </div>
-      <div>
-        <p style="margin: 3.5rem 2rem;">
-          <span style="color: red;"><b> {{ 'cartz.total' | translate }} : </b></span> <b>Rp.{{getAllCart.total_price}}</b>
-        </p>
-      </div>
-      <div class="buttomcss">
-        <a (click)="openUpdate(getAllCart)">
-          <button mat-raised-button color="primary">
-            {{ 'cartz.note' | translate }}
-          </button><br>
-        </a>
-        <a (click)="deleteCart(getAllCart)">
-          <button mat-button color="warn">
-            <mat-icon style="color: red;" matTooltip="delete">delete</mat-icon>
-          </button>
-        </a>
+      <div class="body">
+        <h4> {{ 'cartz.note1' | translate }} : </h4> &nbsp;&nbsp;
+        <p style="padding-top: 2px;"> {{getAllCart.note}} </p>
       </div>
     </div>
-    <div class="body">
-      <h4> {{ 'cartz.note1' | translate }} : </h4> &nbsp;&nbsp;
-      <p style="padding-top: 2px;"> {{getAllCart.note}} </p>
-    </div>
-  </div>
   </div>
 </div>
