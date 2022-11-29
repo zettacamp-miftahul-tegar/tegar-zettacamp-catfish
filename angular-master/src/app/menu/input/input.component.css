@@ -107,12 +107,12 @@ mat-button {
 }
 
 .const {
-  width: 300px;
+  width: 90%;
   margin-right: auto;
   margin-left: auto;
   background-image: url('https://lzd-img-global.slatic.net/g/p/7a8931f614f9d53b44773244e04e1dee.jpg_720x720q80.jpg_.webp');
   margin: 1rem;
-  border-radius: 20px 20px 0px 20px;
+  border-radius: 20px 20px 20px 20px;
   border: 1px solid black;
 }
 

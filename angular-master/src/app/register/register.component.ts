@@ -4,6 +4,8 @@ import { SubSink } from 'subsink';
 import Swal from 'sweetalert2';
 import { RegisterService } from './service/register.service';
 import { TranslateService } from '@ngx-translate/core';
+import { Router } from '@angular/router';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 interface Food {
   value: string;
@@ -31,8 +33,11 @@ export class RegisterComponent implements OnInit {
   }
 
   constructor(
+    public dialogRef: MatDialogRef < RegisterComponent > ,
+    private router: Router,
     private data:RegisterService,
     private translateService : TranslateService,
+    public dialog: MatDialog, 
   ) {}
 
   ngOnDestroy(): void {
@@ -65,14 +70,9 @@ export class RegisterComponent implements OnInit {
           icon: 'success',
           title: this.translateService.instant('passRegister'),
         })
-        // this.router.navigate(['homepage']).then(()=>{
-        //   // setTimeout(() => {
-        //   //   window.location.reload()
-        //   // }, 1000)
-        //   this.dialogRef.close()
-        // }).then((result) => {
-        //   window.location.reload()
-        // })
+        this.router.navigate(['homepage']).then(()=>{
+          this.dialogRef.close()
+        })
       }
     }, err => {
       Swal.fire({
