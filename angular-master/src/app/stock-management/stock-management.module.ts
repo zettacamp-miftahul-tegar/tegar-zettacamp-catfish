@@ -4,6 +4,13 @@ import { InputComponent } from './input/input.component';
 import { MaterialModule } from '../material/material.module';
 import { StockManagementComponent } from './stock-management.component';
 import { UpdateComponent } from './update/update.component';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { HttpClient } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+export function HttpLoaderFactory(httpClient: HttpClient) {
+  return new TranslateHttpLoader(httpClient);
+}
 
 
 @NgModule({
@@ -15,7 +22,15 @@ import { UpdateComponent } from './update/update.component';
   imports: [
     CommonModule,
     MaterialModule,
-  ], 
+    TranslateModule.forChild({
+      defaultLanguage: 'en',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
+  ],
   exports: [
     StockManagementComponent,
     InputComponent,

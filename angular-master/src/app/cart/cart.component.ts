@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { SubSink } from 'subsink';
 import Swal from 'sweetalert2';
 import { CartService } from './service/cart.service';
@@ -24,6 +25,7 @@ export class CartComponent implements OnInit {
   constructor(
     private data: CartService,
     private router: Router,
+    private translateService : TranslateService,
   ) {
     this.refetchNotif = new EventEmitter();
   }
@@ -55,19 +57,19 @@ export class CartComponent implements OnInit {
 
   deleteAllCart() {
     Swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
+      title: this.translateService.instant('cartz.failC'),
+      text: this.translateService.instant('cartz.fail2C'),
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
+      confirmButtonText: this.translateService.instant('cartz.fail3C')
     }).then((result:any) => {
       if (result.isConfirmed) {
         this.data.deleteAllCart()
         Swal.fire(
-          'Deleted!',
-          'Your file has been deleted.',
+          this.translateService.instant('cartz.fail4C'),
+          this.translateService.instant('cartz.fail5C'),
           'success'
         ).then((res) => {
           // this.refetchNotif.emit(true)
@@ -84,18 +86,18 @@ export class CartComponent implements OnInit {
   buyCart() {
     this.data.addBuyPrice().subscribe(subs => {
       Swal.fire({
-        title: 'Are you sure?',
-        text: "Items that have been purchased cannot be returned !",
+        title: this.translateService.instant('cartz.confirm2'),
+        text: this.translateService.instant('cartz.confirm1'),
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, buy now!'
+        confirmButtonText: this.translateService.instant('cartz.confirm'),
       }).then((result:any) => {
         if (result.isConfirmed) {
           Swal.fire(
-            'Success !',
-            'your order is being processed',
+            this.translateService.instant('cartz.bravo'),
+            this.translateService.instant('cartz.bravo1'),
             'success'
           ).then((res) => {
             this.data.addBuyPrice()
@@ -108,8 +110,8 @@ export class CartComponent implements OnInit {
     err =>
     Swal.fire({
       icon: 'error',
-      title: 'Oops...',
-      text: 'purchase exceeds the limit of existing stock',
+      title: this.translateService.instant('cartz.fail'),
+      text: this.translateService.instant('cartz.fail2'),
     })
     )
   }

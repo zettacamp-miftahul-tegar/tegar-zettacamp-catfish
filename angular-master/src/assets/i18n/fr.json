@@ -1,5 +1,7 @@
 {
   "homepage": "Page d'accueil",
+  "register": "S'inscrire",
+  "error": "Ce champ est obligatoire !",
   "menu": "Menue",
   "menu-management": "Gestion des menus",
   "stock-management": "Gestion de stock",
@@ -13,22 +15,132 @@
   "submit": "Soumettre",
   "cancel": "Annuler",
   "soldout": "Épuisé",
-  "welcome":"Bienvenue",
+  "welcome": "Bienvenue",
   "special_offer": "Offre spéciale",
-  "maenu_highlight": "Mise en surbrillance du menu",
+  "menu_highlight": "Mise en surbrillance du menu",
+  "buy_now": "Acheter",
+  "add_data": "Ajouter des données",
+  "errorimg": "uniquement des images de terrain !",
+  "errorname": "Ce nom min 3 de longueur !",
+  "errorprice": "Ce prix min 1 longueur !",
   "stock": {
-    "name": "Name",
-    "stock": "Stock",
-    "status": "Status",
-    "action": "Action"
+    "name": "Nom",
+    "stock": "Stocker",
+    "status": "Statut",
+    "action": "Action",
+    "add_stock": "Ajouter des actions",
+    "total": "Stock Total"
   },
   "menu-ma": {
-    "recipe_name": "Recipe Name",
+    "images": "ImagesUrl",
+    "discount": "Remise",
+    "stock_used": "Stock utilisé",
+    "recipe_name": "Nom de la recette",
     "ingredients": "Ingredients",
-    "price": "Price",
-    "available": "Available",
-    "status": "Status",
-    "action": "Action"
+    "price": "Prix",
+    "available": "Disponible",
+    "status": "Statut",
+    "action": "Action",
+    "special_offer": "Offre spéciale",
+    "menu": "Mise en surbrillance du menu",
+    "mes": "Aucune donnée à afficher",
+    "add_menu": "Ajouter un menu",
+    "addingre": "Ajouter des ingrédients"
   },
-  "history": "History"
+  "history": "History",
+  "cartz": {
+    "note": "+ Noter",
+    "note1": "Noter",
+    "amount": "Montante",
+    "total": "Totale",
+    "totalp": "Prix ​​total",
+    "remove": "Supprimer tout l'élément",
+    "buynow": "Acheter maintenant",
+    "add_more": "Ajouter plus",
+    "bravo": "Succès",
+    "bravo1": "votre commande est en cours de traitement",
+    "bravo2": "Données à mettre à jour avec succès !",
+    "fail": "Oups...",
+    "fail2": "en raison du stock disponible limité",
+    "confirm": "Oui, achetez maintenant !",
+    "confirm1": "Les articles qui ont été achetés ne peuvent pas être retournés !",
+    "confirm2": "Êtes-vous sûr ?",
+    "failC": "Êtes-vous sûr ?",
+    "fail2C": "Vous ne pourrez pas revenir en arrière !",
+    "fail3C": "Oui, supprimez-le !",
+    "fail4C": "Supprimé !",
+    "fail5C": "Votre fichier a été supprimé."
+  },
+  "historyz": {
+    "history": "Histoire",
+    "name": "Nom",
+    "recipe_name": "Nom de la recette",
+    "detail": "Détail",
+    "order": "Ordre",
+    "orderdate": "Date de commande",
+    "totalp": "Prix ​​total",
+    "status": "Statut"
+  },
+  "menus": {
+    "stock": "Stocker",
+    "price": "Prix",
+    "out": "Tous En rupture de stock",
+    "in": "Ajouter à la carte",
+    "search": "Chercher",
+    "searchp": "Rechercher le nom de famille"
+  },
+  "reg": {
+    "first_name": "Prénom",
+    "last_name": "Nom de famille",
+    "user_type": "Type d'utilisateur",
+    "email": "E-mail",
+    "pass": "Mot de passe",
+    "cpass": "Confirmez le mot de passe"
+  },
+  "iMenu": {
+    "price": "Prix",
+    "stock": "Stocker",
+    "amount": "Montante",
+    "note": "Noter"
+  },
+  "failLogin": "e-mail ou mot de passe échouent !",
+  "passLogin": "Connexion réussie",
+  "failRegister": "Remplissez d'abord toutes les données",
+  "passRegister": "Inscription réussie",
+  "title": "Êtes-vous sûr?",
+  "text": "êtes-vous sûr de sortir?",
+  "confirm": "Oui, quitte maintenant",
+  "title1": "déconnexion réussie",
+  "menusT": {
+    "bravo": "Ajouté au panier avec succès !",
+    "bravo1": "bravo",
+    "fail": "Le menu est déjà dans le panier !",
+    "fail1": "Oops...",
+    "a": "Voulez-vous modifier le statut en ",
+    "b": "L'état du menu a été changé en"
+  },
+  "stockT": {
+    "bravo": "Succès",
+    "bravo1": "Stock ajouté avec succès !",
+    "bravo2": "Données mises à jour avec succès !",
+    "fail": "Oups...",
+    "fail1": "nom déjà utilisé !",
+    "fail2": "stock déjà utilisé !"
+  },
+  "menuT": {
+    "bravo": "Succès",
+    "bravo1": "Menu ajouté avec succès !",
+    "bravo2": "Menu mis à jour avec succès !",
+    "fail": "erreur",
+    "fail2": "Échec du téléchargement !"
+  },
+  "stockTT": {
+    "confirm1": "Êtes-vous sûr ?",
+    "confirm2": "le stock sera définitivement supprimé !",
+    "confirm3": "Oui, supprimez maintenant !",
+    "confirm4": "Supprimé !",
+    "confirm5": "Votre stock a été supprimé.",
+    "confirm6": "le menu sera définitivement supprimé !",
+    "confirm7": "Votre menu a été supprimé."
+  }
 }

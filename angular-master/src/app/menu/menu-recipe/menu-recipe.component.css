@@ -116,3 +116,13 @@ mat-button {
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
+.bg2 {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.cust {
+  margin-right: auto;
+  margin-left: auto;
+}

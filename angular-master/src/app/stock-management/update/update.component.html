@@ -1,32 +1,32 @@
 <form class="example-form" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
 
-  <h2 style="text-align: center;"> Update Stock </h2>
+  <h2 style="text-align: center;"> {{'stock.update_stock' | translate }} </h2>
 
   <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label> Name </mat-label>
-    <input matInput type="text" id="name" formControlName="name">
-    <mat-error *ngIf="this.signupForm.get('name')?.invalid"> This field is required ! </mat-error>
+    <mat-label> {{'stock.name' | translate}} </mat-label>
+    <input matInput type="text" id="name" formControlName="name" class="form-control">
+    <mat-error *ngIf="this.signupForm.get('name')?.invalid"> {{'error'| translate}} </mat-error>
   </mat-form-field>
 
   <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label> Stock </mat-label>
-    <input matInput type="number" id="stock" formControlName="stock">
-    <mat-error *ngIf="this.signupForm.get('stock')?.invalid"> This field is required !</mat-error>
+    <mat-label> {{'total' | translate}} </mat-label>
+    <input matInput type="number" id="stock" formControlName="stock" class="form-control">
+    <mat-error *ngIf="this.signupForm.get('stock')?.invalid"> {{'error'| translate}}</mat-error>
   </mat-form-field>
 
   <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label> Status </mat-label>
+    <mat-label> {{'status' | translate }} </mat-label>
     <mat-select id="status" formControlName="status">
       <mat-option *ngFor="let source of availableSources" [value]="source.value">
         {{source.display}}
       </mat-option>
     </mat-select>
-    <mat-error *ngIf="this.signupForm.get('status')?.invalid"> This field is required !</mat-error>
+    <mat-error *ngIf="this.signupForm.get('status')?.invalid"> {{'error'| translate}}</mat-error>
   </mat-form-field>
 
   <div mat-dialog-actions style="float: right;">
-    <button type="button" mat-raised-button color="warn" (click)="onNoClick()"> Cancel </button>
-    <button type="submit" mat-raised-button color="accent" [disabled]="signupForm.invalid"> Submit </button>
+    <button type="button" mat-raised-button color="warn" (click)="onNoClick()"> {{'cancel'| translate}} </button>
+    <button type="submit" mat-raised-button color="accent" [disabled]="signupForm.invalid"> {{'submit'| translate}} </button>
   </div>
 
 </form>

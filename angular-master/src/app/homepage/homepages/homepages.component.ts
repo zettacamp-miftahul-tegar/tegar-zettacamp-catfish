@@ -54,16 +54,16 @@ export class HomepagesComponent implements OnInit {
 
   menus1length!: number;
   getDatas_special() {
-    this.subs.sink = this.data.getRecipies_special().valueChanges.subscribe((resp : any) => {
-      this.menus = resp?.data?.getAllRecipe.recipes
+    this.subs.sink = this.data.getRecipies_special()?.valueChanges.subscribe((resp : any) => {
+      this.menus = resp?.data?.getAllRecipe?.recipes
       this.menus1length = resp?.data?.getAllRecipe?.recipes?.length
     })
   }
 
   menus2length!: number;
   getDatas_menu() {
-    this.subs.sink = this.data.getRecipies_menus().valueChanges.subscribe((resp : any) => {
-      this.menus1 = resp?.data?.getAllRecipe.recipes
+    this.subs.sink = this.data.getRecipies_menus()?.valueChanges.subscribe((resp : any) => {
+      this.menus1 = resp?.data?.getAllRecipe?.recipes
       this.menus2length = resp?.data?.getAllRecipe?.recipes?.length
     })
   }

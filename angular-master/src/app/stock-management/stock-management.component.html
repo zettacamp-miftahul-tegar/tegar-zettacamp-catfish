@@ -1,6 +1,6 @@
 <div class="container">
-  <h2> Stock Management </h2>
-  <button mat-raised-button color="warn" (click)="openDialog()"> Add Data </button>
+  <h2> {{ 'stock-management' | translate }} </h2>
+  <button mat-raised-button color="warn" (click)="openDialog()">{{ 'add_data' | translate }} </button>
 </div>
 
 <div>  
@@ -10,9 +10,9 @@
 
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef class="padz">
-          <div> <b>Name</b> </div>
+          <div> <b>{{ 'stock.name' | translate }}</b> </div>
           <mat-form-field floatLabel="never" >
-            <mat-label> Search </mat-label>
+            <mat-label> {{ 'menus.search' | translate }} </mat-label>
             <input matInput [formControl]="nameFilter" [(ngModel)]="value">
             <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
               <mat-icon>close</mat-icon>
@@ -23,15 +23,15 @@
       </ng-container>
   
       <ng-container matColumnDef="stock">
-        <th class="pos" mat-header-cell *matHeaderCellDef class="noFilter1"> <b>Stock</b> </th>
+        <th class="pos" mat-header-cell *matHeaderCellDef class="noFilter1"> <b>{{ 'stock.stock' | translate }}</b> </th>
         <td mat-cell *matCellDef="let element"> {{element.stock}} </td>
       </ng-container>
   
       <ng-container matColumnDef="status">
         <th class="pos ez" mat-header-cell *matHeaderCellDef> 
-          <div><b>Status</b></div>
+          <div><b>{{ 'stock.status' | translate }}</b></div>
           <mat-form-field floatLabel="never">
-            <mat-label>Status</mat-label>
+            <mat-label>{{ 'stock.status' | translate }}</mat-label>
             <mat-select [formControl]="statusFilter" [(ngModel)]="valuee">
               <mat-option *ngFor="let food of foods" [value]="food.value">
                 {{food.viewValue}}
@@ -46,7 +46,7 @@
       </ng-container>
 
       <ng-container matColumnDef="action" >
-        <th class="poss" mat-header-cell *matHeaderCellDef class="noFilter2"> <b>Action</b> </th>
+        <th class="poss" mat-header-cell *matHeaderCellDef class="noFilter2"> <b>{{ 'stock.action' | translate }}</b> </th>
         <td mat-cell *matCellDef="let element">
           <a (click)="openUpdate(element)">
             <button mat-stroked-button color="primary">

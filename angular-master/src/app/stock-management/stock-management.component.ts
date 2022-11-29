@@ -11,6 +11,7 @@ import { DataService } from './service/data.service';
 import { UpdateComponent } from './update/update.component';
 import Swal from 'sweetalert2';
 import { debounceTime } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
 
 interface Food {
   value: string;
@@ -36,7 +37,8 @@ export class StockManagementComponent implements OnInit {
 
   constructor(
     private data: DataService, 
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private translateService : TranslateService,
     ) { }
     
     ngOnInit(): void {
@@ -143,19 +145,19 @@ export class StockManagementComponent implements OnInit {
 
   onDelete(parameter:any){
     Swal.fire({
-      title: 'Are you sure?',
-      text: "stock will be permanently deleted!",
+      title: this.translateService.instant('stockTT.confirm1'),
+      text: this.translateService.instant('stockTT.confirm2'),
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete now!'
+      confirmButtonText: this.translateService.instant('stockTT.confirm3')
     }).then((result:any) => {
       if (result.isConfirmed) {
         this.data.deleteStock(parameter)
         Swal.fire(
-          'Deleted!',
-          'Your stock has been deleted.',
+          this.translateService.instant('stockTT.confirm4'),
+          this.translateService.instant('stockTT.confirm5'),
           'success'
         )
         this.getDatas()

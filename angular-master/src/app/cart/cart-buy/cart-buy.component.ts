@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { TranslateService } from '@ngx-translate/core';
 import { SubSink } from 'subsink';
 import Swal from 'sweetalert2';
 import { CartService } from '../service/cart.service';
@@ -20,6 +21,7 @@ export class CartBuyComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     private data : CartService,
+    private translateService : TranslateService,
   ) {
     this.refetchall = new EventEmitter();
    }
@@ -44,19 +46,19 @@ export class CartBuyComponent implements OnInit {
 
   deleteCart(parameter: any) {
     Swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
+      title: this.translateService.instant('cartz.failC'),
+      text: this.translateService.instant('cartz.fail2C'),
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
+      confirmButtonText: this.translateService.instant('cartz.fail3C')
     }).then((result:any) => {
       if (result.isConfirmed) {
         this.data.deleteOneCart(parameter.id)
         Swal.fire(
-          'Deleted!',
-          'Your file has been deleted.',
+          this.translateService.instant('cartz.fail4C'),
+          this.translateService.instant('cartz.fail5C'),
           'success'
         )
         this.refetchall.emit(true)

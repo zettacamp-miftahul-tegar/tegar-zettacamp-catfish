@@ -7,14 +7,14 @@
   <div class="container" *ngIf="cart_length > 0">
     <div class="beha">
       <div class="main">
-        <h2> <b> TOTAL : Rp. {{total_price}}</b> </h2>
+        <h2> <b> {{ 'cartz.total' | translate  }} : Rp. {{total_price}}</b> </h2>
       </div>
       <div class="main1">
         <div>
-          <button mat-raised-button color="accent" (click)="deleteAllCart()">Remove all items</button>
+          <button mat-raised-button color="accent" (click)="deleteAllCart()">{{ 'cartz.remove' | translate }}</button>
         </div>
         <div style="margin: 0 0 0 30px">
-          <button mat-raised-button color="primary" (click)="buyCart()">Buy Now</button>
+          <button mat-raised-button color="primary" (click)="buyCart()">{{ 'cartz.buynow' | translate }}</button>
         </div>
       </div>
     </div>

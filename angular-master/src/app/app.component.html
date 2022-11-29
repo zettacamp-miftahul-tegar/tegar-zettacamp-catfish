@@ -21,13 +21,15 @@
         <button mat-menu-item routerLinkActive="active">{{ "cart" | translate }}</button>
       </a>
       <a routerLink="history">
-        <button mat-menu-item routerLinkActive="active">{{ "history" | translate }}</button>
+        <button mat-menu-item routerLinkActive="active">{{ "historyz.history" | translate }}</button>
       </a>
     </mat-menu>
     <button mat-button routerLink="about" style="color: white;"
       routerLinkActive="active">{{ "about" | translate }}</button>
     <button mat-button *ngIf="!token" (click)="openDialog()" routerLinkActive="active"
       style="color: white;">{{ "login" | translate }}</button>
+    <button mat-button *ngIf="!token" (click)="openRegister()" routerLinkActive="active"
+      style="color: white;">{{ "register" | translate }}</button>
     <button *ngIf="token" mat-button (click)="logOut()" routerLinkActive="active"
       style="color: white;">{{ "logout" | translate }}</button>
   </div>

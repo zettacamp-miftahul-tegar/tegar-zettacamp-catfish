@@ -1,12 +1,10 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { sources } from '../model/drop.model';
-import { DropdownOption } from '../model/dropdown.model';
 import { DataService } from '../service/data.service';
 import {Stocks} from '../../model/stock.model'
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import Swal from 'sweetalert2'
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-input',
@@ -22,6 +20,7 @@ export class InputComponent implements OnInit {
     private data: DataService,
     public dialogRef: MatDialogRef<InputComponent>,
     @Inject(MAT_DIALOG_DATA) public datas: Stocks,
+    private translateService : TranslateService,
   ) { }
 
   ngOnInit(): void {
@@ -55,8 +54,8 @@ export class InputComponent implements OnInit {
         this.todos = dash        
         Swal.fire({
           icon: 'success',
-          title: 'Success',
-          text: 'Stock added successfully!',
+          title: this.translateService.instant('stockT.bravo'),
+          text: this.translateService.instant('stockT.bravo1'),
         }).then((bebas: any) => {
           this.dialogRef.close(true)
           this.data.getStock(this.pagination, this.search, this.statusF).refetch()
@@ -65,8 +64,8 @@ export class InputComponent implements OnInit {
       err => 
       Swal.fire({
         icon: 'error',
-        title: 'Oops...',
-        text: 'name already to used !',
+        title: this.translateService.instant('stockT.fail'),
+        text: this.translateService.instant('stockT.fail1'),
       })
       );
     } else {

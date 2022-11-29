@@ -1,10 +1,12 @@
 import { SelectionModel } from '@angular/cdk/collections';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { debounceTime } from 'rxjs';
 import { SubSink } from 'subsink';
+import { DetailComponent } from './detail/detail.component';
 import { DataService } from './service/data.service';
 
 interface Food {
@@ -29,7 +31,8 @@ export class HistoryComponent implements OnInit {
   recipe_names: any;
 
   constructor(
-    private data: DataService
+    private data: DataService,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -39,7 +42,7 @@ export class HistoryComponent implements OnInit {
     this.nameFilterr()
   }
 
-  displayedColumns: string[] = ['name', 'recipe_name', 'order_date', 'total_price', 'order_status'];
+  displayedColumns: string[] = ['name', 'detail', 'recipe_name', 'order_date', 'total_price', 'order_status'];
 
   dataSource: MatTableDataSource <any> = new MatTableDataSource();
 
@@ -134,6 +137,27 @@ export class HistoryComponent implements OnInit {
       this.statusLast = val
       this.getDatas()
     });
+  }
+
+  //----------------------------------------------------
+
+  openDialog(parameter: any): void {
+    const dialogRef = this.dialog.open(DetailComponent, {
+      width: '70%',
+      data: parameter,
+      // disableClose: true,
+      // hasBackdrop: true
+    });
+
+    console.log(parameter.id);
+    
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      // if (result) {
+      //   this.getDatas() 
+      // }
+      
+    })
   }
   
 }

@@ -7,16 +7,16 @@
       <mat-card-content>
       
         <mat-form-field class="example-full-width">
-          <input matInput type="email" id="email" formControlName="email" placeholder="Email">
-          <mat-error *ngIf="this.signupForm.get('email')?.invalid && this.signupForm.get('email')?.touched">{{getErrorMessageEmail()}}</mat-error>
+          <input matInput type="email" id="email" formControlName="email" placeholder="{{ 'email' | translate }}">
+          <mat-error *ngIf="this.signupForm.get('email')?.invalid && this.signupForm.get('email')?.touched">{{ 'error' | translate }}</mat-error>
         </mat-form-field>
         
         <mat-form-field class="example-full-width">
-          <input matInput [type]="hide ? 'password' : 'text'" id="password" formControlName="password" placeholder="Password">
+          <input matInput [type]="hide ? 'password' : 'text'" id="password" formControlName="password" placeholder="{{ 'password' | translate }}">
           <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </button>
-          <mat-error *ngIf="this.signupForm.get('password')?.invalid"> This field is required ! </mat-error>
+          <mat-error *ngIf="this.signupForm.get('password')?.invalid"> {{ 'error' | translate }} </mat-error>
         </mat-form-field>
       
       </mat-card-content>

@@ -1,5 +1,5 @@
 <mat-form-field>
-  <mat-label>Search</mat-label>
+  <mat-label>{{'menus.search' | translate }}</mat-label>
   <input matInput [formControl]="nameFilter" placeholder="Ex. Telur Goreng" [(ngModel)]="value">
   <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
     <mat-icon>close</mat-icon>

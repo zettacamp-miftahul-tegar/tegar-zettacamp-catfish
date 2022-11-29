@@ -13,6 +13,7 @@ import copy from 'fast-copy';
 import { FormControl } from '@angular/forms';
 import { debounceTime } from 'rxjs';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 interface Food {
   value: string;
@@ -40,6 +41,7 @@ export class MenuManagementComponent implements OnInit {
     private data: DataService,
     public dialog: MatDialog,
     private router: Router,
+    private translateService : TranslateService,
   ) {}
 
   ngOnInit(): void {
@@ -132,8 +134,8 @@ export class MenuManagementComponent implements OnInit {
 
   onDelete(parameter:any){
     Swal.fire({
-      title: 'Are you sure?',
-      text: "menu will be permanently deleted!",
+      title: this.translateService.instant('stockTT.confirm1'),
+      text: this.translateService.instant('stockTT.confirm6'),
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -143,8 +145,8 @@ export class MenuManagementComponent implements OnInit {
       if (result.isConfirmed) {
         this.data.deleteRecepies(parameter)
         Swal.fire(
-          'Deleted!',
-          'Your menu has been deleted.',
+          this.translateService.instant('stockTT.confirm4'),
+          this.translateService.instant('stockTT.confirm7'),
           'success'
         )
         this.getDatas()
@@ -183,7 +185,7 @@ export class MenuManagementComponent implements OnInit {
       data.status = 'deleted'
     }
     Swal.fire({
-      title: 'Do you want to edit status to ' + data.status + '?',
+      title: this.translateService.instant('menusT.a') + data.status + '?',
       showDenyButton: false,
       showCancelButton: true,
       showConfirmButton: true,
@@ -193,7 +195,7 @@ export class MenuManagementComponent implements OnInit {
         this.subs.sink = this.data.updateAvailable(data).subscribe(resp => {
           if (resp) {
             this.getDatas(true)
-            Swal.fire('Menu status has been changed to ' + data.status)
+            Swal.fire(this.translateService.instant('menusT.b') + data.status)
             .then((res) => {
               // this.router.navigate(['menu'])
             })
@@ -252,7 +254,7 @@ export class MenuManagementComponent implements OnInit {
       data.highlight === false
     }
     Swal.fire({
-      title: 'Do you want to edit status to ' + data.highlight + '?',
+      title: this.translateService.instant('menusT.a') + data.highlight + '?',
       showDenyButton: false,
       showCancelButton: true,
       showConfirmButton: true,
@@ -262,7 +264,7 @@ export class MenuManagementComponent implements OnInit {
         this.subs.sink = this.data.updateMenu(data).subscribe(resp => {
         if (resp) {
           this.getDatas(true)
-          Swal.fire('Menu status has been changed to ' + data.highlight)
+          Swal.fire(this.translateService.instant('menusT.b') + data.highlight)
           .then((res) => {
               // this.router.navigate(['homepage'])
             })
@@ -272,15 +274,15 @@ export class MenuManagementComponent implements OnInit {
     })
   }
 
-  // onHeighlight(element: any) {
-  //   const data = {
-  //     id: element.id
-  //   };
+  onPublishh(element: any) {
+    const data = {
+      id: element.id
+    };
     
-  //   this.data.updateMenu(data).subscribe(() => {
-  //     this.getDatas(true)
-  //   });
-  // }
+    this.data.updateMenu(data).subscribe(() => {
+      this.getDatas(true)
+    });
+  }
 
   //----------------------------------------------------
 
@@ -292,7 +294,7 @@ export class MenuManagementComponent implements OnInit {
       data.special_offer = true
     }
     Swal.fire({
-      title: 'Do you want to edit status to ' + data.special_offer + '?',
+      title: this.translateService.instant('menusT.a') + data.special_offer + '?',
       showDenyButton: false,
       showCancelButton: true,
       showConfirmButton: true,
@@ -302,7 +304,7 @@ export class MenuManagementComponent implements OnInit {
         this.subs.sink = this.data.updateSpecial(data).subscribe(resp => {
           if (resp) {
             this.getDatas(true)
-            Swal.fire('Menu status has been changed to ' + data.special_offer)
+            Swal.fire(this.translateService.instant('menusT.b') + data.special_offer)
             .then((res) => {
               // this.router.navigate(['homepage'])
             })

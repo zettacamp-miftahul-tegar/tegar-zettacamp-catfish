@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { TranslateService } from '@ngx-translate/core';
 import Swal from 'sweetalert2';
 import { CartService } from '../service/cart.service';
 
@@ -17,7 +18,8 @@ export class UpdateComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public datas: any,
     public dialogRef: MatDialogRef<UpdateComponent>,
-    private data: CartService
+    private data: CartService,
+    private translateService : TranslateService,
   ) { }
 
   ngOnInit(): void {
@@ -49,8 +51,8 @@ export class UpdateComponent implements OnInit {
         this.datas = dash        
         Swal.fire({
           icon: 'success',
-          title: 'Success',
-          text: 'Your work has been saved',
+          title: this.translateService.instant('cartz.bravo'),
+          text: this.translateService.instant('cartz.bravo2'),
         }).then((bebas: any) => {
           this.dialogRef.close({
             status : "berhasil"

@@ -1,0 +1,60 @@
+<div class="login-wrapper">
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title> {{'register' | translate }} </mat-card-title>
+    </mat-card-header>
+    <form class="example-form" [formGroup]="signupForm">
+      <mat-card-content>
+
+        <mat-form-field class="example-full-width">
+          <input matInput type="text" id="first_name" formControlName="first_name" placeholder="{{ 'reg.first_name' | translate }}">
+          <mat-error *ngIf="this.signupForm.get('first_name')?.invalid"> {{ 'error' | translate }} </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput type="text" id="last_name" formControlName="last_name" placeholder="{{ 'reg.last_name' | translate }}">
+          <mat-error *ngIf="this.signupForm.get('last_name')?.invalid"> {{ 'error' | translate }} </mat-error>
+        </mat-form-field>
+
+        <!-- <mat-form-field class="example-full-width">
+          <mat-select id="role.user_type" formControlName="role.user_type" placeholder="{{ 'reg.user_type' | translate }}">
+            <mat-option *ngFor="let food of foods" [value]="food.value">
+              {{food.viewValue}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="this.signupForm.get('role.user_type')?.invalid"> {{ 'error' | translate }} </mat-error>
+        </mat-form-field> -->
+
+        <mat-form-field class="example-full-width">
+          <input matInput type="email" id="email" formControlName="email" placeholder="{{ 'reg.email' | translate }}">
+          <mat-error *ngIf="this.signupForm.get('email')?.invalid"> {{ 'error' | translate }} </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput [type]="hide ? 'password' : 'text'" id="password" formControlName="password"
+            placeholder="{{ 'reg.pass' | translate }}">
+          <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="this.signupForm.get('password')?.invalid"> {{ 'error' | translate }} </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput [type]="hide ? 'password' : 'text'" id="confirmPassword" formControlName="confirmPassword"
+            placeholder="{{ 'reg.cpass' | translate }}">
+          <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="this.signupForm.get('confirmPassword')?.invalid"> {{ 'error' | translate }} </mat-error>
+        </mat-form-field>
+
+      </mat-card-content>
+
+      <button mat-stroked-button color="primary" class="btn-block" type="submit" (click)="register()"> {{'register' | translate}}
+      </button>
+
+    </form>
+  </mat-card>
+</div>

@@ -7,6 +7,7 @@ import { SubSink } from 'subsink';
 import Swal from 'sweetalert2';
 import { Logins } from '../model/userLogin.model';
 import { AuthService } from './auth/auth.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login',
@@ -27,6 +28,7 @@ export class LoginComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: Logins,
     private router: Router,
     private authService: AuthService,
+    private translateService : TranslateService,
   ) { }
 
   ngOnInit(): void {
@@ -57,7 +59,7 @@ export class LoginComponent implements OnInit {
       if (resp) {
         Swal.fire({
           icon: 'success',
-          title: 'Login Succesful',
+          title: this.translateService.instant('passLogin'),
         })
         this.router.navigate(['homepage']).then(()=>{
           // setTimeout(() => {
@@ -71,7 +73,7 @@ export class LoginComponent implements OnInit {
     }, err => {
       Swal.fire({
         icon: 'error',
-        title: err.message,
+        title: this.translateService.instant('failLogin'),
       })}
     )
   }

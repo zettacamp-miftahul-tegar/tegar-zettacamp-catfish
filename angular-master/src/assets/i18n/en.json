@@ -1,5 +1,7 @@
 {
   "homepage": "Homepage",
+  "register": "Register",
+  "error" :"This field is required !",
   "menu": "Menu",
   "menu-management": "Menu Management",
   "stock-management": "Stock Management",
@@ -15,20 +17,130 @@
   "soldout": "Soldout",
   "welcome":"Welcome",
   "special_offer": "Special offer for you",
-  "maenu_highlight": "Menu Highlight",
+  "menu_highlight": "Menu Highlight",
+  "buy_now": "Buy Now",
+  "add_data": "Add Data",
+  "errorimg" : "only field images !",
+  "errorname" : "This name min 3 length !",
+  "errorprice": "This price min 1 length !",
   "stock": {
       "name": "Name",
       "stock": "Stock",
       "status": "Status",
-      "action": "Action"
+      "action": "Action",
+      "add_stock" : "Add Stock",
+      "total" : "Total Stock",
+      "update_stock" : "Update Stock"
   },
   "menu-ma": {
+    "images": "ImagesUrl",
+    "discount": "Discount",
+    "stock_used": "Stock Used",
     "recipe_name": "Recipe Name",
     "ingredients": "Ingredients",
     "price": "Price",
     "available": "Available",
     "status": "Status",
-    "action": "Action"
+    "action": "Action",
+    "special_offer" : "Special Offer",
+    "menu" : "Menu Highligth",
+    "mes" : "No data to show",
+    "add_menu" : "Add Menu",
+    "addingre": "Add Ingredients"
   },
-  "history": "History"
+  "cartz" : {
+    "note" : "+ Note",
+    "note1" : "Note",
+    "amount" : "Amount",
+    "total" : "Total",
+    "totalp" : "Total Price",
+    "remove" : "Remove All Item",
+    "buynow" : "Buy Now",
+    "add_more" : "Add More",
+    "bravo": "Success",
+    "bravo1": "your order is being processed",
+    "bravo2": "Data succes to updated!",
+    "fail": "Oops...",
+    "fail2": "due to limited stock available",
+    "confirm": "Yes, buy now!",
+    "confirm1": "Items that have been purchased cannot be returned !",
+    "confirm2": "Are you sure?",
+    "failC": "Are you sure?",
+    "fail2C": "You won't be able to revert this!",
+    "fail3C" : "Yes, delete it!",
+    "fail4C": "Deleted!",
+    "fail5C": "Your file has been deleted."
+  },
+  "historyz" : {
+    "history" : "History",
+    "recipe_name" :"Recipe Name",
+    "name" : "Name",
+    "detail" : "Detail",
+    "order" : "Order",
+    "orderdate" : "Order Date",
+    "totalp" : "Total Price",
+    "status" : "Status"
+  },
+  "menus" : {
+    "stock" : "Stock",
+    "price" : "Price",
+    "out" : "All Out of stock",
+    "in" : "Add to Card",
+    "search" : "Search",
+    "searchp" : "Search last name"
+  },
+  "reg" : {
+    "first_name": "First Name",
+    "last_name" : "Last Name",
+    "user_type" : "User Type",
+    "email": "Email",
+    "pass": "Password",
+    "cpass": "Confirm Password"
+  },
+  "iMenu" : {
+    "price": "Price",
+    "stock": "Stock",
+    "amount": "Amount",
+    "note" : "Note"
+  },
+  "failLogin": "email or password fail!",
+  "passLogin": "Succes Login",
+  "failRegister": "Fill in all the data first",
+  "passRegister": "Register Succes",
+  "title": "Are you sure?",
+  "text":"are you sure to exit?",
+  "confirm": "Yes, exit now",
+  "title1": "logout succes",
+  "menusT" : {
+    "bravo": "Successfully added to cart!",
+    "bravo1": "Succes",
+    "fail": "Menu is already in cart !",
+    "fail1": "Oops...",
+    "a": "Do you want to edit status to ",
+    "b": "Menu status has been changed to"
+  },
+  "stockT" : {
+    "bravo": "Success",
+    "bravo1": "Stock added successfully!",
+    "bravo2": "Data successfully updated!",
+    "fail" : "Oops...",
+    "fail1": "name already to used !",
+    "fail2": "stock already to used !"
+  },
+  "menuT": {
+    "bravo" : "Success",
+    "bravo1": "Menu added successfully !",
+    "bravo2": "Menu updated successfully !",
+    "fail": "error",
+    "fail2": "Failed to upload !"
+  },
+  "stockTT" : {
+    "confirm1" : "Are you sure?",
+    "confirm2" : "stock will be permanently deleted!",
+    "confirm3" : "Yes, delete now!",
+    "confirm4" : "Deleted!",
+    "confirm5" : "Your stock has been deleted.",
+    "confirm6" : "menu will be permanently deleted!",
+    "confirm7" : "Your menu has been deleted."
+  }
 }

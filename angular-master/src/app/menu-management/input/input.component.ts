@@ -4,6 +4,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { Menus } from 'src/app/model/menu.model';
 import { DataService } from '../service/data.service';
 import Swal from 'sweetalert2';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-input',
@@ -22,6 +23,7 @@ export class InputComponent implements OnInit {
   constructor(
     private data: DataService, 
     public dialogRef: MatDialogRef<InputComponent>, 
+    private translateService : TranslateService,
   ) {}
 
   ngOnInit(): void {
@@ -79,14 +81,13 @@ export class InputComponent implements OnInit {
         this.todos = data
         Swal.fire({
           icon: 'success',
-          title: 'Success',
-          text: 'Menu added successfully!',
+          title: this.translateService.instant('menuT.bravo'),
+          text: this.translateService.instant('menuT.bravo1'),
         }).then((bebas) => {
           this.dialogRef.close(true)
         });
       });
     } else {
-      console.log('gagal');
       Swal.fire({
         icon: 'error',
         title: 'error',

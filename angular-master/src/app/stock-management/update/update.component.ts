@@ -7,6 +7,7 @@ import { DataService } from '../service/data.service';
 import Swal from 'sweetalert2'
 import { DropdownOption } from '../model/dropdown.model';
 import { sources } from '../model/drop.model';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -24,6 +25,7 @@ export class UpdateComponent implements OnInit {
     private data: DataService,
     public dialogRef: MatDialogRef<UpdateComponent>,
     @Inject(MAT_DIALOG_DATA) public datas: Stocks,
+    private translateService : TranslateService,
   ) { }
 
   ngOnInit(): void {
@@ -72,8 +74,8 @@ export class UpdateComponent implements OnInit {
         this.todos = dash        
         Swal.fire({
           icon: 'success',
-          title: 'Success',
-          text: 'Data successfully updated!',
+          title: this.translateService.instant('stockT.bravo'),
+          text: this.translateService.instant('stockT.bravo2'),
         }).then((bebas: any) => {
           this.dialogRef.close(true)
           this.data.getStock(this.pagination, this.search, this.statusF).refetch()
@@ -81,8 +83,8 @@ export class UpdateComponent implements OnInit {
       }, err => 
       Swal.fire({
         icon: 'error',
-        title: 'Oops...',
-        text: 'stock already to used !',
+        title: this.translateService.instant('stockT.fail'),
+        text: this.translateService.instant('stockT.fail2'),
       })
     );
     } else {

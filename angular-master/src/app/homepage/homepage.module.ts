@@ -88,7 +88,7 @@ const routes : Routes = [
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    TranslateModule.forRoot({
+    TranslateModule.forChild({
       defaultLanguage: 'en',
       loader: {
         provide: TranslateLoader,

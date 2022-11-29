@@ -1,71 +1,3 @@
-<!-- <mat-card class="card">
-  <div class="flex">
-    <img [src]="getAllCart.recipe_id.imgUrl" alt="me">
-    <img src="../../../assets/img/stock_habis.png" *ngIf="dataz == 1">
-    <div>
-      <mat-card-title>{{getAllCart.recipe_id.recipe_name}}</mat-card-title>
-      <mat-card-subtitle> 
-        <span class="custom1">Note : {{getAllCart.note}} </span>
-      </mat-card-subtitle>
-    </div>
-  </div>
-  <mat-card-actions align="end" class="input">
-    <h2 style="margin: 5%;">
-      <b>amount : 
-        <span>
-          <a (click)="minesAmounts(getAllCart)">
-            <button mat-button>
-              <mat-icon style="color: green;" matTooltip="minus">keyboard_arrow_left</mat-icon>
-            </button>
-          </a>
-        </span>
-        {{getAllCart.amount}}
-        <span>
-          <a (click)="plesAmounts(getAllCart)">
-            <button mat-button>
-              <mat-icon style="color: green;" matTooltip="plus">keyboard_arrow_right</mat-icon>
-            </button>
-          </a>
-        </span>
-      </b>
-    </h2>
-    <h2 style="margin: 5%;">
-      <b>Rp. {{getAllCart.recipe_id.special_offer_price}}</b>
-    </h2>
-    <h2 style="margin: 5%;">
-      Rp. {{getAllCart.total_price}}
-    </h2>
-  </mat-card-actions>
-  <div class="btn">
-    <span>
-      <a (click)="openUpdate(getAllCart)">
-        <button mat-raised-button color="primary">
-           + Note 
-        </button><br>
-      </a>
-    </span> 
-    <a (click)="deleteCart(getAllCart)">
-      <button mat-button color="warn">
-        <mat-icon style="color: red;" matTooltip="delete">delete</mat-icon>
-      </button>
-    </a>
-  </div>
-</mat-card>
-
-<mat-card class="example-card">
-  <mat-card-header>
-    <mat-card-title-group>
-      <mat-card-title>Shiba Inu</mat-card-title>
-      <mat-card-subtitle>Small</mat-card-subtitle>
-      <img mat-card-sm-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
-    </mat-card-title-group>
-  </mat-card-header>
-  <mat-card-content>
-    {{getAllCart.note}}
-  </mat-card-content>
-</mat-card> -->
-
-
 <div class="container">
   <div class="beha">
     <img [src]="getAllCart.recipe_id.imgUrl" alt="">
@@ -74,7 +6,7 @@
       <div>
         <h2>{{getAllCart.recipe_id.recipe_name}}</h2>
         <p>
-          <b>amount : 
+          <b>{{'cartz.amount' | translate }} : 
             <span>
               <a (click)="minesAmounts(getAllCart)">
                 <button mat-button>
@@ -100,13 +32,13 @@
       </div>
       <div>
         <p style="margin: 3.5rem 2rem;">
-          <span style="color: red;"><b>Total : </b></span> <b>Rp.{{getAllCart.total_price}}</b>
+          <span style="color: red;"><b> {{ 'cartz.total' | translate }} : </b></span> <b>Rp.{{getAllCart.total_price}}</b>
         </p>
       </div>
       <div class="buttomcss">
         <a (click)="openUpdate(getAllCart)">
           <button mat-raised-button color="primary">
-            + Note
+            {{ 'cartz.note' | translate }}
           </button><br>
         </a>
         <a (click)="deleteCart(getAllCart)">
@@ -117,7 +49,7 @@
       </div>
     </div>
     <div class="body">
-      <h4> Note : </h4> &nbsp;&nbsp;
+      <h4> {{ 'cartz.note1' | translate }} : </h4> &nbsp;&nbsp;
       <p style="padding-top: 2px;"> {{getAllCart.note}} </p>
     </div>
   </div>

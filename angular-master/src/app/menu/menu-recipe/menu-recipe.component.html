@@ -2,25 +2,28 @@
   <div class="imgb">
     <img class="bg1" src="{{recipe.imgUrl}}" alt="images">
   </div>
+  <!-- <div class="cust">
+    <img class="bg2" *ngIf="recipe.available == 0" src="../../../assets/img/stock_habis.png">
+  </div> -->
   <div class="mainz">
     <p class="p"><b>{{recipe.recipe_name}} </b></p>
   </div>
   <div class="mainz">
-    <p class="p"><b> Stock : {{recipe.available}} </b></p>
+    <p class="p"><b> {{ 'menus.stock' | translate }} : {{recipe.available}}</b>  </p>
   </div>
   <div class="main">
     <div class="mainzz">
-      <p class="pe">Price : {{recipe.special_offer_price}}</p>
+      <p class="pe"> {{ 'menus.price' | translate }} : {{recipe.special_offer_price}}</p>
     </div>
     <div class="bot" *ngIf="token">
       <div *ngIf="recipe.available > 0">
         <button (click)="openDialog(recipe)" mat-stroked-button color="primary">
-          <mat-icon color="primary">add_shopping_cart</mat-icon> add to cart
+          <mat-icon color="primary">add_shopping_cart</mat-icon> {{'menus.in' | translate }}
         </button>
       </div>
       <div *ngIf="recipe.available == 0" class="cez">
         <button (click)="openDialog(recipe)" mat-stroked-button color="primary" disabled="true">
-          <mat-icon color="primary">add_shopping_cart</mat-icon> add to cart
+          <mat-icon color="warn">add_shopping_cart</mat-icon> <span *ngIf="recipe.available == 0" style="color:red"> {{'menus.in' | translate}}</span> 
         </button>
       </div>
     </div>

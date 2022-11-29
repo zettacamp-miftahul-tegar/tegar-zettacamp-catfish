@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { TranslateService } from '@ngx-translate/core';
 import { CartService } from 'src/app/cart/service/cart.service';
 import { SubSink } from 'subsink';
 import Swal from 'sweetalert2';
@@ -21,7 +22,8 @@ export class InputComponent implements OnInit {
     public dialogRef: MatDialogRef < InputComponent > ,
     private data: RecipeService,
     @Inject(MAT_DIALOG_DATA) public datas: any,
-    private data1: CartService
+    private data1: CartService,
+    private translateService : TranslateService,
   ) {}
 
   ngOnInit(): void {
@@ -65,8 +67,8 @@ export class InputComponent implements OnInit {
           this.todos = dash
           Swal.fire({
             icon: 'success',
-            title: 'Success',
-            text: 'Successfully added to cart!',
+            title: this.translateService.instant('menusT.bravo1'),
+            text: this.translateService.instant('menusT.bravo'),
           }).then((bebas: any) => {
               this.dialogRef.close({
                 status: "berhasil"
@@ -77,8 +79,8 @@ export class InputComponent implements OnInit {
         }, err => 
         Swal.fire({
           icon: 'error',
-          title: 'Oops...',
-          text: 'Menu is already in cart !',
+          title: this.translateService.instant('menusT.fail1'),
+          text: this.translateService.instant('menusT.fail'),
         })
       )
     } else {

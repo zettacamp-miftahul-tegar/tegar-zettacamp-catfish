@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../service/data.service';
 import { Menus } from 'src/app/model/menu.model';
 import Swal from 'sweetalert2';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-update',
@@ -27,7 +28,8 @@ export class UpdateComponent implements OnInit {
     private data: DataService,
     public dialogRef: MatDialogRef < UpdateComponent > ,
     @Inject(MAT_DIALOG_DATA) public datas: any,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private translateService : TranslateService,
   ) {}
 
   subcription: any;
@@ -142,8 +144,8 @@ export class UpdateComponent implements OnInit {
       this.data.updateRecipe(bebas).subscribe({
         next: () => {
           Swal.fire({
-            title: "Updated",
-            text: "Menu updated successfully !",
+            title: this.translateService.instant('menuT.bravo'),
+            text: this.translateService.instant('menuT.bravo2'),
             icon: "success",
             confirmButtonText: "Ok"
           }).then(() => {
@@ -152,8 +154,8 @@ export class UpdateComponent implements OnInit {
         },
         error: () => {
           Swal.fire({
-            title: "Error!",
-            text: "Faled to upload!",
+            title: this.translateService.instant('menuT.fail'),
+            text: this.translateService.instant('menuT.fail2'),
             icon: "error",
             confirmButtonText: "OK"
           });

@@ -1,13 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CartComponent } from './cart.component';
+import { RegisterComponent } from './register.component';
 import { MaterialModule } from '../material/material.module';
-import { CartBuyComponent } from './cart-buy/cart-buy.component';
-import { UpdateComponent } from './update/update.component';
 
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient } from '@angular/common/http';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -16,9 +14,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 
 @NgModule({
   declarations: [
-    CartComponent,
-    CartBuyComponent,
-    UpdateComponent
+    RegisterComponent
   ],
   imports: [
     CommonModule,
@@ -32,9 +28,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
       },
     }),
   ],
-  exports: [
-    CartComponent,
-    UpdateComponent
+  exports : [
+    RegisterComponent
   ]
 })
-export class CartModule { }
+export class RegisterModule { }
