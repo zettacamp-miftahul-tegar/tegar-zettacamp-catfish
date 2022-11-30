@@ -13,7 +13,7 @@ import { CartService } from '../service/cart.service';
 export class UpdateComponent implements OnInit {
 
   signupForm!: FormGroup;
-
+  av:any
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public datas: any,
@@ -23,13 +23,17 @@ export class UpdateComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    const bebas = {
+      available: this.datas.recipe_id.available
+    }
+    this.av = bebas.available
     this.initForm()
-    this.signupForm.patchValue(this.datas)    
+    this.signupForm.patchValue(this.datas)   
   }
 
   initForm() {
     this.signupForm = new FormGroup({
-      amount: new FormControl(null, Validators.required),
+      amount: new FormControl(null, [Validators.required, Validators.min(1), Validators.max(this.av)]),
       note: new FormControl(''),
     });
   }

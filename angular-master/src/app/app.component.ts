@@ -57,16 +57,17 @@ export class AppComponent {
     }
     this.first_name = JSON.parse(localStorage.getItem('first_name') !);
     this.last_name = JSON.parse(localStorage.getItem('last_name') !);
-    this.getCard_id(true)
+    // this.getCard_id(true)
   }
 
   data:any
+  a:any
 
-  getCard_id(event:any) {
-    this.subs.sink = this.cart.getCart()?.valueChanges.subscribe((item: any) => {
-      this.cart_length = item?.data?.getAllCart?.cart_length
-    });
-  }
+  // getCard_id(event:any) {
+  //   this.subs.sink = this.cart.getCart()?.valueChanges.subscribe((item: any) => {
+  //     this.cart_length = item?.data?.getAllCart?.cart_length
+  //   });
+  // }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(LoginComponent, {

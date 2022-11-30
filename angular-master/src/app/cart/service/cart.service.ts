@@ -25,6 +25,7 @@ export class CartService {
             total_price
             recipe_id {
               id
+              available
               special_offer_price
               recipe_name
               price
@@ -33,6 +34,37 @@ export class CartService {
           }
         }
       }`,
+      fetchPolicy: "network-only" // ketika ada perubahan ngambil server  
+    })
+  }
+
+  getCart1(post:any) {
+    return this.apollo.watchQuery({
+      query : gql `
+      query GetAllCart {
+        getAllCart {
+          user_id
+          total_price
+          cart_length
+          cart {
+            id
+            amount
+            note
+            total_price
+            recipe_id {
+              id
+              special_offer_price
+              recipe_name
+              price
+              available
+              imgUrl
+            }
+          }
+        }
+      }`,
+      variables: {
+        ...post,
+      },
       fetchPolicy: "network-only" // ketika ada perubahan ngambil server  
     })
   }
@@ -160,7 +192,7 @@ export class CartService {
         quantity: -1
       },
       fetchPolicy: "network-only" // ketika ada perubahan ngambil server  
-      })
+    })
   }
 
   plesAmounts(post:any) {
@@ -188,6 +220,7 @@ export class CartService {
       variables: {
         itemId:post.id,
         quantity: 1
+        // quantity: 1 > post.amount
       },
       fetchPolicy: "network-only" // ketika ada perubahan ngambil server  
       })

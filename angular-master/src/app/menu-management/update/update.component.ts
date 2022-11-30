@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../service/data.service';
@@ -14,7 +14,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class UpdateComponent implements OnInit {
 
-  signupForm!: FormGroup;
+  signupForm:any
   ids: any;
   todos: Menus[] = [];
   ingredient: any;
@@ -22,6 +22,7 @@ export class UpdateComponent implements OnInit {
   paginations: any;
   testing: any;
   dataMenu: any;
+  b:any;
 
   constructor(
     private route: ActivatedRoute,
@@ -47,18 +48,20 @@ export class UpdateComponent implements OnInit {
   }
 
   initForm() {
-    this.signupForm = this.fb.group({
-      imgUrl: ['', [Validators.required, Validators.minLength(5)]],
-      recipe_name: ['', [Validators.required, Validators.minLength(4)]],
-      price: ['', [Validators.required, Validators.min(1)]],
-      discount: [[Validators.min(1)]],
-      ingredients: this.fb.array([]),
+    this.signupForm = new FormGroup({
+      imgUrl: new FormControl ('', [Validators.required, Validators.minLength(5)]),
+      recipe_name: new FormControl ('', [Validators.required, Validators.minLength(4)]),
+      price: new FormControl ('', [Validators.required, Validators.min(1)]),
+      discount: new FormControl ([Validators.min(1)]),
+      ingredients: new FormArray([]),
     });
-    this.byDataLength()
-  }
-
-  noDup() {
-    
+    this.signupForm.get('ingredients').valueChanges.subscribe((a:any) => {
+        this.b = a.map((val:any)=>{
+          return val.ingredient_id
+        })
+      }
+    )
+    this.byDataLength();
   }
 
   byDataLength() {
@@ -85,12 +88,6 @@ export class UpdateComponent implements OnInit {
 
       this.signupForm.patchValue(tempMenu);
 
-      // this.dataMenu = tempMenu.map((val:any)=>{
-      //   console.log(this.dataMenu);
-        
-      //   return val.ingredient_id
-      // })
-
     });
     this.signupForm.patchValue(this.datas);
   }
@@ -100,9 +97,9 @@ export class UpdateComponent implements OnInit {
   }
 
   onIngredients() {
-    return this.fb.group({
-      ingredient_id: ['', [Validators.required]],
-      stock_used: ['', [Validators.required, Validators.min(1)]],
+    return new FormGroup({
+      ingredient_id: new FormControl ('', [Validators.required]),
+      stock_used: new FormControl ('', [Validators.required, Validators.min(1)]),
     });
   }
 

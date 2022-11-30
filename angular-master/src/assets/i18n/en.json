@@ -20,6 +20,7 @@
   "menu_highlight": "Menu Highlight",
   "buy_now": "Buy Now",
   "add_data": "Add Data",
+  "remove": "Remove",
   "errorimg" : "only field images !",
   "errorname" : "This name min 3 length !",
   "errorprice": "This price min 1 length !",

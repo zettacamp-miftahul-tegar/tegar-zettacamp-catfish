@@ -47,7 +47,7 @@
                  <mat-form-field appearance="fill">
                    <mat-label>{{'menu-ma.ingredients' | translate }}</mat-label>
                    <mat-select formControlName="ingredient_id">
-                     <mat-option *ngFor="let menu of ingredient" [value]="menu.id">
+                     <mat-option *ngFor="let menu of ingredient" [value]="menu.id" [disabled]="(b).includes(menu.id)">
                        {{menu.name}}
                      </mat-option>
                    </mat-select>
@@ -63,9 +63,9 @@
 
                </div>
                <div>
-                 <button mat-raised-button color="warn" style="width: 100%;" (click)="removeIngredients(i)"
+                 <button mat-raised-button style="width: 100%; background-color: rgb(121, 182, 86); color: white" (click)="removeIngredients(i)"
                    *ngIf="controls.length > 1">
-                   {{'' | translate }}
+                   {{'remove' | translate }}
                  </button>
                </div><br>
              </form>

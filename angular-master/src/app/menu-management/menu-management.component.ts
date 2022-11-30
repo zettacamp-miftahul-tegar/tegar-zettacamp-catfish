@@ -292,8 +292,6 @@ export class MenuManagementComponent implements OnInit {
             })
           }
         })
-      } else if (!result.isConfirmed) {
-        this.getDatas()
       } else {
         this.getDatas()
       }
@@ -336,7 +334,7 @@ export class MenuManagementComponent implements OnInit {
             })
           }
         })
-      }
+      } 
     })
   }
 

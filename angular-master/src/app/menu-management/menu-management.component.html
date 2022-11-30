@@ -72,7 +72,7 @@
           </a>
           <a *ngIf="element.status == 'publish'" (click)="updateMenu(element)">
             <mat-slide-toggle [checked]="element.highlight == true" matTooltip={{element.highlight}}
-               color="warn" (change)="onPublishh(element)">
+               color="warn">
             </mat-slide-toggle>
           </a>
         </td>
@@ -142,28 +142,3 @@
   </mat-paginator>
   
 </div>
-
-
-      <!-- <ng-container matColumnDef="ingredients">
-        <th mat-header-cell *matHeaderCellDef>
-          <b>Ingredients</b>
-        </th>
-        <td mat-cell *matCellDef="let element">
-          <div *ngFor="let item of element.ingredients">
-            <table>
-              <ng-container>
-                <th mat-header-cell *matHeaderCellDef> Name </th>
-                <td mat-cell> {{item.ingredient_id.name}} ({{item.ingredient_id.stock}}) </td>
-              </ng-container>
-              <ng-container matColumnDef="ingredients1">
-                        <th mat-header-cell *matHeaderCellDef> Stock </th>
-                        <td mat-cell> {{item.ingredient_id.stock}} </td>
-                    </ng-container>
-              <ng-container matColumnDef="ingredients">
-                        <th mat-header-cell *matHeaderCellDef> Stock Used </th>
-                        <td mat-cell> {{item.ingredient_id.stock_used}} </td>
-                    </ng-container>
-            </table>
-          </div>
-        </td>
-      </ng-container> -->

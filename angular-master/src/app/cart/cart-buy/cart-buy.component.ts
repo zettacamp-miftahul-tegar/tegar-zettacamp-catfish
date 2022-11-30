@@ -17,6 +17,7 @@ export class CartBuyComponent implements OnInit {
   @Output() refetchall! : EventEmitter<any>;
   private subs = new SubSink();
   dataz:any
+  datazz:any[]=[]
 
   constructor(
     public dialog: MatDialog,
@@ -35,14 +36,8 @@ export class CartBuyComponent implements OnInit {
 
     this.subs.sink = this.data.getRecipies(pagination).valueChanges.subscribe((item:any) => {
       this.dataz = item?.data?.getAllRecipe.recipes
-      console.log(this.dataz);
-      
     })
   }
-
-  // refetchData() {
-  //   this.data.getCart().refetch();
-  // }
 
   deleteCart(parameter: any) {
     Swal.fire({

@@ -13,12 +13,12 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class InputComponent implements OnInit {
 
-  signupForm!: FormGroup;
+  signupForm:any;
   id: any;
   todos: Menus[] = [];
   ingredient:any;
   paginations:any;
-
+  b:any;
 
   constructor(
     private data: DataService, 
@@ -45,6 +45,11 @@ export class InputComponent implements OnInit {
       discount: new FormControl(null, [Validators.min(0)]),
       ingredients: new FormArray([])
     });
+    this.signupForm.get('ingredients').valueChanges.subscribe((a:any) => {
+      this.b = a.map((val:any)=>{
+        return val.ingredient_id
+      })
+    })
   }
 
   onIngredients() {

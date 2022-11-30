@@ -8,17 +8,27 @@
           <p>
             <b>{{'cartz.amount' | translate }} : 
               <span>
-                <a (click)="minesAmounts(getAllCart)">
-                  <button mat-button>
+                <a (click)="minesAmounts(getAllCart)" *ngIf="getAllCart.amount > 1">
+                  <button mat-button >
                     <mat-icon style="color: green;" matTooltip="minus">keyboard_arrow_left</mat-icon>
+                  </button>
+                </a>
+                <a *ngIf="getAllCart.amount == 1">
+                  <button mat-button (click)="minesAmounts(getAllCart)" disabled="true">
+                    <mat-icon style="color: black;" matTooltip="disabled minus">keyboard_arrow_left</mat-icon>
                   </button>
                 </a>
               </span>
               {{getAllCart.amount}}
               <span>
-                <a (click)="plesAmounts(getAllCart)">
+                <a (click)="plesAmounts(getAllCart)" *ngIf="getAllCart.amount < getAllCart.recipe_id.available">
                   <button mat-button>
                     <mat-icon style="color: green;" matTooltip="plus">keyboard_arrow_right</mat-icon>
+                  </button>
+                </a>
+                <a *ngIf="getAllCart.amount >= getAllCart.recipe_id.available">
+                  <button (click)="plesAmounts(getAllCart)" mat-button disabled="true">
+                    <mat-icon style="color: black;" matTooltip="disabled plus">keyboard_arrow_right</mat-icon>
                   </button>
                 </a>
               </span>
