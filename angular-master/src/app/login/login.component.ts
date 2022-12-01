@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { SubSink } from 'subsink';
@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
 import { Logins } from '../model/userLogin.model';
 import { AuthService } from './auth/auth.service';
 import { TranslateService } from '@ngx-translate/core';
+import { RegisterComponent } from '../register/register.component';
 
 @Component({
   selector: 'app-login',
@@ -33,6 +34,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private authService: AuthService,
     private translateService : TranslateService,
+    public dialog: MatDialog, 
   ) { }
 
   ngOnInit(): void {
@@ -55,6 +57,20 @@ export class LoginComponent implements OnInit {
       return 'This email is required!';
     }
     return this.signupForm.get('email')?.hasError('email') ? 'This email is fail' : '';
+  }
+
+  openRegister(): void {
+    this.dialogRef.close();
+    const dialogRef = this.dialog.open(RegisterComponent, {
+      width: '100%',
+      panelClass: 'bg-color',
+      // data: this.cart_length
+    });
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      if (result) {
+        this.router.navigate(['homepage'])
+    }});
   }
 
   login() {

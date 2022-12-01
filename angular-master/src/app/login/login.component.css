@@ -9,6 +9,8 @@ body {
   background: #e2e2e2;
 }
 
+.context-menu {cursor: pointer;}
+
 .login-wrapper {
   margin-left: auto;
   margin-right: auto;

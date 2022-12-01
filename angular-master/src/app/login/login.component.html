@@ -1,7 +1,7 @@
 <div class="login-wrapper">
   <mat-card class="box">
     <div class="custom">
-      <button mat-button color="warn" (click)="onNoClick()">Close</button>
+      <button mat-button color="warn" (click)="onNoClick()">X</button>
     </div>
     <mat-card-header>
       <mat-card-title>{{ "login" | translate }}</mat-card-title>
@@ -25,6 +25,14 @@
       </mat-card-content>
       
       <button mat-stroked-button color="primary" class="btn-block" type="submit" (click)="login()"> {{ "login" | translate }} </button>
+
+      <p style="text-align: right; padding-top: 5px;">
+        <a class="context-menu"> forgot password? </a>
+      </p>
+
+      <p style="text-align: center;">
+        Don't have an account yet? <a class="context-menu" (click)="openRegister()"> <b>register now</b> </a>
+      </p>
       
     </form>
   </mat-card>

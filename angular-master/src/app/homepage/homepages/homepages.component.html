@@ -12,21 +12,6 @@
   </div>
 </section>
 
-<!-- no menu and special -->
-
-<div style="top: 0; margin:0; padding: 0" *ngIf="!menus2length && !menus1length">
-  <div style="display: flex; flex-wrap: wrap; width: 100%; margin-right: auto; margin-left: auto; height: 200px;">
-    <div style="background-color: red; width: 50%; padding-top: 50px;">
-      <h2 style="color: white; text-align: right; margin-right: 5px"> <b>UNIC</b> </h2>
-      <p style="text-align: right; margin-right: 5px">choix de plats et de boissons au goût distinctif</p>
-    </div>
-    <div style="background-color: white; width: 50%; padding-top: 50px;">
-      <h2 style="color: red; padding-left: 5px;"> <b>FOODS</b> </h2> 
-      <p style="padding-left: 5px;">five star taste street food with unique atmosphere</p>
-    </div>
-  </div>
-</div>
-
 <!-- special -->
 
 <div class="parent" *ngIf="menus1length > 0">
@@ -50,6 +35,21 @@
       <button mat-raised-button color="warn" type="button" class="prev" appPrev><mat-icon>arrow_back</mat-icon></button>
       <app-special-offer class="item" *ngFor="let menue of menus1" [recipe]="menue"></app-special-offer>
       <button mat-raised-button color="warn" type="button" class="next" appNext><mat-icon>arrow_forward</mat-icon></button>
+    </div>
+  </div>
+</div>
+
+<!-- no menu and special -->
+<!-- *ngIf="!menus2length && !menus1length" -->
+<div style="top: 0; margin:0; padding: 0">
+  <div style="display: flex; flex-wrap: wrap; width: 100%; margin-right: auto; margin-left: auto; height: 200px;">
+    <div style="background-color: red; width: 50%; padding-top: 50px;">
+      <h2 style="color: white; text-align: right; margin-right: 5px"> <b>UNIC</b> </h2>
+      <p style="text-align: right; margin-right: 5px">choix de plats et de boissons au goût distinctif</p>
+    </div>
+    <div style="background-color: white; width: 50%; padding-top: 50px;">
+      <h2 style="color: red; padding-left: 5px;"> <b>FOODS</b> </h2> 
+      <p style="padding-left: 5px;">five star taste street food with unique atmosphere</p>
     </div>
   </div>
 </div>

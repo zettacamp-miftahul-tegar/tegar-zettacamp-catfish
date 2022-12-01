@@ -11,6 +11,7 @@ export class SpecialOfferComponent implements OnInit {
 
   @Input() recipe: any;
   token!: string | null;
+  user_type!: string | null;
 
   constructor(
     public dialog: MatDialog
@@ -19,6 +20,7 @@ export class SpecialOfferComponent implements OnInit {
   ngOnInit(): void {
     if (localStorage.getItem('token')){
       this.token = localStorage.getItem('token')
+      this.user_type = JSON.parse(localStorage.getItem('user_type')!)
     }
   }
 

@@ -77,8 +77,9 @@ export class AppComponent {
     });
 
     dialogRef.afterClosed().subscribe((result: any) => {
-      this.email = result;
-    });
+      if (result) {
+        this.router.navigate(['homepage'])
+    }});
   }
 
   openRegister(): void {

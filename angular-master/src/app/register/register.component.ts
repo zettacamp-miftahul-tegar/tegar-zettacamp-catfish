@@ -6,6 +6,7 @@ import { RegisterService } from './service/register.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { LoginComponent } from '../login/login.component';
 
 interface Food {
   value: string;
@@ -65,6 +66,22 @@ export class RegisterComponent implements OnInit {
       return 'This email is required!';
     }
     return this.signupForm.get('email')?.hasError('email') ? 'This email is fail' : '';
+  }
+
+  openDialog(): void {
+    this.dialogRef.close();
+    const dialogRef = this.dialog.open(LoginComponent, {
+      width: '100%',
+      panelClass: 'bg-color',
+      // data: this.cart_length
+    });
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      console.log("close");
+      
+      if (result) {
+        this.router.navigate(['homepage'])
+    }});
   }
 
   register() {
