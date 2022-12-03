@@ -41,89 +41,37 @@
 
 <!-- no menu and special -->
 <!-- *ngIf="!menus2length && !menus1length" -->
-<div style="top: 0; margin:0; padding: 0">
-  <div style="display: flex; flex-wrap: wrap; width: 100%; margin-right: auto; margin-left: auto; height: 200px;">
-    <div style="background-color: red; width: 50%; padding-top: 50px;">
-      <h2 style="color: white; text-align: right; margin-right: 5px"> <b>UNIC</b> </h2>
-      <p style="text-align: right; margin-right: 5px">choix de plats et de boissons au goût distinctif</p>
+<div class="wp">
+  <div class="d-flex">
+    <div class="bg mr-right1">
+      <h2 class="text"> <b>Contact Us</b> </h2>
+      <div class="images">
+        <div class="child">
+          <img class="b" src="https://cdn-icons-png.flaticon.com/512/323/323329.png">&nbsp;
+          <span style="color: white;"> xxxxxxxxxxxxxxxxxxxxx </span>
+        </div>
+        <div class="child">
+          <img class="b" src="https://cdn-icons-png.flaticon.com/512/323/323329.png">&nbsp;
+          <span style="color: white;"> xxxxxxxxxxxxxxxxxxxxx </span>
+        </div>
+      </div><br>
+      <div class="images">
+        <div class="child">
+          <img class="b" src="https://cdn-icons-png.flaticon.com/512/323/323329.png">&nbsp;
+          <span style="color: white;"> xxxxxxxxxxxxxxxxxxxxx </span>
+        </div>
+        <div class="child">
+          <img class="b" src="https://cdn-icons-png.flaticon.com/512/323/323329.png">&nbsp;
+          <span style="color: white;"> xxxxxxxxxxxxxxxxxxxxx </span>
+        </div>
+      </div><br>
     </div>
-    <div style="background-color: white; width: 50%; padding-top: 50px;">
-      <h2 style="color: red; padding-left: 5px;"> <b>FOODS</b> </h2> 
-      <p style="padding-left: 5px;">five star taste street food with unique atmosphere</p>
+    <div class="bg1 mr-left1">
+      <div style="padding-left: 10%;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Flag-map-of-indonesia.png/640px-Flag-map-of-indonesia.png">
+      </div>
+      <!-- <h2 class="text3"> <b>FOODS</b> </h2> 
+      <p class="text4">five star taste street food with unique atmosphere</p> -->
     </div>
   </div>
 </div>
-
-<!-- header special -->
-
-<!-- <div class="atasA" *ngIf="menus1length > 0">
-  <div class="atas">
-    <div>
-      <h2> <b> {{ 'menu_highligth' | translate }} </b> </h2>
-    </div>
-    <div class="bawahchild">
-      <div style="margin-right: 70px;">
-        <button mat-raised-button color="warn" type="button" class="prev" appPrev>
-          <mat-icon>arrow_back</mat-icon>
-        </button>
-      </div>
-      <div style="margin-right: 30px;">
-        <button mat-raised-button color="warn" type="button" class="next" appNext>
-          <mat-icon>arrow_forward</mat-icon>
-        </button>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-<!-- content special -->
-
-<!-- <div class="anyar" *ngIf="menus1length > 0">
-  <div class="menu">
-    <app-menu-heightlight class="item" *ngFor="let menu of menus;" [recipe]="menu"></app-menu-heightlight>
-  </div>
-</div> -->
-
-<!-- // testing  -->
-
-<!-- <div class="atasA" style="padding-top: 50px;">
-  <div class="atas">
-    <div>
-      <h2> <b> {{ 'special_offer' | translate }} </b> </h2>
-    </div>
-    <div class="bawahchild">
-      <div style="margin-right: 70px;">
-        <button mat-raised-button color="warn" type="button" class="prev" appPrev>
-          <mat-icon>arrow_back</mat-icon>
-        </button>
-      </div>
-      <div style="margin-right: 30px;">
-        <button mat-raised-button color="warn" type="button" class="next" appNext>
-          <mat-icon>arrow_forward</mat-icon>
-        </button>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-<!-- <div class="anyar" *ngIf="!menus1length">
-  <div class="anyarchild">
-    <div class="gambar1">
-      <img class="gambar" src="https://mmc.tirto.id/image/otf/880x495/2019/11/21/istock-1061632246_ratio-16x9.jpg">
-    </div>
-    <div>
-      <h2> Bakso Bakar </h2>
-    </div>
-    <div class="d-flex">
-      <div style="padding-top: 10px;">
-        <p>
-          <span style="text-decoration: line-through red; font-size: 12px;"><b>Rp. 10000</b> </span> 
-          <span style="padding-left: 5px;"> <b>Rp. 8000</b> </span> 
-        </p>
-      </div>
-      <div>
-        <button mat-raised-button color="warn">buy now</button>
-      </div>
-    </div>
-  </div>
-</div> -->

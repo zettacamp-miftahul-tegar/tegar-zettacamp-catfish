@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { SubSink } from 'subsink';
@@ -28,6 +28,7 @@ export class AppComponent {
   srcImages: string = 'https://cdn-icons-png.flaticon.com/512/323/323329.png';
 
   constructor(
+    // public dialogRef: MatDialogRef<RegisterComponent>,
     private router: Router,
     private translateService : TranslateService,
     public dialog: MatDialog, 
@@ -73,11 +74,12 @@ export class AppComponent {
     const dialogRef = this.dialog.open(LoginComponent, {
       width: '100%',
       panelClass: 'bg-color',
-      data: this.cart_length
+      // data: this.cart_length
     });
 
     dialogRef.afterClosed().subscribe((result: any) => {
       if (result) {
+        // this.dialogRef.close();
         this.router.navigate(['homepage'])
     }});
   }
@@ -95,6 +97,14 @@ export class AppComponent {
     }});
   }
 
+  cartRedirect() {
+    this.router.navigate(['cart-management'])
+  }
+
+  history() {
+    this.router.navigate(['history'])
+  }
+
   logOut() {
     Swal.fire({
       title: this.translateService.instant('title'),
@@ -110,8 +120,11 @@ export class AppComponent {
           icon: 'success',
           title: this.translateService.instant('title1'),
         }).then((result) => {
+          localStorage.removeItem('first_name');
+          localStorage.removeItem('last_name');
           localStorage.removeItem('token');
-            localStorage.removeItem('user_type');
+          localStorage.removeItem('user');
+          localStorage.removeItem('user_type');
             this.router.navigate(['homepage']).then(()=>{
               window.location.reload()
             }

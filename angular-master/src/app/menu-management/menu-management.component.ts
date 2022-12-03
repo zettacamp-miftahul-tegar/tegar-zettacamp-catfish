@@ -12,7 +12,6 @@ import { UpdateComponent } from './update/update.component';
 import copy from 'fast-copy';
 import { FormControl } from '@angular/forms';
 import { debounceTime } from 'rxjs';
-import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { DetailComponent } from './detail/detail.component';
 
@@ -69,32 +68,22 @@ export class MenuManagementComponent implements OnInit {
     this.selection.select(...this.dataSource.data);
   }
 
-  @ViewChild('paginator') paginator!: MatPaginator;
-
-  pageSizeOptions: number[] = [10];
-
-  onPaginatorChange(event: PageEvent) {
-    const pagination = {
-      limit: event.pageSize,
-      page: event.pageIndex+1,
-    }
-    this.getDatas(pagination)
-  }
-
-
   getDatas(paginationObj?: any) {
 
     const pagination: any = {
       page: paginationObj?.page ?? 0,
-      limit: paginationObj?.limit ?? 10
+      limit: paginationObj?.limit ?? 10,
     }
 
     this.subs.sink = this.data.getRecipe(pagination, this.search, this.statusF).subscribe((resp: any) => {
       if(resp?.data?.getAllRecipes){
+        this.paginator.length = resp.data.getAllRecipes.totalDocs;  
+        this.pagination = resp.data.getAllRecipes.currentDocs
+        // this.pageSizeOptions = resp.data.getAllRecipes.currentDocs
 
-        this.paginator.length = resp.data.getAllRecipes.totalDocs;      
         this.paginator.pageSize = this.pageSizeOptions[0];
         this.dataSource = new MatTableDataSource(resp.data.getAllRecipes.recipes)
+
       } else {
         this.paginator.length = 0;
         this.dataSource.data = [];
@@ -107,9 +96,18 @@ export class MenuManagementComponent implements OnInit {
     this.searchFilter()
   }
 
-  pagination: any = {
-    page: 0,
-    limit: 10
+  @ViewChild('paginator') paginator!: MatPaginator;
+
+  pagination:any;
+  // pageSizeOptions:any;
+  pageSizeOptions: number[] = [10]
+
+  onPaginatorChange(event: PageEvent) {
+    const pagination = {
+      limit: event.pageSize,
+      page: event.pageIndex+1,
+    }
+    this.getDatas(pagination)
   }
 
   // --------------------------------------------------
@@ -195,7 +193,7 @@ export class MenuManagementComponent implements OnInit {
 
   // --------------------------------------------------
 
-  updateStatus(data:any) {
+  updateStatus(event:any, data:any) {
     data = copy(data)
     if (data.status === 'publish') {
       data.status = 'unpublish'
@@ -223,18 +221,10 @@ export class MenuManagementComponent implements OnInit {
             })
           }
         })
+      } else {
+        event.source.checked = !event.source.checked
       }
     })
-  }
-
-  onPublish(element: any) {
-    const data = {
-      id: element.id
-    };
-    
-    this.data.updateAvailable(data).subscribe(() => {
-      this.getDatas(true)
-    });
   }
 
   // ---------------------------------------------
@@ -265,7 +255,7 @@ export class MenuManagementComponent implements OnInit {
 
   // ----------------------------------------------
 
-  updateMenu(dataa:any) {
+  updateMenu(event:any, dataa:any) {
     dataa = copy(dataa)
     if (dataa.highlight === false) {
       dataa.highlight = true
@@ -293,24 +283,14 @@ export class MenuManagementComponent implements OnInit {
           }
         })
       } else {
-        this.getDatas()
+        event.source.checked = !event.source.checked
       }
     }) 
   }
 
-  onPublishh(element: any) {
-    const data = {
-      id: element.id
-    };
-    
-    this.data.updateMenu(data).subscribe(() => {
-      this.getDatas(true)
-    });
-  }
-
   //----------------------------------------------------
 
-  updateSpecial(data:any) {
+  updateSpecial(event:any, data:any) {
     data = copy(data)
     if (data.special_offer === true) {
       data.special_offer = false
@@ -334,7 +314,9 @@ export class MenuManagementComponent implements OnInit {
             })
           }
         })
-      } 
+      } else {
+        event.source.checked = !event.source.checked
+      }
     })
   }
 

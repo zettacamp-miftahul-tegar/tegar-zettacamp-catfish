@@ -1,5 +1,6 @@
 {
   "homepage": "Page d'accueil",
+  "transaction": "Transaction",
   "register": "S'inscrire",
   "error": "Ce champ est obligatoire !",
   "menu": "Menue",
@@ -43,7 +44,7 @@
     "status": "Statut",
     "action": "Action",
     "special_offer": "Offre spéciale",
-    "menu": "Mise en surbrillance du menu",
+    "menu": "Surbrillance du menu",
     "mes": "Aucune donnée à afficher",
     "add_menu": "Ajouter un menu",
     "addingre": "Ajouter des ingrédients"
@@ -155,5 +156,13 @@
     "remarque" : "Remarque",
     "totale" : "Totale",
     "totalp" : "Prix total"
+  },
+  "reset" : {
+    "title" : "Réinitialiser le mot de passe",
+    "submit" : "Réinitialiser maintenant",
+    "friend_name" : "Nom de l'ami",
+    "pet_name" : "Nom de l'animal",
+    "success" : "mot de passe modifié avec succès",
+    "fail" : "le mot de passe n'a pas pu être modifié"
   }
 }

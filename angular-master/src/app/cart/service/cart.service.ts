@@ -284,5 +284,31 @@ export class CartService {
     })
   }
 
+  getBALANCE(post:any) {
+    return this.apollo.watchQuery({
+      query : gql `
+      query GetOneUser($getOneUserId: ID) {
+        getOneUser(id: $getOneUserId) {
+          id
+          email
+          password
+          first_name
+          last_name
+          balance
+          status
+          role {
+            user_type
+          }
+          friend_name
+          pet_name
+        }
+      }`,
+      variables : {
+        getOneUserId : post.getOneUserId
+      },
+      fetchPolicy: "network-only" // ketika ada perubahan ngambil server  
+    })
+  }
+
 
 }

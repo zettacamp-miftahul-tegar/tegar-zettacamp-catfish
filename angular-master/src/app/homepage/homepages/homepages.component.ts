@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { environment } from 'src/environments/environment';
 import { SubSink } from 'subsink';
 import { DataService } from '../service/data.service';
 
@@ -18,6 +19,7 @@ export class HomepagesComponent implements OnInit {
   last_name: any;
   token : string | null = "";
   user_type: string | null = "";
+  dataUser:any;
 
   currentLanguage = 'en';
   srcImages: string = 'https://cdn-icons-png.flaticon.com/512/323/323329.png';
@@ -45,6 +47,7 @@ export class HomepagesComponent implements OnInit {
     this.getDatas_special()
     this.getDatas_menu()
     if (localStorage.getItem('token')){
+      // this.dataUser = localStorage.getItem(environment.user)
       this.token = localStorage.getItem('token')
       this.user_type = JSON.parse(localStorage.getItem('user_type')!)
     }

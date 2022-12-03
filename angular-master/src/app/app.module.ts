@@ -17,6 +17,7 @@ import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HistoryModule } from './history/history.module';
 import { RegisterModule } from './register/register.module';
+import { ResetPasswordModule } from './reset-password/reset-password.module';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -28,6 +29,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   ],
   imports: [
     BrowserModule,
+    ResetPasswordModule,
     RegisterModule,
     AppRoutingModule,
     BrowserAnimationsModule,

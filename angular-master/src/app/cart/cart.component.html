@@ -1,4 +1,18 @@
 <div class="breng">
+
+  <div class="container">
+    <div class="beha">
+      <div class="balance">
+        <div style="padding-left: 4%;">
+          <h2> Cart Transaction </h2>
+        </div>
+        <div style="text-align: right;">
+          <h2>Saldo : Rp. {{balancee}} </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  
   <div class="class">
     <app-cart-buy class="rep" *ngFor="let menu of carts;" [getAllCart]="menu" (refetchall)="getCard_id($event)">
     </app-cart-buy>

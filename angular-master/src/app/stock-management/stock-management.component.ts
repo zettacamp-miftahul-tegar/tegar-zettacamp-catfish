@@ -60,7 +60,9 @@ export class StockManagementComponent implements OnInit {
     
     this.subs.sink = this.data.getStock(pagination, this.search, this.statusF).valueChanges.subscribe((resp : any) => {
       if(resp?.data?.getAllIngredient){
-        this.paginator.length = resp.data.getAllIngredient.totalDocs;      
+        this.paginator.length = resp.data.getAllIngredient.totalDocs;   
+        console.log(this.paginator.length);
+
         this.paginator.pageSize = this.pageSizeOptions[0];
         this.dataSource.data = resp.data.getAllIngredient.ingredients
       } else {

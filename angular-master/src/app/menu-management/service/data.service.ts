@@ -12,7 +12,7 @@ export class DataService {
   query: any;
   constructor(private apollo: Apollo) { }
 
-  getRecipe(pagination:Menus, val:any, nameF:any) {
+  getRecipe(pagination:any, val:any, nameF:any) {
 
     let nameFilter : any = ""
     if (val) {
@@ -57,7 +57,7 @@ export class DataService {
         recipeName:nameFilter,
         status: statusFilter
       },
-      fetchPolicy: "network-only" // ketika ada perubahan ngambil server  
+      fetchPolicy: "network-only"
     })
   }
 

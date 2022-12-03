@@ -1,29 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { SubSink } from 'subsink';
 import Swal from 'sweetalert2';
-import { RegisterService } from './service/register.service';
-import { TranslateService } from '@ngx-translate/core';
-import { Router } from '@angular/router';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { LoginComponent } from '../login/login.component';
-
-interface Food {
-  value: string;
-  viewValue: string;
-}
+import { ForgotService } from './service/forgot.service';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-reset-password',
+  templateUrl: './reset-password.component.html',
+  styleUrls: ['./reset-password.component.css']
 })
-export class RegisterComponent implements OnInit {
-
-  foods: Food[] = [
-    {value: 'admin', viewValue: 'Admin'},
-    {value: 'user', viewValue: 'User'},
-  ];
+export class ResetPasswordComponent implements OnInit {
 
   hide = true;
   hidee = true;
@@ -39,9 +28,9 @@ export class RegisterComponent implements OnInit {
   }
 
   constructor(
-    public dialogRef: MatDialogRef < RegisterComponent > ,
+    public dialogRef: MatDialogRef < ResetPasswordComponent > ,
     private router: Router,
-    private data:RegisterService,
+    private data:ForgotService,
     private translateService : TranslateService,
     public dialog: MatDialog, 
   ) {}
@@ -52,8 +41,6 @@ export class RegisterComponent implements OnInit {
 
   initForm() {
     this.signupForm = new FormGroup({
-      'first_name': new FormControl(null, [Validators.required]),
-      'last_name': new FormControl(null, [Validators.required]),
       'friend_name': new FormControl(null, [Validators.required]),
       'pet_name': new FormControl(null, [Validators.required]),
       'email': new FormControl(null, [Validators.required, Validators.email]),
@@ -69,29 +56,13 @@ export class RegisterComponent implements OnInit {
     return this.signupForm.get('email')?.hasError('email') ? 'This email is fail' : '';
   }
 
-  openDialog(): void {
-    this.dialogRef.close();
-    const dialogRef = this.dialog.open(LoginComponent, {
-      width: '100%',
-      panelClass: 'bg-color',
-      // data: this.cart_length
-    });
-
-    dialogRef.afterClosed().subscribe((result: any) => {
-      console.log("close");
-      
-      if (result) {
-        this.router.navigate(['homepage'])
-    }});
-  }
-
-  register() {
+  resetNow() {
     const payload: any = this.signupForm.value;
-    this.subs.sink = this.data.registerUser(payload).subscribe(resp => {
+    this.subs.sink = this.data.resetPassword(payload).subscribe(resp => {
       if (resp) {
         Swal.fire({
           icon: 'success',
-          title: this.translateService.instant('passRegister'),
+          title: this.translateService.instant('reset.success'),
         })
         this.router.navigate(['homepage']).then(()=>{
           this.dialogRef.close()
@@ -100,9 +71,10 @@ export class RegisterComponent implements OnInit {
     }, err => {
       Swal.fire({
         icon: 'error',
-        title: this.translateService.instant('failRegister'),
+        title: this.translateService.instant('reset.fail'),
       })}
     )
   }
+
 
 }

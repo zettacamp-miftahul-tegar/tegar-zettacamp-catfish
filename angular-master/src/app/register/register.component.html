@@ -9,7 +9,18 @@
     <form class="example-form" [formGroup]="signupForm">
       <mat-card-content>
 
-        <mat-form-field class="example-full-width">
+        <table class="example-full-width" cellspacing="0"><tr>
+          <td><mat-form-field class="example-full-width">
+            <input matInput type="text" id="first_name" formControlName="first_name" placeholder="{{ 'reg.first_name' | translate }}">
+            <mat-error *ngIf="this.signupForm.get('first_name')?.invalid"> {{ 'error' | translate }} </mat-error>
+          </mat-form-field></td>
+          <td><mat-form-field class="example-full-width">
+            <input matInput type="text" id="last_name" formControlName="last_name" placeholder="{{ 'reg.last_name' | translate }}">
+            <mat-error *ngIf="this.signupForm.get('last_name')?.invalid"> {{ 'error' | translate }} </mat-error>
+          </mat-form-field></td>
+        </tr></table>
+
+        <!-- <mat-form-field class="example-full-width">
           <input matInput type="text" id="first_name" formControlName="first_name" placeholder="{{ 'reg.first_name' | translate }}">
           <mat-error *ngIf="this.signupForm.get('first_name')?.invalid"> {{ 'error' | translate }} </mat-error>
         </mat-form-field>
@@ -17,21 +28,32 @@
         <mat-form-field class="example-full-width">
           <input matInput type="text" id="last_name" formControlName="last_name" placeholder="{{ 'reg.last_name' | translate }}">
           <mat-error *ngIf="this.signupForm.get('last_name')?.invalid"> {{ 'error' | translate }} </mat-error>
-        </mat-form-field>
-
-        <!-- <mat-form-field class="example-full-width">
-          <mat-select id="role.user_type" formControlName="role.user_type" placeholder="{{ 'reg.user_type' | translate }}">
-            <mat-option *ngFor="let food of foods" [value]="food.value">
-              {{food.viewValue}}
-            </mat-option>
-          </mat-select>
-          <mat-error *ngIf="this.signupForm.get('role.user_type')?.invalid"> {{ 'error' | translate }} </mat-error>
         </mat-form-field> -->
 
         <mat-form-field class="example-full-width">
           <input matInput type="email" id="email" formControlName="email" placeholder="{{ 'reg.email' | translate }}">
           <mat-error *ngIf="this.signupForm.get('email')?.invalid"> {{ 'error' | translate }} </mat-error>
         </mat-form-field>
+
+        <table class="example-full-width" cellspacing="0"><tr>
+          <td><mat-form-field class="example-full-width">
+            <input matInput type="text" id="friend_name" formControlName="friend_name" placeholder="{{ 'reset.friend_name' | translate }}">
+            <mat-error *ngIf="this.signupForm.get('friend_name')?.invalid"> {{ 'error' | translate }} </mat-error>
+          </mat-form-field></td>
+          <td><mat-form-field class="example-full-width">
+            <input matInput type="text" id="pet_name" formControlName="pet_name" placeholder="{{ 'reset.pet_name' | translate }}">
+            <mat-error *ngIf="this.signupForm.get('pet_name')?.invalid"> {{ 'error' | translate }} </mat-error>
+          </mat-form-field></table>
+<!-- 
+          <mat-form-field class="example-full-width">
+            <input matInput type="text" id="friend_name" formControlName="friend_name" placeholder="{{ 'reset.friend_name' | translate }}">
+            <mat-error *ngIf="this.signupForm.get('friend_name')?.invalid"> {{ 'error' | translate }} </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <input matInput type="text" id="pet_name" formControlName="pet_name" placeholder="{{ 'reset.pet_name' | translate }}">
+            <mat-error *ngIf="this.signupForm.get('pet_name')?.invalid"> {{ 'error' | translate }} </mat-error>
+          </mat-form-field> -->
 
         <mat-form-field class="example-full-width">
           <input matInput [type]="hide ? 'password' : 'text'" id="password" formControlName="password"
@@ -48,7 +70,7 @@
             placeholder="{{ 'reg.cpass' | translate }}">
           <button type="button" mat-icon-button matSuffix (click)="hidee = !hidee" [attr.aria-label]="'Hide password'"
             [attr.aria-pressed]="hidee">
-            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            <mat-icon>{{hidee ? 'visibility_off' : 'visibility'}}</mat-icon>
           </button>
           <mat-error *ngIf="this.signupForm.get('confirmPassword')?.invalid"> {{ 'error' | translate }} </mat-error>
         </mat-form-field>
@@ -59,7 +81,7 @@
       </button>
 
       <p style="text-align: center; padding-top: 15px;">
-        already have an account? <a class="context-menu" (click)="openDialog()"> <b>login now</b> </a>
+        already have an account? <a class="context-menu" (click)="openDialog()"> login now </a>
       </p>
 
     </form>

@@ -14,8 +14,11 @@
       routerLinkActive="active">{{ "stock-management" | translate }}</button>
     <button mat-button routerLink="menu-management" *ngIf="user_type=='admin'" style="color: white;"
       routerLinkActive="active">{{ "menu-management" | translate }}</button>
-    <button mat-button *ngIf="token" [matMenuTriggerFor]="menu" routerLinkActive="active"
-      style="color: white;">{{ "cart" | translate }}</button>
+
+
+    <!-- login and user only access cart -->
+    <button mat-button *ngIf="token && user_type == 'user'" [matMenuTriggerFor]="menu" routerLinkActive="active"
+      style="color: white;">{{ "transaction" | translate }}</button>
     <mat-menu #menu="matMenu">
       <a routerLink="cart-management">
         <button mat-menu-item routerLinkActive="active">{{ "cart" | translate }}</button>
@@ -24,6 +27,12 @@
         <button mat-menu-item routerLinkActive="active">{{ "historyz.history" | translate }}</button>
       </a>
     </mat-menu>
+
+     <!-- history admin only -->
+    <button (click)="history()" mat-button *ngIf="token && user_type == 'admin'" routerLinkActive="active"
+      style="color: white;">{{ "historyz.history" | translate }}</button>
+
+
     <button mat-button routerLink="about" style="color: white;"
       routerLinkActive="active">{{ "about" | translate }}</button>
     <button mat-button *ngIf="!token" (click)="openDialog()" routerLinkActive="active"

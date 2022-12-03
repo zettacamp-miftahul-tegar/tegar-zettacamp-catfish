@@ -153,15 +153,6 @@ body {
 
 /* ------------------------ */
 
-.menu {
-  display: flex;
-  flex-wrap: nowrap;
-  width: 100%;
-  margin: 1rem;
-  margin-right: auto;
-  margin-left: auto;
-}
-
 app-special-offer {
   margin-right: auto;
   margin-left: auto;
@@ -199,17 +190,40 @@ img {
   height: 150px;
   margin-right: auto;
   margin-left: auto;
-  border-radius: 50%;
+  justify-content: center;
+  /* border-radius: 50%; */
 }
 
 .anyar {
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-wrap: nowrap;
-  margin: 2rem;
+  /* margin: 2rem; */
   gap:2rem;
   overflow: hidden;
+  margin-right: auto;
+  margin-left: auto;
 }
+
+.menu {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  width: 70%;
+  margin: 1rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* .item {
+  justify-content: center;
+  border-radius: 20px 20px 20px 20px;
+  border: 1px solid black;
+  box-shadow: -3px -3px 2px rgba(0,0,0,0.4);
+  padding: 10px;
+  border: 1px dashed grey;
+  margin: 1rem;
+} */
 
 .anyarchild {
   width: 25%;
@@ -255,20 +269,80 @@ img {
 .prev {
   position: absolute;
   z-index: 100;
-  right: 100px;
+  margin-top: 9%;
+  left: 2px;
+  padding: 1px;
 }
 
 .next {
   position: absolute;
   z-index: 100;
-  right: 20px;
+  margin-top: 9%;
+  right: 2px;
 }
 
-.item {
-  border-radius: 20px 20px 20px 20px;
-  border: 1px solid black;
-  box-shadow: -3px -3px 2px rgba(0,0,0,0.4);
-  padding: 10px;
-  border: 1px dashed grey;
-  margin: 1rem;
+/* --------------------- */
+
+.wp {
+  top: 0; margin:0; padding: 0;
+}
+
+.d-flex {
+  /* justify-content: center; */
+  display: flex; flex-wrap: wrap; width: 100%; margin-right: auto; margin-left: auto; height: 200px;
+}
+
+.bg {
+  /* justify-content: center; */
+  background-color: red; width: 50%; padding-top: 50px; 
+}
+
+.mr-right1 {
+  margin-left: auto;
+}
+
+.text {
+  color: white; padding-left: 5%; text-align: center;
+}
+
+.text1 {
+  color: white; padding-left: 5%;
+}
+
+.bg1 {
+  justify-content: center;
+  background-color: white; width: 50%; padding-top: 50px;
+}
+/* 
+.mr-left1 {
+  margin-right: auto;
+} */
+
+.text3 {
+  color: red; padding-left: 5px; 
+}
+
+.text4 {
+  padding-left: 5px;
+}
+
+.images img {
+  padding-left: 5%;
+  width: 20px;
+  height: 20px;
+}
+
+.images {
+  padding-left: 12%;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.child {
+  width: 50%;
+}
+
+img.b {
+  vertical-align: sub;
 }

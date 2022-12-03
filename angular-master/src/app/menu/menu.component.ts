@@ -31,12 +31,14 @@ export class MenuComponent implements OnInit {
 
     const pagination: any = {
       page: paginationObj?.page ?? 1,
-      limit: paginationObj?.limit ?? 8,
+      limit: paginationObj?.limit ?? 6,
     }
 
     this.subs.sink = this.data.getRecipies(pagination, this.search).valueChanges.subscribe((resp : any) => {
       if(resp?.data?.getAllRecipe){
         this.paginator.length = resp.data.getAllRecipe.totalDocs;
+        console.log(this.paginator.length);
+        
         this.paginator.pageSize = this.pageSizeOptions[0];
         this.recepien = resp.data.getAllRecipe.recipes
         console.log(this.recepien);
@@ -54,7 +56,7 @@ export class MenuComponent implements OnInit {
 
   @ViewChild('paginator') paginator!: MatPaginator;
 
-  pageSizeOptions: number[] = [8];
+  pageSizeOptions: number[] = [6];
 
   onPaginatorChange(event: PageEvent) {
     const pagination = {
@@ -68,10 +70,7 @@ export class MenuComponent implements OnInit {
 
   value = '';
   nameFilter = new FormControl();
-  page = 1;
   search : any;
-  maxPage : any;
-  dataIngredients : any;
 
   searchFilter(paginationObj?:any) {
     this.nameFilter.valueChanges.pipe(debounceTime(300)).subscribe((val) => {

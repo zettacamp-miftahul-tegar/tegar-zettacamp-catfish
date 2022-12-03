@@ -27,11 +27,11 @@
       <button mat-stroked-button color="primary" class="btn-block" type="submit" (click)="login()"> {{ "login" | translate }} </button>
 
       <p style="text-align: right; padding-top: 5px;">
-        <a class="context-menu"> forgot password? </a>
+        <a class="context-menu" (click)="resetPassword()"> forgot password? </a>
       </p>
 
       <p style="text-align: center;">
-        Don't have an account yet? <a class="context-menu" (click)="openRegister()"> <b>register now</b> </a>
+        Don't have an account yet? <a class="context-menu" (click)="openRegister()"> register now </a>
       </p>
       
     </form>

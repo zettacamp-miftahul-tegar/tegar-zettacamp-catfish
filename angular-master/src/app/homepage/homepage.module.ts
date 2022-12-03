@@ -29,6 +29,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { InputComponent } from './input/input.component';
+import { PermissionCartGuard } from '../login/auth/permission-cart.guard';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -54,7 +55,7 @@ const routes : Routes = [
         path:"menu-management", component: MenuManagementComponent, canActivate:[GuardGuard, GuardPermissionGuard]
       },
       {
-        path:"cart-management", component: CartComponent, canActivate:[GuardGuard]
+        path:"cart-management", component: CartComponent, canActivate:[GuardGuard, PermissionCartGuard]
       },
       {
         path:"history", component: HistoryComponent, canActivate:[GuardGuard]

@@ -2,7 +2,7 @@
   width: 90%;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 80px;
+  /* padding-top: 80px; */
 }
 
 .breng {
@@ -14,6 +14,15 @@
 .beha {
   display: flex;
   width: 91%;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: space-between;
+}
+
+.balance {
+  padding-top: 100px;
+  display: flex;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   justify-content: space-between;

@@ -29,6 +29,7 @@ export class HistoryComponent implements OnInit {
 
   private subs = new SubSink();
   recipe_names: any;
+  balancee: any;
 
   constructor(
     private data: DataService,
@@ -40,6 +41,7 @@ export class HistoryComponent implements OnInit {
     this.searchFilter()
     this.statusFilterr()
     this.nameFilterr()
+    this.getBalance()
   }
 
   displayedColumns: string[] = ['name', 'detail', 'order_date', 'total_price', 'order_status'];
@@ -71,7 +73,9 @@ export class HistoryComponent implements OnInit {
 
     this.subs.sink = this.data.getHistory(pagination, this.search, this.statusF, this.statusLast).valueChanges.subscribe((resp: any) => {
       if(resp?.data?.getAllTransaction){
-        this.paginator.length = resp.data.getAllTransaction.totalDocs;      
+        this.paginator.length = resp.data.getAllTransaction.totalDocs;  
+        console.log(this.paginator.length);
+
         this.paginator.pageSize = this.pageSizeOptions[0];
         this.dataSource = new MatTableDataSource(resp.data.getAllTransaction.transactions)
       } else {
@@ -82,6 +86,19 @@ export class HistoryComponent implements OnInit {
     (err) => {
       this.paginator.length = 0;
       this.dataSource.data = [];
+    })
+  }
+
+  getBalance() {
+
+    let user_id = JSON.parse(localStorage.getItem('user_id') !);
+
+    const idz = {
+      getOneUserId : user_id
+    }
+
+    this.subs.sink = this.data.getBALANCE(idz).valueChanges.subscribe((item:any) => {
+      this.balancee = item.data.getOneUser.balance
     })
   }
 

@@ -42,12 +42,10 @@ export class AuthService {
   userLogin(data: any) {    
     localStorage.setItem(environment.tokenKey, JSON.stringify(data.login.token));
     localStorage.setItem(environment.user, JSON.stringify(data.login.user));
+    localStorage.setItem(environment.user_id, JSON.stringify(data.login.user.user_id))
     localStorage.setItem(environment.user_type, JSON.stringify(data.login.user.role.user_type))
     localStorage.setItem(environment.first_name, JSON.stringify(data.login.user.first_name))
     localStorage.setItem(environment.last_name, JSON.stringify(data.login.user.last_name))
   }
 
-  logOut() {
-    localStorage.removeItem(environment.tokenKey);
-  }
 }

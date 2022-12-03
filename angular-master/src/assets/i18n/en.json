@@ -1,5 +1,6 @@
 {
   "homepage": "Homepage",
+  "transaction": "Transaction",
   "register": "Register",
   "error" :"This field is required !",
   "menu": "Menu",
@@ -155,5 +156,13 @@
     "note" : "Note",
     "total" : "Total",
     "totalp" : "Total Price"
+  },
+  "reset" : {
+    "title" : "Reset Password",
+    "submit" : "Reset Now",
+    "friend_name" : "Friend Name",
+    "pet_name" : "Pet Name",
+    "success" : "password changed successfully",
+    "fail" : "password failed to change"
   }
 }

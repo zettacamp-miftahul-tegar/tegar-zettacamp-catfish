@@ -9,6 +9,7 @@ import { Logins } from '../model/userLogin.model';
 import { AuthService } from './auth/auth.service';
 import { TranslateService } from '@ngx-translate/core';
 import { RegisterComponent } from '../register/register.component';
+import { ResetPasswordComponent } from '../reset-password/reset-password.component';
 
 @Component({
   selector: 'app-login',
@@ -73,21 +74,33 @@ export class LoginComponent implements OnInit {
     }});
   }
 
+  resetPassword(): void {
+    this.dialogRef.close();
+    const dialogRef = this.dialog.open(ResetPasswordComponent, {
+      width: '100%',
+      panelClass: 'bg-color',
+      // data: this.cart_length
+    });
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      if (result) {
+        this.router.navigate(['homepage'])
+    }});
+  }
+
   login() {
     const payload: Logins = this.signupForm.value;
     this.subs.sink = this.authService.loginUser(payload.email, payload.password).subscribe(resp => {
       if (resp) {
+        this.dialogRef.close()
         Swal.fire({
           icon: 'success',
           title: this.translateService.instant('passLogin'),
         })
-        this.router.navigate(['homepage']).then(()=>{
-          // setTimeout(() => {
-          //   window.location.reload()
-          // }, 1000)
-          this.dialogRef.close()
-        }).then((result) => {
-          window.location.reload()
+        .then((result) => {
+          this.router.navigate(['homepage']).then(()=>{
+            window.location.reload()
+          })
         })
       }
     }, err => {
