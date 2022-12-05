@@ -4,6 +4,7 @@ import { FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { TranslateService } from '@ngx-translate/core';
 import { debounceTime } from 'rxjs';
 import { SubSink } from 'subsink';
 import { DetailComponent } from './detail/detail.component';
@@ -32,6 +33,7 @@ export class HistoryComponent implements OnInit {
   balancee: any;
 
   constructor(
+    private translateService: TranslateService,
     private data: DataService,
     public dialog: MatDialog
   ) { }
@@ -176,5 +178,27 @@ export class HistoryComponent implements OnInit {
       
     })
   }
+
+  //==============================================================
+
+  // itemsPerPageLabel = 'Items per page';
+  // nextPageLabel     = 'Next page';
+  // previousPageLabel = 'Previous page';
+
+  // getTranslations() {
+  //   this.translateService.get([
+  //     'PAGINATOR.ITEMS_PER_PAGE',
+  //     'PAGINATOR.NEXT_PAGE',
+  //     'PAGINATOR.PREVIOUS_PAGE',
+  //     'PAGINATOR.RANGE'
+  //   ])
+  //     .subscribe(translation => {
+  //       this.itemsPerPageLabel = translation['PAGINATOR.ITEMS_PER_PAGE'];
+  //       this.nextPageLabel = translation['PAGINATOR.NEXT_PAGE'];
+  //       this.previousPageLabel = translation['PAGINATOR.PREVIOUS_PAGE'];
+  //       // this.rangeLabelIntl = translation['PAGINATOR.RANGE'];
+  //       // this.changes.next();
+  //     });
+  // }
   
 }

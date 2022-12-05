@@ -1,6 +1,13 @@
 <section class="mbr-section" id="top">
   <div class="pricing" id="pricing">
     <div class="container">
+      <div *ngIf="token">
+        <h2 style="color: white ">
+          <span style="background-color: rgb(252, 46, 46); padding: 10px;"> 
+            <b>SALDO : Rp. {{balancee}}</b>
+          </span> 
+        </h2>
+      </div>
       <div class="pad">
         <p class="mbr-title-font"> <span style="color: white; font-family: Verdana;">UNIC</span> <br><br><br> <span
             style="color: red; letter-spacing: 10px; font-family: Lucida Sans;"><b>FOODS</b></span> </p><br>

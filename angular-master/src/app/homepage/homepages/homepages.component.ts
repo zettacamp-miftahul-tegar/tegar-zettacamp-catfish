@@ -46,6 +46,7 @@ export class HomepagesComponent implements OnInit {
   ngOnInit(): void {
     this.getDatas_special()
     this.getDatas_menu()
+    this.getBalance()
     if (localStorage.getItem('token')){
       // this.dataUser = localStorage.getItem(environment.user)
       this.token = localStorage.getItem('token')
@@ -68,6 +69,21 @@ export class HomepagesComponent implements OnInit {
     this.subs.sink = this.data.getRecipies_menus()?.valueChanges.subscribe((resp : any) => {
       this.menus1 = resp?.data?.getAllRecipe?.recipes
       this.menus2length = resp?.data?.getAllRecipe?.recipes?.length
+    })
+  }
+
+  balancee:any;
+
+  getBalance() {
+
+    let user_id = JSON.parse(localStorage.getItem('user_id') !);
+
+    const idz = {
+      getOneUserId : user_id
+    }
+
+    this.subs.sink = this.data.getBALANCE(idz).valueChanges.subscribe((item:any) => {
+      this.balancee = item.data.getOneUser.balance
     })
   }
 

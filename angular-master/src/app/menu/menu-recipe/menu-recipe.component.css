@@ -10,6 +10,10 @@
   border: 1px dashed grey;
 }
 
+mat-card:hover {
+  transform: scale(1.045);
+}
+
 .sold{
   margin: 0;
   padding: 0;

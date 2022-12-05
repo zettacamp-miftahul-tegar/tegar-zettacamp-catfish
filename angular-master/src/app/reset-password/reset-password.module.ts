@@ -6,6 +6,7 @@ import { MaterialModule } from '../material/material.module';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { ValidationPetComponent } from './validation-pet/validation-pet.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -13,7 +14,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 
 @NgModule({
   declarations: [
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    ValidationPetComponent
   ],
   imports: [
     CommonModule,
