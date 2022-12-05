@@ -4,7 +4,7 @@
       <div *ngIf="token">
         <h2 style="color: white ">
           <span style="background-color: rgb(252, 46, 46); padding: 10px;"> 
-            <b>SALDO : Rp. {{balancee}}</b>
+            <b>SALDO : {{balancee | currency: "Rp "}}</b>
           </span> 
         </h2>
       </div>

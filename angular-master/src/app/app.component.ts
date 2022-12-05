@@ -28,7 +28,6 @@ export class AppComponent {
   srcImages: string = 'https://cdn-icons-png.flaticon.com/512/323/323329.png';
 
   constructor(
-    // public dialogRef: MatDialogRef<RegisterComponent>,
     private router: Router,
     private translateService : TranslateService,
     public dialog: MatDialog, 
@@ -58,28 +57,26 @@ export class AppComponent {
     }
     this.first_name = JSON.parse(localStorage.getItem('first_name') !);
     this.last_name = JSON.parse(localStorage.getItem('last_name') !);
-    // this.getCard_id(true)
+    this.getCard_id(true)
   }
 
   data:any
   a:any
 
-  // getCard_id(event:any) {
-  //   this.subs.sink = this.cart.getCart()?.valueChanges.subscribe((item: any) => {
-  //     this.cart_length = item?.data?.getAllCart?.cart_length
-  //   });
-  // }
+  getCard_id(event:any) {
+    this.subs.sink = this.cart.getCart()?.valueChanges.subscribe((item: any) => {
+      this.cart_length = item?.data?.getAllCart?.cart_length
+    });
+  }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(LoginComponent, {
       width: '100%',
       panelClass: 'bg-color',
-      // data: this.cart_length
     });
 
     dialogRef.afterClosed().subscribe((result: any) => {
       if (result) {
-        // this.dialogRef.close();
         this.router.navigate(['homepage'])
     }});
   }
@@ -113,6 +110,7 @@ export class AppComponent {
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
+      cancelButtonText: this.translateService.instant('cancel'),
       confirmButtonText: this.translateService.instant('confirm')
     }).then((result) => {
       if (result.isConfirmed) {

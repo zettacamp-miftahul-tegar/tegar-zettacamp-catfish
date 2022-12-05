@@ -13,7 +13,7 @@
   </div>
   <div class="main">
     <div class="mainzz">
-      <p class="pe"> {{ 'menus.price' | translate }} : {{recipe.special_offer_price}}</p>
+      <p class="pe"> <b>{{ 'menus.price' | translate }}</b> : {{recipe.special_offer_price | currency: "Rp "}}</p>
     </div>
     <div class="bot" *ngIf="token && user_type == 'user'">
       <div *ngIf="recipe.available > 0">

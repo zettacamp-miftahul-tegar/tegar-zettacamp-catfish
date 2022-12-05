@@ -9,6 +9,7 @@
 <!-- *ngIf="leng > 1" -->
 
 <div class="container">
+  <mat-spinner *ngIf="loading"></mat-spinner>
   <app-menu-recipe class="rep" *ngFor="let menu of recepien;" [recipe]="menu"></app-menu-recipe>
 </div>
 

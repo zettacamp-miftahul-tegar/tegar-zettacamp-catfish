@@ -1,9 +1,10 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { DataService } from '../service/data.service';
 import { SubSink } from 'subsink';
 import Swal from 'sweetalert2';
-import { DataService } from '../service/data.service';
+import { CartService } from '../../cart/service/cart.service'
 
 @Component({
   selector: 'app-input',
@@ -19,6 +20,7 @@ export class InputComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef < InputComponent > ,
     private data: DataService,
+    private cart: CartService,
     @Inject(MAT_DIALOG_DATA) public datas: any,
   ) { }
 
@@ -57,9 +59,9 @@ export class InputComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  // refetchData() {
-  //   this.data.getCart().refetch();
-  // }
+  refetchData() {
+    this.cart.getCart().refetch();
+  }
 
   onSubmit() {
     if (this.signupForm.valid) {
@@ -80,7 +82,7 @@ export class InputComponent implements OnInit {
               this.dialogRef.close({
                 status: "berhasil"
               })
-              // this.refetchData()
+              this.refetchData()
             }
           );
         }, err => 

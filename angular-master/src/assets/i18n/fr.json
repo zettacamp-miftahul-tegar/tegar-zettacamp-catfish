@@ -1,4 +1,11 @@
 {
+  "active" : "email actif",
+  "deactive" : "email introuvable",
+  "forgot": "Mot de passe oublié?",
+  "registerText": "Vous n'avez pas encore de compte?",
+  "registerText1": "inscrivez-vous maintenant",
+  "loginText": "vous avez déjà un compte?",
+  "loginText1": "connectez-vous maintenant",
   "homepage": "Page d'accueil",
   "transaction": "Transaction",
   "register": "S'inscrire",
@@ -146,23 +153,23 @@
     "confirm7": "Votre menu a été supprimé."
   },
   "a": {
-    "nom" : "Nom",
+    "nom": "Nom",
     "stockU": "Stock utilisé",
     "stock": "Stock"
   },
-  "b" : {
-    "recipe_name" : "Nom de la recette",
+  "b": {
+    "recipe_name": "Nom de la recette",
     "montant": "Montant",
-    "remarque" : "Remarque",
-    "totale" : "Totale",
-    "totalp" : "Prix total"
+    "remarque": "Remarque",
+    "totale": "Totale",
+    "totalp": "Prix total"
   },
-  "reset" : {
-    "title" : "Réinitialiser le mot de passe",
-    "submit" : "Réinitialiser maintenant",
-    "friend_name" : "Nom de l'ami",
-    "pet_name" : "Nom de l'animal",
-    "success" : "mot de passe modifié avec succès",
-    "fail" : "le mot de passe n'a pas pu être modifié"
+  "reset": {
+    "title": "Réinitialiser le mot de passe",
+    "submit": "Réinitialiser maintenant",
+    "friend_name": "Nom de l'ami",
+    "pet_name": "Nom de l'animal",
+    "success": "mot de passe modifié avec succès",
+    "fail": "le mot de passe n'a pas pu être modifié"
   }
 }

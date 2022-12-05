@@ -17,12 +17,16 @@ export class MenuComponent implements OnInit {
   private subs = new SubSink();
   recepien:Recepiens[] = []
   leng:any;
+  loading:boolean = true;
 
   @Input('debounce') public debounceTime: number = 300;
 
   constructor(private data: RecipeService) { }
 
   ngOnInit(): void {
+    setTimeout(() => {
+      this.loading = false
+    }, 1000)
     this.searchFilter()
     this.getDatas()
   }
@@ -36,13 +40,17 @@ export class MenuComponent implements OnInit {
 
     this.subs.sink = this.data.getRecipies(pagination, this.search).valueChanges.subscribe((resp : any) => {
       if(resp?.data?.getAllRecipe){
+
         this.paginator.length = resp.data.getAllRecipe.totalDocs;
-        console.log(this.paginator.length);
+
+        this.pagination = resp.data.getAllRecipe.currentDocs;
         
-        this.paginator.pageSize = this.pageSizeOptions[0];
+        this.paginator.pageSize = this.pageSizeOptions[0]   
+
         this.recepien = resp.data.getAllRecipe.recipes
-        console.log(this.recepien);
+        
         this.leng = resp?.data?.getAllRecipe?.recipes?.totalLength
+
       } else {
         this.paginator.length = 0;
         this.recepien = [];
@@ -55,6 +63,8 @@ export class MenuComponent implements OnInit {
   }
 
   @ViewChild('paginator') paginator!: MatPaginator;
+
+  pagination!:number;
 
   pageSizeOptions: number[] = [6];
 

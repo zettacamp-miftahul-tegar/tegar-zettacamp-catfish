@@ -153,6 +153,7 @@ export class StockManagementComponent implements OnInit {
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
+      cancelButtonText: this.translateService.instant('cancel'),
       confirmButtonText: this.translateService.instant('stockTT.confirm3')
     }).then((result:any) => {
       if (result.isConfirmed) {

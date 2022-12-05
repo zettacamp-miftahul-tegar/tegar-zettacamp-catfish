@@ -3,7 +3,7 @@
     <h2> History </h2>
   </div>
   <div style="text-align: right; padding-right: 4%;">
-    <h2>Saldo : Rp. {{balancee}} </h2>
+    <h2>Saldo : {{balancee | currency: "Rp "}} </h2>
   </div>
 </div>
 
@@ -44,7 +44,7 @@
 
       <ng-container matColumnDef="total_price" >
         <th mat-header-cell *matHeaderCellDef class="filter2"> <b>{{ 'historyz.totalp' | translate }}</b> </th>
-        <td mat-cell *matCellDef="let element" class="filter22">Rp. {{element.total_price}} </td>
+        <td mat-cell *matCellDef="let element" class="filter22">{{element.total_price | currency: "Rp "}} </td>
       </ng-container>
 
       <ng-container matColumnDef="order_status">

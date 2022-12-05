@@ -10,13 +10,13 @@
   <div>
     <h2 *ngIf="recipe.available > 0"> {{recipe.recipe_name}}</h2>
     <h2 style="text-decoration: line-through red;" *ngIf="recipe.available == 0"> <b> {{recipe.recipe_name}}</b> </h2>
-    <p> Stock : {{recipe.available}} </p>
+    <p> {{ 'stock.stock' | translate }} : {{recipe.available}} </p>
   </div>
   <div class="d-flex">
     <div style="padding-top: 10px;">
       <p>
-        <span style="text-decoration: line-through red; font-size: 12px;"> <b>Rp. {{recipe.price}}</b> </span>
-        <span style="padding-left: 5px;"> <b>Rp. {{recipe.special_offer_price}} </b> </span>
+        <span style="text-decoration: line-through red; font-size: 12px;"> <b>{{recipe.price | currency: "Rp "}}</b> </span>
+        <span style="padding-left: 5px;"> <b>{{recipe.special_offer_price | currency: "Rp " }} </b> </span>
       </p>
     </div>
     <div *ngIf="token && recipe.available > 0 && user_type == 'user'">

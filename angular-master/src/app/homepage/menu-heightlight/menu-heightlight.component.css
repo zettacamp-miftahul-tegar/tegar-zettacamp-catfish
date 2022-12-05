@@ -19,7 +19,7 @@ mat-card:hover {
 .label-tag{
   padding: 0rem 1rem;
   position: absolute;
-  background-color: red;
+  background-color: rgb(231, 35, 35);
   color: white;
   z-index: 1;
   border-radius: 5px;

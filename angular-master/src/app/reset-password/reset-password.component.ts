@@ -5,7 +5,9 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { SubSink } from 'subsink';
 import Swal from 'sweetalert2';
+import { LoginComponent } from '../login/login.component';
 import { ForgotService } from './service/forgot.service';
+import { ValidationPetComponent } from './validation-pet/validation-pet.component';
 
 @Component({
   selector: 'app-reset-password',
@@ -41,11 +43,11 @@ export class ResetPasswordComponent implements OnInit {
 
   initForm() {
     this.signupForm = new FormGroup({
-      'friend_name': new FormControl(null, [Validators.required]),
-      'pet_name': new FormControl(null, [Validators.required]),
+      // 'friend_name': new FormControl(null, [Validators.required]),
+      // 'pet_name': new FormControl(null, [Validators.required]),
       'email': new FormControl(null, [Validators.required, Validators.email]),
-      'password': new FormControl(null, [Validators.required, Validators.minLength(8)]),
-      'confirmPassword': new FormControl(null, [Validators.required, Validators.minLength(8)]),
+      // 'password': new FormControl(null, [Validators.required, Validators.minLength(8)]),
+      // 'confirmPassword': new FormControl(null, [Validators.required, Validators.minLength(8)]),
     });
   }
 
@@ -56,25 +58,75 @@ export class ResetPasswordComponent implements OnInit {
     return this.signupForm.get('email')?.hasError('email') ? 'This email is fail' : '';
   }
 
+  openVALIDATION(payload?:any): void {
+    this.dialogRef.close()
+    const dialogRef = this.dialog.open(ValidationPetComponent, {
+      width: '100%',
+      panelClass: 'bg-color',
+      data:payload
+      // data: this.cart_length
+    });
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      if (result) {
+        this.router.navigate(['homepage'])
+    }});
+  }
+
   resetNow() {
     const payload: any = this.signupForm.value;
-    this.subs.sink = this.data.resetPassword(payload).subscribe(resp => {
+    this.subs.sink = this.data.resetPassword(payload).valueChanges.subscribe(resp => {
       if (resp) {
         Swal.fire({
           icon: 'success',
-          title: this.translateService.instant('reset.success'),
+          title: this.translateService.instant('active'),
         })
-        this.router.navigate(['homepage']).then(()=>{
-          this.dialogRef.close()
-        })
+        this.openVALIDATION(payload)
       }
     }, err => {
       Swal.fire({
         icon: 'error',
-        title: this.translateService.instant('reset.fail'),
+        title: this.translateService.instant('deactive'),
       })}
     )
   }
+
+  onBack() {
+    this.openDialog()
+  }
+
+  openDialog(): void {
+    this.dialogRef.close()
+    const dialogRef = this.dialog.open(LoginComponent, {
+      width: '100%',
+      panelClass: 'bg-color',
+    });
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      if (result) {
+        this.router.navigate(['homepage'])
+    }});
+  }
+
+  // resetNow() {
+  //   const payload: any = this.signupForm.value;
+  //   this.subs.sink = this.data.resetPassword(payload).subscribe(resp => {
+  //     if (resp) {
+  //       Swal.fire({
+  //         icon: 'success',
+  //         title: this.translateService.instant('reset.success'),
+  //       })
+  //       this.router.navigate(['homepage']).then(()=>{
+  //         this.dialogRef.close()
+  //       })
+  //     }
+  //   }, err => {
+  //     Swal.fire({
+  //       icon: 'error',
+  //       title: this.translateService.instant('reset.fail'),
+  //     })}
+  //   )
+  // }
 
 
 }

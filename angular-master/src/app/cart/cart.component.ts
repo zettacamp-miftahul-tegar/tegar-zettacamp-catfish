@@ -64,11 +64,6 @@ export class CartComponent implements OnInit {
   //   });
   // }
 
-
-  refetchData() {
-    this.data.getCart().refetch();
-  }
-
   routing() {
     this.router.navigate(['menu'])
   }
@@ -92,13 +87,17 @@ export class CartComponent implements OnInit {
         ).then((res) => {
           // this.refetchNotif.emit(true)
           // this.getCard_id(this.cart_length)
-          // this.refetchData()
+          this.refetchData()
           // this.getCard_Length(this.datas1)
           this.carts = []
           this.cart_length = 0
         })
       }
     })
+  }
+
+  refetchData() {
+    this.data.getCart().refetch();
   }
 
   buyCart() {
@@ -120,6 +119,7 @@ export class CartComponent implements OnInit {
             ).then((res) => {
               this.router.navigate(['history'])
               this.data.addBuyPrice()
+              this.refetchData()
               this.carts = []
               this.cart_length = 0
             })

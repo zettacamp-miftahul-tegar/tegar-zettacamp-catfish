@@ -10,12 +10,12 @@
               <span>
                 <a (click)="minesAmounts(getAllCart)" *ngIf="getAllCart.amount > 1">
                   <button mat-button >
-                    <mat-icon style="color: green;" matTooltip="minus">keyboard_arrow_left</mat-icon>
+                    <mat-icon style="color: green;" matTooltip="minus">remove</mat-icon>
                   </button>
                 </a>
                 <a *ngIf="getAllCart.amount == 1">
                   <button mat-button (click)="minesAmounts(getAllCart)" disabled="true">
-                    <mat-icon style="color: black;" matTooltip="disabled minus">keyboard_arrow_left</mat-icon>
+                    <mat-icon style="color: black;" matTooltip="disabled minus">remove</mat-icon>
                   </button>
                 </a>
               </span>
@@ -23,26 +23,26 @@
               <span>
                 <a (click)="plesAmounts(getAllCart)" *ngIf="getAllCart.amount < getAllCart.recipe_id.available">
                   <button mat-button>
-                    <mat-icon style="color: green;" matTooltip="plus">keyboard_arrow_right</mat-icon>
+                    <mat-icon style="color: green;" matTooltip="plus">add</mat-icon>
                   </button>
                 </a>
                 <a *ngIf="getAllCart.amount >= getAllCart.recipe_id.available">
                   <button (click)="plesAmounts(getAllCart)" mat-button disabled="true">
-                    <mat-icon style="color: black;" matTooltip="disabled plus">keyboard_arrow_right</mat-icon>
+                    <mat-icon style="color: black;" matTooltip="disabled plus">add</mat-icon>
                   </button>
                 </a>
               </span>
             </b>
           </p>
         </div>
-        <div>
+        <!-- <div>
           <p style="margin: 3.5rem 2rem;">
-            <b>Rp. {{getAllCart.recipe_id.special_offer_price}}</b>
+            <b>{{getAllCart.recipe_id.special_offer_price | currency: "Rp "}}</b>
           </p>
-        </div>
+        </div> -->
         <div>
           <p style="margin: 3.5rem 2rem;">
-            <span style="color: red;"><b> {{ 'cartz.total' | translate }} : </b></span> <b>Rp.{{getAllCart.total_price}}</b>
+            <span style="color: red;"><b> {{ 'cartz.total' | translate }} : </b></span> <b>{{getAllCart.total_price | currency: "Rp "}}</b>
           </p>
         </div>
         <div class="buttomcss">

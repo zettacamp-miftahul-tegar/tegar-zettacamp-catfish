@@ -23,7 +23,7 @@
       </td>
       <td>{{item.amount}}</td>
       <td>{{item.note}}</td>
-      <td> Rp. {{item.total_price}}</td>
+      <td> {{item.total_price | currency: "Rp "}}</td>
     </tr>
   </tbody>
 
@@ -32,7 +32,7 @@
       <td></td>
       <td></td>
       <td> {{ 'b.totalp' | translate }} </td>
-      <td> Rp. {{dataz}}</td>
+      <td> {{dataz | currency: "Rp "}}</td>
     </tr>
   </tfoot>
 

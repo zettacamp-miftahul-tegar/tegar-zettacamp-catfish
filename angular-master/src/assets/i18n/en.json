@@ -1,4 +1,11 @@
 {
+  "active" : "email active",
+  "deactive" : "email not found",
+  "forgot": "Forgot Password?",
+  "registerText" : "Don't have an account yet?",
+  "registerText1" : "register now",
+  "loginText" : "already have an account?",
+  "loginText1" : "login now",
   "homepage": "Homepage",
   "transaction": "Transaction",
   "register": "Register",

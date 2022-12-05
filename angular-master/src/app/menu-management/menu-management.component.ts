@@ -36,6 +36,7 @@ export class MenuManagementComponent implements OnInit {
   private subs = new SubSink();
   Menue: Menus[] = []
   recipe_name: any;
+  loading:boolean = true;
 
   constructor(
     private data: DataService,
@@ -44,6 +45,9 @@ export class MenuManagementComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    setTimeout(() => {
+      this.loading = false
+    }, 1000)
     this.getDatas()
     this.statusFilterr()
   }
@@ -160,7 +164,8 @@ export class MenuManagementComponent implements OnInit {
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete now!'
+      cancelButtonText: this.translateService.instant('cancel'),
+      confirmButtonText: this.translateService.instant('cartz.fail3C')
     }).then((result:any) => {
       if (result.isConfirmed) {
         this.data.deleteRecepies(parameter)
@@ -209,6 +214,7 @@ export class MenuManagementComponent implements OnInit {
       showDenyButton: false,
       showCancelButton: true,
       showConfirmButton: true,
+      cancelButtonText: this.translateService.instant('cancel'),
       denyButtonText: `Yes`,
     }).then((result) => {
       if (result.isConfirmed) {
@@ -270,6 +276,7 @@ export class MenuManagementComponent implements OnInit {
       showDenyButton: false,
       showCancelButton: true,
       showConfirmButton: true,
+      cancelButtonText: this.translateService.instant('cancel'),
       denyButtonText: `Yes`,
     }).then((result) => {
       if (result.isConfirmed) {
@@ -302,6 +309,7 @@ export class MenuManagementComponent implements OnInit {
       showDenyButton: false,
       showCancelButton: true,
       showConfirmButton: true,
+      cancelButtonText: this.translateService.instant('cancel'),
       denyButtonText: `Yes`,
     }).then((result) => {
       if (result.isConfirmed) {

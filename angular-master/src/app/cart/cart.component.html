@@ -7,7 +7,7 @@
           <h2> Cart Transaction </h2>
         </div>
         <div style="text-align: right;">
-          <h2>Saldo : Rp. {{balancee}} </h2>
+          <h2>Saldo : {{balancee | currency: "Rp. "}} </h2>
         </div>
       </div>
     </div>
@@ -21,7 +21,7 @@
   <div class="container" *ngIf="cart_length > 0">
     <div class="beha">
       <div class="main">
-        <h2> <b> {{ 'cartz.total' | translate  }} : Rp. {{total_price}}</b> </h2>
+        <h2> <b> {{ 'cartz.total' | translate  }} : {{total_price | currency: "Rp. "}}</b> </h2>
       </div>
       <div class="main1">
         <div>
