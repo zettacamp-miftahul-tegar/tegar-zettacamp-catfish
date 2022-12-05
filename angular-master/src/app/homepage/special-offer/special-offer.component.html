@@ -21,5 +21,10 @@
     <div *ngIf="token && recipe.available > 0 && user_type == 'user'">
       <button mat-raised-button color="warn" (click)="openDialog(recipe)">{{ 'buy_now' | translate }} </button>
     </div>
+
+    <div *ngIf="!token && recipe.available > 0">
+      <button mat-raised-button color="warn" (click)="open()">{{ 'buy_now' | translate }} </button>
+    </div>
+
   </div>
 </mat-card>

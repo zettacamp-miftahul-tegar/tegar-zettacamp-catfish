@@ -18,10 +18,18 @@
     <div class="bot" *ngIf="token && user_type == 'user'">
       <div *ngIf="recipe.available > 0">
         <button (click)="openDialog(recipe)" mat-stroked-button color="primary">
-          <mat-icon style="color:blue">add_shopping_cart</mat-icon> <span style="color: blue;"> <b>{{'menus.in' | translate }}</b> </span>
+          <mat-icon style="color:blue">add_shopping_cart</mat-icon> <span style="color: blue;"> {{'menus.in' | translate }} </span>
         </button>
       </div>
-      <div *ngIf="recipe.available == 0" class="cez"> </div>
     </div>
+
+    <div class="bot" *ngIf="!token">
+      <div *ngIf="recipe.available > 0">
+        <button (click)="open()" mat-stroked-button color="primary">
+          <mat-icon style="color:blue">add_shopping_cart</mat-icon> <span style="color: blue;"> {{'menus.in' | translate }} </span>
+        </button>
+      </div>
+    </div>
+
   </div>
 </mat-card>

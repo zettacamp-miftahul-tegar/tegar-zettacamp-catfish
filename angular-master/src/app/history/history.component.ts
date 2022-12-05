@@ -76,8 +76,6 @@ export class HistoryComponent implements OnInit {
     this.subs.sink = this.data.getHistory(pagination, this.search, this.statusF, this.statusLast).valueChanges.subscribe((resp: any) => {
       if(resp?.data?.getAllTransaction){
         this.paginator.length = resp.data.getAllTransaction.totalDocs;  
-        console.log(this.paginator.length);
-
         this.paginator.pageSize = this.pageSizeOptions[0];
         this.dataSource = new MatTableDataSource(resp.data.getAllTransaction.transactions)
       } else {
