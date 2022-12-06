@@ -93,8 +93,8 @@ export class DataService {
 
   updateStock(post:Stocks) {
     this.query = gql `
-    mutation updateIngredient($id: ID, $name: String, $stock: Int, $status: String) {
-      updateIngredient(id: $id, name: $name, stock: $stock, status: $status)  {
+    mutation updateIngredient($id: ID, $name: String, $stock: Int) {
+      updateIngredient(id: $id, name: $name, stock: $stock)  {
         name
         stock
         status
@@ -105,8 +105,8 @@ export class DataService {
       variables: {
         id: post.id,
         name: post.name,
-        stock: post.stock,
-        status: post.status
+        stock: post.stock
+        // status: post.status
       }
     })
   }

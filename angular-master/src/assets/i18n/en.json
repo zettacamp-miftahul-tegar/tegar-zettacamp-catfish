@@ -1,5 +1,7 @@
 {
   "history": "History",
+  "income" : "Income",
+  "pw" : "the password must atleast 8 character",
   "cart-transaction" : "Cart Transaction",
   "saldo" : "Saldo",
   "active" : "email active",

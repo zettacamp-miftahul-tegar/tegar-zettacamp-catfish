@@ -3,7 +3,8 @@
     <h2> {{"history" | translate }} </h2>
   </div>
   <div style="text-align: right; padding-right: 4%;">
-    <h2>{{"saldo" | translate }} : {{balancee | currency: "Rp "}} </h2>
+    <h2 *ngIf="user_type == 'user'">{{"saldo" | translate }} : {{balancee | currency: "Rp "}} </h2>
+    <h2 *ngIf="user_type == 'admin'">{{"income" | translate }} : {{balancee | currency: "Rp "}} </h2>
   </div>
 </div>
 

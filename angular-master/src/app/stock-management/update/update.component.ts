@@ -49,8 +49,8 @@ export class UpdateComponent implements OnInit {
     this.signupForm = new FormGroup({
       'name': new FormControl(null, [Validators.required]),
       'stock': new FormControl(null, [Validators.required]),
-      'status': new FormControl(null, [Validators.required]),
-      'isUsed': new FormControl()
+      // 'status': new FormControl(null, [Validators.required]),
+      // 'isUsed': new FormControl()
     });
   }
 
@@ -69,8 +69,7 @@ export class UpdateComponent implements OnInit {
         ...this.signupForm.value
       }
       
-      this.data.updateStock(ingre)
-      .subscribe(({dash}: any) => {
+      this.data.updateStock(ingre).subscribe(({dash}: any) => {
         this.todos = dash        
         Swal.fire({
           icon: 'success',

@@ -13,7 +13,7 @@
     <input matInput type="number" id="stock" formControlName="stock" class="form-control">
     <mat-error *ngIf="this.signupForm.get('stock')?.invalid"> {{'error'| translate}}</mat-error>
   </mat-form-field>
-
+<!-- 
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label> {{'status' | translate }} </mat-label>
     <mat-select id="status" formControlName="status">
@@ -22,7 +22,7 @@
       </mat-option>
     </mat-select>
     <mat-error *ngIf="this.signupForm.get('status')?.invalid"> {{'error'| translate}}</mat-error>
-  </mat-form-field>
+  </mat-form-field> -->
 
   <div mat-dialog-actions style="float: right;">
     <button type="button" mat-raised-button color="warn" (click)="onNoClick()"> {{'cancel'| translate}} </button>

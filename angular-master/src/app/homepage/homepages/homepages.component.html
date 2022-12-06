@@ -1,13 +1,23 @@
 <section class="mbr-section" id="top">
   <div class="pricing" id="pricing">
     <div class="container">
-      <div *ngIf="token">
+
+      <div *ngIf="token && user_type == 'user'">
         <h2 style="color: black ">
           <span style="background-color: white; padding: 10px;"> 
             <b> {{"saldo" | translate }} : {{balancee | currency: "Rp "}}</b>
           </span> 
         </h2>
       </div>
+
+      <div *ngIf="token && user_type == 'admin'">
+        <h2 style="color: black ">
+          <span style="background-color: white; padding: 10px;"> 
+            <b> {{"income" | translate }} : {{balancee | currency: "Rp "}}</b>
+          </span> 
+        </h2>
+      </div>
+
       <div class="pad">
         <p class="mbr-title-font"> <span style="color: white; font-family: Verdana;">UNIC</span> <br><br><br> <span
             style="color: red; letter-spacing: 10px; font-family: Lucida Sans;"><b>FOODS</b></span> </p><br>

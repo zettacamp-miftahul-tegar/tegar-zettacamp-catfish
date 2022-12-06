@@ -1,5 +1,7 @@
 {
   "history": "Histoire",
+  "income" : "Revenu",
+  "pw" : "le mot de passe doit comporter au moins 8 caractères",
   "cart-transaction" : "Transaction du panier",
   "saldo" : "Saldo",
   "active" : "email actif",

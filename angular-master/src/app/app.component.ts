@@ -123,6 +123,7 @@ export class AppComponent {
           localStorage.removeItem('token');
           localStorage.removeItem('user');
           localStorage.removeItem('user_type');
+          localStorage.removeItem('user_id');
             this.router.navigate(['homepage']).then(()=>{
               window.location.reload()
             }
