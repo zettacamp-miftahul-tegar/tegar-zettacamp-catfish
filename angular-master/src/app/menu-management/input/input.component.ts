@@ -28,6 +28,7 @@ export class InputComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm()
+    this.onIngredients()
     this.data.getStock(this.paginations).valueChanges.subscribe(( dass: any) => {
       this.ingredient = dass.data.getAllIngredient.ingredients
     })
@@ -91,8 +92,15 @@ export class InputComponent implements OnInit {
         }).then((bebas) => {
           this.dialogRef.close(true)
         });
-      });
-    } else {
+      },
+      err => 
+      Swal.fire({
+        icon: 'error',
+        title: this.translateService.instant('stockT.fail'),
+        text: this.translateService.instant('stockT.fail1'),
+      })
+    );
+  } else {
       Swal.fire({
         icon: 'error',
         title: 'error',

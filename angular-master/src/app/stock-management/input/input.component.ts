@@ -67,8 +67,8 @@ export class InputComponent implements OnInit {
         title: this.translateService.instant('stockT.fail'),
         text: this.translateService.instant('stockT.fail1'),
       })
-      );
-    } else {
+    );
+  } else {
       console.log('gagal');
       Swal.fire({
         icon: 'error',
