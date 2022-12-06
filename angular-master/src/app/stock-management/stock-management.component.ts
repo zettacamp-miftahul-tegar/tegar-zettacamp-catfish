@@ -61,8 +61,6 @@ export class StockManagementComponent implements OnInit {
     this.subs.sink = this.data.getStock(pagination, this.search, this.statusF).valueChanges.subscribe((resp : any) => {
       if(resp?.data?.getAllIngredient){
         this.paginator.length = resp.data.getAllIngredient.totalDocs;   
-        console.log(this.paginator.length);
-
         this.paginator.pageSize = this.pageSizeOptions[0];
         this.dataSource.data = resp.data.getAllIngredient.ingredients
       } else {
@@ -157,16 +155,23 @@ export class StockManagementComponent implements OnInit {
       confirmButtonText: this.translateService.instant('stockTT.confirm3')
     }).then((result:any) => {
       if (result.isConfirmed) {
-        this.data.deleteStock(parameter)
-        Swal.fire(
-          this.translateService.instant('stockTT.confirm4'),
-          this.translateService.instant('stockTT.confirm5'),
-          'success'
-        )
-        this.getDatas()
-      }
-    })
+        // this.data.deleteStock(parameter)
+        this.data.deleteStock(parameter).subscribe((item) => {
+          Swal.fire(
+            this.translateService.instant('stockTT.confirm4'),
+            this.translateService.instant('stockTT.confirm5'),
+            'success'
+          )
+          this.getDatas()
+        }, err => 
+        Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'stock already to used !',
+      }))
+    }})
   };
+
 
   // ------------------------------------------------------
 

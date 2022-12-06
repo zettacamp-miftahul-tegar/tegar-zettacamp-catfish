@@ -50,7 +50,7 @@ export class DataService {
       variables: {
         ...pagination,
         name:nameFilter,
-        status: statusFilter
+        status: "active"
       },
       fetchPolicy: "network-only" // ketika ada perubahan ngambil server  
     })
@@ -88,15 +88,7 @@ export class DataService {
       variables: {
         id:post
       }
-    }).subscribe(subs => {
-      console.log(subs)
-    }, err => 
-    Swal.fire({
-      icon: 'error',
-      title: 'Oops...',
-      text: 'stock already to used !',
     })
-    )
   }
 
   updateStock(post:Stocks) {

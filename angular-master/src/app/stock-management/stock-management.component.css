@@ -37,9 +37,17 @@ mat-paginator {
 }
 
 .pos {
-  margin: 0;
-  padding: 0;
-  padding-top: 20px;
+  padding-bottom: 50px;
+  padding-left: 10%;
+}
+
+.pos1 {
+  padding-left: 10%;
+}
+
+
+.post {
+  margin-right: 5%;
 }
 
 .noFilter1 {
@@ -49,14 +57,15 @@ mat-paginator {
 
 .noFilter2 {
   padding-bottom: 50px;
-  padding-left: 2%;
+  padding-left: 20%;
+  text-align: left;
+}
+
+.noFilter3 {
+  padding-left: 17%;
   text-align: left;
 }
 
 .poss {
-  padding-left: 3%;
-}
-
-.ez {
-  padding-left: 10%;
+  padding-left: 20%;
 }
