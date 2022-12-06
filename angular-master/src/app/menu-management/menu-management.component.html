@@ -50,11 +50,19 @@
                color="warn" disabled="true">
             </mat-slide-toggle>
           </a>
-          <a *ngIf="element.status == 'publish'">
+
+          <a *ngIf="element.status == 'publish' && element.discount > 0">
             <mat-slide-toggle matTooltip={{element.special_offer}} [checked]="element.special_offer == true"
             (change)="updateSpecial($event, element)" color="warn">
             </mat-slide-toggle>
           </a>
+
+          <a *ngIf="element.discount == 0 && element.status == 'publish'">
+            <mat-slide-toggle matTooltip={{element.special_offer}} [checked]="element.special_offer == true" disabled="true"
+            (change)="updateSpecial($event, element)" color="warn">
+            </mat-slide-toggle>
+          </a>
+
         </td>
 
       </ng-container>

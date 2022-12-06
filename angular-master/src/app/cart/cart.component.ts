@@ -108,6 +108,7 @@ export class CartComponent implements OnInit {
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
+        cancelButtonText: this.translateService.instant('cancel'),
         confirmButtonText: this.translateService.instant('cartz.confirm'),
       }).then((result:any) => {
         if (result.isConfirmed) {

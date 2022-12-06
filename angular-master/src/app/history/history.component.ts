@@ -31,6 +31,7 @@ export class HistoryComponent implements OnInit {
   private subs = new SubSink();
   recipe_names: any;
   balancee: any;
+  user_type: any;
 
   constructor(
     private translateService: TranslateService,
@@ -44,6 +45,7 @@ export class HistoryComponent implements OnInit {
     this.statusFilterr()
     this.nameFilterr()
     this.getBalance()
+    this.user_type = JSON.parse(localStorage.getItem('user_type')!)
   }
 
   displayedColumns: string[] = ['name', 'detail', 'order_date', 'total_price', 'order_status'];
@@ -162,12 +164,9 @@ export class HistoryComponent implements OnInit {
     const dialogRef = this.dialog.open(DetailComponent, {
       width: '70%',
       data: parameter,
-      // disableClose: true,
-      // hasBackdrop: true
+      disableClose: true,
+      hasBackdrop: true
     });
-
-    console.log(parameter.id);
-    
 
     dialogRef.afterClosed().subscribe((result: any) => {
       // if (result) {

@@ -7,12 +7,12 @@
   color: #4444;
   border-collapse: collapse;
   width: 100%;
-  border: 1px solid #f2f5f7;
+  border: 1px solid #dfd3d3;
 }
 
 .table-foods tr th {
   background: #272a2b;
-  color: #fff;
+  color: #ffffff;
   font-weight: normal;
 }
 
@@ -25,15 +25,15 @@ td {
 }
 
 .table-foods tr:hover {
-  background-color: #f2f5f5;
+  background-color: #ffffff;
 }
 
 .table-foods tr:nth-child(even) {
-  background-color: #fee9e9;
+  background-color: #ffffff;
 }
 
 .table-foods tr:nth-child(odd) {
-  background-color: #f3ecec;
+  background-color: #ffffff;
 }
 
 .row {

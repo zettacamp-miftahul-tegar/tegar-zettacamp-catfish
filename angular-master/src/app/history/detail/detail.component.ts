@@ -52,6 +52,10 @@ export class DetailComponent implements OnInit {
     return numSelected === numRows;
   }
 
+  onClose() {
+    this.dialogRef.close()
+  }
+
   toggleAllRows() {
     if (this.isAllSelected()) {
       this.selection.clear();

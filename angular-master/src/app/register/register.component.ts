@@ -100,7 +100,8 @@ export class RegisterComponent implements OnInit {
     }, err => {
       Swal.fire({
         icon: 'error',
-        title: this.translateService.instant('failRegister'),
+        title: err.message,
+        // title: this.translateService.instant('failRegister'),
       })}
     )
   }

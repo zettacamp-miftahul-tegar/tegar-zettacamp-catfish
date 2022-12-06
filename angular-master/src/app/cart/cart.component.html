@@ -4,10 +4,10 @@
     <div class="beha">
       <div class="balance">
         <div style="padding-left: 4%;">
-          <h2> Cart Transaction </h2>
+          <h2> {{"cart-transaction" | translate }} </h2>
         </div>
         <div style="text-align: right;">
-          <h2>Saldo : {{balancee | currency: "Rp. "}} </h2>
+          <h2> {{"saldo" | translate }} : {{balancee | currency: "Rp. "}} </h2>
         </div>
       </div>
     </div>
@@ -21,14 +21,14 @@
   <div class="container" *ngIf="cart_length > 0">
     <div class="beha">
       <div class="main">
-        <h2> <b> {{ 'cartz.total' | translate  }} : {{total_price | currency: "Rp. "}}</b> </h2>
+        <h2> <b> {{ 'cartz.totalp' | translate  }} : {{total_price | currency: "Rp. "}}</b> </h2>
       </div>
       <div class="main1">
         <div>
           <button mat-raised-button color="accent" (click)="deleteAllCart()">{{ 'cartz.remove' | translate }}</button>
         </div>
         <div style="margin: 0 0 0 30px">
-          <button mat-raised-button color="warn" (click)="routing()"> + add more </button>
+          <button mat-raised-button color="warn" (click)="routing()"> {{ 'cartz.add_more' | translate }} </button>
         </div>
         <div style="margin: 0 0 0 30px">
           <button mat-raised-button color="primary" (click)="buyCart()">{{ 'cartz.buynow' | translate }}</button>

@@ -1,5 +1,5 @@
 <mat-toolbar>
-  <a routerLink="homepage">
+  <a routerLink="homepage" style="text-decoration:none">
     <p class="name"><span style="color:white">Unic</span> <span style="color: red;">Foods</span></p>
   </a>
   <div class="language">
@@ -20,10 +20,10 @@
     <button mat-button *ngIf="token && user_type == 'user'" matBadge="{{cart_length}}" [matMenuTriggerFor]="menu" routerLinkActive="active"
       style="color: white;">{{ "transaction" | translate }}</button>
     <mat-menu #menu="matMenu">
-      <a routerLink="cart-management">
+      <a routerLink="cart-management" style="text-decoration:none">
         <button mat-menu-item routerLinkActive="active">{{ "cart" | translate }}</button>
       </a>
-      <a routerLink="history">
+      <a routerLink="history" style="text-decoration:none">
         <button mat-menu-item routerLinkActive="active">{{ "historyz.history" | translate }}</button>
       </a>
     </mat-menu>
@@ -33,7 +33,7 @@
       style="color: white;">{{ "historyz.history" | translate }}</button>
 
 
-    <button mat-button routerLink="about" style="color: white;"
+    <button mat-button routerLink="about" style="color: white; margin-left: 12px;"
       routerLinkActive="active">{{ "about" | translate }}</button>
     <button mat-button *ngIf="!token" (click)="openDialog()" routerLinkActive="active"
       style="color: white;">{{ "login" | translate }}</button>
