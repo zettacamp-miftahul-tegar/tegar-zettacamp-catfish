@@ -83,7 +83,7 @@ export class UpdateComponent implements OnInit {
       Swal.fire({
         icon: 'error',
         title: this.translateService.instant('stockT.fail'),
-        text: this.translateService.instant('stockT.fail2'),
+        text: 'name already to used !',
       })
     );
     } else {
