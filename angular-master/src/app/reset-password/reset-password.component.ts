@@ -37,17 +37,13 @@ export class ResetPasswordComponent implements OnInit {
     public dialog: MatDialog, 
   ) {}
 
-  ngOnDestroy(): void {
-    this.subs.sink?.unsubscribe()
-  }
+  // ngOnDestroy(): void {
+  //   this.subs.sink?.unsubscribe()
+  // }
 
   initForm() {
     this.signupForm = new FormGroup({
-      // 'friend_name': new FormControl(null, [Validators.required]),
-      // 'pet_name': new FormControl(null, [Validators.required]),
       'email': new FormControl(null, [Validators.required, Validators.email]),
-      // 'password': new FormControl(null, [Validators.required, Validators.minLength(8)]),
-      // 'confirmPassword': new FormControl(null, [Validators.required, Validators.minLength(8)]),
     });
   }
 
@@ -63,8 +59,7 @@ export class ResetPasswordComponent implements OnInit {
     const dialogRef = this.dialog.open(ValidationPetComponent, {
       width: '100%',
       panelClass: 'bg-color',
-      data:payload
-      // data: this.cart_length
+      data : payload
     });
 
     dialogRef.afterClosed().subscribe((result: any) => {
@@ -107,26 +102,4 @@ export class ResetPasswordComponent implements OnInit {
         this.router.navigate(['homepage'])
     }});
   }
-
-  // resetNow() {
-  //   const payload: any = this.signupForm.value;
-  //   this.subs.sink = this.data.resetPassword(payload).subscribe(resp => {
-  //     if (resp) {
-  //       Swal.fire({
-  //         icon: 'success',
-  //         title: this.translateService.instant('reset.success'),
-  //       })
-  //       this.router.navigate(['homepage']).then(()=>{
-  //         this.dialogRef.close()
-  //       })
-  //     }
-  //   }, err => {
-  //     Swal.fire({
-  //       icon: 'error',
-  //       title: this.translateService.instant('reset.fail'),
-  //     })}
-  //   )
-  // }
-
-
 }

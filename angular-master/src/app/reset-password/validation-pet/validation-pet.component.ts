@@ -38,58 +38,45 @@ export class ValidationPetComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public datas: any,
   ) {}
 
-  ngOnDestroy(): void {
-    this.subs.sink?.unsubscribe()
-  }
+  // ngOnDestroy(): void {
+  //   this.subs.sink?.unsubscribe()
+  // }
 
   initForm() {
     this.signupForm = new FormGroup({
       'friend_name': new FormControl(null, [Validators.required]),
       'pet_name': new FormControl(null, [Validators.required]),
-      // 'email': new FormControl(null, [Validators.required, Validators.email]),
-      'password': new FormControl(null, [Validators.required, Validators.minLength(8)]),
-      'confirmPassword': new FormControl(null, [Validators.required, Validators.minLength(8)]),
     });
   }
 
-  getErrorMessageEmail() {
-    if (this.signupForm.get('email')?.hasError('required')) {
-      return 'This email is required!';
-    }
-    return this.signupForm.get('email')?.hasError('email') ? 'This email is fail' : '';
+  openPASSWORD(em?: any, payloadz?:any): void {
+    this.dialogRef.close()
+    const dialogRef = this.dialog.open(NewPasswordComponent, {
+      width: '100%',
+      panelClass: 'bg-color',
+      data : {email : this.datas, payloadz}
+    });
+    
+    dialogRef.afterClosed().subscribe((result: any) => {
+      if (result) {
+        this.datas()
+    }});
   }
 
-  // openPASSWORD(): void {
-  //   const dialogRef = this.dialog.open(NewPasswordComponent, {
-  //     width: '100%',
-  //     panelClass: 'bg-color',
-  //     // data: this.cart_length
-  //   });
-
-  //   dialogRef.afterClosed().subscribe((result: any) => {
-  //     if (result) {
-  //       this.router.navigate(['homepage'])
-  //   }});
-  // }
-
  resetNow() {
-    console.log(this.datas);
-  
     const payload: any = this.signupForm.value;
-    this.subs.sink = this.data.validation(this.datas, payload).subscribe(resp => {
+    this.subs.sink = this.data.resetPassword1(this.datas, payload).valueChanges.subscribe(resp => {
       if (resp) {
         Swal.fire({
           icon: 'success',
-          title: this.translateService.instant('reset.success'),
+          title: this.translateService.instant('validation.success'),
         })
-        this.router.navigate(['homepage']).then(()=>{
-          this.dialogRef.close()
-        })
+        this.openPASSWORD(this.datas, payload)
       }
     }, err => {
       Swal.fire({
         icon: 'error',
-        title: this.translateService.instant('reset.fail'),
+        title: this.translateService.instant('validation.fail'),
       })}
     )
   }

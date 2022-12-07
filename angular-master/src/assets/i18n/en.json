@@ -176,5 +176,13 @@
     "pet_name" : "Pet Name",
     "success" : "password changed successfully",
     "fail" : "password failed to change"
+  },
+  "validation" : {
+    "success" : "validation success",
+    "fail" : "validation failed"
+  },
+  "change" : {
+    "success" : "password changed successfully",
+    "fail" : "password failed to change"
   }
 }

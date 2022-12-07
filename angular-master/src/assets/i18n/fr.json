@@ -175,5 +175,13 @@
     "pet_name": "Nom de l'animal",
     "success": "mot de passe modifié avec succès",
     "fail": "le mot de passe n'a pas pu être modifié"
+  },
+  "validation" : {
+    "succès" : "validation réussie",
+    "fail" : "la validation a échoué"
+  },
+  "change" : {
+    "success" : "mot de passe modifié avec succès",
+    "fail" : "le mot de passe n'a pas pu être modifié"
   }
 }

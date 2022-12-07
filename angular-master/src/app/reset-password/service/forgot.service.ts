@@ -32,11 +32,11 @@ export class ForgotService {
     })
   }
 
-  resetVALIDTION(post:any) {
+  resetPassword1(post:any, validation:any) {
     return this.apollo.watchQuery({
       query : gql `
-      query GetOneUser($email: String) {
-        getOneUser(email: $email) {
+      query GetOneUser($email: String, $friendName: String, $petName: String) {
+        getOneUser(email: $email, friend_name: $friendName, pet_name: $petName) {
           id
           email
           password
@@ -46,35 +46,19 @@ export class ForgotService {
           status
           friend_name
           pet_name
+          __typename
         }
-      }`
+      }`,
+      variables : {
+        email : post.email,
+        friendName : validation.friend_name,
+        petName : validation.pet_name
+      },
+      fetchPolicy: "network-only" // ketika ada perubahan ngambil server  
     })
   }
 
-  // resetPassword(post:any): Observable<any> {
-  //   return this.apollo.mutate({
-  //     mutation: gql`
-  //     mutation ResetPassword($email: String, $friendName: String, $petName: String, $password: String, $confirmPassword: String) {
-  //       resetPassword(email: $email, friend_name: $friendName, pet_name: $petName, password: $password, confirm_password: $confirmPassword) {
-  //         email
-  //         password
-  //         first_name
-  //         last_name
-  //         friend_name
-  //         pet_name
-  //       }
-  //     }`,
-  //     variables : {
-  //       email : post.email,
-  //       friendName : post.friend_name,
-  //       petName : post.pet_name,
-  //       password : post.password,
-  //       confirmPassword : post.confirmPassword
-  //     }
-  //   })
-  // }
-
-  validation(post:any, payload:any): Observable<any> {
+  validation(a:any, b:any, c:any, payload:any): Observable<any> {
     return this.apollo.mutate({
       mutation: gql`
       mutation ResetPassword($email: String, $friendName: String, $petName: String, $password: String, $confirmPassword: String) {
@@ -88,9 +72,9 @@ export class ForgotService {
         }
       }`,
       variables : {
-        email : post.email,
-        friendName : payload.friend_name,
-        petName : payload.pet_name,
+        email : a.email,
+        friendName : b.friend_name,
+        petName : c.pet_name,
         password : payload.password,
         confirmPassword : payload.confirmPassword
       }
