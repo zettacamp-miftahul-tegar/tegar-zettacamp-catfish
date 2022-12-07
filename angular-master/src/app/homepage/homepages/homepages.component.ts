@@ -83,7 +83,7 @@ export class HomepagesComponent implements OnInit {
     }
 
     this.subs.sink = this.data.getBALANCE(idz).valueChanges.subscribe((item:any) => {
-      this.balancee = item.data.getOneUser.balance
+      this.balancee = item?.data?.getOneUser?.balance
     })
   }
 

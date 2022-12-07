@@ -67,11 +67,13 @@ export class ValidationPetComponent implements OnInit {
     const payload: any = this.signupForm.value;
     this.subs.sink = this.data.resetPassword1(this.datas, payload).valueChanges.subscribe(resp => {
       if (resp) {
+        this.dialogRef.close()
         Swal.fire({
           icon: 'success',
           title: this.translateService.instant('validation.success'),
+        }).then(() => {
+          this.openPASSWORD(this.datas, payload)
         })
-        this.openPASSWORD(this.datas, payload)
       }
     }, err => {
       Swal.fire({

@@ -72,11 +72,13 @@ export class ResetPasswordComponent implements OnInit {
     const payload: any = this.signupForm.value;
     this.subs.sink = this.data.resetPassword(payload).valueChanges.subscribe(resp => {
       if (resp) {
+        this.dialogRef.close()
         Swal.fire({
           icon: 'success',
           title: this.translateService.instant('active'),
+        }).then(() => {
+          this.openVALIDATION(payload)
         })
-        this.openVALIDATION(payload)
       }
     }, err => {
       Swal.fire({

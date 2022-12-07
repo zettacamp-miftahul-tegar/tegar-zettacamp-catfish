@@ -33,7 +33,7 @@ export class UpdateComponent implements OnInit {
 
   initForm() {
     this.signupForm = new FormGroup({
-      amount: new FormControl(null, [Validators.required, Validators.min(1), Validators.max(this.av)]),
+      // amount: new FormControl(null, [Validators.required, Validators.min(1), Validators.max(this.av)]),
       note: new FormControl(''),
     });
   }
@@ -50,25 +50,19 @@ export class UpdateComponent implements OnInit {
         ...this.signupForm.value
       }
 
-      this.data.updateStock(ingre)
-      .subscribe(({dash}: any) => {
+      this.data.updateStock(ingre).subscribe(({dash}: any) => {
         this.datas = dash        
         Swal.fire({
           icon: 'success',
           title: this.translateService.instant('cartz.bravo'),
           text: this.translateService.instant('cartz.bravo2'),
         }).then((bebas: any) => {
-          this.dialogRef.close({
-            status : "berhasil"
-          })
+          this.dialogRef.close()
           this.data.getCart().refetch()
         });
       }
       );
-      console.log('berhasil');
-     
     } else {
-      console.log('gagal');
       Swal.fire({
         icon: 'error',
         title: 'Error',

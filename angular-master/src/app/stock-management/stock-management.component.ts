@@ -134,6 +134,8 @@ export class StockManagementComponent implements OnInit {
       hasBackdrop: true,      
     });
 
+    console.log(parameter);
+    
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.getDatas() 

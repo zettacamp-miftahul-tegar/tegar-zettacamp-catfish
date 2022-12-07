@@ -24,25 +24,13 @@ export class UpdateComponent implements OnInit {
   constructor(
     private data: DataService,
     public dialogRef: MatDialogRef<UpdateComponent>,
-    @Inject(MAT_DIALOG_DATA) public datas: Stocks,
+    @Inject(MAT_DIALOG_DATA) public datas: any,
     private translateService : TranslateService,
   ) { }
 
   ngOnInit(): void {
     this.initForm()
     this.signupForm.patchValue(this.datas)  
-    this.inputDisabled()  
-  }
-
-  a :any;
-  b: any;
-  c: any;
-  disabledd:any;
-
-  inputDisabled() {
-    this.data.getStock(this.a, this.b, this.c).valueChanges.subscribe((item) => {
-      this.disabledd = item.data
-    })
   }
 
   initForm() {

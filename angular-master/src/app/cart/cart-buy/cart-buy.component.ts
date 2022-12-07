@@ -50,13 +50,21 @@ export class CartBuyComponent implements OnInit {
       confirmButtonText: this.translateService.instant('cartz.fail3C')
     }).then((result:any) => {
       if (result.isConfirmed) {
-        this.data.deleteOneCart(parameter.id)
-        Swal.fire(
-          this.translateService.instant('cartz.fail4C'),
-          this.translateService.instant('cartz.fail5C'),
-          'success'
+        this.data.deleteOneCart(parameter.id).subscribe((item:any) => {
+          Swal.fire(
+            this.translateService.instant('cartz.fail4C'),
+            this.translateService.instant('cartz.fail5C'),
+            'success'
+          ).then(() => {
+            this.refetchall.emit(true)
+          })
+        }, err => 
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!',
+          })
         )
-        this.refetchall.emit(true)
       }
     })
   }

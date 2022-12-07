@@ -48,7 +48,6 @@ export class CartComponent implements OnInit {
       this.balancee = item.data.getOneUser.balance
     })
   }
-  
 
   getCard_id(event:any) {
     this.subs.sink = this.data.getCart().valueChanges.subscribe((item: any) => {
@@ -57,12 +56,6 @@ export class CartComponent implements OnInit {
       this.cart_length = item?.data?.getAllCart?.cart_length
     });
   }
-
-  // getCard_Length(event:any) {
-  //   this.subs.sink = this.data.getCart().valueChanges.subscribe((item: any) => {
-  //     this.cart_length = item?.data?.getAllCart?.cart_length
-  //   });
-  // }
 
   routing() {
     this.router.navigate(['menu'])
@@ -79,20 +72,23 @@ export class CartComponent implements OnInit {
       confirmButtonText: this.translateService.instant('cartz.fail3C')
     }).then((result:any) => {
       if (result.isConfirmed) {
-        this.data.deleteAllCart()
-        Swal.fire(
-          this.translateService.instant('cartz.fail4C'),
-          this.translateService.instant('cartz.fail5C'),
-          'success'
-        ).then((res) => {
-          // this.refetchNotif.emit(true)
-          // this.getCard_id(this.cart_length)
-          this.refetchData()
-          // this.getCard_Length(this.datas1)
-          this.carts = []
-          this.cart_length = 0
+        this.data.deleteAllCart().subscribe((item) => {
+          Swal.fire(
+            this.translateService.instant('cartz.fail4C'),
+            this.translateService.instant('cartz.fail5C'),
+            'success'
+          ).then((res) => {
+            this.refetchData()
+            this.carts = []
+            this.cart_length = 0
+          })
+        }, err => 
+          Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
         })
-      }
+      )}
     })
   }
 

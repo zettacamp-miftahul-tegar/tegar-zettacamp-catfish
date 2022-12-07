@@ -48,12 +48,12 @@ export class UpdateComponent implements OnInit {
   }
 
   initForm() {
-    this.signupForm = this.fb.group({
-      imgUrl: ['', [Validators.required, Validators.minLength(5)]],
-      recipe_name: ['', [Validators.required, Validators.minLength(4)]],
-      price: ['', [Validators.required, Validators.min(1)]],
-      discount: [[Validators.min(1)]],
-      ingredients: this.fb.array([]),
+    this.signupForm = new FormGroup({
+      imgUrl: new FormControl(null, [Validators.required, Validators.minLength(5)]),
+      recipeName: new FormControl(null, [Validators.required, Validators.minLength(4)]),
+      price: new FormControl(null, [Validators.required, Validators.min(1)]),
+      discount: new FormControl(null, [Validators.min(0), Validators.max(80)]),
+      ingredients: new FormArray([])
     });
     this.signupForm.get('ingredients').valueChanges.subscribe((a:any) => {
         this.b = a.map((val:any)=>{
@@ -97,15 +97,11 @@ export class UpdateComponent implements OnInit {
   }
 
   onIngredients() {
-    return this.fb.group({
-      ingredient_id: ['', [Validators.required]],
-      stock_used: ['', [Validators.required, Validators.min(1)]],
+    return new FormGroup({
+      ingredient_id: new FormControl(null, Validators.required),
+      stock_used: new FormControl(null, [Validators.required, Validators.min(1)]),
     });
   }
-
-  // addIngredient() {
-  //   this.controls.push(this.onIngredients());
-  // }
 
   get controls(): FormArray {
     return this.signupForm.get('ingredients') as FormArray;
@@ -127,9 +123,6 @@ export class UpdateComponent implements OnInit {
     page: 0,
     limit: 10
   }
-
-  haii: any;
-  post: any
 
   onSubmit() {
     if (this.signupForm.valid) {

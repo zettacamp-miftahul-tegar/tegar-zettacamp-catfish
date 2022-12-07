@@ -92,7 +92,7 @@ export class CartService {
       mutation : this.query,
       variables: {
         itemId: post.item_id,
-        amount: post.amount,
+        // amount: post.amount,
         note: post.note,
       }
     })
@@ -121,15 +121,7 @@ export class CartService {
       itemId:post
     },
       fetchPolicy: "network-only" // ketika ada perubahan ngambil server  
-      })
-      .subscribe(subs => {
-        // console.log(subs)
-      }, err => 
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Something went wrong!',
-      })
+      }
     )
   }
 
@@ -153,15 +145,7 @@ export class CartService {
     return this.apollo.mutate({
       mutation : this.query,
       fetchPolicy: "network-only" // ketika ada perubahan ngambil server  
-      })
-      .subscribe(subs => {
-        // console.log(subs)
-      }, err => 
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Something went wrong!',
-      })
+      }
     )
   }
 

@@ -4,7 +4,8 @@
 
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label> {{'stock.name' | translate}} </mat-label>
-    <input matInput type="text" id="name" formControlName="name" class="form-control">
+    <input matInput type="text" id="name" formControlName="name" class="form-control" *ngIf="this.datas.isUsed == false" [readonly]=false>
+    <input matInput type="text" id="name" formControlName="name" class="form-control" *ngIf="this.datas.isUsed == true" [readonly]=true style="color: grey;">
     <mat-error *ngIf="this.signupForm.get('name')?.invalid"> {{'error'| translate}} </mat-error>
   </mat-form-field>
 

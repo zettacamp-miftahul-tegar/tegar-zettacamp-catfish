@@ -17,7 +17,7 @@ export class AppComponent {
   title = 'angular-master';
   email: any;
   private subs = new SubSink();
-  cart_length:any
+  cart_length?:any
 
   token : string | null = "";
   user_type: string | null = "";
@@ -60,11 +60,8 @@ export class AppComponent {
     this.getCard_id(true)
   }
 
-  data:any
-  a:any
-
-  getCard_id(event:any) {
-    this.subs.sink = this.cart.getCart()?.valueChanges.subscribe((item: any) => {
+  getCard_id(event?:any): void {
+    this.subs.sink = this?.cart?.getCart()?.valueChanges?.subscribe((item?: any) => {
       this.cart_length = item?.data?.getAllCart?.cart_length
     });
   }
