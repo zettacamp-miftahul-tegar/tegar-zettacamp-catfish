@@ -152,13 +152,14 @@ export class UpdateComponent implements OnInit {
           });
         }
       });
-    } else {
-      Swal.fire({
-        title: "Error!",
-        text: "Data Invalid!",
-        icon: "error",
-        confirmButtonText: "OK"
-      });
-    };
+    } 
+    // else {
+    //   Swal.fire({
+    //     title: "Error!",
+    //     text: "Data Invalid!",
+    //     icon: "error",
+    //     confirmButtonText: "OK"
+    //   });
+    // };
   }
 }

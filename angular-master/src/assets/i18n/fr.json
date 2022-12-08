@@ -183,5 +183,10 @@
   "change" : {
     "success" : "mot de passe modifié avec succès",
     "fail" : "le mot de passe n'a pas pu être modifié"
-  }
+  },
+  "First name must Alphabet, not" : "Le prénom doit être alphabétique, pas",
+  "Last name must Alphabet" : "Le nom de famille doit être alphabétique",
+  "Email not valid" : "E-mail non valide",
+  "Password didn't match" : "Le mot de passe ne correspond pas",
+  "Please fill a valid email address" : "Please fill a valid email address"
 }

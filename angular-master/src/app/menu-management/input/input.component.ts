@@ -100,13 +100,14 @@ export class InputComponent implements OnInit {
         text: this.translateService.instant('stockT.fail1'),
       })
     );
-  } else {
-      Swal.fire({
-        icon: 'error',
-        title: 'error',
-        text: 'failed to upload data !',
-      });
-      this.signupForm.markAllAsTouched();
-    }
+  } 
+  // else {
+  //     Swal.fire({
+  //       icon: 'error',
+  //       title: 'error',
+  //       text: 'failed to upload data !',
+  //     });
+  //     this.signupForm.markAllAsTouched();
+  //   }
   }
 }

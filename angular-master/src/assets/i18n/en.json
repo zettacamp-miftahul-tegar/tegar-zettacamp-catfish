@@ -184,5 +184,10 @@
   "change" : {
     "success" : "password changed successfully",
     "fail" : "password failed to change"
-  }
+  },
+  "First name must Alphabet" : "First name must Alphabet",
+  "Last name must Alphabet" : "Last name must Alphabet",
+  "Email not valid" : "Email not valid",
+  "Password didn't match" : "Password didn't match",
+  "Please fill a valid email address" : "Please fill a valid email address"
 }
