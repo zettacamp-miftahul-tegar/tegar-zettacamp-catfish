@@ -16,7 +16,7 @@
         <th class="pos" mat-header-cell *matHeaderCellDef> 
           <div><b> {{ 'historyz.name' | translate }} </b></div>
           <mat-form-field floatLabel="never">
-            <mat-label> {{ 'menus.searchp' | translate }} </mat-label>
+            <mat-label> {{ 'search by first name' | translate }} </mat-label>
             <input matInput [formControl]="lastFilter" [(ngModel)]="valuee">
             <button *ngIf="valuee" matSuffix mat-icon-button aria-label="Clear" (click)="valuee=''">
               <mat-icon>close</mat-icon>

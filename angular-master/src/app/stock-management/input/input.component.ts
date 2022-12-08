@@ -64,18 +64,20 @@ export class InputComponent implements OnInit {
       Swal.fire({
         icon: 'error',
         title: this.translateService.instant('stockT.fail'),
-        text: this.translateService.instant('stockT.fail1'),
+        text: err.message,
+        // text: this.translateService.instant('stockT.fail1'),
       })
     );
-  } else {
-      console.log('gagal');
-      Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: 'Something went wrong !',
-      });
-      this.signupForm.markAllAsTouched();
-    }
+  }
+  //  else {
+  //     console.log('gagal');
+  //     Swal.fire({
+  //       icon: 'error',
+  //       title: 'Error',
+  //       text: 'Something went wrong !',
+  //     });
+  //     this.signupForm.markAllAsTouched();
+  //   }
   }  
 
 

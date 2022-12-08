@@ -1,4 +1,5 @@
 {
+  "search by first name" : "search by last name",
   "history": "History",
   "income" : "Income",
   "pw" : "the password must atleast 8 character",
@@ -83,7 +84,7 @@
     "fail2C": "You won't be able to revert this!",
     "fail3C" : "Yes, delete it!",
     "fail4C": "Deleted!",
-    "fail5C": "Your file has been deleted."
+    "fail5C": "Your wishlist menu has been deleted"
   },
   "historyz" : {
     "history" : "History",
@@ -189,5 +190,14 @@
   "Last name must Alphabet" : "Last name must Alphabet",
   "Email not valid" : "Email not valid",
   "Password didn't match" : "Password didn't match",
-  "Please fill a valid email address" : "Please fill a valid email address"
+  " Please fill a valid email address" : "Please fill a valid email address",
+  "images" : "must be an image address",
+  "name" : "name at least 3 letters long",
+  "price" : "minimum price Rp. 1,000",
+  "discount" : "Discount min : 0% and max : 80%",
+  "email1" : "this email is required",
+  "email2" : "This email is fail ",
+  "password1" : "this password is required",
+  "password2" : "This password minimum 8 character",
+  "amount" : "Your request quantity does not match"
 }

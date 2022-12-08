@@ -19,13 +19,12 @@
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label> {{'iMenu.amount' | translate }} </mat-label>
     <input matInput type="number" id="amount" formControlName="amount" class="form-control">
-    <mat-error *ngIf="this.signupForm.get('amount')?.invalid"> {{ 'error' | translate }} </mat-error>
+    <mat-error *ngIf="this.signupForm.get('amount')?.invalid"> {{ 'amount' | translate }} </mat-error>
   </mat-form-field>
 
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label> {{ 'iMenu.note' | translate }} </mat-label>
     <input matInput type="text" id="note" formControlName="note" class="form-control">
-    <mat-error *ngIf="this.signupForm.get('note')?.invalid"> {{ 'error' | translate }} </mat-error>
   </mat-form-field>
 
   <div mat-dialog-actions style="float: right;">

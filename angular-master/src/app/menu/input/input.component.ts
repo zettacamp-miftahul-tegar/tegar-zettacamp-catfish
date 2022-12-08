@@ -83,15 +83,16 @@ export class InputComponent implements OnInit {
           text: this.translateService.instant('menusT.fail'),
         })
       )
-    } else {
-      console.log('gagal');
-      Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: 'Something went wrong !',
-      });
-      this.signupForm.markAllAsTouched();
-    }
+    } 
+    // else {
+    //   console.log('gagal');
+    //   Swal.fire({
+    //     icon: 'error',
+    //     title: 'Error',
+    //     text: 'Something went wrong !',
+    //   });
+    //   this.signupForm.markAllAsTouched();
+    // }
   }
 
 }

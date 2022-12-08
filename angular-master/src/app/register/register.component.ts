@@ -64,9 +64,9 @@ export class RegisterComponent implements OnInit {
 
   getErrorMessageEmail() {
     if (this.signupForm.get('email')?.hasError('required')) {
-      return 'This email is required!';
+      return this.translateService.instant('email1');
     }
-    return this.signupForm.get('email')?.hasError('email') ? 'This email is fail' : '';
+    return this.signupForm.get('email')?.hasError('email') ? this.translateService.instant('email2') : '';
   }
 
   openDialog(): void {

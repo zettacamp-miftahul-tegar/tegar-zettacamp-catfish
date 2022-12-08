@@ -1,4 +1,5 @@
 {
+  "search by first name" : "rechercher par nom de famille",
   "history": "Histoire",
   "income" : "Revenu",
   "pw" : "le mot de passe doit comporter au moins 8 caractères",
@@ -184,9 +185,18 @@
     "success" : "mot de passe modifié avec succès",
     "fail" : "le mot de passe n'a pas pu être modifié"
   },
-  "First name must Alphabet, not" : "Le prénom doit être alphabétique, pas",
+  "First name must Alphabet" : "Le prénom doit être alphabétique, pas",
   "Last name must Alphabet" : "Le nom de famille doit être alphabétique",
   "Email not valid" : "E-mail non valide",
   "Password didn't match" : "Le mot de passe ne correspond pas",
-  "Please fill a valid email address" : "Please fill a valid email address"
+  " Please fill a valid email address" : "Veuillez remplir une adresse e-mail valide",
+  "images" : "doit être une adresse d'image",
+  "name" : "nom d'au moins 3 lettres",
+  "price" : "prix minimum Rp. 1,000",
+  "discount" : "Remise min : 0% et max : 80%",
+  "email1" : "cet e-mail est obligatoire",
+  "email2" : "Cet e-mail est un échec",
+  "password1": "ce mot de passe est requis",
+  "password2": "Ce mot de passe doit comporter au moins 8 caractères",
+  "amount" : "La quantité demandée ne correspond pas"
 }

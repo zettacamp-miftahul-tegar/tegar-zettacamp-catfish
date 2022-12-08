@@ -97,7 +97,8 @@ export class InputComponent implements OnInit {
       Swal.fire({
         icon: 'error',
         title: this.translateService.instant('stockT.fail'),
-        text: this.translateService.instant('stockT.fail1'),
+        text : err.message,
+        // text: this.translateService.instant('stockT.fail1'),
       })
     );
   } 

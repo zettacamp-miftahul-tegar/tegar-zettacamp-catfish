@@ -15,7 +15,6 @@
     <button mat-button routerLink="menu-management" *ngIf="user_type=='admin'" style="color: white;"
       routerLinkActive="active">{{ "menu-management" | translate }}</button>
 
-
     <!-- login and user only access cart -->
     <button mat-button *ngIf="token && user_type == 'user'" matBadge="{{cart_length}}" [matMenuTriggerFor]="menu" routerLinkActive="active"
       style="color: white;">{{ "transaction" | translate }}</button>
