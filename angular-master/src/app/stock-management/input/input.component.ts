@@ -30,10 +30,9 @@ export class InputComponent implements OnInit {
   initForm() {
     this.signupForm = new FormGroup({
       'name': new FormControl(null, [Validators.required]),
-      'stock': new FormControl(null, [Validators.required]),
+      'stock': new FormControl(null, [Validators.required, Validators.min(1)]),
     });
-    this.signupForm.patchValue(this.signupForm.value)
-    // console.log(this.signupForm.value);
+    // this.signupForm.patchValue(this.signupForm.value)
   }
 
   onNoClick(): void {

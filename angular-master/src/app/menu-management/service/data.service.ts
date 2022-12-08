@@ -204,13 +204,8 @@ export class DataService {
   updateAvailable(post: any) {
 
     this.query = gql `
-    mutation UpdateRecipe($updateRecipeId: ID, $status: String, $specialOffer: Boolean, $highlight: Boolean) {
-      updateRecipe(
-        id: $updateRecipeId
-        status: $status
-        special_offer: $specialOffer
-        highlight: $highlight
-      ) {
+    mutation UpdateRecipe($updateRecipeId: ID, $status: String, $discount: Float, $specialOffer: Boolean, $highlight: Boolean) {
+      updateRecipe(id: $updateRecipeId, status: $status, discount: $discount, special_offer: $specialOffer, highlight: $highlight) {
         id
         recipe_name
         price
@@ -233,6 +228,7 @@ export class DataService {
       mutation : this.query,
       variables: {
         updateRecipeId: post.id,
+        discount : post.discount,
         status: post.status,
         specialOffer: false,
         highlight: false

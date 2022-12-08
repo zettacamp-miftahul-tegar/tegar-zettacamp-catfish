@@ -36,9 +36,7 @@ export class UpdateComponent implements OnInit {
   initForm() {
     this.signupForm = new FormGroup({
       'name': new FormControl(null, [Validators.required]),
-      'stock': new FormControl(null, [Validators.required]),
-      // 'status': new FormControl(null, [Validators.required]),
-      // 'isUsed': new FormControl()
+      'stock': new FormControl(null, [Validators.required, Validators.min(1)]),
     });
   }
 

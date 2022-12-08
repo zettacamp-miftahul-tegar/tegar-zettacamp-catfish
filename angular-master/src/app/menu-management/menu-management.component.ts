@@ -82,12 +82,11 @@ export class MenuManagementComponent implements OnInit {
     this.subs.sink = this.data.getRecipe(pagination, this.search, this.statusF).subscribe((resp: any) => {
       if(resp?.data?.getAllRecipes){
         this.paginator.length = resp.data.getAllRecipes.totalDocs;  
-        this.pagination = resp.data.getAllRecipes.currentDocs
+        // this.pagination = resp.data.getAllRecipes.currentDocs
         // this.pageSizeOptions = resp.data.getAllRecipes.currentDocs
 
         this.paginator.pageSize = this.pageSizeOptions[0];
         this.dataSource = new MatTableDataSource(resp.data.getAllRecipes.recipes)
-
       } else {
         this.paginator.length = 0;
         this.dataSource.data = [];
