@@ -51,7 +51,7 @@ export class UpdateComponent implements OnInit {
     this.signupForm = new FormGroup({
       imgUrl: this.fb.control("", [Validators.required, Validators.minLength(5)]),
       recipe_name: this.fb.control("", [Validators.required, Validators.minLength(4)]),
-      price: this.fb.control("", [Validators.required, Validators.min(1)]),
+      price: this.fb.control("", [Validators.required, Validators.min(1000)]),
       discount: this.fb.control("", [Validators.min(0), Validators.max(80)]),
       ingredients: this.fb.array([])
     });
