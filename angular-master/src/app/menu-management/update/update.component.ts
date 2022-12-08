@@ -49,11 +49,11 @@ export class UpdateComponent implements OnInit {
 
   initForm() {
     this.signupForm = new FormGroup({
-      imgUrl: new FormControl(null, [Validators.required, Validators.minLength(5)]),
-      recipeName: new FormControl(null, [Validators.required, Validators.minLength(4)]),
-      price: new FormControl(null, [Validators.required, Validators.min(1)]),
-      discount: new FormControl(null, [Validators.min(0), Validators.max(80)]),
-      ingredients: new FormArray([])
+      imgUrl: this.fb.control("", [Validators.required, Validators.minLength(5)]),
+      recipe_name: this.fb.control("", [Validators.required, Validators.minLength(4)]),
+      price: this.fb.control("", [Validators.required, Validators.min(1)]),
+      discount: this.fb.control("", [Validators.min(0), Validators.max(80)]),
+      ingredients: this.fb.array([])
     });
     this.signupForm.get('ingredients').valueChanges.subscribe((a:any) => {
         this.b = a.map((val:any)=>{
@@ -92,19 +92,19 @@ export class UpdateComponent implements OnInit {
     this.signupForm.patchValue(this.datas);
   }
 
+  get controls(): FormArray {
+    return this.signupForm.get('ingredients') as FormArray;
+  }
+
   get addr() {
     return this.signupForm.controls['ingredients'] as FormArray;
   }
 
   onIngredients() {
     return new FormGroup({
-      ingredient_id: new FormControl(null, Validators.required),
-      stock_used: new FormControl(null, [Validators.required, Validators.min(1)]),
+      ingredient_id: this.fb.control("", Validators.required),
+      stock_used: this.fb.control("", [Validators.required, Validators.min(1)]),
     });
-  }
-
-  get controls(): FormArray {
-    return this.signupForm.get('ingredients') as FormArray;
   }
 
   addNewIngredients() {
@@ -131,6 +131,7 @@ export class UpdateComponent implements OnInit {
         id: this.datas.id,
         ...this.signupForm.value
       }
+      
       this.data.updateRecipe(bebas).subscribe({
         next: () => {
           Swal.fire({
