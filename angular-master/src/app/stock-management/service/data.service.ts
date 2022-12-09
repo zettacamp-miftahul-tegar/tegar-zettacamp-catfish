@@ -52,7 +52,7 @@ export class DataService {
         name:nameFilter,
         status: "active"
       },
-      fetchPolicy: "network-only" // ketika ada perubahan ngambil server  
+      fetchPolicy: "network-only"
     })
   }
 

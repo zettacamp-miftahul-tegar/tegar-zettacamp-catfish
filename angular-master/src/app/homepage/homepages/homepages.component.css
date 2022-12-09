@@ -312,8 +312,8 @@ img {
 
 .images img {
   padding-left: 5%;
-  width: 20px;
-  height: 20px;
+  width: 40px;
+  height: 40px;
 }
 
 .images {
@@ -329,4 +329,8 @@ img {
 
 img.b {
   vertical-align: sub;
+}
+
+.b {
+  padding-top: 10px;
 }
