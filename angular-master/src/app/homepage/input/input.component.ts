@@ -5,6 +5,7 @@ import { DataService } from '../service/data.service';
 import { SubSink } from 'subsink';
 import Swal from 'sweetalert2';
 import { CartService } from '../../cart/service/cart.service'
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-input',
@@ -18,6 +19,7 @@ export class InputComponent implements OnInit {
   recepien: any
 
   constructor(
+    private translateService : TranslateService,
     public dialogRef: MatDialogRef < InputComponent > ,
     private data: DataService,
     private cart: CartService,
@@ -76,8 +78,8 @@ export class InputComponent implements OnInit {
           this.todos = dash
           Swal.fire({
             icon: 'success',
-            title: 'Success',
-            text: 'Successfully added to cart!',
+            title: this.translateService.instant('menuT.bravo'),
+            text: this.translateService.instant('cussess'),
           }).then((bebas: any) => {
               this.dialogRef.close({
                 status: "berhasil"
@@ -88,8 +90,8 @@ export class InputComponent implements OnInit {
         }, err => 
         Swal.fire({
           icon: 'error',
-          title: 'Oops...',
-          text: 'Menu is already in cart !',
+          title: this.translateService.instant('stockT.fail'),
+          text: this.translateService.instant(`${err.message}`),
         })
       )
     }

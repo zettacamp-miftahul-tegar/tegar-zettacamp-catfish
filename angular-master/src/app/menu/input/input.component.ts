@@ -66,8 +66,8 @@ export class InputComponent implements OnInit {
           this.todos = dash
           Swal.fire({
             icon: 'success',
-            title: this.translateService.instant('menusT.bravo1'),
-            text: this.translateService.instant('menusT.bravo'),
+            title: this.translateService.instant('menuT.bravo'),
+            text: this.translateService.instant('cussess'),
           }).then((bebas: any) => {
               this.dialogRef.close()
               this.refetchData()
@@ -76,8 +76,8 @@ export class InputComponent implements OnInit {
         }, err => 
         Swal.fire({
           icon: 'error',
-          title: this.translateService.instant('menusT.fail1'),
-          text: this.translateService.instant('menusT.fail'),
+          title: this.translateService.instant('stockT.fail'),
+          text: this.translateService.instant(`${err.message}`),
         })
       )
     } 

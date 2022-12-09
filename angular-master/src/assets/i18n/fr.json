@@ -203,5 +203,11 @@
   "Ingredient name has been used." : "Le nom de l'ingrédient a été utilisé.",
   "Http failure response for https://long-gold-woodpecker-toga.cyclic.app/: 400 OK" : "le stock total ne peut pas être décimal",
   "Ingredient name must be Alphabet." : "Le nom de l'ingrédient doit être alphabétique.",
-  "Error: Ingredient name has been used." : "Le nom de l'ingrédient a été utilisé."
+  "Error: Ingredient name has been used." : "Le nom de l'ingrédient a été utilisé.",
+  "Recipe name must be Alphabet." : "Le nom de la recette doit être alphabétique.",
+  "Recipe name has been used." : "Le nom de la recette a été utilisé.",
+  "Error: Recipe name has been used." : "Le nom de la recette a été utilisé.",
+  "total stock cannot decimal" : "le stock total ne peut pas être décimal",
+  "cussess" : "Ajouté au panier avec succès",
+  "Menu has been added to cart" : "Le menu a été ajouté au panier"
 }

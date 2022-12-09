@@ -79,9 +79,11 @@ export class InputComponent implements OnInit {
 
   onSubmit(){
     if (this.signupForm.valid) {
-      this.signupForm.value.ingredients.map((data:any)=>{
-        data.stock_used = parseInt(data.stock_used)
-      })
+      
+      // this.signupForm.value.ingredients.map((data:any)=>{
+      //   data.stock_used = parseInt(data.stock_used)
+      // })
+
       this.data.addRecipe(this.signupForm.value).subscribe(({data}: any) => {
         this.todos = data
         Swal.fire({
