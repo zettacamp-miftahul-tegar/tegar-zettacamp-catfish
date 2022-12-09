@@ -263,9 +263,6 @@ export class MenuManagementComponent implements OnInit {
     dataa = copy(dataa)
     if (dataa.highlight === false) {
       dataa.highlight = true
-    }
-    else if (dataa.highlight === true) {
-      dataa.highlight = false
     } else {
       dataa.highlight === false
     }

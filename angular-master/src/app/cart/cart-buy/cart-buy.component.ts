@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ThisReceiver } from '@angular/compiler';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import { SubSink } from 'subsink';
@@ -23,6 +24,7 @@ export class CartBuyComponent implements OnInit {
     public dialog: MatDialog,
     private data : CartService,
     private translateService : TranslateService,
+    private element: ElementRef
   ) {
     this.refetchall = new EventEmitter();
    }

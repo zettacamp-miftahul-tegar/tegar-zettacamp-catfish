@@ -36,7 +36,7 @@ export class StockManagementComponent implements OnInit {
       this.statusFilterr()
     }
     
-    displayedColumns: string[] = ['name', 'stock', 'status', 'action'];
+    displayedColumns: string[] = ['name', 'stock', 'action'];
     dataSource: MatTableDataSource <Stocks> = new MatTableDataSource();
     selection = new SelectionModel<Stocks>(true, [])
     
@@ -160,7 +160,6 @@ export class StockManagementComponent implements OnInit {
       }))
     }})
   };
-
 
   // ------------------------------------------------------
 

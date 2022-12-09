@@ -9,6 +9,8 @@
   border: 1px dashed grey;
 }
 
+.no-drop { cursor: no-drop; }
+
 .beha {
   display: flex;
   width: 100%;

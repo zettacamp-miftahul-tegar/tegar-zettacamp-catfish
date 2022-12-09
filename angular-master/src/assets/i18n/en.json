@@ -76,7 +76,7 @@
     "bravo1": "your order is being processed",
     "bravo2": "Data succes to updated!",
     "fail": "Oops...",
-    "fail2": "transaction failed",
+    "fail2": "transaction failed because stock is not enough",
     "confirm": "Yes, buy now!",
     "confirm1": "Items that have been purchased cannot be returned !",
     "confirm2": "Are you sure?",

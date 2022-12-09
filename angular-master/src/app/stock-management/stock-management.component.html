@@ -27,34 +27,27 @@
         <td mat-cell *matCellDef="let element" > {{element.stock}} </td>
       </ng-container>
   
-      <ng-container matColumnDef="status">
-        <th class="pos" mat-header-cell *matHeaderCellDef> 
-          <b>{{ 'stock.status' | translate }}</b>
-        </th>
-        <td mat-cell *matCellDef="let element" class="pos1"> 
-          <mat-icon [ngStyle]="{color:'green'}" *ngIf="element.status === 'active'" matTooltip="active">check_circle</mat-icon> 
-        </td>
-      </ng-container>
-
       <ng-container matColumnDef="action" >
         <th class="poss" mat-header-cell *matHeaderCellDef class="noFilter2"> <b>{{ 'stock.action' | translate }}</b> </th>
         <td mat-cell *matCellDef="let element" class="noFilter3">
+
           <a (click)="openUpdate(element)">
             <button mat-stroked-button color="primary">
               <mat-icon style="color: green;" matTooltip="edit">create</mat-icon>
             </button>
           </a>
-          <a (click)="onDelete(element.id)" *ngIf="element.status == 'active'">
+          <a (click)="onDelete(element.id)" *ngIf="element.isUsed == false">
             <button mat-stroked-button color="primary">
               <mat-icon style="color: red;" matTooltip="delete">delete</mat-icon>
             </button>
           </a>
-          <a *ngIf="element.status == 'deleted'" disabled="true">
+          <a *ngIf="element.isUsed == true" disabled="true">
             <button mat-stroked-button style="color: primary;" disabled="true">
-              <mat-icon style="color: black;" matTooltip="delete" disabled="true">delete</mat-icon>
+              <mat-icon style="color: grey;" matTooltip="is used" disabled="true">delete</mat-icon>
             </button>
           </a>
         </td>
+        
       </ng-container>
   
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

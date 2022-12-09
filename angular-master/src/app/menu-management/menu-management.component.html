@@ -123,12 +123,12 @@
 
           <a  *ngIf="element.status == 'publish'" >
             <button mat-stroked-button (click)="openUpdate(element)" color="primary" disabled="true">
-              <mat-icon style="color: black;" matTooltip="disabled edit">create</mat-icon>
+              <mat-icon style="color: gray;" matTooltip="edit">create</mat-icon>
             </button>
           </a>
           <a  *ngIf="element.status == 'publish'">
             <button mat-stroked-button color="primary" (click)="onDelete(element.id)" disabled="true">
-              <mat-icon style="color: black;" matTooltip="disabled delete">delete</mat-icon>
+              <mat-icon style="color: gray;" matTooltip="delete">delete</mat-icon>
             </button>
           </a>
 

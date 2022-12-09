@@ -75,7 +75,7 @@
     "bravo1": "votre commande est en cours de traitement",
     "bravo2": "Données à mettre à jour avec succès !",
     "fail": "Oups...",
-    "fail2": "La transaction a échoué",
+    "fail2": "transaction échouée car le stock n'est pas suffisant",
     "confirm": "Oui, achetez maintenant !",
     "confirm1": "Les articles qui ont été achetés ne peuvent pas être retournés !",
     "confirm2": "Êtes-vous sûr ?",
