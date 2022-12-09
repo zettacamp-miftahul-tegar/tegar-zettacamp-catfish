@@ -45,7 +45,7 @@
                 <mat-form-field appearance="fill">
                   <mat-label>{{'menu-ma.ingredients' | translate }}</mat-label>
                   <mat-select formControlName="ingredient_id">
-                    <mat-option *ngFor="let menu of ingredient" [value]="menu.id" [disabled]="(b).includes(menu.id)">
+                    <mat-option *ngFor="let menu of ingredient" [value]="menu.id" [disabled]="(ingredientDUP).includes(menu.id)">
                       {{menu.name}}
                     </mat-option>
                   </mat-select>

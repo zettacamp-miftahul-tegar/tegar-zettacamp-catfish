@@ -30,18 +30,9 @@
       <ng-container matColumnDef="status">
         <th class="pos" mat-header-cell *matHeaderCellDef> 
           <b>{{ 'stock.status' | translate }}</b>
-          <!-- <mat-form-field floatLabel="never">
-            <mat-label>{{ 'stock.status' | translate }}</mat-label>
-            <mat-select [formControl]="statusFilter" [(ngModel)]="valuee">
-              <mat-option *ngFor="let food of foods" [value]="food.value">
-                {{food.viewValue}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>   -->
         </th>
         <td mat-cell *matCellDef="let element" class="pos1"> 
           <mat-icon [ngStyle]="{color:'green'}" *ngIf="element.status === 'active'" matTooltip="active">check_circle</mat-icon> 
-          <!-- <mat-icon [ngStyle]="{color:'red'}" *ngIf="element.status === 'deleted'" matTooltip="deleted">highlight_off</mat-icon>  -->
         </td>
       </ng-container>
 

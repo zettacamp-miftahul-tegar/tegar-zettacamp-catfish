@@ -16,8 +16,6 @@ import { ValidationPetComponent } from './validation-pet/validation-pet.componen
 })
 export class ResetPasswordComponent implements OnInit {
 
-  hide = true;
-  hidee = true;
   signupForm!: FormGroup;
   private subs = new SubSink();
 
@@ -37,9 +35,9 @@ export class ResetPasswordComponent implements OnInit {
     public dialog: MatDialog, 
   ) {}
 
-  // ngOnDestroy(): void {
-  //   this.subs.sink?.unsubscribe()
-  // }
+  ngOnDestroy(): void {
+    this.subs.sink?.unsubscribe()
+  }
 
   initForm() {
     this.signupForm = new FormGroup({

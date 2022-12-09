@@ -69,18 +69,8 @@ export class UpdateComponent implements OnInit {
       Swal.fire({
         icon: 'error',
         title: this.translateService.instant('stockT.fail'),
-        text: 'name already to used !',
+        text: this.translateService.instant(`${err.message}`),
       })
     );
-    } else {
-      console.log('gagal');
-      Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: 'Data unsuccessfully updated!',
-      });
-      this.signupForm.markAllAsTouched();
-    }
-  } 
-
+  }} 
 }

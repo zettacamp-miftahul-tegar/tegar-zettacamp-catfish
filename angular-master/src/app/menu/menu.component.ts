@@ -40,17 +40,12 @@ export class MenuComponent implements OnInit {
 
     this.subs.sink = this.data.getRecipies(pagination, this.search).valueChanges.subscribe((resp : any) => {
       if(resp?.data?.getAllRecipe){
-
         this.paginator.length = resp.data.getAllRecipe.totalDocs;
-
         this.pagination = resp.data.getAllRecipe.currentDocs;
-        
+
         this.paginator.pageSize = this.pageSizeOptions[0]   
-
         this.recepien = resp.data.getAllRecipe.recipes
-        
         this.leng = resp?.data?.getAllRecipe?.recipes?.totalLength
-
       } else {
         this.paginator.length = 0;
         this.recepien = [];

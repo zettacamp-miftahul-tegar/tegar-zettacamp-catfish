@@ -13,11 +13,6 @@ import Swal from 'sweetalert2';
 import { debounceTime } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 
-interface Food {
-  value: string;
-  viewValue: string;
-}
-
 @Component({
   selector: 'app-stock-management',
   templateUrl: './stock-management.component.html',
@@ -28,12 +23,6 @@ export class StockManagementComponent implements OnInit {
   private subs = new SubSink();
   Datas:Stocks[]=[]
   name: any;
-
-  foods: Food[] = [
-    {value: '', viewValue: 'All'},
-    {value: 'active', viewValue: 'Active'},
-    {value: 'deleted', viewValue: 'Deleted'},
-  ];
 
   constructor(
     private data: DataService, 
@@ -67,7 +56,6 @@ export class StockManagementComponent implements OnInit {
         this.paginator.length = 0;
         this.dataSource.data = [];
       }
-
     },
     (err) => {
       this.paginator.length = 0;
@@ -157,7 +145,6 @@ export class StockManagementComponent implements OnInit {
       confirmButtonText: this.translateService.instant('stockTT.confirm3')
     }).then((result:any) => {
       if (result.isConfirmed) {
-        // this.data.deleteStock(parameter)
         this.data.deleteStock(parameter).subscribe((item) => {
           Swal.fire(
             this.translateService.instant('stockTT.confirm4'),
@@ -179,7 +166,6 @@ export class StockManagementComponent implements OnInit {
 
   value = '';
   nameFilter = new FormControl();
-  page = 1;
   search : any;
 
   searchFilter(paginationObj?:any) {

@@ -10,7 +10,7 @@ import { SubSink } from 'subsink';
 import { DetailComponent } from './detail/detail.component';
 import { DataService } from './service/data.service';
 
-interface Food {
+interface Status {
   value: string;
   viewValue: string;
 }
@@ -22,7 +22,7 @@ interface Food {
 })
 export class HistoryComponent implements OnInit {
 
-  foods: Food[] = [
+  status: Status[] = [
     {value: '', viewValue: 'All'},
     {value: 'success', viewValue: 'Success'},
     {value: 'failed', viewValue: 'Failed'},
@@ -92,13 +92,10 @@ export class HistoryComponent implements OnInit {
   }
 
   getBalance() {
-
     let user_id = JSON.parse(localStorage.getItem('user_id') !);
-
     const idz = {
       getOneUserId : user_id
     }
-
     this.subs.sink = this.data.getBALANCE(idz).valueChanges.subscribe((item:any) => {
       this.balancee = item.data.getOneUser.balance
     })
@@ -120,10 +117,7 @@ export class HistoryComponent implements OnInit {
 
   value = '';
   nameFilter = new FormControl();
-  page = 1;
   search : any;
-  maxPage : any;
-  dataIngredients : any;
 
   searchFilter() {
     this.nameFilter.valueChanges.pipe(debounceTime(300)).subscribe((val) => {

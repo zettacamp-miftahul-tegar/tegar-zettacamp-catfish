@@ -23,9 +23,9 @@ export class DetailComponent implements OnInit {
   }
   
   private subs = new SubSink();
-  a:any;
-  b:any;
-  c:any;
+  nameFilter:any;
+  statusFilter:any;
+  lastFilter:any;
   dataz:any
 
   getDatas(paginationObj?: any) {
@@ -35,7 +35,7 @@ export class DetailComponent implements OnInit {
       limit: paginationObj?.limit ?? 10
     }
 
-    this.subs.sink = this.data.getHistory(pagination, this.a, this.b, this.c).valueChanges.subscribe((resp: any) => {
+    this.subs.sink = this.data.getHistory(pagination, this.nameFilter, this.statusFilter, this.lastFilter).valueChanges.subscribe((resp: any) => {
       this.dataz = new MatTableDataSource(resp.data.getAllTransaction.transactions.total_price)
     })
   }

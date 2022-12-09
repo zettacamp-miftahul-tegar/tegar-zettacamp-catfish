@@ -48,7 +48,6 @@ export class HomepagesComponent implements OnInit {
     this.getDatas_menu()
     this.getBalance()
     if (localStorage.getItem('token')){
-      // this.dataUser = localStorage.getItem(environment.user)
       this.token = localStorage.getItem('token')
       this.user_type = JSON.parse(localStorage.getItem('user_type')!)
     }
@@ -73,18 +72,13 @@ export class HomepagesComponent implements OnInit {
   }
 
   balancee:any;
-
   getBalance() {
-
     let user_id = JSON.parse(localStorage.getItem('user_id') !);
-
     const idz = {
       getOneUserId : user_id
     }
-
     this.subs.sink = this.data.getBALANCE(idz).valueChanges.subscribe((item:any) => {
       this.balancee = item?.data?.getOneUser?.balance
     })
   }
-
 }

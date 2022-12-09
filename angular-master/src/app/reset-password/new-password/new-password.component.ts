@@ -32,9 +32,9 @@ export class NewPasswordComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public datas: any,
   ) {}
 
-  // ngOnDestroy(): void {
-  //   this.subs.sink?.unsubscribe()
-  // }
+  ngOnDestroy(): void {
+    this.subs.sink?.unsubscribe()
+  }
 
   initForm() {
     this.signupForm = new FormGroup({
@@ -47,9 +47,9 @@ export class NewPasswordComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  a:any;
-  b:any;
-  c:any;
+  email:any;
+  validationFRIEND:any;
+  validationPET:any;
 
   resetNow() {
 
@@ -65,12 +65,12 @@ export class NewPasswordComponent implements OnInit {
       pet_name : this.datas.payloadz.pet_name
     }
   
-    this.a = email
-    this.b = friendName
-    this.c = petName
+    this.email = email
+    this.validationFRIEND = friendName
+    this.validationPET = petName
 
     const payload: any = this.signupForm.value;
-    this.subs.sink = this.data.validation(this.a, this.b, this.c, payload).subscribe(resp => {
+    this.subs.sink = this.data.validation(this.email, this.validationFRIEND, this.validationPET, payload).subscribe(resp => {
       if (resp) {
         Swal.fire({
           icon: 'success',

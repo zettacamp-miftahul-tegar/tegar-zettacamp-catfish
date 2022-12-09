@@ -20,9 +20,7 @@ export class DetailComponent implements OnInit {
   }
 
   displayedColumns: string[] = ['name', 'stock', 'stock_used' ];
-
   dataSource: MatTableDataSource <any> = new MatTableDataSource();
-
   selection = new SelectionModel <any> (true, [])
 
   isAllSelected() {

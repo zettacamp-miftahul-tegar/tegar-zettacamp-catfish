@@ -28,7 +28,7 @@ export class ForgotService {
       variables : {
         email : post.email
       },
-      fetchPolicy: "network-only" // ketika ada perubahan ngambil server  
+      fetchPolicy: "network-only"
     })
   }
 
@@ -54,11 +54,11 @@ export class ForgotService {
         friendName : validation.friend_name,
         petName : validation.pet_name
       },
-      fetchPolicy: "network-only" // ketika ada perubahan ngambil server  
+      fetchPolicy: "network-only"
     })
   }
 
-  validation(a:any, b:any, c:any, payload:any): Observable<any> {
+  validation(EMAIL:any, FRIEND:any, PET:any, payload:any): Observable<any> {
     return this.apollo.mutate({
       mutation: gql`
       mutation ResetPassword($email: String, $friendName: String, $petName: String, $password: String, $confirmPassword: String) {
@@ -72,9 +72,9 @@ export class ForgotService {
         }
       }`,
       variables : {
-        email : a.email,
-        friendName : b.friend_name,
-        petName : c.pet_name,
+        email : EMAIL.email,
+        friendName : FRIEND.friend_name,
+        petName : PET.pet_name,
         password : payload.password,
         confirmPassword : payload.confirmPassword
       }

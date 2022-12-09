@@ -18,7 +18,7 @@ export class InputComponent implements OnInit {
   todos: Menus[] = [];
   ingredient:any;
   paginations:any;
-  b:any;
+  ingredientDUP:any;
 
   constructor(
     private data: DataService, 
@@ -46,8 +46,8 @@ export class InputComponent implements OnInit {
       discount: new FormControl(null, [Validators.min(0), Validators.max(80)]),
       ingredients: new FormArray([])
     });
-    this.signupForm.get('ingredients').valueChanges.subscribe((a:any) => {
-      this.b = a.map((val:any)=>{
+    this.signupForm.get('ingredients').valueChanges.subscribe((item:any) => {
+      this.ingredientDUP = item.map((val:any)=>{
         return val.ingredient_id
       })
     })
@@ -82,8 +82,7 @@ export class InputComponent implements OnInit {
       this.signupForm.value.ingredients.map((data:any)=>{
         data.stock_used = parseInt(data.stock_used)
       })
-      this.data.addRecipe(this.signupForm.value)
-      .subscribe(({data}: any) => {
+      this.data.addRecipe(this.signupForm.value).subscribe(({data}: any) => {
         this.todos = data
         Swal.fire({
           icon: 'success',
@@ -97,18 +96,8 @@ export class InputComponent implements OnInit {
       Swal.fire({
         icon: 'error',
         title: this.translateService.instant('stockT.fail'),
-        text : err.message,
-        // text: this.translateService.instant('stockT.fail1'),
+        text: this.translateService.instant(`${err.message}`),
       })
     );
-  } 
-  // else {
-  //     Swal.fire({
-  //       icon: 'error',
-  //       title: 'error',
-  //       text: 'failed to upload data !',
-  //     });
-  //     this.signupForm.markAllAsTouched();
-  //   }
-  }
+  }}
 }

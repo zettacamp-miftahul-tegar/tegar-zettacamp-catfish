@@ -32,7 +32,6 @@ export class InputComponent implements OnInit {
       'name': new FormControl(null, [Validators.required]),
       'stock': new FormControl(null, [Validators.required, Validators.min(1)]),
     });
-    // this.signupForm.patchValue(this.signupForm.value)
   }
 
   onNoClick(): void {
@@ -64,21 +63,8 @@ export class InputComponent implements OnInit {
       Swal.fire({
         icon: 'error',
         title: this.translateService.instant('stockT.fail'),
-        text: err.message,
-        // text: this.translateService.instant('stockT.fail1'),
+        text: this.translateService.instant(`${err.message}`),
       })
     );
-  }
-  //  else {
-  //     console.log('gagal');
-  //     Swal.fire({
-  //       icon: 'error',
-  //       title: 'Error',
-  //       text: 'Something went wrong !',
-  //     });
-  //     this.signupForm.markAllAsTouched();
-  //   }
-  }  
-
-
+  }}  
 }

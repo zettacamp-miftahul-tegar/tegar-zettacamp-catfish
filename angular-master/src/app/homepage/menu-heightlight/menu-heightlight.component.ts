@@ -35,14 +35,7 @@ export class MenuHeightlightComponent implements OnInit {
       hasBackdrop: true
     });
 
-    // console.log(parameter.id);
-    
-
     dialogRef.afterClosed().subscribe((result: any) => {
-      // if (result) {
-      //   this.getDatas() 
-      // }
-      
     })
   }
 
@@ -73,7 +66,6 @@ export class MenuHeightlightComponent implements OnInit {
       cancelButtonText: "Back",
       denyButtonText: `Register`,
     }).then((result) => {
-      /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
         this.openLogin()
       } else if (result.isDenied) {

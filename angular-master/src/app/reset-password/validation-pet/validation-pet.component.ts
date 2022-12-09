@@ -16,8 +16,6 @@ import { ForgotService } from '../service/forgot.service';
 })
 export class ValidationPetComponent implements OnInit {
 
-  hide = true;
-  hidee = true;
   signupForm!: FormGroup;
   private subs = new SubSink();
 
@@ -31,16 +29,15 @@ export class ValidationPetComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef < NewPasswordComponent > ,
-    private router: Router,
     private data:ForgotService,
     private translateService : TranslateService,
     public dialog: MatDialog, 
     @Inject(MAT_DIALOG_DATA) public datas: any,
   ) {}
 
-  // ngOnDestroy(): void {
-  //   this.subs.sink?.unsubscribe()
-  // }
+  ngOnDestroy(): void {
+    this.subs.sink?.unsubscribe()
+  }
 
   initForm() {
     this.signupForm = new FormGroup({

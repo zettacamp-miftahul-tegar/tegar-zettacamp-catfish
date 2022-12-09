@@ -92,15 +92,6 @@ export class InputComponent implements OnInit {
           text: 'Menu is already in cart !',
         })
       )
-    } else {
-      console.log('gagal');
-      Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: 'Something went wrong !',
-      });
-      this.signupForm.markAllAsTouched();
     }
   }
-
 }

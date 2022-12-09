@@ -13,7 +13,7 @@ import { CartService } from '../service/cart.service';
 export class UpdateComponent implements OnInit {
 
   signupForm!: FormGroup;
-  av:any
+  // av:any
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public datas: any,
@@ -23,10 +23,10 @@ export class UpdateComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const bebas = {
-      available: this.datas.recipe_id.available
-    }
-    this.av = bebas.available
+    // const bebas = {
+    //   available: this.datas.recipe_id.available
+    // }
+    // this.av = bebas.available
     this.initForm()
     this.signupForm.patchValue(this.datas)   
   }
@@ -62,13 +62,6 @@ export class UpdateComponent implements OnInit {
         });
       }
       );
-    } else {
-      Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: 'Something went wrong !',
-      });
-      this.signupForm.markAllAsTouched();
-    }
+    } 
   } 
 }

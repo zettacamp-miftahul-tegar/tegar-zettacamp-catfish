@@ -15,7 +15,7 @@ import { debounceTime } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { DetailComponent } from './detail/detail.component';
 
-interface Food {
+interface status {
   value: string;
   viewValue: string;
 }
@@ -27,7 +27,7 @@ interface Food {
 })
 export class MenuManagementComponent implements OnInit {
 
-  foods: Food[] = [
+  statusDROPDOWN: status[] = [
     {value: '', viewValue: 'All'},
     {value: 'publish', viewValue: 'Publish'},
     {value: 'unpublish', viewValue: 'Unpublish'},
@@ -102,7 +102,6 @@ export class MenuManagementComponent implements OnInit {
   @ViewChild('paginator') paginator!: MatPaginator;
 
   pagination:any;
-  // pageSizeOptions:any;
   pageSizeOptions: number[] = [10]
 
   onPaginatorChange(event: PageEvent) {

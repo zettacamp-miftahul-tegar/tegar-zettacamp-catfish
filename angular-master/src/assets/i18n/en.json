@@ -199,5 +199,10 @@
   "email2" : "This email is fail ",
   "password1" : "this password is required",
   "password2" : "This password minimum 8 character",
-  "amount" : "Your request quantity does not match"
+  "amount" : "Your request quantity does not match",
+  "Email has been used." : "Email has been used.",
+  "Ingredient name has been used." : "Ingredient name has been used.",
+  "Http failure response for https://long-gold-woodpecker-toga.cyclic.app/: 400 OK" : "total stock cannot decimal",
+  "Ingredient name must be Alphabet." : "Ingredient name must be Alphabet.",
+  "Error: Ingredient name has been used." : "Ingredient name has been used."
 }

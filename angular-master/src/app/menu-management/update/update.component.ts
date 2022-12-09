@@ -22,10 +22,9 @@ export class UpdateComponent implements OnInit {
   paginations: any;
   testing: any;
   dataMenu: any;
-  b:any;
+  ingredientDUP:any;
 
   constructor(
-    private route: ActivatedRoute,
     private data: DataService,
     public dialogRef: MatDialogRef < UpdateComponent > ,
     @Inject(MAT_DIALOG_DATA) public datas: any,
@@ -55,8 +54,8 @@ export class UpdateComponent implements OnInit {
       discount: this.fb.control("", [Validators.min(0), Validators.max(80)]),
       ingredients: this.fb.array([])
     });
-    this.signupForm.get('ingredients').valueChanges.subscribe((a:any) => {
-        this.b = a.map((val:any)=>{
+    this.signupForm.get('ingredients').valueChanges.subscribe((item:any) => {
+        this.ingredientDUP = item.map((val:any)=>{
           return val.ingredient_id
         })
       }
@@ -132,8 +131,8 @@ export class UpdateComponent implements OnInit {
         ...this.signupForm.value
       }
       
-      this.data.updateRecipe(bebas).subscribe({
-        next: () => {
+      this.data.updateRecipe(bebas).subscribe(({data}: any) => {
+        this.todos = data
           Swal.fire({
             title: this.translateService.instant('menuT.bravo'),
             text: this.translateService.instant('menuT.bravo2'),
@@ -143,23 +142,15 @@ export class UpdateComponent implements OnInit {
             this.dialogRef.close(true);
           });
         },
-        error: () => {
+        err => {
           Swal.fire({
-            title: this.translateService.instant('menuT.fail'),
-            text: this.translateService.instant('menuT.fail2'),
             icon: "error",
+            title: this.translateService.instant('menuT.fail'),
+            text: this.translateService.instant(`${err.message}`),
             confirmButtonText: "OK"
           });
         }
-      });
+      );
     } 
-    // else {
-    //   Swal.fire({
-    //     title: "Error!",
-    //     text: "Data Invalid!",
-    //     icon: "error",
-    //     confirmButtonText: "OK"
-    //   });
-    // };
   }
 }

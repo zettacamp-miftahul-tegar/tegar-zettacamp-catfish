@@ -91,8 +91,8 @@
           <div> <b>{{ 'menu-ma.status' | translate }}</b> </div>
           <mat-form-field>
             <mat-select [formControl]="statusFilter" [(ngModel)]="valuee">
-              <mat-option *ngFor="let food of foods" [value]="food.value">
-                {{food.viewValue}}
+              <mat-option *ngFor="let filter of statusDROPDOWN" [value]="filter.value">
+                {{filter.viewValue}}
               </mat-option>
             </mat-select>
           </mat-form-field>  
@@ -143,12 +143,6 @@
           {{ 'menu-ma.mes' | translate }}
         </td>
       </tr>
-<!-- 
-      <tr class="mat-row" *matNoDataRow>
-        <td class="mat-cell" colspan="4" style="padding-left: 50%;">
-          <mat-spinner *ngIf="loading" mode="indeterminate" value="50"></mat-spinner>
-        </td>
-      </tr> -->
       
     </table>
   </div>

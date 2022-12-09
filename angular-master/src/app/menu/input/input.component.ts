@@ -62,17 +62,14 @@ export class InputComponent implements OnInit {
         ...this.signupForm.value
       }
 
-      this.data.addCart(bebas)
-        .subscribe(({ dash }: any) => {
+      this.data.addCart(bebas).subscribe(({ dash }: any) => {
           this.todos = dash
           Swal.fire({
             icon: 'success',
             title: this.translateService.instant('menusT.bravo1'),
             text: this.translateService.instant('menusT.bravo'),
           }).then((bebas: any) => {
-              this.dialogRef.close({
-                status: "berhasil"
-              })
+              this.dialogRef.close()
               this.refetchData()
             }
           );
@@ -84,15 +81,5 @@ export class InputComponent implements OnInit {
         })
       )
     } 
-    // else {
-    //   console.log('gagal');
-    //   Swal.fire({
-    //     icon: 'error',
-    //     title: 'Error',
-    //     text: 'Something went wrong !',
-    //   });
-    //   this.signupForm.markAllAsTouched();
-    // }
   }
-
 }

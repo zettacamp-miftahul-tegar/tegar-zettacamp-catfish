@@ -198,5 +198,10 @@
   "email2" : "Cet e-mail est un échec",
   "password1": "ce mot de passe est requis",
   "password2": "Ce mot de passe doit comporter au moins 8 caractères",
-  "amount" : "La quantité demandée ne correspond pas"
+  "amount" : "La quantité demandée ne correspond pas",
+  "Email has been used." : "L'e-mail a été utilisé.",
+  "Ingredient name has been used." : "Le nom de l'ingrédient a été utilisé.",
+  "Http failure response for https://long-gold-woodpecker-toga.cyclic.app/: 400 OK" : "le stock total ne peut pas être décimal",
+  "Ingredient name must be Alphabet." : "Le nom de l'ingrédient doit être alphabétique.",
+  "Error: Ingredient name has been used." : "Le nom de l'ingrédient a été utilisé."
 }

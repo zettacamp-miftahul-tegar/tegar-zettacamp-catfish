@@ -20,11 +20,6 @@ interface Food {
 })
 export class RegisterComponent implements OnInit {
 
-  foods: Food[] = [
-    {value: 'admin', viewValue: 'Admin'},
-    {value: 'user', viewValue: 'User'},
-  ];
-
   hide = true;
   hidee = true;
   signupForm!: FormGroup;
@@ -74,7 +69,6 @@ export class RegisterComponent implements OnInit {
     const dialogRef = this.dialog.open(LoginComponent, {
       width: '100%',
       panelClass: 'bg-color',
-      // data: this.cart_length
     });
 
     dialogRef.afterClosed().subscribe((result: any) => {
@@ -100,7 +94,6 @@ export class RegisterComponent implements OnInit {
     }, err => {
       Swal.fire({
         icon: 'error',
-        // title: err.message,
         title: this.translateService.instant(`${err.message}`)
       })}
     )

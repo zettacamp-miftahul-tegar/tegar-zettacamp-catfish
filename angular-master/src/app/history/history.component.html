@@ -53,7 +53,7 @@
           <div><b> {{ 'historyz.status' | translate }} </b></div>
           <mat-form-field>
             <mat-select [formControl]="statusFilter" [(ngModel)]="value">
-              <mat-option *ngFor="let food of foods" [value]="food.value">
+              <mat-option *ngFor="let food of status" [value]="food.value">
                 {{food.viewValue}}
               </mat-option>
             </mat-select>
