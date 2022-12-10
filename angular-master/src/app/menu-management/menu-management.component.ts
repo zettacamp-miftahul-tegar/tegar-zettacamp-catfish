@@ -257,15 +257,18 @@ export class MenuManagementComponent implements OnInit {
 
   // ----------------------------------------------
 
+  highlight : any;
+
   updateMenu(event:any, dataa:any) {
     dataa = copy(dataa)
+    this.highlight = dataa.highlight ? 'publish' : 'unpublish';
     if (dataa.highlight === false) {
       dataa.highlight = true
     } else {
       dataa.highlight = false
     }
     Swal.fire({
-      title: this.translateService.instant('menusT.a' ) + dataa.highlight + '?',
+      title: this.translateService.instant('menusT.a' ) + this.highlight + '?',
       showDenyButton: false,
       showCancelButton: true,
       showConfirmButton: true,
@@ -276,7 +279,7 @@ export class MenuManagementComponent implements OnInit {
         this.subs.sink = this.data.updateMenu(dataa).subscribe(resp => {
         if (resp) {
           this.getDatas(true)
-          Swal.fire(this.translateService.instant('menusT.b' ) + dataa.highlight)
+          Swal.fire(this.translateService.instant('menusT.b' ) + this.highlight)
           .then((res) => {
               // this.router.navigate(['homepage'])
             })
@@ -290,15 +293,18 @@ export class MenuManagementComponent implements OnInit {
 
   //----------------------------------------------------
 
+  specialOffer: any;
+
   updateSpecial(event:any, data:any) {
     data = copy(data)
+    this.specialOffer = data.highlight ? 'publish' : 'unpublish';
     if (data.special_offer === true) {
       data.special_offer = false
     } else {
       data.special_offer = true
     }
     Swal.fire({
-      title: this.translateService.instant('menusT.a') + data.special_offer + '?',
+      title: this.translateService.instant('menusT.a') + this.specialOffer + '?',
       showDenyButton: false,
       showCancelButton: true,
       showConfirmButton: true,
@@ -309,7 +315,7 @@ export class MenuManagementComponent implements OnInit {
         this.subs.sink = this.data.updateSpecial(data).subscribe(resp => {
           if (resp) {
             this.getDatas(true)
-            Swal.fire(this.translateService.instant('menusT.b') + data.special_offer)
+            Swal.fire(this.translateService.instant('menusT.b') + this.specialOffer)
             .then((res) => {
               // this.router.navigate(['homepage'])
             })

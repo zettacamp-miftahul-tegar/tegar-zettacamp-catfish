@@ -84,9 +84,7 @@ export class UpdateComponent implements OnInit {
         ...this.dataMenu,
         ingredients: tempIngredId
       };
-
       this.signupForm.patchValue(tempMenu);
-
     });
     this.signupForm.patchValue(this.datas);
   }
