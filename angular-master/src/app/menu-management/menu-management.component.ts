@@ -4,16 +4,16 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { SubSink } from 'subsink';
-import Swal from 'sweetalert2';
 import { Menus } from '../model/menu.model';
 import { InputComponent } from './input/input.component';
 import { DataService } from './service/data.service';
 import { UpdateComponent } from './update/update.component';
-import copy from 'fast-copy';
 import { FormControl } from '@angular/forms';
 import { debounceTime } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
 import { DetailComponent } from './detail/detail.component';
+import Swal from 'sweetalert2';
+import copy from 'fast-copy';
 
 interface status {
   value: string;
@@ -52,7 +52,7 @@ export class MenuManagementComponent implements OnInit {
     this.statusFilterr()
   }
 
-  displayedColumns: string[] = ['recipe_name', 'detail', 'price', 'available', 'special-h', 'menu-h','status', 'action'];
+  displayedColumns: string[] = ['recipe_name', 'detail', 'price', 'available', 'discount', 'special-h', 'menu-h','status', 'action'];
 
   dataSource: MatTableDataSource <Menus> = new MatTableDataSource();
 
@@ -87,6 +87,8 @@ export class MenuManagementComponent implements OnInit {
 
         this.paginator.pageSize = this.pageSizeOptions[0];
         this.dataSource = new MatTableDataSource(resp.data.getAllRecipes.recipes)
+        console.log(this.dataSource);
+        
       } else {
         this.paginator.length = 0;
         this.dataSource.data = [];
@@ -200,12 +202,8 @@ export class MenuManagementComponent implements OnInit {
     data = copy(data)
     if (data.status === 'publish') {
       data.status = 'unpublish'
-    }
-    else if (data.status === 'unpublish') {
+    } else {
       data.status = 'publish'
-    }
-    else {
-      data.status = 'deleted'
     }
     Swal.fire({
       title: this.translateService.instant('menusT.a') + data.status + '?',
@@ -264,7 +262,7 @@ export class MenuManagementComponent implements OnInit {
     if (dataa.highlight === false) {
       dataa.highlight = true
     } else {
-      dataa.highlight === false
+      dataa.highlight = false
     }
     Swal.fire({
       title: this.translateService.instant('menusT.a' ) + dataa.highlight + '?',

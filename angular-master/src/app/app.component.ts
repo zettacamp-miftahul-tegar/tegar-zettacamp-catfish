@@ -60,10 +60,16 @@ export class AppComponent {
     this.getCard_id(true)
   }
 
+  userToken = localStorage.getItem('token');
+
   getCard_id(event?:any): void {
-    this.subs.sink = this?.cart?.getCart()?.valueChanges?.subscribe((item?: any) => {
-      this.cart_length = item?.data?.getAllCart?.cart_length
-    });
+    if (this.userToken) {
+      this.subs.sink = this?.cart?.getCart()?.valueChanges?.subscribe((item?: any) => {
+        this.cart_length = item?.data?.getAllCart?.cart_length
+      });
+    } else {
+      !this.userToken
+    }
   }
 
   openDialog(): void {
