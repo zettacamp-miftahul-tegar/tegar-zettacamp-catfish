@@ -12,16 +12,11 @@ export class DataService {
   query: any;
   constructor(private apollo: Apollo) { }
 
-  getStock(pagination:any, val:any, statusF:any) {
+  getStock(pagination:any, val:any) {
 
     let nameFilter : any = ""
     if (val) {
       nameFilter = val
-    }
-
-    let statusFilter : any = ""
-    if (statusF) {
-      statusFilter = statusF
     }
 
     return this.apollo.watchQuery({

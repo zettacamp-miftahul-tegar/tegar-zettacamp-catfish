@@ -42,13 +42,12 @@ export class InputComponent implements OnInit {
     page: 0,
     limit: 10
   }
+  
   search:any;
-  statusF:any
 
   onSubmit() {
     if (this.signupForm.valid) {
-      this.data.addStock(this.signupForm.value)
-      .subscribe(({dash}: any) => {
+      this.data.addStock(this.signupForm.value).subscribe(({dash}: any) => {
         this.todos = dash        
         Swal.fire({
           icon: 'success',
@@ -56,7 +55,7 @@ export class InputComponent implements OnInit {
           text: this.translateService.instant('stockT.bravo1'),
         }).then((bebas: any) => {
           this.dialogRef.close(true)
-          this.data.getStock(this.pagination, this.search, this.statusF).refetch()
+          this.data.getStock(this.pagination, this.search).refetch()
         });
       },
       err => 

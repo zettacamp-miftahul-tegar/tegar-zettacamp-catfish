@@ -34,10 +34,6 @@ export class InputComponent implements OnInit {
     })
   }
 
-  get addr() {
-    return this.signupForm.controls['ingredients'] as FormArray;
-  }
-
   initForm() {
     this.signupForm = new FormGroup({
       imgUrl: new FormControl(null, [Validators.required, Validators.minLength(5)]),
@@ -53,15 +49,19 @@ export class InputComponent implements OnInit {
     })
   }
 
+  get controls(): FormArray {
+    return this.signupForm.get('ingredients') as FormArray;
+  }
+
+  get addr() {
+    return this.signupForm.controls['ingredients'] as FormArray;
+  }
+
   onIngredients() {
     this.addr.push(new FormGroup({  
       ingredient_id: new FormControl(null, Validators.required),
       stock_used: new FormControl(null, [Validators.required, Validators.min(1)]),
     }));
-  }
-
-  get controls(): FormArray {
-    return this.signupForm.get('ingredients') as FormArray;
   }
 
   removeIngredients(i: number) {

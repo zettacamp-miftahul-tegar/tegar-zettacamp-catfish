@@ -46,7 +46,6 @@ export class UpdateComponent implements OnInit {
 
   pagination: any
   search: any;
-  statusF:any
 
   onSubmit() {
     if (this.signupForm.valid) {
@@ -63,7 +62,7 @@ export class UpdateComponent implements OnInit {
           text: this.translateService.instant('stockT.bravo2'),
         }).then((bebas: any) => {
           this.dialogRef.close(true)
-          this.data.getStock(this.pagination, this.search, this.statusF).refetch()
+          this.data.getStock(this.pagination, this.search).refetch()
         });
       }, err => 
       Swal.fire({

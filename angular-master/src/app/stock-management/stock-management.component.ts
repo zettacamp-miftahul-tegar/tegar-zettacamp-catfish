@@ -33,7 +33,6 @@ export class StockManagementComponent implements OnInit {
     ngOnInit(): void {
       this.searchFilter()
       this.getDatas()
-      this.statusFilterr()
     }
     
     displayedColumns: string[] = ['name', 'stock', 'action'];
@@ -47,7 +46,7 @@ export class StockManagementComponent implements OnInit {
       limit: paginationObj?.limit ?? 10
     }
     
-    this.subs.sink = this.data.getStock(pagination, this.search, this.statusF).valueChanges.subscribe((resp : any) => {
+    this.subs.sink = this.data.getStock(pagination, this.search).valueChanges.subscribe((resp : any) => {
       if(resp?.data?.getAllIngredient){
         this.paginator.length = resp.data.getAllIngredient.totalDocs;   
         this.paginator.pageSize = this.pageSizeOptions[0];
@@ -170,19 +169,6 @@ export class StockManagementComponent implements OnInit {
   searchFilter(paginationObj?:any) {
     this.nameFilter.valueChanges.pipe(debounceTime(300)).subscribe((val) => {
       this.search = val
-      this.getDatas()
-    });
-  }
-
-  // -------------------------------------------------------
-
-  valuee = '';
-  statusFilter = new FormControl();
-  statusF:any
-
-  statusFilterr() {
-    this.statusFilter.valueChanges.pipe(debounceTime(300)).subscribe((val) => {
-      this.statusF = val
       this.getDatas()
     });
   }

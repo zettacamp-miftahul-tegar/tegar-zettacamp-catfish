@@ -163,15 +163,22 @@ export class MenuManagementComponent implements OnInit {
       confirmButtonText: this.translateService.instant('cartz.fail3C')
     }).then((result:any) => {
       if (result.isConfirmed) {
-        this.data.deleteRecepies(parameter)
-        Swal.fire(
-          this.translateService.instant('stockTT.confirm4'),
-          this.translateService.instant('stockTT.confirm7'),
-          'success'
-        )
-        this.getDatas()
+        this.data.deleteRecepies(parameter).subscribe((item) => {
+          Swal.fire(
+            this.translateService.instant('stockTT.confirm4'),
+            this.translateService.instant('stockTT.confirm7'),
+            'success'
+          )
+          this.getDatas()
+        }, err => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!',
+          })
+        })
       }
-    })
+    }) 
   };
 
   // -----------------------------------------------------

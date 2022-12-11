@@ -132,15 +132,7 @@ export class DataService {
       variables: {
         id:post
       }
-    })
-    .subscribe(subs => {
-      // console.log(subs)
-    }, err => 
-    Swal.fire({
-      icon: 'error',
-      title: 'Oops...',
-      text: 'Something went wrong!',
-    })
+    }
   )}
 
   updateRecipe(post: any) {
