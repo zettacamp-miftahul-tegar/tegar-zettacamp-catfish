@@ -35,14 +35,14 @@ export class UpdateComponent implements OnInit {
   subcription: any;
 
   ngOnInit(): void {
-    this.initForm()
     this.getDatas()
+    this.initForm()
   }
 
   getDatas() {
     this.data.getStock(this.paginations).valueChanges.subscribe((dass: any) => {
       this.ingredient = dass.data.getAllIngredient.ingredients
-      this.signupForm.patchValue(dass.data.getAllIngredient.ingredients);
+      // this.signupForm.patchValue(dass.data.getAllIngredient.ingredients);
     })
   }
 
@@ -93,9 +93,9 @@ export class UpdateComponent implements OnInit {
     return this.signupForm.get('ingredients') as FormArray;
   }
 
-  get addr() {
-    return this.signupForm.controls['ingredients'] as FormArray;
-  }
+  // get addr() {
+  //   return this.signupForm.controls['ingredients'] as FormArray;
+  // }
 
   onIngredients() {
     return new FormGroup({
