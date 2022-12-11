@@ -299,7 +299,7 @@ export class MenuManagementComponent implements OnInit {
 
   updateSpecial(event:any, data:any) {
     data = copy(data)
-    this.specialOffer = data.highlight == true ? 'unpublish' : 'publish';
+    this.specialOffer = data.special_offer == true ? 'unpublish' : 'publish';
     if (data.special_offer === true) {
       data.special_offer = false
     } else {
