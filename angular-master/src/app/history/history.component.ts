@@ -23,9 +23,9 @@ interface Status {
 export class HistoryComponent implements OnInit {
 
   status: Status[] = [
-    {value: '', viewValue: 'All'},
-    {value: 'success', viewValue: 'Success'},
-    {value: 'failed', viewValue: 'Failed'},
+    {value: '', viewValue: this.translateService.instant('all')},
+    {value: 'success', viewValue: this.translateService.instant('success')},
+    {value: 'failed', viewValue: this.translateService.instant('failed')},
   ];
 
   private subs = new SubSink();
@@ -140,7 +140,6 @@ export class HistoryComponent implements OnInit {
 
   // -----------------------------------------------
 
-
   lastFilter = new FormControl();
   statusLast:any
   valuee = '';
@@ -162,34 +161,8 @@ export class HistoryComponent implements OnInit {
       hasBackdrop: true
     });
 
-    dialogRef.afterClosed().subscribe((result: any) => {
-      // if (result) {
-      //   this.getDatas() 
-      // }
-      
+    dialogRef.afterClosed().subscribe((result: any) => {      
     })
   }
 
-  //==============================================================
-
-  // itemsPerPageLabel = 'Items per page';
-  // nextPageLabel     = 'Next page';
-  // previousPageLabel = 'Previous page';
-
-  // getTranslations() {
-  //   this.translateService.get([
-  //     'PAGINATOR.ITEMS_PER_PAGE',
-  //     'PAGINATOR.NEXT_PAGE',
-  //     'PAGINATOR.PREVIOUS_PAGE',
-  //     'PAGINATOR.RANGE'
-  //   ])
-  //     .subscribe(translation => {
-  //       this.itemsPerPageLabel = translation['PAGINATOR.ITEMS_PER_PAGE'];
-  //       this.nextPageLabel = translation['PAGINATOR.NEXT_PAGE'];
-  //       this.previousPageLabel = translation['PAGINATOR.PREVIOUS_PAGE'];
-  //       // this.rangeLabelIntl = translation['PAGINATOR.RANGE'];
-  //       // this.changes.next();
-  //     });
-  // }
-  
 }

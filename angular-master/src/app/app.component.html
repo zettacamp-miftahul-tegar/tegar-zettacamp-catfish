@@ -27,10 +27,11 @@
       </a>
     </mat-menu>
 
-     <!-- history admin only -->
-    <button (click)="history()" mat-button *ngIf="token && user_type == 'admin'" routerLinkActive="active"
-      style="color: white;">{{ "historyz.history" | translate }}</button>
+    <!-- (click)="history()" -->
 
+     <!-- history admin only -->
+    <button routerLink="history" mat-button *ngIf="token && user_type == 'admin'" routerLinkActive="active"
+      style="color: white;">{{ "historyz.history" | translate }}</button>
 
     <button mat-button routerLink="about" style="color: white; margin-left: 12px;"
       routerLinkActive="active">{{ "about" | translate }}</button>

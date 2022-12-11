@@ -28,9 +28,9 @@ interface status {
 export class MenuManagementComponent implements OnInit {
 
   statusDROPDOWN: status[] = [
-    {value: '', viewValue: 'All'},
-    {value: 'publish', viewValue: 'Publish'},
-    {value: 'unpublish', viewValue: 'Unpublish'},
+    {value: '', viewValue: this.translateService.instant('all')},
+    {value: 'publish', viewValue: this.translateService.instant('publish')},
+    {value: 'unpublish', viewValue: this.translateService.instant('unpublish')},
   ];
 
   private subs = new SubSink();
@@ -55,7 +55,7 @@ export class MenuManagementComponent implements OnInit {
   displayedColumns: string[] = ['recipe_name', 'detail', 'price', 'available', 'discount', 'special-h', 'menu-h','status', 'action'];
 
   dataSource: MatTableDataSource <Menus> = new MatTableDataSource();
-
+  
   selection = new SelectionModel <Menus> (true, [])
 
   isAllSelected() {
@@ -87,8 +87,6 @@ export class MenuManagementComponent implements OnInit {
 
         this.paginator.pageSize = this.pageSizeOptions[0];
         this.dataSource = new MatTableDataSource(resp.data.getAllRecipes.recipes)
-        console.log(this.dataSource);
-        
       } else {
         this.paginator.length = 0;
         this.dataSource.data = [];
@@ -142,9 +140,6 @@ export class MenuManagementComponent implements OnInit {
       // disableClose: true,
       // hasBackdrop: true
     });
-
-    console.log(parameter.id);
-    
 
     dialogRef.afterClosed().subscribe((result: any) => {
       if (result) {
@@ -261,7 +256,7 @@ export class MenuManagementComponent implements OnInit {
 
   updateMenu(event:any, dataa:any) {
     dataa = copy(dataa)
-    this.highlight = dataa.highlight ? 'publish' : 'unpublish';
+    this.highlight = dataa.highlight == true ? 'unpublish' : 'publish';
     if (dataa.highlight === false) {
       dataa.highlight = true
     } else {
@@ -297,7 +292,7 @@ export class MenuManagementComponent implements OnInit {
 
   updateSpecial(event:any, data:any) {
     data = copy(data)
-    this.specialOffer = data.highlight ? 'publish' : 'unpublish';
+    this.specialOffer = data.highlight == true ? 'unpublish' : 'publish';
     if (data.special_offer === true) {
       data.special_offer = false
     } else {

@@ -101,9 +101,9 @@ export class AppComponent {
     this.router.navigate(['cart-management'])
   }
 
-  history() {
-    this.router.navigate(['history'])
-  }
+  // history() {
+  //   this.router.navigate(['history'])
+  // }
 
   logOut() {
     Swal.fire({

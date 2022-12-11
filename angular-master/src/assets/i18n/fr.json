@@ -1,4 +1,9 @@
 {
+  "all" : "Toute",
+  "success" : "Succès",
+  "failed" : "Manquée",
+  "publish" : "Publier",
+  "unpublish" : "Annuler la publication",
   "discountt" : "Remise",
   "search by first name" : "rechercher par nom de famille",
   "history": "Histoire",

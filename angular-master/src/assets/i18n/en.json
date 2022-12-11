@@ -1,4 +1,9 @@
 {
+  "all" : "All",
+  "success" : "Success",
+  "failed" : "Failed",
+  "publish" : "Publish",
+  "unpublish" : "Unpublish",
   "discountt" : "Discount",
   "search by first name" : "search by last name",
   "history": "History",
