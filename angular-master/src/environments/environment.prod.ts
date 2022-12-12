@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
   // apiUrl: 'https://long-gold-woodpecker-toga.cyclic.app/',
-  apiUrl: 'http://api.team-3.zettacamp-upn.zetta-demo.space/graphql',
+  apiUrl: 'https://api.team-3.zettacamp-upn.zetta-demo.space/graphql',
   tokenKey: 'token',
   user: 'user',
   user_id : 'user_id',
