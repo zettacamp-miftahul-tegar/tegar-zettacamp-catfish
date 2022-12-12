@@ -1,7 +1,7 @@
 <mat-card>
   <div class="label">
     <div class="label-tag">
-      <p> discount {{recipe?.discount}} %</p>
+      <p> {{ 'discountt' | translate }} {{recipe?.discount}} %</p>
     </div>
   </div>
   <div class="gambar1" [ngClass]="recipe?.available == 0 ? 'greyout' : ''">
