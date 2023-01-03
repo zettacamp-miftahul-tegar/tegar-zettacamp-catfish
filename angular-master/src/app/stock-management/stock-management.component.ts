@@ -12,6 +12,7 @@ import { UpdateComponent } from './update/update.component';
 import Swal from 'sweetalert2';
 import { debounceTime } from 'rxjs';
 import { TranslateService } from '@ngx-translate/core';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-stock-management',
@@ -23,6 +24,7 @@ export class StockManagementComponent implements OnInit {
   private subs = new SubSink();
   Datas:Stocks[]=[]
   name: any;
+  @ViewChild(MatSort) sort!: MatSort;
 
   constructor(
     private data: DataService, 
@@ -51,6 +53,7 @@ export class StockManagementComponent implements OnInit {
         this.paginator.length = resp.data.getAllIngredient.totalDocs;   
         this.paginator.pageSize = this.pageSizeOptions[0];
         this.dataSource.data = resp.data.getAllIngredient.ingredients
+        this.dataSource.sort = this.sort;
       } else {
         this.paginator.length = 0;
         this.dataSource.data = [];

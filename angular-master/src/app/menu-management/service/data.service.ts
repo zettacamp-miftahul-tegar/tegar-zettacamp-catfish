@@ -167,9 +167,7 @@ export class DataService {
     })
   }
 
-  datalength(bebas: any) {
-    // let {getOneRecipeId = bebas
-
+  datalength(data: any) {
     return this.apollo
       .query({
         query : gql`
@@ -187,7 +185,7 @@ export class DataService {
           }
         }`,
         variables: {
-          getOneRecipeId:bebas
+          getOneRecipeId:data
         }
       }
     )

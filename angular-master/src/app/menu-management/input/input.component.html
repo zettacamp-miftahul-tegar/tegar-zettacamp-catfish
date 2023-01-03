@@ -49,13 +49,11 @@
                       {{menu.name}}
                     </mat-option>
                   </mat-select>
-                  <mat-error *ngIf="this.signupForm.get('ingredient_id')?.invalid"> {{'error' | translate }} </mat-error>
                 </mat-form-field>
 
               <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label> {{'menu-ma.stock_used' | translate }} <label for="stock_used"></label></mat-label>
                 <input matInput id="stock_used" type="number" formControlName="stock_used">
-                <mat-error *ngIf="this.signupForm.get('stock_used')?.invalid"> This price min 1 length ! </mat-error>
               </mat-form-field>
 
             </div>
