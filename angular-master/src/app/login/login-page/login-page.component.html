@@ -1,0 +1,38 @@
+<div class="login-wrapper">
+  <mat-card class="box">
+    <div>
+        <img class="logo" src="https://pordik.unjaya.ac.id/unjaya.png">
+    </div>
+    <mat-card-header>
+      <mat-card-title> Penilaian <span> <b>Dosen</b> </span> </mat-card-title>
+    </mat-card-header>
+    <!-- <form class="example-form" [formGroup]="signupForm"> -->
+    <form class="example-form">
+      <mat-card-content>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Username</mat-label>
+          <input matInput class="form-control">
+          <!-- <mat-error *ngIf="this.signupForm.get('email')?.invalid && this.signupForm.get('email')?.touched"> {{getErrorMessageEmail()}} </mat-error> -->
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput [type]="hide ? 'password' : 'text'" id="password" placeholder="Password">
+          <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <!-- <mat-error *ngIf="this.signupForm.get('password')?.invalid"> {{'password2' | translate }} </mat-error> -->
+        </mat-form-field>
+
+      </mat-card-content>
+      <button mat-raised-button class="btn-block warna" type="submit"> Masuk </button>
+
+      <!-- <button mat-stroked-button color="primary" class="btn-block" type="submit" (click)="login()"> Masuk </button> -->
+    </form>
+
+    <p class="notif">
+      Jika anda belum mempunyai <i> Username </i> dan <i>Password</i> silahkan hubungi Bagian Administrasi Akademik
+    </p>
+  </mat-card>
+</div>
