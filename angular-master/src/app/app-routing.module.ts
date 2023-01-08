@@ -11,15 +11,15 @@ const routes: Routes = [
     loadChildren:()=>import('./global-menu/global-menu.module').then(mod=>mod.GlobalMenuModule)
   },
   {
-    path:'mahasiswa',
+    path:'',
     loadChildren:()=>import('./mahasiswa/mahasiswa.module').then(mod=>mod.MahasiswaModule)
   },
   {
-    path:'dosen',
+    path:'',
     loadChildren:()=>import('./dosen/dosen.module').then(mod=>mod.DosenModule)
   },
   {
-    path:'admin',
+    path:'',
     loadChildren:()=>import('./admin/admin.module').then(mod=>mod.AdminModule)
   }
 ];

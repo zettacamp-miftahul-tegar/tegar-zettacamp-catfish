@@ -3,17 +3,22 @@ import { CommonModule } from '@angular/common';
 import { ListDosenComponent } from './list-dosen/list-dosen.component';
 import { ListMahasiswaComponent } from './list-mahasiswa/list-mahasiswa.component';
 import { FormBuilderComponent } from './form-builder/form-builder.component';
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { SideNavComponent } from '../global-menu/side-nav/side-nav.component';
 
 const routes : Routes = [
-  {
-    path:'list-dosen', component:ListDosenComponent,
-  },
-  {
-    path:'list-mahasiswa', component:ListMahasiswaComponent,
-  },
-  {
-    path:'form-builder', component:FormBuilderComponent,
+  { path:'', component:SideNavComponent,
+    children:[
+      {
+        path:'list-dosen', component:ListDosenComponent,
+      },
+      {
+        path:'list-mahasiswa', component:ListMahasiswaComponent,
+      },
+      {
+        path:'form-builder', component:FormBuilderComponent,
+      }
+    ]
   }
 ]
 
@@ -24,7 +29,8 @@ const routes : Routes = [
     FormBuilderComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule.forChild(routes)
   ],
   exports: [
     FormBuilderComponent,

@@ -1,0 +1,44 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+mat-sidenav {
+  background-color: #ecf0f5;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.mat-toolbar {
+  background-color: #00a65a;
+  color: white;
+}
+
+.top-nav {
+  color: white;
+}
+
+.warna {
+  color: rgb(31, 25, 25);
+}
+
+a:hover {
+  color: rgb(95, 79, 79) !important;
+  background-color: rgb(217, 223, 227) !important;
+}
+
+a.active {
+  color: rgb(95, 79, 79) !important;
+  background-color: rgb(217, 223, 227) !important;
+}
