@@ -7,22 +7,26 @@
     <mat-nav-list>
       <div>
         <span> &nbsp;&nbsp;&nbsp;&nbsp; <b>NAVIGASI UTAMA</b> </span>
+        <hr>
         <a mat-list-item routerLink='./homepage' routerLinkActive="active">
-          <mat-icon class="warna" aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon> &nbsp;&nbsp; <span> Dashboard </span> 
+          <mat-icon class="warna" aria-hidden="false" fontIcon="home"></mat-icon> &nbsp;&nbsp; <span> Homepage </span> 
         </a>
         <a mat-list-item routerLink='./profile' routerLinkActive="active">
-          <mat-icon class="warna" aria-hidden="false" aria-label="Example home icon" fontIcon="person"></mat-icon> &nbsp;&nbsp; <span> Profile </span> 
+          <mat-icon class="warna" aria-hidden="false" fontIcon="person"></mat-icon> &nbsp;&nbsp; <span> Profile </span> 
         </a>
         <a mat-list-item routerLink='./list-dosen' routerLinkActive="active">
-          <mat-icon class="warna" aria-hidden="false" aria-label="Example home icon" fontIcon="group"></mat-icon> &nbsp;&nbsp; <span> List User </span> 
+          <mat-icon class="warna" aria-hidden="false" fontIcon="people_outline"></mat-icon> &nbsp;&nbsp; <span> Dosen </span> 
+        </a>
+        <a mat-list-item routerLink='./list-mahasiswa' routerLinkActive="active">
+          <mat-icon class="warna" aria-hidden="false" fontIcon="people_outline"></mat-icon> &nbsp;&nbsp; <span> Mahasiswa </span> 
         </a>
         <a mat-list-item routerLink='./form-builder' routerLinkActive="active">
-          <mat-icon class="warna" aria-hidden="false" aria-label="Example home icon" fontIcon="domain"></mat-icon> &nbsp;&nbsp; <span> Form Builder </span> 
+          <mat-icon class="warna" aria-hidden="false" fontIcon="domain"></mat-icon> &nbsp;&nbsp; <span> Form Builder </span> 
         </a>
       </div>
-      <div style="display: flex; justify-content: flex-end;">
+      <div class="keluar_end">
         <a mat-list-item routerLinkActive="active">
-          <mat-icon class="warna" aria-hidden="false" aria-label="Example home icon" fontIcon="logout"></mat-icon> &nbsp;&nbsp; <span> Keluar </span> 
+          <mat-icon class="warna" aria-hidden="false" fontIcon="logout"></mat-icon> &nbsp;&nbsp; <span> Keluar </span> 
         </a>
       </div>
     </mat-nav-list>

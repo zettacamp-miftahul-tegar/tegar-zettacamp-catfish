@@ -42,3 +42,18 @@ a.active {
   color: rgb(95, 79, 79) !important;
   background-color: rgb(217, 223, 227) !important;
 }
+
+a {
+  font-size: 14px !important;
+}
+
+.mat-nav-list {
+  height: 88%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.keluar_end {
+  align-content:flex-end
+}
